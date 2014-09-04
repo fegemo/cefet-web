@@ -32,19 +32,10 @@ gulp.task('html', ['clean:html'], function() {
     .pipe(isDist ? through() : plumber())
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
-  // Commented out: jade support
-  /*
-  return gulp.src('src/index.jade')
-    .pipe(isDist ? through() : plumber())
-    .pipe(jade({ pretty: true }))
-    .pipe(rename('index.html'))
-    .pipe(gulp.dest('dist'))
-    .pipe(connect.reload());
-  */
 });
 
 gulp.task('md', ['clean:md'], function() {
-  return gulp.src('src/**/*.md')
+  return gulp.src(['src/**/*.md', 'README.md'])
     .pipe(isDist ? through() : plumber())
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
@@ -113,6 +104,7 @@ gulp.task('connect', ['build'], function(done) {
 gulp.task('watch', function() {
   gulp.watch('src/**/*.html', ['html']);
   gulp.watch('src/**/*.md', ['md']);
+  gulp.watch('README.md', ['md']);
   gulp.watch('src/styles/**/*.styl', ['css']);
   gulp.watch('src/images/**/*', ['images']);
   gulp.watch([
