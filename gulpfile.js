@@ -7,7 +7,6 @@ var pkg = require('./package.json'),
     connect = require('gulp-connect'),
     browserify = require('gulp-browserify'),
     uglify = require('gulp-uglify'),
-    jade = require('gulp-jade'),
     stylus = require('gulp-stylus'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
@@ -94,7 +93,7 @@ gulp.task('clean:images', function() {
 
 gulp.task('connect', ['build'], function(done) {
   connect.server({
-    root: ['dist', 'node_modules'],
+    root: ['dist'],
     livereload: true
   });
 
