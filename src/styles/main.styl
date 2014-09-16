@@ -1,3 +1,85 @@
 // Import CSS from "node_modules" and "bower_components"
 // thanks to Stylus' "import css" and "paths" options
 @import 'bespoke-markdown/node_modules/highlight.js/styles/monokai_sublime.css'
+
+
+///
+/// Variables
+$page-header-height = 5vh
+
+
+///
+/// General tags
+html, body
+  height 100%
+  overflow hidden
+
+body
+  background-color #FFD5D5
+
+/// Header and content layout
+
+#page-header
+  height $page-header-height
+  padding 0
+  transition height 200ms ease-out, transform 200ms ease-out
+  transform translate3d(0, -($page-header-height/2), 0)
+  &:hover
+    height 12vh
+    transform translate3d(0, 0, 0)
+
+#page-title
+  display inline-block
+  height 10vh
+  margin 0
+  font-size 7vh
+  vertical-align top
+
+#page-author
+  display inline-block
+  float right
+  margin 8px;
+
+#page-author-name
+  display none
+
+.page-author-picture
+  width 60px
+  height 60px
+  border-radius 30px
+
+#presentation-container
+  position relative
+  height "calc(100vh - %s)" % $page-header-height
+
+
+/// Presentation
+$book-gutter-width = 30px
+$book-height = 250px
+
+.book-cover-container
+  position relative
+  perspective 400px
+  transform-style preserve-3d
+  transform rotateY(0)
+  transform-origin center center
+  transition transform 300ms ease-out
+
+  &:hover
+    transform rotateY(40deg)
+
+
+.book-cover
+  height $book-height
+
+.book-left
+  position absolute
+  top 0
+  left - $book-gutter-width
+  width $book-gutter-width
+  height $book-height
+  transform rotateY(-90deg)
+  background-color black
+  transform-origin right center 0
+  &.book-light
+    background-color beige

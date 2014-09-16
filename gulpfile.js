@@ -1,4 +1,5 @@
 var pkg = require('./package.json'),
+    fs = require('fs'),
     gulp = require('gulp'),
     gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
@@ -8,12 +9,14 @@ var pkg = require('./package.json'),
     browserify = require('gulp-browserify'),
     uglify = require('gulp-uglify'),
     stylus = require('gulp-stylus'),
+    replace = require('gulp-replace'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
     through = require('through'),
     opn = require('opn'),
     ghpages = require('gh-pages'),
     path = require('path'),
+    merge = require('merge-stream'),
     isDist = process.argv.indexOf('serve') === -1;
 
 gulp.task('js', ['clean:js'], function() {
@@ -29,6 +32,7 @@ gulp.task('js', ['clean:js'], function() {
 gulp.task('html', ['clean:html'], function() {
   return gulp.src('src/index.html')
     .pipe(isDist ? through() : plumber())
+    .pipe(replace('{path-to-root}', './'))
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
 });
@@ -91,13 +95,40 @@ gulp.task('clean:images', function() {
     .pipe(rimraf());
 });
 
+
+function getFolders(cwd, dir) {
+  var targetDirectory = path.join(cwd, dir);
+  return fs.readdirSync(targetDirectory)
+    .filter(function(file) {
+      return fs.statSync(path.join(targetDirectory, file)).isDirectory();
+    })
+    .map(function(filePath) {
+      return path.join(dir, filePath);
+    });
+}
+
+gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images'], function() {
+  var folders = getFolders('src', 'classes').concat(getFolders('src', 'assignments')),
+      tasks = folders.map(function(folder) {
+        var t = [];
+        t.push(gulp.src(['dist/images/**/*.*', 'dist/build/**/*.*'], { read: true, base: 'dist' })
+          .pipe(gulp.dest(path.join('dist', folder))));
+        t.push(gulp.src(['src/index.html'])
+          .pipe(replace('{path-to-root}', '../../.'))
+          .pipe(gulp.dest(path.join('dist', folder))));
+        return merge(t);
+      });
+  return merge(tasks);
+});
+
 gulp.task('connect', ['build'], function(done) {
   connect.server({
     root: ['dist'],
+    port: 8081,
     livereload: true
   });
 
-  opn('http://localhost:8080', done);
+  opn('http://localhost:8081', done);
 });
 
 gulp.task('watch', function() {
@@ -116,6 +147,6 @@ gulp.task('deploy', ['build'], function(done) {
   ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
 });
 
-gulp.task('build', ['js', 'html', 'md', 'css', 'images']);
+gulp.task('build', ['cefet-files']);
 gulp.task('serve', ['connect', 'watch']);
 gulp.task('default', ['build']);
