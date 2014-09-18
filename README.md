@@ -1,71 +1,85 @@
-# Computação Gráfica
+# (TEES) Programação Web
 *Professor:* Flávio Coutinho
 
 <img class="page-author-picture" src="images/flavio-avatar.jpg">
 
 ---
-
 # Ementa
 
 ---
-
 ## Objetivos
 
-1. Conhecer os fundamentos teóricos e práticos da computação gráfica.
-1. Conhecer as técnicas de modelagem, representação e visualização de objetos Bi
-e Tridimensionais.
-1. Conhecer técnicas de modelagem geométrica.
-1. Conhecer técnicas de geração de imagens foto-realísticas
-1. Conhecer e utilizar a biblioteca gráfica OpenGL
-
----
-## Interdisciplinariedades
-
-- Pré-requisitos
-  - Cálculo I
-  - GAAL
-  - PC I
-
-- Co-requisito
-  - Cálculo II
+1. Criar páginas **HTML com uso de CSS e Javascript**.
+1. Desenvolver **sistemas web dinâmicos** com banco de dados, ~~JSP, JSF~~ (ou
+  Grails? ou NodeJS?).
+1. Fazer trabalhos práticos legais
+1. Tornar-se um ninja Javascript
 
 ---
 # Bibliografia
 
 ---
-## Este é o nosso **livro texto**
+## **Livro texto** da parte 1
 
 <div class="book-cover-container">
-  <img class="book-cover" src="images/rtr3.jpg">
+  <img class="book-cover" src="images/head-first-html-css.jpg">
   <div class="book-left"></div>
 </div>
 
-- **Título**	Real-Time Rendering, Third Edition
-- **Autores**	Tomas Akenine-Möller, Eric Haines, Naty Hoffman
-- **Editora**	Taylor & Francis, 2008
+- **Título**	Head First HTML and CSS, Second Edition
+- **Autores**	Elisabeth Robson, Eric Freeman
+- **Editora** O'Reilly Media, 2012
 
 ---
-## Apostila da UFSCAR
+## **Livro texto** da parte 2
 
 <div class="book-cover-container">
-  <img class="book-cover" src="images/apostila-ufscar-thumb.png">
+  <img class="book-cover" src="images/head-first-servlets-jsp.jpg">
+  <div class="book-left"></div>
+</div>
+
+- **Título**	Use a Cabeça! Servlets e JSP, 2a Edição
+- **Autores**	Bryan Basham, Kathy Sierra & Ber
+- **Editora** Alta Books Editora
+
+---
+## Dive into HTML5
+
+<div class="book-cover-container">
+  <img class="book-cover" src="images/dive-into-html5.png">
   <div class="book-left book-light"></div>
 </div>
 
-- Material complementar
-- [Download](https://drive.google.com/file/d/0B6-KCjtlxaKIY21UOWxBTEp4VTA/edit?usp=sharing)
+- [Online, gratuito](http://diveintohtml5.com.br/)
+
+---
+## JavaScript: The Good Parts
+
+<div class="book-cover-container">
+  <img class="book-cover" src="images/js-good-parts.png">
+  <div class="book-left book-light"></div>
+</div>
+
+- **Título**	JavaScript, the Good Parts, First Edition
+- **Autores**	Douglas Crockford
+- **Editora** O'Reilly Media, 2008
 
 ---
 # Aulas
 
-- [Introdução à Computação Gráfica](classes/intro/)
-- Transformações
-- OpenGL
+- História da Web (23/09/14)
 
 ---
-# Trabalhos
+# Provas (35 pontos)
 
-- Trabalho Prático 1: [Galaxian](assignments/tp1/)
-- Trabalho Prático 2
-- Trabalho Prático 3
-- Trabalho Prático 4
+- Primeira prova (15 pontos) - data TBD
+- Segunda prova (20 pontos) - data TBD
+
+---
+# Trabalhos (65 pontos)
+
+- TP0: [Git](assignments/tp0)
+- TP1: Seu site pessoal
+- TP2
+- TP3
+- Projeto
