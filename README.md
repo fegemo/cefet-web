@@ -72,14 +72,13 @@
 ---
 # Provas (35 pontos)
 
-- Primeira prova (15 pontos) - data TBD
-- Segunda prova (20 pontos) - data TBD
+- Primeira prova (20 pontos) - data _TBD_
+- Segunda prova (15 pontos) - data _TBD_
 
 ---
 # Trabalhos (65 pontos)
 
-- TP0: [Git](assignments/tp0)
-- TP1: Seu site pessoal
-- TP2
-- TP3
-- Projeto
+- TP0: [Git](assignments/tp0) (3 pontos, data: 25/09/2014 23:59)
+- TP1: Seu site pessoal (12 pontos, data _TBD_)
+- TP2: _TBD_
+- Projeto _TBD_

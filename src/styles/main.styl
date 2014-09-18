@@ -17,6 +17,28 @@ html, body
 body
   background-color #FFD5D5
 
+.bespoke-slide
+  img.full-width
+    width 100%
+  img.large-width
+    width 600px
+  img.medium-width
+    width 400px
+  img.small-width
+    width 200px
+  img.full-height
+    height 100%
+  img.large-height
+    height 400px
+  img.medium-height
+    height 300px
+  img.small-height
+    height 200px
+
+del
+  color gray
+
+
 /// Header and content layout
 
 #page-header
@@ -53,6 +75,7 @@ body
   height "calc(100vh - %s)" % $page-header-height
 
 
+
 /// Presentation
 $book-gutter-width = 30px
 $book-height = 250px
@@ -83,3 +106,7 @@ $book-height = 250px
   transform-origin right center 0
   &.book-light
     background-color beige
+
+
+.layered-paragraph
+  background-color rgba(215, 215, 250, 0.5);
