@@ -67,11 +67,19 @@
 ---
 # Aulas
 
-- [História da Web](classes/history/)
+- História da Web (23/09/14)
 
 ---
-# Trabalhos
+# Provas (35 pontos)
 
-- Trabalho Prático 0: [Git](assignments/tp0)
-- Trabalho Prático 1
-- Trabalho Prático 2
+- Primeira prova (15 pontos) - data TBD
+- Segunda prova (20 pontos) - data TBD
+
+---
+# Trabalhos (65 pontos)
+
+- TP0: [Git](assignments/tp0)
+- TP1: Seu site pessoal
+- TP2
+- TP3
+- Projeto
