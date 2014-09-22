@@ -19,7 +19,7 @@
   <li>
     <figure class="portrait">
       <img src="images/bob-kahn.jpg" alt="Foto de Bob Kahn">
-      <figcaption>**Vint Cerf**, "pai" dos protocolos TCP/IP</figcaption>
+      <figcaption>**Bob Kahn**, "pai" dos protocolos TCP/IP</figcaption>
     </figure>
   </li>
   <li>
@@ -40,9 +40,10 @@
 ---
 ## ARPANET
 
-Havia pouquíssimos computadores com capacidade de pesquisa nos EUA e muitos
-pesquisadores que deveriam ter acesso a eles estavam geograficamente separados.
-(Charles Herzfeld, diretor da ARPA)
+Havia **pouquíssimos computadores** com capacidade de pesquisa nos EUA e muitos
+pesquisadores que deveriam ter acesso a eles estavam **geograficamente
+separados**.
+_(Charles Herzfeld, diretor da ARPA)_
 
 - _Advanced Research Projects Agency Network_ (ARPANET)
 - Uma das primeiras redes baseadas em trocas de pacotes
@@ -51,15 +52,33 @@ pesquisadores que deveriam ter acesso a eles estavam geograficamente separados.
 ---
 22:30 de 29 de Outubro de 1969:
 
-> >  "We set up a telephone connection between us and the guys at SRI ...", Kleinrock ... said in an interview: "We typed the L and we asked on the phone,
-> > "Do you see the L?"
-> > "Yes, we see the L," came the response.
->  We typed the O, and we asked, "Do you see the O."
-> > "Yes, we see the O."
->  Then we typed the G, and the system crashed ...
->  Yet a revolution had begun" ....
+<div class="bubble-chat" style="height: 300px; overflow: auto; border: 1px solid gray; background-color: #eda">
+  <div class="narration">We set up a telephone connection between us and the
+    guys at SRI... We typed the L and we asked on the phone:</div>
+  <div class="bubble bubble-left">
+    <div class="bubble-author bubble-author-0">Kleinrock</div>
+    <div>"Do you see the L?"</div>
+  </div>
+  <div class="bubble bubble-right">
+    <div class="bubble-author bubble-author-1">Guys at SRI</div>
+    <div>"Yes, we see the L," came the response.</div>
+  </div>
+  <div class="narration">We typed the O, and we asked,</div>
+  <div class="bubble bubble-left">
+    <div class="bubble-author bubble-author-0">Kleinrock</div>
+    <div>"Do you see the O."</div>
+  </div>
+  <div class="bubble bubble-right">
+    <div class="bubble-author bubble-author-1">Guys at SRI</div>
+    <div>"Yes, we see the O."</div>
+  </div>
+  <div class="narration">Then we typed the G, and the system crashed...
+    Yet a revolution had begun...
+</div>
+</div>
 
-_Fonte: [A primeira conexão da ARPANET, Estradas e Encruzilhadas da História da Internet (inglês)](roads-crossroads)
+
+_Fonte: [A primeira conexão da ARPANET, Estradas e Encruzilhadas da História da Internet (inglês)](roads-crossroads)_
 
 ---
 À partir de 1969 e durante a década de 1970, a ARPANET cresceu e se conectou com
@@ -69,20 +88,27 @@ várias outras grandes redes.
 
 ---
 Contudo, **a falta de padrão de protocolos** de rede impedia o avanço.
-Além disso, **os protocolos em vigência deixavam a REDE com responsável pela
+Além disso, **os protocolos em vigência deixavam a REDE como responsável pela
 confiabilidade**.
 
 ---
-## Linha do Tempo (1)
+## Linha do Tempo (1/2)
 
 <dl>
-  <dt>1969</dt><dd>Larry Roberts estabelece 1º link da **ARPANET**</dd>
+  <dt class="bullet-old">1969</dt><dd class="bullet-old">Larry Roberts
+    estabelece 1º link da **ARPANET**</dd>
   <dt>1974</dt><dd>Bob Kahn e Vint Cerf **especificam os protocolos
     TCP/IP**</dd>
   <dt>1983</dt><dd>Bob Kahn e Vint Cerf implantam a **família de protocolos
     TCP/IP na ARPANET**</dd>
   <dt>1974 - 1990</dt><dd>Outras **grandes redes se conectaram a ARPANET**
     (CSNET, NIPRNET, SPAN, NSN, ESNet, NSFNET, MILNET, SATNET, WIDEBRAND)</dd>
+</dl>
+
+---
+## Linha do Tempo (2/2)
+
+<dl>
   <dt>1988 - 1989</dt><dd>Surgimento dos primeiros provedores de acesso ao
     público geral (ISP), dando forma à **Internet** (_case-sensitive_)</dd>
   <dt>1992</dt><dd>O governo americano permitiu a conexão da Internet com
@@ -91,13 +117,11 @@ confiabilidade**.
     (_European Organization for Nuclear Research_) e a deixa aberta ao público
     geral</dd>
 </dl>
-
 ---
 # Mas se a Web surgiu apenas em 1989, o que era a Internet antes dela?
 
 <figure class="portrait">
   <img src="images/philosoraptor.jpg" alt="O Filosoraptor">
-  <figcaption>O Filosoraptor</figcaption>
 </figure>
 
 ---
@@ -134,26 +158,26 @@ confiabilidade**.
 
 ---
 <figure>
-  <img src="images/usenet-gnus.png" alt="Tela do Usenet GNUs">
   <figcaption>Usenet GNUs</figcaption>
+  <img src="images/usenet-gnus.png" alt="Tela do Usenet GNUs">
 </figure>
 
 ---
 <figure>
-  <img src="images/gopher-jospeh-maistre.png" alt="Tela do gopher de Jospeh Maistre">
   <figcaption>Gopher de Jospeh Maistre</figcaption>
+  <img src="images/gopher-jospeh-maistre.png" alt="Tela do gopher de Jospeh Maistre">
 </figure>
 
 ---
 <figure>
-  <img src="images/gopher-veronica-search-engine.png" alt="Tela mostrando uma busca em gopher via Veronica">
   <figcaption>Uma busca em gopher por Veronica</figcaption>
+  <img src="images/gopher-veronica-search-engine.png" alt="Tela mostrando uma busca em gopher via Veronica">
 </figure>
 
 ---
 <figure>
-  <img src="images/gopherpedia.png" alt="Tela do Gopherpedia">
   <figcaption>Tela do Gopherpedia</figcaption>
+  <img src="images/gopherpedia.png" alt="Tela do Gopherpedia">
 </figure>
 
 ---
@@ -205,12 +229,12 @@ Ele se torna um hipertexto?
 ---
 ## Tim, o coração valente, tinha uma dúvida
 
-Quero que qualquer pessoa, em qualquer computador (arquitetura, sistema
-operacional, rede), em qualquer lugar, consiga visualizar documentos um do
-outro.
+Quero que **qualquer pessoa**, em **qualquer computador** (arquitetura, sistema
+operacional, rede), em qualquer lugar, consiga** visualizar documentos um do
+outro**.
 
-Mais que isso, os documentos podem referenciar um ao outro não necessariamente
-de forma hierárquica. E quero que eles possam conter imagens, tabelas, títulos
+Mais que isso, os documentos podem **referenciar um ao outro não necessariamente
+de forma hierárquica**. E quero que eles possam conter imagens, tabelas, títulos
 e outras coisas legais.
 
 ---
@@ -219,31 +243,37 @@ e outras coisas legais.
 - Hipertexto (1965) é um texto estruturado que usa links (hiperlinks) entre nós
   contendo outros hipertextos
 - Hipertextos podem conter elementos extra-textuais (figuras, tabelas etc.)
+
+---
+## HyperText Markup Language (HTML)
+
 - É um formato de arquivo (`.html`) em texto simples (_plain-text_) em que
   seleciona-se **um texto e marca-se suas partes dando a ele estrutura**
 
   Texto puro:
   ```html
-Este é um texto com negrito.
+Este é um texto com itálico.
   ```
 
+  Texto html:
   ```html
-Este é um texto com <strong>negrito</strong>.
+Este é um texto com <em>itálico</em>.
   ```
 ---
-## Um arquivo html
+## Um arquivo `html` completo
 
-```html
-<!doctype html>
-<html>
-<head>
-  <title>An Example Page</title>
-</head>
-<body>
-  Hello World, this is a very simple HTML document.
-</body>
-</html>
 ```
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;An Example Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Hello World, this is a very simple HTML document.
+&lt;/body&gt;
+&lt;/html&gt;
+```
+
 
 ---
 ## HTML
@@ -272,7 +302,7 @@ que seja capaz de renderizar** seu conteúdo e permitir a **navegação** de um
 arquivo html para outro.
 
 ---
-[Foto do navegador WorldWideWeb](images/browser-www.png)
+![Foto do navegador WorldWideWeb](images/browser-www.png)
 
 ---
 ## Linha do tempo dos navegadores
@@ -287,15 +317,16 @@ arquivo html para outro.
 ---
 ## Tim, o coração valente, tinha uma dúvida
 
-Até agora, consigo visualizar os arquivos .html no meu computador, usando um
-navegador. Mas quero poder acessar arquivos de qualquer um que se disponha a
-deixar o computador ligado, em qualquer parte do mundo.
+Até agora, consigo visualizar os arquivos `.html` no meu computador, usando um
+navegador. Mas quero poder acessar **arquivos de qualquer um que se disponha a
+deixar o computador ligado**, em qualquer parte do mundo.
 
 ---
 ## Servidores Web
 
-- É o programa que roda em um computador 24/7 e conversa com os navegadores
-- Atendem solicitações de download de arquivos e entregam as respostas
+- É o programa que **roda** em um computador **24/7** e conversa com os
+  navegadores
+- **Atendem solicitações** de download de arquivos e **entregam as respostas**
 - Funções
   - armazenar, processar e entregar páginas web para clientes
   - receber dados de clientes (upload, formulários)
@@ -316,7 +347,7 @@ deixar o computador ligado, em qualquer parte do mundo.
 ---
 ## Tim, o coração valente, tinha uma dúvida
 
-Quero poder transmitir essas páginas web de um servidor para meu navegador.
+Quero poder **transmitir** essas páginas web de um servidor para meu navegador.
 
 Tenho o protocolo TCP/IP à minha disposição, mas preciso **transmitir mais do
 que apenas o conteúdo dos arquivos**. Por exemplo, como faço caso o arquivo
@@ -353,14 +384,15 @@ Content-Length: 131
 Accept-Ranges: bytes
 Connection: close
 
-<html>
-<head>
-  <title>An Example Page</title>
-</head>
-<body>
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;An Example Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
   Hello World, this is a very simple HTML document.
-</body>
-</html>
+&lt;/body&gt;
+&lt;/html&gt;
 ```
 
 ---

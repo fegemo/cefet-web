@@ -38,6 +38,32 @@ body
 del
   color gray
 
+$dt-width = 160px
+dt
+  float left
+  clear left
+  width $dt-width
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+  text-align right
+dd
+  margin-left ($dt-width + 20px)
+dt, dd
+  font-size 1.25em
+  margin-bottom .5em
+dl
+  clearfix()
+
+.bullet-old
+  color gray
+
+figcaption
+  background-color whitesmoke
+  padding 5px
+  margin-bottom 3px
+
+
 
 /// Header and content layout
 
@@ -110,3 +136,67 @@ $book-height = 250px
 
 .layered-paragraph
   background-color rgba(215, 215, 250, 0.5);
+
+$portrait-size = 100px
+.portrait,
+.portrait img
+  display inline-block
+  width $portrait-size
+  height $portrait-size
+  border-radius ($portrait-size / 2)
+  figcaption
+    background-color transparent
+
+.list-horizontal
+  list-style-type none
+  clearfix()
+.list-horizontal li
+  float left
+
+$bubble-tip-size = 8px
+
+.bubble-chat
+  display block
+  box-sizing border-box
+  width 100%
+  padding 0 (2 * $bubble-tip-size)
+  clearfix()
+.narration
+  clear both
+  display block
+.bubble
+  position relative
+  display block
+  width 85%
+  margin 10px 0
+  padding 4px 7px 7px 7px
+  background-color white
+  border-radius 5px
+  &.bubble-left
+    float left
+    text-align left
+  &.bubble-right
+    float right
+    text-align right
+    &:before
+      left inherit
+      right - (2 * $bubble-tip-size)
+      border-color transparent transparent transparent white
+  &:before
+    content ""
+    position absolute
+    border-width $bubble-tip-size
+    border-style solid
+    border-color transparent white transparent transparent
+    left - (2 * $bubble-tip-size)
+    top "calc(50% - %s)" % ($bubble-tip-size)
+    width 0
+    height 0
+.bubble-author
+  display block
+  text-transform uppercase
+  font-weight bold
+  font-size 75%
+  for author-color, i in blueviolet brown cornflowerblue crimson darkmagenta forrestgreen limegreen darkgray
+    &.bubble-author-{i}
+      color author-color
