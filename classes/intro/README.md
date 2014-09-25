@@ -1,6 +1,5 @@
 # História da Web
 
-
 ---
 ## Alguns personagens
 
@@ -79,9 +78,7 @@ _(Charles Herzfeld, diretor da ARPA)_
 </div>
 
 
-_Fonte: [Estradas e Encruzilhadas da História da Internet (inglês)][roads-crossroads]_
-
-[roads-crossroads]: http://www.netvalley.com/cgi-bin/intval/net_history.pl?chapter=1
+_Fonte: [A primeira conexão da ARPANET, Estradas e Encruzilhadas da História da Internet (inglês)](roads-crossroads)_
 
 ---
 À partir de 1969 e durante a década de 1970, a ARPANET cresceu e se conectou com
@@ -215,10 +212,8 @@ confiabilidade**.
   - _HyperText Transfer Protocol_ (HTTP)
   - _HyperText Markup Language_ (HTML)
   - o primeiro navegador ou _web browser_ (WorldWideWeb)
-  - o primeiro software servidor HTTP ([CERN httpd][first-http-server])
+  - o primeiro software servidor HTTP ([CERN httpd](first-http-server))
   - o primeiro servidor Web (http://info.cern.ch)
-
-[first-http-server]: http://www.w3.org/Daemon/User/
 
 ---
 # HTML
@@ -294,9 +289,7 @@ Este é um texto com <em>itálico</em>.
   - 2001: XHTML 1.1
 
 ---
-[![APIs do HTML5](images/html5-apis.png)][html5-apis-diagram]
-
-[html5-apis-diagram]: http://commons.wikimedia.org/wiki/File:HTML5-APIs-and-related-technologies-by-Sergey-Mavrody.png#mediaviewer/File:HTML5-APIs-and-related-technologies-by-Sergey-Mavrody.png
+[![APIs do HTML5](images/html5-apis.png)](html5-apis-diagram)
 
 ---
 # Navegadores
@@ -314,11 +307,9 @@ arquivo html para outro.
 ---
 ## Linha do tempo dos navegadores
 
- - [Evolução da Web][evolution-of-web]
+ - [Evolução da Web](evolution-of-web)
 
 ![Tela do site Evolução da Web](images/evolution-of-web.png)
-
-[evolution-of-web]: http://www.evolutionoftheweb.com/
 
 ---
 # Servidores Web
@@ -418,12 +409,13 @@ Connection: close
 ---
 # Referências
 
-- [Antes da Web: A Internet em 1991 (inglês)][before-the-web]
-- [Estradas e Encruzilhadas da História da Internet (inglês)][roads-crossroads]
-- [Primeiro servidor web][first-web-server]
-- [Evolução da Web][evolution-of-web]
+- [Antes da Web: A Internet em 1991 (inglês)](before-the-web)
+- [Estradas e Encruzilhadas da História da Internet (inglês)](roads-crossroads)
+- [Primeiro servidor web](first-web-server)
 
 [before-the-web]: http://www.zdnet.com/blog/networking/before-the-web-the-internet-in-1991/834
 [roads-crossroads]: http://www.netvalley.com/cgi-bin/intval/net_history.pl?chapter=1
 [first-web-server]: http://info.cern.ch
+[first-http-server]: http://www.w3.org/Daemon/User/
+[html5-apis-diagram]: http://commons.wikimedia.org/wiki/File:HTML5-APIs-and-related-technologies-by-Sergey-Mavrody.png#mediaviewer/File:HTML5-APIs-and-related-technologies-by-Sergey-Mavrody.png
 [evolution-of-web]: http://www.evolutionoftheweb.com/
