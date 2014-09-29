@@ -68,7 +68,9 @@
 # Aulas
 
 - [História da Web](classes/intro/) (23/09/14)
-- [HTML - 1](classes/html/) (25/09/14)
+- [HTML - 1](classes/html1/) (25/09/14)
+- [HTML - 2](classes/html2/) (30/09/14) - Prática
+- HTML - 3 (02/10/14)
 
 ---
 # Provas (35 pontos)
