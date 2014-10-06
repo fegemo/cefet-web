@@ -1,3 +1,0 @@
-# Trabalho Prático 3
-
-TBD...
