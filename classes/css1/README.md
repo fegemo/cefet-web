@@ -6,8 +6,8 @@
 1. História
 1. A sintaxe
 1. Classes e IDs
-1. Seletores (Exercício)
 1. A cascata (Exercício)
+1. Seletores (Exercício)
 
 ---
 # A sintaxe
@@ -125,6 +125,68 @@
     width: 250px;
   }
   ```
+
+---
+# A Cascata
+
+---
+## Cascata
+
+- `CSS` é a sigla para _**Cascading** Style Sheets_
+- Algumas propriedades são herdadas dos elementos ascendentes
+  - ```css
+    body {
+      color: red;
+    }
+    ```
+
+---
+## Cascata (cont.)
+
+- As propriedades que não são herdadas, podemos forçá-las para que sejam
+  - ```css
+    p {
+      border: 1px solid red;
+    }
+    em {
+      border: inherit;
+    }
+    ```
+---
+## Cascata (cont.)
+
+- Também podemos sobrepor a herança de uma propriedade
+  - ```css
+    body {
+      font-weight: bold;
+    }
+    em {
+      font-weight: normal;
+    }
+    ```
+
+---
+## Atividade
+
+1. Abra o código no jsfiddle: http://jsfiddle.net/fegemo/3go90nj0/
+1. Adicione o seguinte código `CSS` **no início** do arquivo:
+   ```css
+   p {
+     color: blue;
+     text-decoration: underline;
+   }
+   ```
+   1. Observe: estilizamos apenas o `<p></p>`, mas o `<strong></strong>` também
+   ficou sublinhado.
+
+---
+## Atividade (cont.)
+
+1. **Mova** a regra que você acabou incluir para o **final do arquivo**
+   1. Observe: agora também o texto dos `strong`s está azul
+1. Modifique seu código `CSS` para que a aparência da página fique assim:
+
+   ![](images/cascading-style-sheets-styled.png)
 
 ---
 # Seletores
@@ -330,18 +392,63 @@
 - `X:only-of-type`
 - `X:first-of-type`
 
----
-## **Exercício 1**
-
-1. Dando continuidade 
 
 ---
-# A Cascata
+## Exercício 1
+
+Para os exercícios de hoje, você deve manter a estrutura `html` intocada e
+trabalhar apenas com código `css`.
+
+1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/a4mr4h65/
+1. Dê cores diferentes para os links em seus 3 estados: `:hover, :link, :visited`
+1. Atribua tamanhos de fonte diferentes para cada nível do menu: fontes maiores
+   para o elemento raiz e fontes menores para as folhas
 
 ---
-## Cascata
+## Exercício 1 (cont.)
 
--
+1. Estilize os links externos (www.omo..., www.pudim...) de forma que eles
+   exibam uma imagem de um globo
+   - _Dica_: você pode usar [esta imagem](https://www.google.com/help/hc/images/chrome_95440_predictionicon.png)
+     e você precisará das propriedades `background` e `padding`
+1. Output: exercicio1.html, exercicio1.css
+
+---
+## Exercício 2 (desafio)
+
+1. Escreva algumas regras `CSS` para transformar a lista de listas do exercício
+   anterior em um menu de navegação em que cada item revela seus subitems na
+   medida em que o _mouse_ é passado sobre o item
+
+   - _Dicas:_
+     - _2 regras são suficientes_
+       ```css
+       display: none; /* para ocultar */
+       ```
+       ```
+       display: block; /* para mostrar */
+       ```
+1. Output: exercicio2.html, exercicio2.css
+
+---
+## Exercício 3
+
+1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/2v6cuwzn/
+1. Estilize-o, usando `CSS`, para que a tabela fique assim:
+   ![](images/tabela-para-estilizar.png)
+1. Output: exercicio3.html, exercicio3.css
+
+---
+## Exercício 4
+
+1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/2v6cuwzn/2/
+   - É o mesmo código `html` de antes, porém as linhas da tabela não possuem
+     a classe `alt`
+1. Escreva código `CSS` para estilizar essa tabela para que ela fique da mesma
+   forma como no exercício anterior
+   ![](images/tabela-para-estilizar.png)
+1. Output: exercicio4.html, exercicio4.css
+1. Você deve entregar todos os seus arquivos via Moodle
 
 ---
 # Referências
