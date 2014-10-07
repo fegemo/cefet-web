@@ -218,7 +218,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
   ela está seguindo o padrão corretamente
   - http://validator.w3.org/
 - Atividade: vamos validar nosso exemplo da aula HTML 1
-  - [Código no jsfiddle][http://jsfiddle.net/fegemo/9po3sd1m/2/presentation/]
+  - [Código no jsfiddle](http://jsfiddle.net/fegemo/9po3sd1m/2/presentation/)
 
 ---
 ## Erros
