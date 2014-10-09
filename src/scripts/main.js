@@ -10,6 +10,7 @@ var bespoke = require('bespoke'),
     progress = require('bespoke-progress'),
     state = require('bespoke-state'),
     markdown = require('bespoke-markdown'),
+    forms = require('bespoke-forms'),
     tutorial = require('./tutorial');
 
 // Bespoke.js
@@ -23,5 +24,30 @@ bespoke.from('article', [
   hash(),
   progress(),
   state(),
+  forms(),
   tutorial(document.getElementsByClassName('tutorial')[0])
 ]);
+
+
+// CSS Specificator Tabajara
+var inputEl = document.getElementById('specTabajaraInput'),
+    SpecificatorTabajara,
+    outputEls,
+    buttonEl;
+
+if (inputEl) {
+  SpecificatorTabajara = require('./specificity');
+  outputEls = [
+      document.getElementById('specTabajaraOutputA'),
+      document.getElementById('specTabajaraOutputB'),
+      document.getElementById('specTabajaraOutputC')
+    ];
+  buttonEl = document.getElementById('specTabajaraButton')
+  new SpecificatorTabajara(
+    inputEl,
+    outputEls[0],
+    outputEls[1],
+    outputEls[2],
+    buttonEl
+  ).start();
+}

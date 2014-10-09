@@ -11,6 +11,7 @@ Computação e/ou profissionais.
 ## Funcionalidade Básica
 
 Seu site deve conter:
+
 1. Pelo menos estas páginas (ou seções¹)
    - **Inicial**
    - **Projetos**
@@ -56,9 +57,9 @@ A página **Contato** deve conter
 
 
 ¹ Uma tendência atual é de criar sites em apenas uma página, em vez de várias.
-Você pode optar por esse estilo de site pessoal, mas se assim o fizer, fará
-parte também da funcionalidade básica a implementação de imagens de fundo com a
-[técnica de rolagem Parallax](https://ihatetomatoes.net/simple-parallax-scrolling-tutorial/).
+Você pode optar por esse estilo de site pessoal, mas se assim o fizer, também
+fará parte também da funcionalidade básica a implementação de imagens de fundo
+com a [técnica de rolagem Parallax](https://ihatetomatoes.net/simple-parallax-scrolling-tutorial/).
 
 
 ## Funcionalidade Extra
@@ -99,3 +100,6 @@ O GitHub também oferece um serviço gratuito de hospedagem de sites estáticos.
 Você deve utilizar esse serviço para publicar seu trabalho pessoal. Uma
 descrição completa dos passos para se fazer isso pode ser encontrada em
 https://pages.github.com/.
+
+Ao final do seu trabalho, você deve submeter o link do seu repositório do
+GitHub e o link do seu site hospedado.

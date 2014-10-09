@@ -10,6 +10,7 @@ var pkg = require('./package.json'),
     uglify = require('gulp-uglify'),
     stylus = require('gulp-stylus'),
     replace = require('gulp-replace'),
+    concat = require('gulp-concat'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
     through = require('through'),
@@ -45,7 +46,7 @@ gulp.task('md', ['clean:md'], function() {
 });
 
 gulp.task('css', ['clean:css'], function() {
-  return gulp.src('src/styles/*.styl')
+  return gulp.src('src/styles/**.styl')
     .pipe(isDist ? through() : plumber())
     .pipe(stylus({
       // Allow CSS to be imported from node_modules and bower_components
@@ -54,7 +55,7 @@ gulp.task('css', ['clean:css'], function() {
     }))
     .pipe(autoprefixer('last 2 versions', { map: false }))
     .pipe(isDist ? csso() : through())
-    .pipe(rename('build.css'))
+    .pipe(concat('build.css'))
     .pipe(gulp.dest('dist/build'))
     .pipe(connect.reload());
 });
