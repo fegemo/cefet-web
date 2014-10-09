@@ -6,7 +6,7 @@
 1. História
 1. A sintaxe
 1. Classes e IDs
-1. A cascata (Exercício)
+1. A cascata (Atividade)
 1. Seletores (Exercício)
 
 ---
@@ -182,8 +182,15 @@
 ---
 ## Atividade (cont.)
 
-1. **Mova** a regra que você acabou incluir para o **final do arquivo**
-   1. Observe: agora também o texto dos `strong`s está azul
+1. Adicione uma nova classe "destacado" no primeiro `<strong></strong>` e
+   a seguinte regra **no final** do arquivo `CSS`
+   ```css
+   .destaque {
+     color: green;
+   }
+   ```
+1. **Mova** a regra que você acabou incluir para o **início do arquivo**
+   1. Observe: agora a cor do "C" voltou a ser vermelha
 1. Modifique seu código `CSS` para que a aparência da página fique assim:
 
    ![](images/cascading-style-sheets-styled.png)
