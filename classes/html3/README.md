@@ -8,7 +8,7 @@
 - Citações são criadas com `<q>` ou `<blockquote>`
 - Alguns elementos são `inline` e outros são `block`
   - **`inline`**: não fazem quebra de linha (e.g, `<q>`, `<strong>` etc.)
-  - **`block`**: fazem quebra de linha (e.g., `<blockquote>`, `<img>` etc.)
+  - **`block`**: fazem quebra de linha (e.g., `<blockquote>`, `<p>` etc.)
 
 ---
 ## Na última aula... (cont.)

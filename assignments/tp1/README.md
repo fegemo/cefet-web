@@ -74,13 +74,17 @@ implementar também um conjunto de outras funcionalidades, a saber:
   usuário **(5%)**
 - Fazer com que o mapa mostre locais diferentes ao longo do dia (e.g., local
   de trabalho de dia, casa de noite e clube nos finais de semana) **(10%)**
+- Ter uma versão do site "amigável" para impressão **(5%)**
+- Usar uma (ou mais) fontes personalizadas (_web fonts_) **(3%)**
+- Usar _CSS Sprites_ para as imagens pequenas **(5%)**
+- Na sua página de currículo, apresentar algumas informações na forma de
+  gráficos (usando imagens (2%) ou gráficos interativos em html, css e js (7%) - [raphaeljs](http://raphaeljs.com/), [amcharts](http://www.amcharts.com/), [highcharts](http://www.highcharts.com/)) **(2-7%)**
 - Incorporar uma chamada a um serviço de previsão do tempo para avisar ao
   usuário a condição do tempo de onde ele está quando ele entrar na página
   **Contato**. Você deve mostrar na tela algo como: "Pode vir tomar um cafezinho
   comigo, mas traga um guarda-chuva (16º C)" **(15%)**
-- Ter uma versão do site "amigável" para impressão **(5%)**
 - Utilizar um _task runner_ (e.g., [Grunt](http://gruntjs.com/), [Gulp](http://gulpjs.com/), [Brunch](http://brunch.io/), [Broccoli](https://github.com/broccolijs/broccoli)) **(10%)**
-- Utilizar preprocessadores CSS **(7%)**
+- Utilizar um preprocessador CSS (e.g., SASS, LESS, Stylus) **(7%)**
 
 
 ## Política da Privacidade
