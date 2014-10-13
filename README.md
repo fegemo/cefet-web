@@ -73,6 +73,8 @@
 - [HTML - 3](classes/html3/) (02/10/14)
 - [CSS - 1](classes/css1/) (07/10/14) - Prática
 - [CSS - 2](classes/css2) (09/10/14)
+- [HTML - 4](classes/html4) (14/10/14) - Prática
+- CSS - 3
 
 
 ---
