@@ -230,13 +230,13 @@
   seguintes (`blocks` o ignorarem e `inlines` se "moldarem" a ele)
   ```html
   <img id="imagem" src="...">
+  <p id="primeiro-paragrafo">...</p>
   <p>...</p>
   <p>...</p>
-  <p id="ultimo-paragrafo">...</p>
   ```
   ```css
-  #imagem { float: left; }
-  #ultimo-paragrafo { clear: left; }
+  #imagem { float: right; }
+  #primeiro-paragrafo { clear: right; }
   ```
 
 ---
@@ -247,4 +247,5 @@
 ---
 # Referências
 
-1. Capítulos 9, 10 (parcial) e 11 (parcial) do livro
+1. Capítulos 9 (parcial), 10 e 11 (parcial) do livro
+1. Mozilla Developer Network (MDN)
