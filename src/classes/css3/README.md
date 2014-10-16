@@ -48,7 +48,7 @@
 1. Propriedade **background**
 1. Propriedade **border**
 1. Cores e gradientes
-1. Layout e posicionamento
+1. Layout e posicionamento (introdução)
 
 ---
 # Divitite e _Tags_ Semânticas
@@ -269,11 +269,15 @@
 ---
 ## Cor
 
-- Em `CSS`, existe um tipo de dados `color`
+- Em `CSS`, existe um [tipo de dados `color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
 - Um valor de `color` pode ser dado por:
   - uma palavra-chave
   - um valor do espaço cúbico RGB (em hexadecimal, `rgb()` ou `rgba()`)
   - um valor do espaço cilíndrico HSL (`hsl()` ou `hsla()`)
+
+---
+## Cor (cont.)
+
 - Exemplos de cores:
   ```css
   #ff0033
@@ -283,12 +287,79 @@
   hsl(60, 100%,50%)
   rgba(255,0,0,0.1)         /* 10% opaque red */  
   hsla(240,100%,50%,0.05)   /* 5% opaque blue */
+  rebeccapurple             /* !!! CSS4 */
   ```
-- [Especificação na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
-
+- <div style="font-size: 1.5em; color: #663399; font-family: Calligraffitti, cursive">Rebecca Purple</div>
 
 ---
+## Gradientes
+
+- Assim como `color`, [`gradient`](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient) é um tipo de dados em CSS
+  - Herda de [`image`](https://developer.mozilla.org/en-US/docs/Web/CSS/image), não de `color`
+- Podemos definir um gradiente (degradê) linear usando dois valores
+  - ```css
+    linear-gradient( 45deg, blue, red );
+    linear-gradient( to left top, blue, red);
+    linear-gradient( 0deg, blue, white 20%, red ); /* exemplo */
+    ```
+- <div style="background-image: linear-gradient(90deg, blue, white 20%, red)">
+    Conteúdo
+  </div>
+---
 # Layout e posicionamento
+
+---
+## Layout e posicionamento
+
+- Além do fluxo normal visto na última aula, também podemos dar fluxos alternativos
+   aos elementos
+  - Propriedades envolvidas:
+    - ```css
+      position: static; /* relative, absolute, fixed */
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      z-index: 1;
+      ```
+---
+## **position**
+
+- `static`
+  - Comportamento padrão. O elemento é posicionado no fluxo normal.
+  - As propriedades `left`, `right`, `top`, `bottom` e `z-index` são ignoradas
+- `absolute`
+  - O elemento não tem espaço reservado para ele. Em vez disso, ele fica
+    exatamente na posição especificada por `left`, `right`, `top`, `bottom`
+    relativo ao seu mais próximo antecessor posicionado
+  - Margens se aplicam, porém elas não fazem _margin collapse_ com outras
+
+---
+## **position** (cont.)
+
+- `relative`
+  - O elemento continua no fluxo normal, a menos que tenha suas propriedades
+    `left`, `right`, `top` e `bottom` ajustadas.
+  - A posição do elemento será ajustada com relação à sua posição original (
+    caso ele fosse `static`)
+  - Os elementos posteriores **não são ajustados** para ocupar eventuais
+    "buracos" na página
+- `fixed`
+  - Bem semelhante ao `absolute`, porém o elemento é ajustado na posição
+    `left`, `right`, `top`, `bottom` **no espaço da tela** (_viewport_), e não
+    da página
+
+---
+## **top, right, bottom e left**
+
+- Usadas para definir a posição (offset) do elemento
+- Sua interpretação depende de qual valor de `position` estamos usando para aquele elemento
+
+---
+## **z-index**
+
+- Define a ordem "no eixo Z" com a qual elementos que se tocam deve ser exibida
+- Útil apenas para elementos `position: absolute` ou `position: fixed`
 
 ---
 # Referências
@@ -296,3 +367,6 @@
 - Capítulo 12 do livro
 - [Capítulo _semantics_](http://diveintohtml5.info/semantics.html) do livro
   diveintohtml5.org
+- [Propriedade **position** na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+- [Um breve e interessante tutorial sobre posicionamento](http://learnlayout.com/position.html)
+- [Origem da cor `rebeccapurple`](http://lists.w3.org/Archives/Public/www-style/2014Jun/0312.html)
