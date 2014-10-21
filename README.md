@@ -68,14 +68,15 @@
 # Aulas
 
 - [História da Web](classes/intro/) (23/09/14)
-- [HTML - 1](classes/html1/) (25/09/14)
-- [HTML - 2](classes/html2/) (30/09/14) - Prática
-- [HTML - 3](classes/html3/) (02/10/14)
-- [CSS - 1](classes/css1/) (07/10/14) - Prática
-- [CSS - 2](classes/css2) (09/10/14)
-- [HTML - 4](classes/html4) (14/10/14) - Prática
-- CSS - 3
-
+- [HTML - Parte 1](classes/html1/) (25/09/14)
+- [HTML - Parte 2](classes/html2/) (30/09/14) - Prática
+- [HTML - Parte 3](classes/html3/) (02/10/14)
+- [CSS - Parte 1](classes/css1/) (07/10/14) - Prática
+- [CSS - Parte 2](classes/css2) (09/10/14)
+- [HTML - Parte 4](classes/html4) (14/10/14) - Prática
+- [CSS - Parte 3](classes/css3) (16/10/14)
+- [CSS - Parte 4](classes/css4) (21/10/14) - Prática
+- HTML - Parte 5 (23/10/14)
 
 ---
 # Distribuição de Pontos

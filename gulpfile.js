@@ -4,7 +4,10 @@ var pkg = require('./package.json'),
     gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
     rimraf = require('gulp-rimraf'),
+    psi = require('psi'),
     rename = require('gulp-rename'),
+    imagemin = require('gulp-imagemin'),
+    pngcrush = require('imagemin-pngcrush'),
     connect = require('gulp-connect'),
     browserify = require('gulp-browserify'),
     uglify = require('gulp-uglify'),
@@ -62,7 +65,16 @@ gulp.task('css', ['clean:css'], function() {
 
 gulp.task('images', ['clean:images'], function() {
   return gulp.src('src/images/**/*')
+    // .pipe(imagemin({
+    //   progressive: true
+    // }))
     .pipe(gulp.dest('dist/images'))
+    .pipe(connect.reload());
+});
+
+gulp.task('fonts', ['clean:fonts'], function() {
+  return gulp.src('src/fonts/**/*')
+    .pipe(gulp.dest('dist/fonts'))
     .pipe(connect.reload());
 });
 
@@ -96,6 +108,11 @@ gulp.task('clean:images', function() {
     .pipe(rimraf());
 });
 
+gulp.task('clean:fonts', function() {
+  return gulp.src('dist/fonts')
+    .pipe(rimraf());
+});
+
 
 function getFolders(cwd, dir) {
   var targetDirectory = path.join(cwd, dir);
@@ -108,7 +125,7 @@ function getFolders(cwd, dir) {
     });
 }
 
-gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images'], function() {
+gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images', 'fonts'], function() {
   var folders = getFolders('src', 'classes').concat(getFolders('src', 'assignments')),
       tasks = folders.map(function(folder) {
         var t = [];
@@ -146,6 +163,14 @@ gulp.task('watch', function() {
 
 gulp.task('deploy', ['build'], function(done) {
   ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
+});
+
+gulp.task('psi', function(done) {
+  psi({
+    key: 'AIzaSyCSdP45elEaQN0CIIWpAfMq6XIRGhcICM4',
+    url: 'http://localhost:8081',
+    strategy: 'desktop'
+  }, done);
 });
 
 gulp.task('build', ['cefet-files']);
