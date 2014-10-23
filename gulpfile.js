@@ -78,6 +78,12 @@ gulp.task('fonts', ['clean:fonts'], function() {
     .pipe(connect.reload());
 });
 
+gulp.task('videos', ['clean:videos'], function() {
+  return gulp.src('src/videos/**/*')
+    .pipe(gulp.dest('dist/videos'))
+    .pipe(connect.reload());
+});
+
 gulp.task('clean', function() {
   return gulp.src('dist')
     .pipe(rimraf());
@@ -113,6 +119,11 @@ gulp.task('clean:fonts', function() {
     .pipe(rimraf());
 });
 
+gulp.task('clean:videos', function() {
+  return gulp.src('dist/videos')
+    .pipe(rimraf());
+});
+
 
 function getFolders(cwd, dir) {
   var targetDirectory = path.join(cwd, dir);
@@ -125,11 +136,11 @@ function getFolders(cwd, dir) {
     });
 }
 
-gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images', 'fonts'], function() {
+gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images', 'fonts', 'videos'], function() {
   var folders = getFolders('src', 'classes').concat(getFolders('src', 'assignments')),
       tasks = folders.map(function(folder) {
         var t = [];
-        t.push(gulp.src(['dist/images/**/*.*', 'dist/build/**/*.*'], { read: true, base: 'dist' })
+        t.push(gulp.src(['dist/images/**/*.*', 'dist/build/**/*.*', 'dist/fonts/**/*.*', 'dist/videos/**/*.*'], { read: true, base: 'dist' })
           .pipe(gulp.dest(path.join('dist', folder))));
         t.push(gulp.src(['src/index.html'])
           .pipe(replace('{path-to-root}', '../../.'))

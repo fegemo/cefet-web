@@ -11,7 +11,8 @@ var bespoke = require('bespoke'),
     state = require('bespoke-state'),
     markdown = require('bespoke-markdown'),
     forms = require('bespoke-forms'),
-    tutorial = require('./tutorial');
+    tutorial = require('./tutorial'),
+    caniuseWidget = require('./caniuse');
 
 // Bespoke.js
 bespoke.from('article', [
@@ -51,3 +52,6 @@ if (inputEl) {
     buttonEl
   ).start();
 }
+
+// Can I Use widget
+window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
