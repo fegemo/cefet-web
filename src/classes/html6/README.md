@@ -401,8 +401,8 @@ ele. Ele acaba de ir para a superfície e para que ele não comece a comer
 pessoas, você deve dar a ele seu segundo alimento preferido: pedras.
 
 Para isso, você deve ir até onde ele está e enviar algumas pedras para ele.
-Atualmente, ele está neste endereço: http://terrivel.herokuapp.com. Para dar
-comida a ele, você deve encomendá-las a partir de uma loja virtual.
+Atualmente, ele está neste endereço: http://terrivel.herokuapp.com/monster.
+Para dar comida a ele, você deve encomendá-las a partir de uma loja virtual.
 
 ---
 ## Enunciado (cont.)
@@ -419,8 +419,8 @@ comida a ele, você deve encomendá-las a partir de uma loja virtual.
 ## Enunciado (cont.)
 
 - Você também pode fornecer algumas informações adicionais, como:
-  - `corCeu1`
-  - `corCeu2`
+  - `corCeu1`, a cor do céu
+  - `corCeu2`, outra cor para o céu
   - `tipo_pedras`, {`'marroada'`, `'ametista'`, `'topazio'`, `'espinela'`}
   - `tipo_pedras_sortidas`, {`não`, `sim`}
     - Se o valor for `sim`, você deve proibir definir um valor para `tipo_pedras`
@@ -435,7 +435,14 @@ comida a ele, você deve encomendá-las a partir de uma loja virtual.
 - O _layout_ do formulário deve ser semelhante ao da figura do próximo slide
 
 ---
+## _Layout_ dos elementos do formulário
+
 ![](images/form-layout-table.png)
+
+- Uma opção é usar
+  - `display: table;`
+  - `display: table-row;`
+  - `display: table-cell;`
 
 ---
 ## Entrega
@@ -443,8 +450,8 @@ comida a ele, você deve encomendá-las a partir de uma loja virtual.
 1. Você deve criar um **repositório no GitHub com o nome `web-terrivel`**
   contendo os arquivos (.html, .css, .js) usados para criar seu formulário
 1. Também deve estar **na raiz o seu repositório** dois arquivos de imagem:
-  1. terrivel-get.png, uma tela mostrando um envio do formulário via GET
-  1. terrivel-post.png, uma tela mostrando um envio do formulário via POST
+  1. `terrivel-get.png`, uma tela mostrando um envio do formulário via GET
+  1. `terrivel-post.png`, uma tela mostrando um envio do formulário via POST
 1. Submeter o endereço do repositório no **Moodle**
 
 ---
