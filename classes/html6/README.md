@@ -5,315 +5,447 @@
 ---
 # Roteiro
 
-1. Como funcionam
-1. Conteúdo multimídia - Audio e Video
-1. _Object_ e _Embed_
-1. _Frames_ e _iframe_
+1. Como os formulários funcionam
+1. Elementos de **dados**
+1. Elementos de **ação**
+1. GET ou POST?
+1. Validação
+1. Exercício: O que é o que é?
 
 ---
-# Como funcionam
+# Como funcionam os formulários
 
 ---
-## Problema:
+## Motivação
 
-- Você tem imagens grandes e quer que o usuário acesse hiperlinks
-  diferentes dependendo de onde ele clicar na imagem
-  - Opção 1: picotar a imagem grande em várias menores e encapsular cada
-    `<img>` dentro de um `<a></a>`
-    - Dá trabalho demais
-    - E se você quiser uma região circular em vez de retangular?
-  - Opção 2: usar o recurso do `html` para **mapas de imagens**
+- Até agora, vimos que o protocolo `http` usa um modelo de requisição e
+  resposta, em que um navegador (cliente) solicita recursos (e.g., páginas,
+  imagens) para um servidor e o servidor responde com o conteúdo do arquivo
+  - Ou seja, aparentemente apenas o servidor pode enviar conteúdo
+
+- Assim, como fazer se quisermos solicitar informação dos usuários?
 
 ---
-## Exemplo de mapa de imagem
+## Métodos **http**
 
-- Exemplo:
+- Na verdade, o `http` possui vários métodos (ou verbos) e alguns deles
+  **permitem o envio de informações por parte do cliente**
+  - O método que vimos até agora se chama `GET`
+  - Um exemplo de requisição `GET`:
+    ```
+    GET /en-US/docs/Web/CSS/animation HTTP/1.1
+    Host: developer.mozilla.org
+    ```
+---
+## Métodos **http** (cont.)
+
+- Outros métodos ([RFC2616](http://tools.ietf.org/html/rfc2616#section-9)):
+  - GET
+  - HEAD
+  - PUT
+  - DELETE
+  - PATCH ([RFC5789](http://tools.ietf.org/html/rfc5789))
+  - CONNECT
+  - [POST](http://tools.ietf.org/html/rfc2616#section-9.5)
+    - Usado para enviar informações do cliente para o servidor
+
+---
+## Exemplo de formulário
+
+- Um formulário tipicamente usado para contato:
   ```html
-  <map name="jogos">
-    <area href="..." shape="rect" coords="125,19,182,161" />
-    <area href="..." shape="poly" coords="274,29,260,42,255,61,..." />
-    <area href="..." shape="circle" coords="436,418,50" />
-  </map>
-  <img src="images/humble-imagemap.png" usemap="#jogos">
+  <form action="/enviar.php" method="POST">
+    <label for="nome">Seu nome:</label> <input name="nome"><br>
+    <label for="bairro">Seu bairro</label> <input name="bairro">
+    <input type="submit" value="Enviar">
+  </form>
   ```
----
-## Resultado do exemplo
-
 - Resultado:
-
-  <img src="images/humble-imagemap.png" border="0" width="600" height="420" orgWidth="600" orgHeight="420" usemap="#image-maps-2014-10-22-192942" alt="" />
-  <map name="image-maps-2014-10-22-192942" id="ImageMapsCom-image-maps-2014-10-22-192942">
-  <area  alt="O desenho de uma mulher" title="Jogo Syberia" href="https://www.google.com.br/search?q=syberia+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=t0JIVLyYC_WCsQSk-4KACA&ved=0CAgQ_AUoAQ&biw=1366&bih=643" shape="rect" coords="125,19,182,161" style="outline:none;" target="_self"     />
-  <area  alt="Um soldado" title="Neuroshima Hex" href="https://www.google.com.br/search?q=Neuroshima+Hex+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=yEJIVPurEenksAS91YGoCg&ved=0CAgQ_AUoAQ&biw=1366&bih=643" shape="poly" coords="274,29,260,42,255,61,251,80,253,109,263,113,267,123,237,149,276,155,340,154,335,138,289,133,289,122,290,104,292,89,298,82,303,98,319,83,339,71,325,55,307,53,303,30" style="outline:none;" target="_self"     />
-  <area  alt="Um bardo bárbaro" title="Bardbarian" href="https://www.google.com.br/search?q=bardbarian+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=u0JIVNaMHoa1sQSm4oKYCg&ved=0CAkQ_AUoAg&biw=1366&bih=643" shape="poly" coords="439,20,411,26,387,42,371,66,365,94,371,122,387,146,411,162,439,168,467,162,491,146,507,122,513,94,507,66,491,42,467,26" style="outline:none;" target="_self"     />
-  </map>
+  <form action="/enviar.php" method="POST">
+    <label for="nome">Seu nome:</label> <input name="nome"><br>
+    <label for="bairro">Seu bairro</label> <input name="bairro">
+    <input type="submit" value="Enviar">
+  </form>
 
 ---
-## Mapa de Imagem (na [MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/map))
+## Como montar um formulário
 
-- O mapa é representado pelo elemento `<map></map>`, que possui um `name`
-- Dentro do mapa, coloca-se um `<area />` para cada região que se quer ter um
-  hiperlink, definindo os detalhes do link e as coordenadas
-- As regiões podem ser de três tipos:
-  1. `shape="rect"`, `coords="left, top, right, and bottom"`
-  1. `shape="circle"`, `coords="x, y, radius"`
-  1. `shape="poly"`, `coords="x1, y1, x2, y2, x3, y3, ..."`
-- A imagem (`<img>`) deve usar o atributo `usemap="nome"` para se referenciar
-  ao mapa
-
----
-## Prós e Contras
-
-- Prós
-  - Mais prático que imagens picotadas
-  - Única forma para se definir áreas não retangulares de links
-- Contras
-  - Pode dar trabalho gerar as coordenadas
-  - Não é fluido - se a imagem é redimensionada, os valores (em px) não serão
-    mais válidos
+- Usa-se o elemento `<form></form>`
+- O atributo `action="uma url"` contém para onde o conteúdo do formulário
+  deve ser enviado
+- O atributo `method="..."` pode ter o valor `POST` ou `GET` e **altera o
+  método `http`** a ser usado para fazer a requisição quando o formulário for
+  submetido
+- O atributo `enctype="..."` descreve como os dados do formulário são
+  codificados para serem transmitidos em uma requisição `http`
+  - Valores possíveis
+    1. `application/x-www-form-urlencoded`, formato padrão
+    1. `multipart/form-data`, para envio de arquivos
+    1. `text/plain`, desencorajado - apenas para _debug_
 
 ---
-# Conteúdo multimídia - Audio e Video
+## Como funciona o exemplo
+
+- Os dados de um formulário só são **enviados** quando o **botão de submissão
+  é ativado**
+  - `<input type="submit">`, ou
+  - `<button type="submit">` (`html5`)
+- Quando ocorre a submissão, o navegador realiza uma requisição `http` usando
+  um método (atributo `method`) para um endereço (atributo `action`)
+  ```
+  POST /enviar.php HTTP/1.1
+  Host: fegemo.github.io
+
+  nome=Flavio&bairro=Jaqueline
+  ```
+  - Repare que os dados são enviados como uma _string_ de pares de nome
+    e valor concatenados com o sinal &amp;
+  - Os nomes advêm da propriedade `name` dos `input`s
 
 ---
-## Problema
-
-<figure class="portrait" style="float: right;">
-  <img src="images/philosoraptor.jpg" alt="O Filosoraptor">
-</figure>
-
-- Já que temos um hipertexto (`html`), não podemos expandir o conceito para
-  **hipermídia** e colocar áudio e vídeo em um documento?
-  - Opção 1: colocar um link para que o usuário faça download do arquivo
-  - Opção 2: usar um plugin que seja capaz de renderizar vídeo (eu escutei _flash_?)
-  - Opção 3: usar os elementos de ** `<audio />` e `<video />` do `html5` **
+# Elementos de *dados**
 
 ---
-## Formatos de Vídeo
+## Caixa de texto
 
-- Existem diversos **formatos de arquivo**:
-  - Formatos (de recipiente):
-    <ol style="-moz-column-count: 2; -webkit-column-count: 2; column-count: 2;">
-    <li>AVI (.avi)</li>
-    <li>WebM (.webm)</li>
-    <li>MP4 (.mp4, .m4v)</li>
-    <li>Ogg (.ogg)</li>
-    <li>Flash Video (.flv)</li>
-    <li>ASF (.asf)</li>
-    </ol>
-- Os formatos definem apenas **como é organizada a estrutura** de um arquivo de
-  vídeo
-  - Os formatos definem jeitos diferentes para se armazenar **_tracks_ de vídeo e
-    de áudio**
-    - Normalmente, 1 _track_ de vídeo e 2 de áudio (para som estéreo)
-  - O conteúdo precisa ser codificado usando um **algoritmo <abbr title="Coder Decoder">CODEC</abbr>**
-
----
-## <abbr title="Coder Decoder">CODEC</abbr>s de Vídeo e Áudio
-
-- Alguns CODECs de vídeo são:
-  1. H.264, ou MPEG-4 _part_ 10
-  1. Theora
-  1. VP8
-- Para áudio, também há vários CODECs disponíveis. Alguns são:
-  1. MP3 (.mp3), ou MPEG-3 _Audio Layer_
-  1. AAC (.aac), ou _Advanced Audio Layer_
-  1. Vorbis (.ogg, .mp4, .mkv)
-
----
-## O elemento **video**
-
-- Para exibir um vídeo, o `html5` propõe um novo elemento que funciona de forma
-  similar ao elemento de imagem:
+- _Markup_:
   ```html
-  <video src="videos/fendadobiquini.mp4"></video>
+  <input name="palavra" type="text" placeholder="Digite...">
+  <input name="palavra">
+  <input>
   ```
 - Resultado:
 
-  <video src="videos/fendadobiquini.mp4" width="320" height="240"></video>
+  <input type="text"
+      placeholder="Digite...">
 
 ---
-## Querida, onde está o controle?
+## Caixa de texto para **e-mail** ![À partir do html5](images/html5-logo-32.png)
 
-- O atributo `controls` associa um conjunto de controles ao `<video />`
+- <img src="images/form-email-sample.png" style="float: right; margin-left: 20px">
+  Idêntico à caixa de texto, porém o navegador espera um e-mail válido
+- _Markup_:
   ```html
-  <video src="videos/fendadobiquini.mp4" controls></video>
+  <label>Remetente:
+    <input name="remetente" type="email">
+  </label>
   ```
 - Resultado:
 
-  <video src="videos/fendadobiquini.mp4" width="320" height="240" controls></video>
+  <label>Remetente:
+    <input name="remetente" type="email">
+  </label>
 
 ---
-## Opções (atributos) de **video**
+## Outros semelhantes à caixa de texto ![À partir do html5](images/html5-logo-32.png)
 
-- `controls`, para um conjunto de controles
-- `width="px"`, `height="px"`, para as dimensões (vídeo não é redimensionado)
-- `autoplay`, para começar a executar o vídeo assim que a página carregar
-- `preload="none|metadata|auto"`, para começar a baixar o vídeo assim que a
-  página carregar
-- `loop`
-- `muted`
-- `poster="http://..."`, `url` de uma imagem para ser mostrada antes do vídeo
-  ser "tocado"
+- Pesquisa
+
+  `<input type="search">` <input type="search">
+- URL
+
+  `<input type="url">` <input type="url">
+- Telefone
+
+  `<input type="tel">` <input type="tel">
 
 ---
-## Suporte dos navegadores por formato
+## Checkbox
 
-- Na data de hoje (23/Out/14), **nenhum formato de vídeo**, combinado a seus
-  CODECs de vídeo e áudio, **é suportado em todos** os principais navegadores
-- Assim, usamos uma outra forma do elemento `<video>`:
+- _Markup_:
   ```html
-  <video width="320" height="240" controls>
-    <source src="f.mp4"  type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
-    <source src="f.webm" type="video/webm; codecs=vp8,vorbis">
-    <source src="f.ogv"  type="video/ogg; codecs=theora,vorbis">
-    Seu navegador não suporta o elemento <code>video</code>.
-  </video>
+  <label>
+    <input name="subscricao" type="checkbox" value="sim">Inscrever-se?
+  </label>
+  ```
+- Resultado:
+
+  <label>
+    <input type="checkbox">Inscrever-se?
+  </label>
+- Atributos:
+  - `checked`, para deixar marcado
+
+---
+## Radio (escolha dentro de um grupo)
+
+- _Markup_:
+  ```html
+  <label><input name="cor" type="radio" value="azul">Azul</label>
+  <label><input name="cor" type="radio" value="verde">Verde</label>
+  ```
+- Resultado:
+
+  <label>
+    <input name="cor" type="radio" value="azul">Azul
+  </label>
+  <label>
+    <input name="cor" type="radio" value="verde">Verde
+  </label>
+- Repare que apenas uma cor pode ser escolhida - porque os dois `input` têm o
+  mesmo `name`
+
+---
+## Select (lista de opções)
+
+- _Markup_:
+  ```html
+  <label for="sabor">Sabor da pizza:</label>
+  <select name="sabor" id="sabor">
+    <option value="marg">Marguerita</option>
+    <option value="muzza" selected>Muzzarela</option>
+  </select>
+  ```
+- Resultado:
+  <label for="sabor">Sabor da pizza:</label> <select name="sabor" id="sabor">
+    <option value="marg">Marguerita</option>
+    <option value="muzza" selected>Muzzarela</option>
+  </select>
+- Atributos
+  - `selected`, para o `option`, para deixar selecionado
+  - `multiple`, para o `select`, para permitir mais de um `option`
+---
+## Data e Hora ![À partir do html5](images/html5-logo-32.png)
+
+- _Markup_
+  ```html
+  <input type="date"> <!-- exemplo -->
+  <input type="datetime">
+  <input type="datetime-local">
+  <input type="month">
+  <input type="week">
+  <input type="time">
+  ```
+- Resultado:
+
+  <input type="date">
+
+---
+## Números ![À partir do html5](images/html5-logo-32.png)
+
+- _Markup_:
+  ```html
+  <input type="number" step="0.5"><br>
+  <input type="range" min="0" max="100" step="1">
+  ```
+- Resultado:
+
+  <input type="number" step="0.5" size="4"><br>
+  <input type="range" min="0" max="100" step="1">
+
+---
+## Cores ![À partir do html5](images/html5-logo-32.png)
+
+- _Markup_:
+  ```html
+  Cor: <input type="color">
+  ```
+- Resultado:
+
+  Cor: <input type="color">
+
+---
+## Outros elementos de dados
+
+| Tipo               	| Markup                  	| Exemplo                 	|
+|--------------------	|-------------------------	|-------------------------	|
+| Seleção de arquivo 	| `<input type="file">`     | <input type="file">     	|
+| Campo de senha     	| `<input type="password">`	| <input type="password"> 	|
+| Texto oculto       	| `<input type="hidden">`	  |                          	|
+| Texto multi-linha   | `<textarea></textarea>`   | <textarea></textarea>     |
+
+---
+# Elementos de ação
+
+<img src="images/rambo.png" alt="Foto do Rambo" class="portrait">
+
+---
+## Botões de submissão
+
+- Quando acionados, enviam (submetem) os dados para o endereço
+  especificado pelo atributo `action` do formulário
+- Existem duas formas para criar a marcação
+  - `input`
+    ```html
+    <input type="submit" value="Enviar">
+    ```
+  - `button`
+    ```html
+    <button type="submit">Enviar</button>
+    <button>Enviar</button>
+    ```
+
+---
+## Outros botões
+
+- Botões para voltar os campos do formulário a seus valores iniciais
+  ```html
+  <input type="reset" value="Limpar">
+  <button type="reset">Limpar</button>
+  ```
+- Botões que não fazem nada, mas podem ter algum comportamento associado
+  (via javascript)
+
+  ```html
+  <input type="button" value="Ver detalhes">
+  <button type="button">Ver detalhes</button>
   ```
 
 ---
-## Suporte **hoje**
+## Outros botões (cont.)
 
-<div class="caniuse" data-feature="webm"></div>
-<div class="caniuse" data-feature="mpeg4"></div>
-<div class="caniuse" data-feature="ogv"></div>
+- Botão de imagem
+  - Serve para submeter e para enviar as coordenadas da imagem onde o usuário
+    clicou
+    ```html
+    <input type="image" src="images/cafe.png">
+    ```
+  - Resultado:
+
+    <input type="image" src="images/cafe.png">
 
 ---
-## Em caso de navegadores antigos
+# **GET** ou **POST**?
+---
+## Método de um formulário
 
-- Você pode colocar uma mensagem
+- É possível usar `GET` para enviar um formulário
+- Contudo, os dados são enviados na própria URL, em uma estrutura
+  chamada _query string_
+  - Partes de uma URL
+
+    ![](images/url-1.png)
+  - Uma URL completa
+
+    ![](images/url-2.png)
+
+---
+## Comparação
+
+|                            	| GET                       	| POST                      	|
+|----------------------------	|---------------------------	|---------------------------	|
+| Botão voltar               	| Ok                        	| Dados serão ressubmetidos 	|
+| Histórico                  	| Parâmetros são salvos     	| Parâmetros não são salvos 	|
+| Ad. aos favoritos          	| Ok                        	| Não é possível            	|
+| Restrição de tamanho       	| Tamanho da URL (~2048)    	| Sem restrição             	|
+| Restrição de tipo de dados 	| Apenas ASCII              	| Sem restrição             	|
+| Visibilidade               	| Dados visíveis ao usuário 	| Dados "ocultos"           	|
+| Segurança                   | Menos seguro                | Um pouco mais seguro        |
+
+---
+# Validação
+
+---
+## Validação automática
+
+- De acordo com o tipo do campo de dados, o navegador se encarrega de validar
+  se o conteúdo está de acordo com o domínio **antes do formulário ser
+  submetido**
+- Por exemplo, digite um e-mail inválido e tente enviar o formulário abaixo:
+  - <form action="javascript:void(0);">
+      <label>Digite seu e-mail: <input type="email"></label> <button>Enviar</button>
+    </form>
+- Para previnir essa validação, basta acrescentar um parâmetro ao formulário:
   ```html
-  <video src="f.ogv">
-    Seu navegador não suporta o elemento <code>video</code>.
-  </video>
+  <form novalidate>
+    ...
+  </form>
   ```
-- Ou, melhor ainda, usar _flash_ como _fallback_
+
+---
+## Atributos para validação
+
+- Campo obrigatório: atributo `required`
   ```html
-  <video>
-    <source src="f.ogv" type="video/ogg; codecs=theora,vorbis">
-    <object data="f.swf" type="application/x-shockwave-flash">
-    </object>
-  </video>
+  <input type="text" required> <button>Enviar</button>
   ```
-
----
-## Audio
-
-- `<audio>` funciona **exatamente** da mesma forma que `<video>`
-
-  - ![](images/baby-success.jpg)
-- [Referência na MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
-
----
-# _Object_ e _Embed_
-
----
-## _Object_ e _Embed_
-
-- Elementos `<object></object>` ou `<embed></embed>` são elementos de versões
-  antigas do `html`
-- Usados para referenciar objetos externos
-  - Comuns para plugins: java _applets_, _flash_, _adobe pdf_ etc.
-- Um dos objetivos do `html5` é não precisar mais de plugins -&gt;
-  `<object />`, `<embed />`
-
----
-## Exemplo de _object_
-
-- Incluindo um arquivo _flash_:
+  <form action="javascript:void(0);">
+    <input type="text" required> <button>Enviar</button>
+  </form>
+- Expressão regular do domínio: atributo `pattern`
   ```html
-  <object data="a.swf" type="application/x-shockwave-flash"></object>
-
-  <!-- com parametros -->
-  <object data="a.swf" type="application/x-shockwave-flash">
-    <param name="foo" value="bar">
-  </object>
+  <input type="text" pattern="[0-9]{3,5}"> <!-- 3 a 5 dígitos -->
   ```
+  <form action="javascript:void(0);">
+    <input type="text" pattern="[0-9]{3,5}"> <button>Enviar</button>
+  </form>
 
 ---
-# _Frames_ e _iframe_
+## Outros atributos
+
+- `placeholder="..."`, para mostrar um texto explicativo quando estiver vazio
+- `maxlength="..."`, para definir o limite de caracteres
+- `autofocus`, para receber o foco quando a página for carregada
+- `disabled`, para proibir edições
 
 ---
-## _Frames_
+# Exercício: O que é o que é?
 
-- Eram uma forma para dividir a tela do navegador em várias páginas
-
-  ![](images/frames.png)
+- O que é terrível, verde, come pedras e mora debaixo da terra??
 
 ---
-## _Frames_ (cont.)
+## Exercício
 
-- Podem ainda funcionar, mas os navegadores estão removendo suporte a eles
-- Sua utilidade era:
-  1. Criar barras de rolagem "dentro" da página
-  1. Permitir a reutilização de arquivos e o carregamento de apenas partes da
-     tela
-- Tornou-se obsoleto porque:
-  1. A propriedade `overflow` do `CSS` possibilita a criação de barras de
-     rolagem em qualquer elemento `block`
-  1. A reutilização de arquivos pode ser feita no servidor por meio de
-     geração dinâmica de `html` ou então com atualizações parciais da tela via
-     AJAX
+- <div style="float: right; width: 120px; height: 160px; background-image: url('images/terrivel-eating-big.png')"></div>
+  Conheça o <span style="font-family: 'Ravie', serif; text-shadow: 2px 2px rgb(102, 102, 102)">Incrível <span style="color: #00FF21">Monstro Verde</style> que Come Pedras e Mora Debaixo da Terra</span>
+- Objetivo:
+  1. Dar comida para o terrível monstro verde (etc. etc.)
+  1. Entender o funcionamento de um formulário web
+  1. Entender a diferença entre os métodos http GET e POST
 
 ---
-## Sintaxe dos _frames_ (for fun :)
+## Enunciado
 
-```
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Java Platform SE 7 &lt;/title&gt;
-&lt;/head&gt;
-&lt;frameset cols="20%,80%" title="Documentation frame"&gt;
-&lt;frameset rows="30%,70%" title="Left frames"&gt;
-	&lt;frame src="o.html" name="packageListFrame" title="All Packages"&gt;
-	&lt;frame src="a.html" name="packageFrame" title="..."&gt;
-&lt;/frameset&gt;
-&lt;frame src="s.html" name="classFrame" title="..."&gt;
-&lt;noframes&gt;
-	Navegador não suporta frames.
-&lt;/noframes&gt;
-&lt;/frameset&gt;
-&lt;/html&gt;
-```
+O terrível monstro verde (etc. etc.) está com fome e você deve dar comida para
+ele. Ele acaba de ir para a superfície e para que ele não comece a comer
+pessoas, você deve dar a ele seu segundo alimento preferido: pedras.
+
+Para isso, você deve ir até onde ele está e enviar algumas pedras para ele.
+Atualmente, ele está neste endereço: http://terrivel.herokuapp.com. Para dar
+comida a ele, você deve encomendá-las a partir de uma loja virtual.
 
 ---
-## _iframe_
+## Enunciado (cont.)
 
-- Apesar da iminente remoção dos _frames_, seu primo rico ainda prospera:
-  `<iframe></iframe>`
-- Em vez de definir uma divisão da página (`frameset`), apenas embutimos um
-  segundo arquivo suportado pelo navegador dentro do primeiro
-
----
-## Exemplo de _iframe_
-
-```html
-<!-- url do cefet campus II no gmaps -->
-<iframe src="http://..." width="400" height="300"></iframe>
-```
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1875.3254574531459!2d-43.99946155000001!3d-19.939110099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6965ceade4c53%3A0x4980bb6236578f78!2sCEFET-MG+-+Campus+II!5e0!3m2!1spt-BR!2sbr!4v1414043575197" width="400" height="300" frameborder="0" style="border:0"></iframe>
+- Para fazer sua encomenda, você deve fazer um formulário web especificando o seu
+  pedido. Ele deve conter as seguintes informações:
+  - `num_pedras`, [0, &infin;[, &isin; N
+  - `tam_pedras`, [1, 7], sendo 3 o padrão
+    - são permitidos valores decimais a cada 0,5 (e.g.: 1, 1,5, 2)
+  - `nome`, para dar um apelido carinhoso ao seu monstro
+    - Deve conter apenas letras, maiúsculas ou minúsculas
 
 ---
-## Exemplo loucão
+## Enunciado (cont.)
 
-<iframe width="50%" height="50%" src="http://fegemo.github.io/cefet-web/classes/html5/#29"></iframe>
-
----
-## Usos legítimos e atuais do _iframe_
-
-- Colocar um vídeo do youtube na página
-- Colocar um mapa do google/bing maps
-- Colocar um player de música do soundcloud
-- Colocar código html/css/js do jsfiddle.com
-- Colocar um _widget_ de previsão do tempo
+- Você também pode fornecer algumas informações adicionais, como:
+  - `corCeu1`
+  - `corCeu2`
+  - `tipo_pedras`, {`'marroada'`, `'ametista'`, `'topazio'`, `'espinela'`}
+  - `tipo_pedras_sortidas`, {`não`, `sim`}
+    - Se o valor for `sim`, você deve proibir definir um valor para `tipo_pedras`
 
 ---
-## Usos não tão legais do _iframe_
+## Enunciado (cont.)
 
-- Colocar um sistema dentro do outro
-  - Exemplo: [agências de viagem](http://www.alpsturismo.com.br/index.asp)
-- Criar barras de rolagem
+- Você deve criar uma página web com um formulário
+- Você deve usar os elementos que mais se aproximem do tipo de dados que você
+  precisa representar.
+- O formulário deve ter validação de acordo com o domínio de cada campo
+- O _layout_ do formulário deve ser semelhante ao da figura do próximo slide
+
+---
+![](images/form-layout-table.png)
+
+---
+## Entrega
+
+1. Você deve criar um **repositório no GitHub com o nome `web-terrivel`**
+  contendo os arquivos (.html, .css, .js) usados para criar seu formulário
+1. Também deve estar **na raiz o seu repositório** dois arquivos de imagem:
+  1. terrivel-get.png, uma tela mostrando um envio do formulário via GET
+  1. terrivel-post.png, uma tela mostrando um envio do formulário via POST
+1. Submeter o endereço do repositório no **Moodle**
 
 ---
 # Referências
