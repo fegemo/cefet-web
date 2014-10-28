@@ -64,8 +64,24 @@ figcaption
   padding 5px
   margin-bottom 3px
 
-/// Header and content layout
+$table-border-color = gray
+table
+  border 2px solid $table-border-color
 
+tr
+  background-color rgba(255,255,255,.7)
+  &:nth-of-type(even)
+    background-color rgba(191,213,200,.7)
+
+td, th
+  padding .3em .5em
+  border 1px solid $table-border-color
+
+th
+  color white
+  background-color #333
+
+/// Header and content layout
 #page-header
   height $page-header-height
   padding 0
