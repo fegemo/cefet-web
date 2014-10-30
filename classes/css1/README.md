@@ -10,9 +10,6 @@
 1. Seletores (Exercício)
 
 ---
-# A sintaxe
-
----
 # História
 
 <figure class="portrait">
