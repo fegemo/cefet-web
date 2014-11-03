@@ -82,6 +82,8 @@
 - [CSS - Parte 4](classes/css4) (21/10/14) - Prática
 - [HTML - Parte 5](classes/html5) (23/10/14)
 - [HTML - Parte 6](classes/html6) (28/10/14) - Prática
+- [Javascript - Parte 1](classes/js1) (30/10/14)
+- [CSS - Parte 5](classes/css5) (04/10/14) - Prática
 
 ---
 # Distribuição de Pontos
