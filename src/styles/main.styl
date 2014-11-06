@@ -81,6 +81,19 @@ th
   color white
   background-color #333
 
+
+.horizontal-list
+  list-style none
+
+  &> li
+    display inline-block
+    width 25%
+    margin 0 4.5% 0 0
+    vertical-align middle
+    &:last-of-type
+      margin 0
+
+
 /// Header and content layout
 #page-header
   height $page-header-height
