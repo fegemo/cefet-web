@@ -93,6 +93,15 @@ th
     &:last-of-type
       margin 0
 
+for num in (2..5)
+  .multi-column-list-{num}
+    column-count num
+
+.bullet.bullet.bullet-no-anim.bespoke-bullet-inactive
+  transform none
+  transition none
+
+
 
 /// Header and content layout
 #page-header
