@@ -68,11 +68,11 @@
 ## O que é Javascript?
 
 - Linguagem imperativa, com tipagem dinâmica, interpretada
-- Interpretador embutido nos navegadores
+- Há um interpretador embutido em cada navegador
   - Chrome &#8594; V8
   - Firefox &#8594; SpiderMonkey
   - Opera &#8594; Carakan &#8594; V8 (2013)
-  - SquirrelFish &#8594; Safari
+  - Safari &#8594; SquirrelFish 
   - Internet Explorer &#8594; Chakra
 
 ---
@@ -83,6 +83,8 @@
 - Programação dirigida por **eventos**
 - Sintaxe parecida com C, C++, C# e Java
   - Javascript **não** é Java
+- Memória auto-gerenciada (_garbage collector_)
+- _case-sensitive_
 
 ---
 # Como usar em uma página Web
@@ -185,7 +187,7 @@
 ## Tipos de dados (cont.)
 
 - Seis tipos de dados **primitivos**:
-  <ul style="-moz-column-count: 2; -webkit-column-count: 2; column-count: 2;">
+  <ul class="multi-column-list-2">
     <li>`Boolean`</li>
     <li>`Number`</li>
     <li>`String`</li>
