@@ -3,30 +3,10 @@
 ---
 # Roteiro de hoje
 
-1. Exercícios
 1. Javascript no navegador
 1. O DOM
 1. Eventos
-
----
-# Exercícios
-
----
-## Exercício 1
-
----
-## Exercício 2
-
----
-## Exercício 3
-
-- Crie uma galeria de imagens similar a exibida abaixo, quando chegar na
-  ultima imagem volte para a primeira
-
-- Utilize:
-  - document.getElementById( idElemento ).style
-  - document.getElementsByTagName( nomeTag )
-  - Variáveis (var nome)
+1. Exercícios
 
 ---
 # Javascript no navegador
@@ -52,12 +32,13 @@
 ## Momento interativo
 
 - Vamos testar essas funções do objeto `window`
-  1. Abra as ferramentas de desenvolvedor do seu navegador (<kbd>F12</kbd> ou <kbd>Ctrl+Shift+I</kbd>)
-  1. Na aba console, digite `window`, depois ponto ("`.`") e veja a quantidade de propriedades do
-     objeto
-  1. Execute o comando para abrir uma janela com a página do pudim
-     (http://opudim.com.br)
-  1. Se a nova janela não abrir, provavelmente ela foi bloqueada pelo navegador
+  1. Abra as ferramentas de desenvolvedor do seu navegador (<kbd>F12</kbd>
+     ou <kbd>Ctrl+Shift+I</kbd>)
+  1. Na aba console, digite `window`, depois ponto ("`.`") e veja a
+     quantidade de propriedades do objeto
+  1. Execute o comando para abrir uma janela com [a página do pudim](http://opudim.com.br)
+     - Se a nova janela não abrir, provavelmente ela foi bloqueada pelo
+       navegador ;)
 
 ---
 ## O objeto global: **window** (cont.)
@@ -121,6 +102,8 @@
 ---
 # O DOM
 
+<img src="images/don.png" alt="Foto do Don Corleone, do filme O Poderoso Chefão" class="portrait">
+
 ---
 ## O objeto **document**
 
@@ -152,7 +135,7 @@
     ```
   - classes, etc.
     ```js
-    console.log(botaoAzul.className);   // className -&gt; class
+    console.log(botaoAzul.className);   // className -- class
     ```
 
 ---
@@ -360,6 +343,36 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
   }
   botaoEnviar.addEventListener('submit', validaFormulario);
   ```
+
+# Exercícios
+
+- Hoje temos 2 exercícios. Como eles são mais simples, eles podem ser feitos em
+  editores _online_ como jsfiddle e codepen.
+- Você deve "entregá-los" pelo Moodle, postando o link para seus exercícios
+  (sejam eles repositórios no github ou códigos no jsfiddle ou no codepen)
+
+---
+## Exercício 1
+
+- Crie uma galeria de imagens similar à exibida abaixo.
+
+
+- Funcionamento
+  - Botões mostram a próxima imagem ou a anterior
+  - Quando chegar na ultima imagem, voltar para a primeira
+- Dikentinhas:
+  - Você pode fazer de pelo menos 2 formas:
+    1. Ter apenas uma `<img>` e trocar o `src` dela para o da imagem corrente
+    1. Ter uma `<img>` para cada imagem e 
+  - `document.getElementById(idElemento).setAttribute`
+  - document.getElementsByTagName( nomeTag )
+  - Variáveis (var nome)
+
+http://jsfiddle.net/fegemo/bL5b2xnn/
+
+---
+## Exercício 2
+
 
 ---
 # Referências
