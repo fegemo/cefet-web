@@ -220,12 +220,87 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 ```
 
 ---
-## Criando nós dinamicamente
+## Criando elementos dinamicamente
+
+- É possível criar elementos dinamicamente, de duas formas:
+  1. Instanciando elementos e os adicionando à árvore
+    ```js
+    var conteudo = document.getElementById('conteudo');
+    var dado = document.createElement('img');
+    dado.src = 'images/d12.png';
+    conteudo.appendChild(dado);
+    ```
+  1. Definindo a propriedade de `innerHTML` de um elemento da árvore para uma
+     string descrevendo uma estrutura `html`
+    ```js
+    var conteudo = document.getElementById('conteudo');
+    conteudo.innerHTML = '<img src="images/d12.png">';
+    ```
 
 ---
-## Alterando propriedades dos nós
+## Criando elementos dinamicamente (cont.)
 
-- É possível alterar propriedades dos nós
+- Além de `no.appendChild(elemento)`, também é possível incluir novos elementos
+  na árvore usando:
+  ```js
+  no.insertBefore(novoElemento);   // novoElemento vira irmão de no
+  no.replaceChild(novo, antigo);   // novo vira filho de no e
+                                   // exclui o elemento antigo
+  ```
+- Para remover um elemento da árvore
+  ```js
+  no.removeChild(elemento);
+  ```
+
+---
+## Alterando atributos dos nós
+
+- É possível alterar atributos dos nós:
+  ```html
+  <a href="/contato" title="" id="link-contato">
+  ```
+  ```js
+  var lingua = 'port';
+  var texto = {
+    'port': 'Página de Contato',
+    'ingl': 'Contact Us'
+  }
+  var linkContato = document.getElementById('link-contato');
+  linkContato.title = texto[lingua];
+  ```
+
+---
+## Alterando o estilo de elementos
+
+- Há 3 formas para alterar o estilo de elementos:
+  1. Alterando a propriedade `class`
+    ```js
+    elemento.className = 'selecionado titulo';  // 2 classes
+    ```
+  1. Adicionando ou removendo classes individuais
+    ```js
+    no.classList.add('selecionado');  // adiciona .selecionado
+    no.classList.remove('oculta');    // remove .oculta
+    ```
+  1. Alterando a propriedade `style`
+    ```js
+    botao.style.width = '80%';        // define largura como 80%
+    botao.style.paddingTop = '2px';   // padding-top vira paddingTop
+    ```
+
+---
+## Nomes das propriedades de estilo em JS
+
+- Repare a mudança das propriedades CSS para JS:
+  ```js
+  botao.style.backgroundColor = '#ccc';
+  ```
+- CSS &#8594; Javascript
+  - `background-color` &#8594; `backgroundColor`
+  - `border-radius` &#8594; `borderRadius`
+  - `font-size` &#8594; `fontSize`
+  - `list-style-type` &#8594; `listStyleType`
+  - `z-index` &#8594; `zIndex`
 
 ---
 # Eventos
@@ -264,17 +339,17 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 - Há basicamente três formas de atribuir _handlers_ a eventos
   - Forma clássica
     ```js
-    button.onclick = function() { /*...*/ };
+    button.onclick = function(e) { /*...*/ };
     ```
     - Foi a única forma por muitos anos
     - Permite apenas um _handler_ por tipo de evento
   - Forma Internet Explorer 6-8:
     ```js
-    button.attachEvent('onclick', function() { /*...*/ });
+    button.attachEvent('onclick', function(e) { /*...*/ });
     ```
   - Forma W3C (**é a que devemos usar**)
     ```js
-    button.addEventListener('click', function() { /*...*/ }, false);
+    button.addEventListener('click', function(e) { /*...*/ }, false);
     ```
 
 ---
@@ -295,10 +370,18 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 - Mas para nossas aulas, o professor liberou `addEventListener` =)
 
 ---
+# Eventos: tópicos avançados
+
+---
 ## _Event Bubbling_ (Borbulhas de Amor)
 
--
+- Quando um evento é disparado em um elemento (e.g., clique), não apenas ele
+  mas os _handlers_ do mesmo tipo de todos os ancestrais do elemento são
+  acionados
+- Isso é chamado de _event bubbling_
 - Exemplo vivo: [http://jsfiddle.net/fegemo/r61r5sLy/3/](http://jsfiddle.net/fegemo/r61r5sLy/)
+  - Repare que há 3 `divs`, uma dentro da outra e cada uma tem um
+    _click handler_
 
 ---
 ## Por que borbulhar?
@@ -331,8 +414,8 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 
 - Elementos de entrada (`input`) e alguns outros elementos possuem
   **ações padrão**. Por exemplo:
-  - Botão `submit` &gt;&gt; envia o formulário
-  - Botão `reset` &gt;&gt; limpa os campos preenchidos
+  - Botão `submit` &#8594; envia o formulário
+  - Botão `reset` &#8594; limpa os campos preenchidos
 - É possível cancelar a ação padrão usando `e.preventDefault()`:
   ```js
   function validaFormulario(e) {
@@ -344,12 +427,13 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
   botaoEnviar.addEventListener('submit', validaFormulario);
   ```
 
+---
 # Exercícios
 
-- Hoje temos 2 exercícios. Como eles são mais simples, eles podem ser feitos em
-  editores _online_ como jsfiddle e codepen.
-- Você deve "entregá-los" pelo Moodle, postando o link para seus exercícios
-  (sejam eles repositórios no github ou códigos no jsfiddle ou no codepen)
+- Hoje temos 2 exercícios. O primeiro pode ser feito em um editor _online_,
+  como o [jsfiddle](http://jsfiddle.net/) ou [codepen](http://codepen.io/).
+- Você deve "entregá-los" pelo Moodle, postando o _link_ para seus exercícios
+  (sejam eles repositórios no GitHub ou códigos no _jsfiddle_ ou no _codepen_)
 
 ---
 ## Exercício 1
@@ -357,22 +441,50 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 - Crie uma galeria de imagens similar à exibida abaixo.
 
 
+![](images/galeria-imagens.jpg)
+
+---
+## Exercício 1 (cont.)
+
 - Funcionamento
   - Botões mostram a próxima imagem ou a anterior
   - Quando chegar na ultima imagem, voltar para a primeira
+- Ponto de partida: http://jsfiddle.net/fegemo/bL5b2xnn/
+  - Você deve criar um _fork_ no jsfiddle e entregar o link via Moodle
 - Dikentinhas:
   - Você pode fazer de pelo menos 2 formas:
     1. Ter apenas uma `<img>` e trocar o `src` dela para o da imagem corrente
-    1. Ter uma `<img>` para cada imagem e 
-  - `document.getElementById(idElemento).setAttribute`
-  - document.getElementsByTagName( nomeTag )
-  - Variáveis (var nome)
-
-http://jsfiddle.net/fegemo/bL5b2xnn/
+    1. Ter uma `<img>` para cada imagem exibidas numa linha e transladar de
+       acordo com a imagem corrente
 
 ---
-## Exercício 2
+## Exercício 2 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span>
 
+![](images/tela-dice-rollator.jpg)
+
+---
+## Exercício 2 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span> (cont.)
+
+- Crie o _Dice Rollator Tabajara_, um sistema de rolagem de dados
+  - [Repositório no GitHub](https://github.com/fegemo/cefet-web-dice-rollator) para fazer seu fork
+- Há dados de 4, 6, 8, 10, 12 e 20 lados
+- O usuário escolhe a quantidade de dados que quer jogar, de cada tipo
+- Ao apertar o botão "Rolar", os resultados devem aparecer na parte de baixo da
+  página
+
+---
+## Dicas para o exercício 2
+
+- Você não precisa fazer nenhuma alteração nos arquivos CSS e HTML, apenas no
+  arquivo JS (principal.js)
+- Para obter um número aleatório entre 0 e 1:
+  ```js
+  var resultado = window.Math.random(); // ou Math.random();
+  ```
+  - Para obter um número inteiro, de 1 a `maximo`:
+    ```js
+    var resultado = Math.ceil(Math.random() * maximo);
+    ```
 
 ---
 # Referências
