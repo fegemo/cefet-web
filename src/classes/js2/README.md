@@ -430,13 +430,22 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 ---
 # Exercícios
 
-- Hoje temos 2 exercícios. O primeiro pode ser feito em um editor _online_,
-  como o [jsfiddle](http://jsfiddle.net/) ou [codepen](http://codepen.io/).
+- Hoje temos 3 exercícios. Os dois primeiros podem ser feitos em um editor
+  _online_,  como o [jsfiddle](http://jsfiddle.net/) ou [codepen](http://codepen.io/).
 - Você deve "entregá-los" pelo Moodle, postando o _link_ para seus exercícios
   (sejam eles repositórios no GitHub ou códigos no _jsfiddle_ ou no _codepen_)
 
 ---
 ## Exercício 1
+
+- Acesse o [código base no jsfiddle](http://jsfiddle.net/fegemo/umq0bgre/)
+- Você deve criar um código em Javascript para fazer os botões "+" expadirem
+  ou retrairem o texto dos parágrafos, de acordo com o contexto
+  - Uma classe CSS `.expandido` contém as propriedades necessárias para que
+    o parágrafo seja exibido de forma completa.
+  
+---
+## Exercício 2
 
 - Crie uma galeria de imagens similar à exibida abaixo.
 
@@ -444,11 +453,11 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 ![](images/galeria-imagens.jpg)
 
 ---
-## Exercício 1 (cont.)
+## Exercício 2 (cont.)
 
 - Funcionamento
   - Botões mostram a próxima imagem ou a anterior
-  - Quando chegar na ultima imagem, voltar para a primeira
+  - Quando chegar na última imagem, voltar para a primeira
 - Ponto de partida: http://jsfiddle.net/fegemo/bL5b2xnn/
   - Você deve criar um _fork_ no jsfiddle e entregar o link via Moodle
 - Dikentinhas:
@@ -458,12 +467,12 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
        acordo com a imagem corrente
 
 ---
-## Exercício 2 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span>
+## Exercício 3 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span>
 
 ![](images/tela-dice-rollator.jpg)
 
 ---
-## Exercício 2 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span> (cont.)
+## Exercício 3 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span> (cont.)
 
 - Crie o _Dice Rollator Tabajara_, um sistema de rolagem de dados
   - [Repositório no GitHub](https://github.com/fegemo/cefet-web-dice-rollator) para fazer seu fork
@@ -473,7 +482,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
   página
 
 ---
-## Dicas para o exercício 2
+## Dicas para o exercício 3
 
 - Você não precisa fazer nenhuma alteração nos arquivos CSS e HTML, apenas no
   arquivo JS (principal.js)
