@@ -6,7 +6,6 @@
 1. Mais sobre objetos
 1. Mais sobre funções
 1. Herança
-1. Escopo global
 1. Padrões de projeto
 
 ---
@@ -25,6 +24,10 @@
      ```js
      var carro = new Object();
      ```
+
+---
+## Instanciação de Objetos (cont.)
+
 - Um objeto é simplesmente um _container_ de propriedades (nome: valor)
   ```js
   var carro = {
@@ -67,9 +70,10 @@
   console.log(carro.potencia);            // undefined
   console.log(carro.acessorios.volante);  // lança "TypeError"
   ```
-- O erro pode ser prevenido usando-se o operador `&&`:
+- O erro pode ser prevenido usando-se o operador &&:
   ```js
-  console.log(carro.acessorios && carro.acessorios.volante);  // undefined
+  console.log(carro.acessorios && carro.acessorios.volante);
+  // undefined
   ```
 
 ---
@@ -101,19 +105,6 @@
   console.log(b == c);          // false
   console.log(a == c);          // false
   ```
-
----
-## Construção de objetos (recapitulando)
-
-- Vimos duas formas para instanciar objetos:
-  1. Forma literal
-    ```js
-    var moto = {};
-    ```
-  1. Forma operador `new`
-    ```js
-    var moto = new Object();
-    ```
 
 ---
 ## Construção de objetos por **construtor**
@@ -169,6 +160,14 @@
     };
   }
 
+  // continua no próximo slide
+  ```
+
+---
+## Exemplo: Lista de contatos (cont.)
+
+- (continuando o código...)
+  ```js
   var lista = [
     new Contato('huguinho', 'hugo@gmail.com'),
     new Contato('zezinho', 'jose@gmail.com'),
@@ -227,7 +226,7 @@
 ---
 ## O **Prototype** (cont.)
 
-// explicar o qu acontece com a prototype chain
+![](images/prototype-chain.png)
 
 ---
 ## Métodos de classe (estáticos)
@@ -460,7 +459,7 @@
 ---
 ## Escopo - funcionamento
 
-- Resolva o desafio abaixo (:
+- Quais são os valores de `a`, `b` e `c` após `bar()`?
   ```js
   var foo = function () {
     var a = 3, b = 5;
@@ -470,6 +469,10 @@
     };
     bar();
   };
+  ```
+- Resposta:
+  ```js
+  a = 21;  b = 5; c = undefined;
   ```
 
 ---
@@ -505,14 +508,99 @@
     return valor1;
   }
   ```
+
 ---
 # Herança
 
 ---
-# Escopo global
+## Forma **pseudo-clássica**
+
+```js
+var Mamifero = function(nome) {
+  this.nome = nome;
+};
+
+Mamifero.prototype.diz = function (  ) {
+  return this.fala || '';
+};
+```
+```js
+var mamiferoGenerico = new Mamifero('mamifero');
+mamiferoGenerico.diz();     // ''
+```
 
 ---
-# Padrões de projeto
+## Forma **pseudo-clássica** (cont.)
+
+```js
+var Gato = function(nome) {
+  this.nome = nome;
+  this.fala = 'Miau';
+}
+Gato.prototype = new Mamifero();
+```
+```js
+var gato = new Gato('Tom');
+gato.diz();                 // 'Miau'
+```
+
+---
+## Outras formas (vide Crockford, 2005)
+
+- Herança "prototípica"
+- Herença funcional
+
+---
+# Escopo
+
+---
+## Problem de escopo em Javascript
+
+- Sabemos que apenas funções delimitam escopo
+- Tudo o que é criado fora de uma função é associado ao objeto `window` (!!!)
+  ```html
+  <script>
+    var umBoizinho = 'verde';
+    console.log(window.umBoizinho);   // verde
+  </script>
+  ```
+- Isso causa uma grande **poluição do escopo (_namespace_) global**
+
+---
+## Resolvendo a poluição
+
+- Podemos criar funções com o único objetivo de não poluir o _namespace_ global
+- Vamos colocar o código dentro de uma função e executá-la imediatamente
+  - Este é o padrão de projeto <abbr title="Immediately Invoked Function Expression">IIFE</abbr>
+
+---
+## Padrão de Projeto: Immediately Invoked Function Expression
+
+- Tentativa 1:
+  ```html
+  <script>
+    function a() {
+      var umBoizinho = 'verde';
+      console.log(window.umBoizinho);   // verde
+    }
+    a();
+  </script>
+  ```
+  - Problema: poluímos com `a`
+
+---
+## Padrão de Projeto: Immediately Invoked Function Expression (cont.)
+
+- Tentativa 2, certeira:
+  ```html
+  <script>
+  (function() {
+    var umBoizinho = 'verde';
+    console.log(window.umBoizinho);   // undefined (yay)
+  })();
+  </script>
+  ```
+  - IIFE, Sua Linda!!
 
 ---
 # Referências
@@ -520,6 +608,5 @@
 1. Capítulos 3, 4 e 5 do livro "Javascript: The Good Parts"
 1. Capítulos 9 e 10 do livro "Head First: JavaScript"
 1. Mozilla Developer Network (MDN)
-http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/
-http://stackoverflow.com/questions/572897/how-does-javascript-prototype-work
-http://javascriptweblog.wordpress.com/2010/06/07/understanding-javascript-prototypes/
+1. [Como prototypes funcionam](http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/)
+1. [Entendendo prototypes](http://javascriptweblog.wordpress.com/2010/06/07/understanding-javascript-prototypes/)
