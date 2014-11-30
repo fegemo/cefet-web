@@ -43,7 +43,7 @@ if (inputEl) {
       document.getElementById('specTabajaraOutputB'),
       document.getElementById('specTabajaraOutputC')
     ];
-  buttonEl = document.getElementById('specTabajaraButton')
+  buttonEl = document.getElementById('specTabajaraButton');
   new SpecificatorTabajara(
     inputEl,
     outputEls[0],
