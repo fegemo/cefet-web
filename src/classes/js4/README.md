@@ -9,6 +9,16 @@
 1. jQuery
 
 ---
+# Exercícios
+
+- Há dois exercícios a serem feitos e entregues nesta aula
+  1. Sobre armazenamento
+  1. Sobre AJAX
+- Ambos serão descritos ao longo dos slides de conteúdo
+- Você deve entregá-los como um código do jsfiddle ou do codepen.io e colocar
+  o link no Moodle
+
+---
 # _Web Storage_
 
 ---
@@ -161,8 +171,10 @@
   diversas linguagens
   - Assim como o XML
 - Baseado na notação literal de objetos do Javascript
+- Criado pelo autor do nosso livro: [Douglas Crockford](http://tools.ietf.org/html/rfc4627)
 - É codificado como texto puro
 - Exemplo:
+  `produto.json`
   ```json
   {
     "idProduto": 44235,
@@ -206,6 +218,7 @@
   }
 ]
 ```
+- 216 caracteres
 
 ---
 ## JSON vs **XML**
@@ -225,6 +238,7 @@
   </livro>
 </livros>
 ```
+- 319 caracteres (48% maior)
 
 ---
 ## JSON no navegador
@@ -243,12 +257,27 @@
     ```
 
 ---
+# Exercício 1
+
+1. Crie um formulário referente ao cadastro de uma pessoa com os seguintes
+   dados: id, nome, telefone. Os dados deverão ser cadastrados utilizando o
+   **`localStorage`** para persistir, quando um botão **salvar** for pressionado
+   - Os dados deverão ser armazenados em objetos JSON
+2. Crie um botão **"carregar"** que possibilite a recuperação dos dados
+   cadastrados e os mostre em uma DIV ou nos próprios campos do formulário
+   criado
+
+---
 # AJAX
+
+<figure class="portrait">
+  <img src="images/ajax-troy.jpg" alt="Foto do personagem Ajax no filme Tróia">
+</figure>
 
 ---
 ## Problema
 
-- Algumas vezes, queremos alterar apenas um pedaço de uma página Web
+- Algumas vezes, queremos alterar **apenas um pedaço** de uma página Web
   - Exemplo no Facebook:
     1. Botão _like_
     1. Enviar comentário
@@ -260,11 +289,12 @@
 ---
 ## Problema
 
-- Se fosse possível enviar e receber apenas um pedaço de página em vez de
-  páginas completas, o tráfego entre navegador e servidor reduziria bastante
+- Se fosse possível enviar e receber apenas um pedaço de página **em vez de
+  páginas completas**, o tráfego entre navegador e servidor reduziria bastante
 - De fato, os navegadores possibilitam a realização de uma requisição/resposta
   assíncrona, sem o carregamento de uma página completa
   - Essa técnica se chama AJAX
+  - Surgiu no Internet Explorer, no ano 2000, por [Jesse Gareth](http://www.adaptivepath.com/ideas/ajax-new-approach-web-applications/)
 
 ---
 ## <abbr title="Asynchronous JavaScript and XML">AJAX</abbr>
@@ -273,7 +303,7 @@
 - É uma operação realizada via Javascript no navegador
 - Originalmente, usava-se Javascript para fazer uma requisição de dados ao
   servidor, que respondia no formato <abbr title="eXtensible Markup Language">XML<abbr>
-  - Hoje em dia, qualquer objeto reconhecido pelo navegador
+  - Hoje em dia, responde-se com qualquer objeto reconhecido pelo navegador
 - Usamos um objeto do tipo `window.XMLHttpRequest` para fazer a requisição e
   receber a resposta
 
@@ -290,11 +320,17 @@
   ```
 - Uma função (configurada em `onreadystatechange`) é invocada a cada **mudança
   de estado** do objeto (veja nos próximos 2 slides)
+- [Referência](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest) e [Tutorial](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest/Usando_XMLHttpRequest) na MDN
 
 ---
 ## Estados de um XMLHttpRequest
 
-![](images/colocar-imagem-com-estados-ajax.png)
+- **`0`	UNSENT:** `open()` ainda não foi invocado
+- **`1`	OPENED:**	`send()` ainda não foi invocado
+- **`2`	HEADERS_RECEIVED:**	`send()` foi invocado e os cabeçalhos da resposta já estão disponíveis
+- **`3`	LOADING:** fazendo _download_ da resposta
+  - `responseText` tem informação parcial da resposta
+- **`4`	DONE:**	Operação finalizada
 
 ---
 ## _Callback_ de mudança de estado
@@ -302,19 +338,17 @@
 - Invocada a cada alteração de estado do objeto `XMLHttpRequest`
   ```js
   function callbackCurtir() {
-
+    // 4: DONE
+    if (this.readyState === 4) {
+      if (this.status === 200) {
+        alert('Post curtido!');
+      } else {
+        console.log('Erro ao curtir post. Código ' +
+          'da resposta HTTP: ' + this.status);
+      }
+    }
   }
   ```
-
----
-##
-
----
-##
-
----
-##
-
 
 ---
 # jQuery
@@ -322,19 +356,77 @@
 ---
 ## Jake Weary
 
-- Criado em ... na cidade de ...
--
+<figure class="portrait">
+  <img src="images/jake-weary.jpg" alt="Foto do ator Jake Weary">
+</figure>
 
-- Não confunda Jake Weary com jQuery!!
+- Criado em 1990 na cidade de Trenton, New Jersey
+- Criado por A.C. Weary, juntamente com Kim Zimmer, ambos atores
+- Usado em filmes e seriados
+- Não confunda Jake Weary com jQuery!! :D
 
 ---
 ## jQuery
 
----
-##
+<figure class="portrait">
+  <img src="images/jquery-logo.png" alt="Foto do ator Jake Weary">
+</figure>
+
+- Criado em 2006 na cidade de Nova York
+- Criado por John Resig, um engenheiro de software e empreendedor americano
+- Usado em páginas Web, originalmente para facilitar a interação com o DOM de
+  forma _cross-browser_
 
 ---
-##
+## jQuery
+
+- A biblioteca expõe apenas dois objetos no _namespace_ global:
+  - `window.jQuery`
+  - `window.$`, que apontam para o mesmo objeto
+- O objeto é uma função de busca de elementos no DOM através de uma `String`
+  que contém um seletor `CSS`:
+  ```js
+  var itens = window.jQuery('nav#menu-principal .item');
+  var itens = window.$('nav#menu-principal .item'); // mesma coisa
+  ```
+
+---
+## jQuery (cont.)
+
+- A jQuery oferece formas bastante simplificadas para se interagir com o
+  navegador em relação
+  - Eventos
+  - Busca, caminhamento e manipulação no DOM
+  - Manipulação de propriedades CSS e atributos HTML
+  - Efeitos (animações)
+  - AJAX
+- Para a aula de hoje, vamos ver **como usar AJAX do jeito jQuery**
+
+---
+## AJAX mais facinho com jQuery
+
+- O jQuery possui uma abstração do objeto XMLHttpRequest para agilizar a
+  realização de requisições AJAX
+  - Veja como ficaria o exemplo do botão "curtir" usando jQuery:
+    ```js
+    $.get('/curtir/3434', function() {
+      alert('Post curtido!');
+    });
+    ```
+
+---
+# Exercício 2
+
+- Considere uma base de dados fictícia de pessoas disponíveis no formato
+  JSON no endereço:
+    http://www.micbh.com.br/documents/bd_pessoa_json.txt
+    1. Você deverá criar uma página que possui as seguintes opções:
+       1. Carregar: essa funcionalidade deverá buscar os dados da base
+          mencionada anteriormente e armazenar em um array de objetos
+          Javascript (localmente). Essa busca deverá ser feita utilizando AJAX.
+       1. Listar: uma opção para listar os dados armazenados no array
+          deverá ser desenvolvida. Com isso, o usuário poderá visualizar os
+          dados originalmente armazenados no servidor.
 
 ---
 # Referências
@@ -342,3 +434,19 @@
 1. Capítulo 12 do livro "Head First: JavaScript"
 1. Apêndice E do livro "JavaScript - The Good Parts"
 1. Mozilla Developer Network (MDN)
+
+
+---
+## _Setup_ no Google Chrome (slide oculto :P)
+
+- O Chrome tem uma política de permissões diferente para quando acessamos uma
+página via o protocolo file:// que proíbe o uso de requisições AJAX, dentre
+outras coisas
+- Para contornar a restrição, precisamos hospedar nosso arquivo em um servidor
+Web e acessar a página usando o protocolo http
+1. Navegue até seu diretório com o arquivo index.html **pelo terminal**
+1. Use um servidor http simples em python
+```
+$ python -m SimpleHTTPServer
+```
+1. Acesse http://localhost:8000 no navegador
