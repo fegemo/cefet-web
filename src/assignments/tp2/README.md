@@ -39,10 +39,10 @@ implementar também um conjunto de outras funcionalidades, a saber:
 - Acessibilidade (5-10%)
 - Desenvolver uma _Single Page Application_ usando (15%)
   - [Backbone](http://backbone.org)
-  - [Angular](http://backbone.org)
-  - [Knockout](http://backbone.org)
-  - [Ember](http://backbone.org)
-  - [Durandal](http://backbone.org), etc
+  - [Angular](https://angularjs.org/)
+  - [Knockout](http://knockoutjs.com/)
+  - [Ember](http://emberjs.com/)
+  - [Durandal](http://durandaljs.com/), etc
 - Incluir audio/video (sem ser `iframe`) (5%)
 - Usar um preprocessador CSS (7%)
 - Usar _sprites_ CSS para imagens pequenas (5%)
