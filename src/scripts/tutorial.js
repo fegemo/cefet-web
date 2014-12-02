@@ -8,17 +8,17 @@ var tutorial = {
     start: function(deck, el) {
       this.el = el;
 
-      // var appearences = localStorage.getItem('bespoke-tutorial-appeared') || 0;
-      // appearences = window.parseInt(appearences);
+      var appearances = localStorage.getItem('bespoke-tutorial-appeared') || 0;
+      appearances = window.parseInt(appearances);
 
-      // if (appearences < 3) {
+      if (appearances < 3) {
         // Listens for changes in the slide
         this.boundEvents.push(deck.on('next', this.deactivate.bind(this)));
         this.boundEvents.push(deck.on('prev', this.deactivate.bind(this)));
 
         this.timer = window.setTimeout(this.show.bind(this), 3000);
-        // localStorage.setItem('bespoke-tutorial-appeared', ++appearences);
-      // }
+        localStorage.setItem('bespoke-tutorial-appeared', ++appearances);
+      }
     },
 
     deactivate: function() {
