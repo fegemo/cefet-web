@@ -106,6 +106,7 @@
 
 - [TP0: Git](assignments/tp0) (3 pontos, data: 25/09/2014 23:59)
 - [TP1: Seu site pessoal][tp1] (15 pontos, data: 18/11/2014 23:59)
-- TP2: Programação Web Empreendimentos SA (22 pontos, data _TBD_)
+- [TP2: Empreendimentos SA][tp2] (22 pontos, data 15/01/2015 23:59)
 
-[tp1]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp1/README.md#trabalho-pr%C3%A1tico-1---seu-site-pessoal
+[tp1]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp1/README.md
+[tp1]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp2/README.md
