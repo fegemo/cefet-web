@@ -125,11 +125,6 @@
 - A interface do `sessionStorage` também é a mesma daquela do `localStorage`
 
 ---
-## Tamanho do _web storage_
-
-...
-
----
 ## Formato de armazenamento
 
 - Como dito, o _web storage_ armazena apenas _Strings_
