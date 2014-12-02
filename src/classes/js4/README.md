@@ -11,10 +11,10 @@
 ---
 # Exercícios
 
-- Há dois exercícios a serem feitos e entregues nesta aula
-  1. Sobre armazenamento
-  1. Sobre AJAX
-- Ambos serão descritos ao longo dos slides de conteúdo
+- Há três exercícios a serem feitos e entregues nesta aula
+  1. Dois sobre armazenamento
+  1. Um sobre AJAX
+- Eles serão descritos ao longo dos slides de conteúdo
 - Você deve entregá-los como um código do jsfiddle ou do codepen.io e colocar
   o link no Moodle
 
@@ -262,10 +262,22 @@
 1. Crie um formulário referente ao cadastro de uma pessoa com os seguintes
    dados: id, nome, telefone. Os dados deverão ser cadastrados utilizando o
    **`localStorage`** para persistir, quando um botão **salvar** for pressionado
-   - Os dados deverão ser armazenados em objetos JSON
+   - Os dados deverão ser armazenados em objetos no formato JSON
 2. Crie um botão **"carregar"** que possibilite a recuperação dos dados
    cadastrados e os mostre em uma DIV ou nos próprios campos do formulário
    criado
+
+---
+# Exercício 2
+
+- Os slides do professor mostram um balão com o texto "Use as setas para
+  navegar" após 1s que a apresentação foi carregada. Contudo, isso é muito
+  chato para quem já tem essa informação
+  1. O código desse balão foi disponibilizado em http://jsfiddle.net/fegemo/d4yk0uh9/1/
+  1. Modifique-o de forma que:
+     1. Ele só é exibido **uma vez por sessão**
+     1. Após a **terceira vez** exibido, mesmo fora da sessão, ele não será
+        mostrado novamente
 
 ---
 # AJAX
@@ -415,18 +427,15 @@
     ```
 
 ---
-# Exercício 2
+# Exercício 3
 
-- Considere uma base de dados fictícia de pessoas disponíveis no formato
-  JSON no endereço:
-    http://www.micbh.com.br/documents/bd_pessoa_json.txt
-    1. Você deverá criar uma página que possui as seguintes opções:
-       1. Carregar: essa funcionalidade deverá buscar os dados da base
-          mencionada anteriormente e armazenar em um array de objetos
-          Javascript (localmente). Essa busca deverá ser feita utilizando AJAX.
-       1. Listar: uma opção para listar os dados armazenados no array
-          deverá ser desenvolvida. Com isso, o usuário poderá visualizar os
-          dados originalmente armazenados no servidor.
+- Vamos carregar fotos do site Flicker com o pressionar de um botão
+  1. Para usar a API do Flicker, devemos fazer uma requisição AJAX para um
+     endereço neste formato:
+     http://www.flickr.com/services/feeds/photos_public.gne?tags=soccer&format=json
+     - [Descrição da URL](https://www.flickr.com/services/feeds/docs/photos_public/)
+  1. Você deve criar uma página com um botão que vá mostrar 5 imagens de um
+     assunto a sua escolha (no exemplo, futebol)  
 
 ---
 # Referências
