@@ -109,4 +109,4 @@
 - [TP2: Empreendimentos SA][tp2] (22 pontos, data 15/01/2015 23:59)
 
 [tp1]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp1/README.md
-[tp1]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp2/README.md
+[tp2]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp2/README.md
