@@ -436,6 +436,9 @@
      - [Descrição da URL](https://www.flickr.com/services/feeds/docs/photos_public/)
   1. Você deve criar uma página com um botão que vá mostrar 5 imagens de um
      assunto a sua escolha (no exemplo, futebol)  
+     - Cada imagem deve ter um link apontando para a página da foto no Flicker
+     - _**Dikentinha**_: você vai precisar inspecionar a resposta da API para
+       saber o formato do objeto JSON retornado
 
 ---
 # Referências
