@@ -39,7 +39,7 @@ implementar também um conjunto de outras funcionalidades, a saber:
 - Acessibilidade (5-10%)
 - Desenvolver uma _Single Page Application_ usando (15%)
   - [Backbone](http://backbone.org)
-  - [Angular](https://angularjs.org/)
+  - [Angular](http://angularjs.org/)
   - [Knockout](http://knockoutjs.com/)
   - [Ember](http://emberjs.com/)
   - [Durandal](http://durandaljs.com/), etc
