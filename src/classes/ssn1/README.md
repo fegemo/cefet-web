@@ -349,7 +349,7 @@
 - Um banco de dados tipicamente reside em um disco rígido
   1. Vamos acessar uma tabela grande em Apache + PHP
      ```php
-     $result = mysql_query('');
+     $result = mysql_query('SELECT * FROM myVeryBigTable');
      print_r($result);
      ```
      - A execução da aplicação fica parada até que a operação de E/S termine
