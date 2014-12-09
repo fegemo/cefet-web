@@ -1,15 +1,12 @@
-# Server Side - Parte 2
+# Server Side - Parte 3
 
 ---
 # Roteiro
 
-1. Instalando o NodeJS
-1. O npm
-1. Fazendo um _workshop_: **learnyounode**
-1. Exercícios 1 a 4
-1. Módulos
-1. Exercícios 5 e 6
-1. Exercícios 10 e 11
+1. Um servidor web
+1. Web services
+1. SOAP
+1. REST
 
 ---
 # Instalando o NodeJS
