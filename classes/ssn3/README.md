@@ -1,37 +1,20 @@
-# Server Side - Parte 2
+# Server Side - Parte 3
 
 ---
 # Roteiro
 
-1. Instalando o NodeJS
-1. O npm
-1. Fazendo um _workshop_: **learnyounode**
-1. Exercícios 1 a 4
-1. Módulos
-1. Exercícios 5 e 6
-1. Exercícios 10 e 11
+1. Um servidor web
+1. Web services
+1. SOAP
+1. REST
 
 ---
-# Instalando o NodeJS
+# Um servidor web
 
 ---
-## Instalando o NodeJS
+## Um servidor web
 
-- Há versões binárias e/ou instaladores para sistemas Unix, OSX ou Windows
-  [no site oficial](http://www.nodejs.org) (**recomendado** para hoje)
-- Alterativas:
-  - Mac (via brew)
-    ```
-    $ brew install node
-    ```
-  - Linux (via apt-get)
-    ```
-    $ sudo apt-get install -y nodejs
-    ```
-  - Windows (via Chocolatey)
-    ```
-    $ cinst nodejs.install
-    ```
+- Na última aula, criamos um servidor Web que retornava o mesmo 
 
 ---
 ## Instalando por um gerenciador de versões do NodeJS
