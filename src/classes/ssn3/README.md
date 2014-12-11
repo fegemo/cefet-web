@@ -3,198 +3,344 @@
 ---
 # Roteiro
 
-1. Um servidor web
-1. Web services
-1. SOAP
-1. REST
+1. Continuando nosso servidor web <abbr title="Do it yourself">DIY</abbr>
+1. Express
 
 ---
-# Instalando o NodeJS
+# Continuando nosso servidor web
 
 ---
-## Instalando o NodeJS
+## Um servidor web não muito útil
 
-- Há versões binárias e/ou instaladores para sistemas Unix, OSX ou Windows
-  [no site oficial](http://www.nodejs.org) (**recomendado** para hoje)
-- Alterativas:
-  - Mac (via brew)
-    ```
-    $ brew install node
-    ```
-  - Linux (via apt-get)
-    ```
-    $ sudo apt-get install -y nodejs
-    ```
-  - Windows (via Chocolatey)
-    ```
-    $ cinst nodejs.install
-    ```
-
----
-## Instalando por um gerenciador de versões do NodeJS
-
-- Assim como `ruby` possui o `rvm` ou o `rbenv` para gerenciar múltiplas
-  versões da plataforma instaladas, o NodeJS possui algumas alternativas
-  também:
-  - Para Linux e OSX: [`nvm`](https://github.com/creationix/nvm)
-    ```
-    $ nvm install 0.10
-    ```
-  - Para Windows: [`nodist`](https://github.com/marcelklehr/nodist)
-    ```
-    $ nodist 0.10
-    ```
-- Recomendo este tipo de instalação para seu computador de trabalho
-
----
-# O **npm**
-
----
-## O **npm**
-
-- Ao instalar o NodeJS, dois programas são instalados:
-  1. O `node`, propriamente dito;
-  1. E o `npm`
-- O `npm` (_Node Packaged Modules_) é um gerenciador de pacotes _à la
-  `rubygems`_ (ruby) ou `NuGet` (.NET) ou `easy_install` + python `eggs`
-  (python) etc.
-  - A idéia do `npm` é:
-    1. Possibilitar a reutilização de programas
-    1. Gerenciar as dependências do seu projeto
-    1. Tornar seus programas/utilitários disponíveis para a comunidade
-
----
-## O **npm** (cont.)
-
-- Para instalar um pacote no diretório atual, usamos o comando:
-  ```
-  $ npm install &lt;nome>
-  ```
-- Se quisermos instalar um pacote de forma global (acessível de qualquer
-  lugar):
-  ```
-  $ npm install -g &lt;nome>
-  ```
-
----
-# Fazendo um _workshop_: **learnyounode**
-
----
-## _Workshop_: **learnyounode**
-
-- O [nodeschool.io](http://nodeschool.io) é uma comunidade de desenvolvedores
-  que se dedicam ao ensino de tecnologias relacionadas a NodeJS
-  - Eles criam "programas _workshoppers_", que são mini-cursos,
-    auto-explicativos, cujo objetivo é auxiliar o aprendizado dessas
-    tecnologias por meio de exercícios práticos
-
-
----
-## _Workshop_: **learnyounode**
-
-- Um dos _workshops_ ensina alguns conceitos acerca do NodeJS: o
-  [_learnyounode_](https://github.com/rvagg/learnyounode)
-
-  ![](images/learnyounode.png)
-
----
-## Instalando o _learnyounode_ pelo npm
-
-- Para instalar o _learnyounode_, usaremos a instalação global do `npm`:
-  ```
-  $ npm install -g learnyounode
-  ```
-- Uma vez instalado dessa forma, ele é feito visível em qualquer parte.
-  - Abra um terminal e execute-o
-    ```
-    $ learnyounode
-    ```
-
----
-# Exercícios 1 a 4
-
----
-## Exercícios 1 a 4
-
-- Faça os 4 primeiros exercícios do _learnyounode_ seguindo as instruções (em
-  inglês). Lembre-se:
-  - Para executar um programa:
-    ```
-    $ node programa1.js
-    ```
-- Assim que terminar cada exercício, você deve pedir o _learnyounode_ para
-  fazer uma avaliação automática. É assim:
-  ```
-  $ learnyounode verify programa1.js
-  ```
-
----
-## Módulos
-
-- Para fazer o exercício 6 do _learnyounode_, você precisará dividir sua lógica
-  em 2 arquivos (o enunciado pede isso)
-- Dentro dos navegadores, os arquivos Javascript são incluídos por meio do
-  arquivo HTML e as _tags_ `script`
-  - No NodeJS, existe uma função global chamada `require` que possibilita a
-    inclusão de um arquivo no contexto de outro
-
----
-## Exemplo de módulos
-
-- Incluindo um módulo **da plataforma** do NodeJS:
+- Na última aula, criamos um servidor Web que retornava sempre o mesmo arquivo
+  para quaisquer requisições
   ```js
-  var fs = require('fs');             // módulo file system
-  var arqs = fs.readdirSync('.');     // diretório atual
+  var http = require('http'),
+      fs = require('fs');
+
+  var server = http.createServer(function (req, res) {
+    res.writeHead(200, { 'content-type': 'text/plain' });
+    fs.createReadStream(process.argv[3]).pipe(res);
+  })
+
+  server.listen(process.argv[2]);
   ```
-  - Inclui o módulo _file system_, que é um objeto Javascript como [descrito
-    na documentação do módulo](http://nodejs.org/api/fs.html)
 
 ---
-## Exemplo de módulos (cont.)
+## Um servidor web útil
 
-- Incluindo um módulo **de sua autoria**:
+- Alterado, este servidor retorna arquivos **baseados na URL**:
   ```js
-  var matematica = require('./matematica'); // .js opcional
-  console.log(matematica.constantes.PI());
+  var http = require('http'), fs = require('fs'), u = require('url');
+  var server = http.createServer(function (req, res) {
+    var caminho = __dirname + u.parse(req.url).path,
+        stream = fs.createReadStream(caminho);
+    stream.on('error', function() {
+      res.writeHead(404); res.end('Not Found');
+    });
+    stream.on('open', function() {
+      res.writeHead(200, { 'content-type': 'text/plain' });
+      stream.pipe(res);
+    });
+  }).listen(8080);
   ```
-  - Inclui o módulo local com nome `matematica.js`, que é um objeto definido
-    da forma como quisermos, no arquivo `matematica.js`
-    - Veja como definir esse objeto, no próximo slide
 
 ---
-## Criando um módulo
+## Problema: _MIME types_
 
-- Para que um módulo possa ser usado via `require`, você deve atribuir
-  sua interface pública a um objeto global chamado `module.exports`.
-  - Por exemplo, o arquivo `matematica.js`:
+- O protocolo HTTP define um cabeçalho chamado _Content-Type_, que deve conter
+  o tipo <abbr title="Multipurpose Internet Mail Extensions">MIME</abbr> do
+  arquivo: texto, HTML, imagem, CSS etc.
+  - Exemplos:
+    1. `text/plain`
+    1. `text/html`
+    1. `image/png`
+    1. `video/webm`
+    1. `application/json`
+- Como saber qual _MIME type_ enviar?
+  - Tipicamente usamos **a extensão do arquivo**
+  - E uma tabela que mapeie extensões para _MIME types_
+
+---
+## Servindo os arquivos, com _MIME types_
+
+- Existem mais de 1.500 _MIME types_
+- Em vez de criar a lista nós mesmos, vamos buscar se alguém já não passou por
+  esse problema e já propôs uma solução:
+  ```
+  $ npm search mime
+  ```
+  - Ou, para quem não acordou muito _hardcore_, pesquise no [site do npm](https://www.npmjs.com/search?q=mime)
+    - Resultado: um pacote chamado `mime`, com a descrição _"A comprehensive
+      library for mime-type mapping"_
+      - [Repositório](https://github.com/broofa/node-mime) no GitHub com documentação
+---
+## Usando o pacote **mime**
+
+- Primeiro, vamos instalar **localmente** o pacote `mime`. No diretório
+  do nosso arquivo js:
+  ```
+  $ npm install mime
+  ```
+  - Repare que uma pasta com o nome `node_modules` foi criada e ela contém uma
+    subpasta chamada `mime`
+- No programa do nosso servidor web:
+  1. Incluir o módulo `mime` via `require('mime')`
+  1. Invocar o método `lookup` que, dado um nome de arquivo, retorna o
+     _MIME type_
+
+---
+## Usando o pacote **mime** (cont.)
+
+- (1) Incluindo o módulo `mime`
+  ```js
+  var http = require('http'),
+      fs = require('fs'),
+      url = require('url'),
+      mime = require('mime'); // incluído e atribuido à var. mime
+
+  /* ... */
+  ```
+
+---
+## Usando o pacote **mime** (cont.)
+
+- (2) Invocando o método que retorna o tipo _MIME_ dado um nome de arquivo:
+  ```js
+  /* ... */
+  stream.on('open', function() {
+    res.writeHead(200, {
+      'content-type': mime.lookup(caminho)
+    });
+    stream.pipe(res);
+    console.log('Serviu o arquivo: ' + caminho);
+  });
+  /* ... */
+  ```
+
+---
+## O que ainda está faltando
+
+- Nosso servidor web ainda precisa de algumas coisas:
+  1. Controlar _cache_ de arquivos já solicitados
+    - Se um navegador solicita um arquivo, o servidor pode enviar uma resposta
+      `304 not modified` em vez de `200 OK`
+  1. Prevenir que um usuário acesse http://localhost:8080/../../../
+  1. Saber responder a métodos HTTP diferentes de GET (POST, PUT, DELETE, HEAD etc.)
+  1. Saber falar outros métodos (e.g., HTTPS)
+  1. Gerar arquivos HTML dinamicamente
+- Novamente, vejamos se não estamos reiventando a roda =)
+
+---
+# Express
+
+---
+## <img src="images/expressjs.png" style="float:right;margin-left:10px;border-radius:5px;">
+
+- Se entitulam um _web framework_ para Node.js:
+  1. Rápido
+  1. Não opinativo (_unopinionated_)
+  1. Minimalista
+- Site oficial: [http://expressjs.com/](http://expressjs.com/)
+
+---
+## Instalação
+
+- Via `npm`, é claro =)
+  ```
+  $ npm install express
+  ```
+  - Isso vai criar a pasta `node_modules` no diretório atual e fazer _download_
+    dos arquivos do express para `node_modules/express`
+
+---
+## Servidor _"hello world"_ com Express
+
+```js
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port);
+});
+```
+
+---
+## Servidor de arquivos estáticos com Express
+
+```js
+var express = require('express'),
+    app = express();
+                                                // suponhamos que
+app.use(express.static(__dirname + '/public')); // /public é uma pasta
+                                                // com nosssos
+                                                // arqs. estáticos
+var server = app.listen(3000, function () {
+  console.log('Servidor escutando em: http://localhost:3000');
+});
+```
+- Exemplo de diretório:
+
+  ![](images/diretorio-express-exemplo.png)
+
+---
+## Especificando rotas
+
+- O _express_ facilita a especificação da ação a ser tomada dependendo da URL
+  solicitada
+  - Uma rota é definida por um verbo HTTP (GET, POST etc.) e um caminho de uma
+    URL
+  - A cada rota é associada uma _callback_
     ```js
-    module.exports = {
-      constantes: {
-        PI: 3.14159
-      },
-      soma: function(a, b) { return a + b; },
-      multi: function(a, b) { return a * b; }
-    };
+    // GET /
+    app.get('/', function(request, response) {
+      response.render('index');
+    });
+    // POST /contato
+    app.post('/contato', function(request, response) {
+      // envia um email usando os dados enviados
+    });
     ```
 
 ---
-## Exercícios 5 e 6
+## Especificando rotas (cont.)
 
-- Faça os exercícios 5 e 6 do _learnyounode_
-  - Você vai precisar usar os seguintes módulos da plataforma:
-    1. `fs`, para [ler um diretório](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
-    1. `path`, para [recuperar uma extensão](http://nodejs.org/api/path.html#path_path_extname_p) à partir de um caminho de arquivo
+- Mais alguns exemplos de rotas:
+  ```js
+  // HEAD /user/122   (verificar se usuário id=122 existe)
+  app.head('/user/:ident', function(request, response) {
+    if (bandoDeDadosUsuarios[request.params.ident]) {
+      response.status(200).end();
+    } else {
+      response.status(404).end();
+    }
+  });
+  ```
+- Veja mais no [guia oficial sobre rotas](http://expressjs.com/starter/basic-routing.html)
 
 ---
-## Exercícios 10 e 11
+## Gerando HTML dinamicamente
 
-- Faça os exercícios 10 e 11 do _learnyounode_
-- Você vai precisar usar os seguintes módulos da plataforma:
-1. `net`, para [iniciar uma conexão TCP](http://nodejs.org/api/net.html)
-1. `http`, para [realizar uma requisição HTTP](http://nodejs.org/api/http.html)
+- Queremos poder gerar HTML dinamicamente. Para isso, precisamos de uma
+  linguagem que facilite isso, ao mesmo tempo que possibilite a **separação de
+  código HTML do código nessa linguagem**
+- Para ser "não opinativo", o Express não impõe uma linguagem específica,
+  oferecendo 19 opções, e.g.:
+  1. `ejs` (`.ejs`, era o [formato original do Express](https://github.com/tj/ejs))
+  1. `handlebars` (`.hbs`, [site oficial](http://handlebarsjs.com/))
+  1. `jade` (`.jade`, [site oficial](http://jade-lang.com/))
+  1. `dust` (`.dust`, feito pelo [LinkedIn](http://akdubya.github.io/dustjs/))
+
+---
+## Gerando HTML dinamicamente com **ejs**
+
+- Usamos `ejs` (ou qualquer outro **_templating engine_**) em 3 passos:
+  1. Configuramos o express
+  1. Escrevemos arquivos HTML no formato `ejs`
+  1. Para determinadas rotas, renderizamos _views_
+- (1) Para configurar o Express para usar `ejs`:
+  ```js
+  app.set('view engine', 'ejs');
+  ```
+
+---
+## Gerando HTML dinamicamente com **ejs** (cont.)
+
+- (2) Escrevemos arquivos no formato `.ejs` em vez de `.html`. Trecho de um
+  arquivo, e.g., `equipe.ejs`:
+  ```
+  &lt;ul>
+    <% for (var i=0; i < users.length; i++) { %>
+      &lt;li>&lt;img src="<%= users[i].foto %>"><%= users[i].nome %>&lt;/li>
+    <% } %>
+  &lt;/ul>
+  ```
+  - Esses arquivos são chamados de _views_ e devem ficar dentro de uma pasta
+    que configurarmos (valor padrão: `./views`):
+    ```js
+    app.set('views', 'arquivos_ejs');   // pasta arquivos_ejs
+    ```
+
+---
+## Gerando HTML dinamicamente com **ejs** (cont.)
+
+- (3) Ao definirmos os _handlers_ das nossas rotas, chamamos `response.render`
+  e passamos o nome do arquivo da _view_ que deve ser usado (sem a extensão):
+  ```js
+  app.get('/equipe', function(request, response) {
+    response.render('equipe');
+  });
+  ```
+
+---
+## Gerando HTML dinamicamente com **ejs** (cont.)
+
+- (3) É possível (e muito comum) disponibilizar dados para a _view_ e podemos
+  fazer isso usando o segundo parâmetro de `response.render`:
+  ```js
+  response.render('equipe', {
+    users: [
+      { nome: 'TJ Holowaychuk', foto: 'tj.jpg'  },
+      { nome: 'Douglas Wilson', foto: 'dcw.jpg' }
+    ]
+  });
+  ```
+- Mais informações sobre [_templating engines_](http://expressjs.com/guide/using-template-engines.html) no Express
+
+---
+## Gerando HTML dinamicamente com **handlebars**
+
+- (1) Configurando o Express:
+  ```js
+  app.set('view engine', 'handlebars');
+  ```
+- (2) Criando arquivos no formato `.hbs`:
+  ```hbs
+  <ul>
+    {{#each users}}
+      <li><img src="{{foto}}">{{nome}}</li>
+    {{/each}}
+  </ul>
+  ```
+
+---
+## Gerando HTML dinamicamente com **jade**
+
+- (1) Configurando o Express:
+  ```js
+  app.set('view engine', 'jade');
+  ```
+- (2) Criando arquivos no formato `.jade`:
+  ```jade
+  ul
+    each user in users
+      li: img(src=user.foto) #{user.nome}
+  ```
+
+---
+## Gerando HTML dinamicamente com **dust**
+
+- (1) Configurando o Express:
+  ```js
+  app.set('view engine', 'dust');
+  ```
+- (2) Criando arquivos no formato `.dust`:
+  ```dust
+  <ul>
+    {#users}
+      <li><img src="{foto}">{nome}</li>
+    {/users}
+  </ul>
+  ```
 
 ---
 # Referências
 
-1. Capítulo 2 do livro "NodeJS in Action"
-1. [NodeSchool.io](http://nodeschool.io)
+1. Capítulo 8 do livro "Node.js in Action"
+1. [Site do expressjs](http://expressjs.com/)
