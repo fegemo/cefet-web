@@ -91,11 +91,11 @@
 ---
 # Aulas (cont.)
 
-- [Javascript - Parte 4](classes/js4) (02/12)
+- [Javascript - Parte 4](classes/js4) (02/12) - Prática
 - [Server-side - Parte 1](classes/ssn1) (04/12)
-- [Server-side - Parte 2](classes/ssn2) (09/12)
-- Server-side - Parte 3 (11/12)
-- Server-side - Parte 4 (16/12)
+- [Server-side - Parte 2](classes/ssn2) (09/12) - Prática
+- [Server-side - Parte 3](classes/ssn3) (11/12)
+- [Server-side - Parte 4](classes/ssn4) (16/12) - Prática
 - Server-side - Parte 5 (18/12)
 
 ---
