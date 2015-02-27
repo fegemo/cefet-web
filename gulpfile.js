@@ -4,7 +4,6 @@ var pkg = require('./package.json'),
     gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
     rimraf = require('gulp-rimraf'),
-    psi = require('psi'),
     rename = require('gulp-rename'),
     imagemin = require('gulp-imagemin'),
     pngcrush = require('imagemin-pngcrush'),
@@ -174,14 +173,6 @@ gulp.task('watch', function() {
 
 gulp.task('deploy', ['build'], function(done) {
   ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
-});
-
-gulp.task('psi', function(done) {
-  psi({
-    key: 'AIzaSyCSdP45elEaQN0CIIWpAfMq6XIRGhcICM4',
-    url: 'http://localhost:8081',
-    strategy: 'desktop'
-  }, done);
 });
 
 gulp.task('build', ['cefet-files']);

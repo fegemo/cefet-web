@@ -1,9 +1,9 @@
 {
-  "name": "cefet-class-template",
+  "name": "cefet-web",
   "version": "0.1.0",
-  "homepage": "https://github.com/fegemo/cefet-class-template",
+  "homepage": "https://github.com/fegemo/cefet-web",
   "bugs": {
-    "url": "https://github.com/fegemo/cefet-class-template/issues"
+    "url": "https://github.com/fegemo/cefet-web/issues"
   },
   "author": {
     "name": "Flávio Coutinho",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/fegemo/cefet-class-template.git"
+    "url": "git://github.com/fegemo/cefet-web.git"
   },
   "dependencies": {
     "bespoke": "^1.0.0",
@@ -27,9 +27,6 @@
     "bespoke-theme-fancy": "^0.1.1",
     "bespoke-touch": "^1.0.0",
     "debowerify": "^0.8.1",
-    "gulp-autoprefixer": "^0.0.10",
-    "gulp-uglify": "^1.0.1",
-    "gulp-util": "^3.0.1",
     "specificity": "^0.1.4"
   },
   "devDependencies": {
@@ -39,6 +36,7 @@
     "gulp-concat": "^2.4.1",
     "gulp-connect": "^2.0.5",
     "gulp-csso": "^0.2.9",
+    "gulp-autoprefixer": "^0.0.10",
     "gulp-imagemin": "^1.1.0",
     "gulp-plumber": "^0.6.3",
     "gulp-rename": "^1.2.0",
@@ -51,7 +49,6 @@
     "insert-css": "^0.2.0",
     "merge-stream": "~0.1.5",
     "opn": "^1.0.0",
-    "psi": "^0.1.4",
     "through": "^2.3.4"
   },
   "engines": {
