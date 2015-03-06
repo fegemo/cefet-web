@@ -10,8 +10,7 @@
 ## Objetivos
 
 1. Criar páginas **HTML com uso de CSS e Javascript**.
-1. Desenvolver **sistemas web dinâmicos** com banco de dados, ~~JSP, JSF~~ (ou
-  Grails? ou NodeJS?).
+1. Desenvolver **sistemas web dinâmicos** com banco de dados, ~~JSP, JSF~~ (Node.js).
 1. Fazer trabalhos práticos legais
 1. Tornar-se um ninja Javascript
 
@@ -67,36 +66,38 @@
 ---
 # Aulas
 
-- [História da Web](classes/intro/) (23/09/14)
-- [HTML - Parte 1](classes/html1/) (25/09/14)
-- [HTML - Parte 2](classes/html2/) (30/09/14) - Prática
-- [HTML - Parte 3](classes/html3/) (02/10/14)
-- [CSS - Parte 1](classes/css1/) (07/10/14) - Prática
-- [CSS - Parte 2](classes/css2) (09/10/14)
-- [HTML - Parte 4](classes/html4) (14/10/14) - Prática
-- [CSS - Parte 3](classes/css3) (16/10/14)
+- [História da Web](classes/intro/)
+- [HTML - Parte 1](classes/html1/)
+- [HTML - Parte 2](classes/html2/) - Prática
+- [HTML - Parte 3](classes/html3/)
+- [CSS - Parte 1](classes/css1/) - Prática
+- [CSS - Parte 2](classes/css2)
+- [HTML - Parte 4](classes/html4) - Prática
+- [CSS - Parte 3](classes/css3)
 
 ---
 # Aulas (cont.)
 
-- [CSS - Parte 4](classes/css4) (21/10/14) - Prática
-- [HTML - Parte 5](classes/html5) (23/10/14)
-- [HTML - Parte 6](classes/html6) (28/10/14) - Prática
-- [Javascript - Parte 1](classes/js1) (30/10/14)
-- [CSS - Parte 5](classes/css5) (04/10/14) - Prática
-- [CSS - Parte 6](classes/css6) (06/10/14)
-- [Javascript - Parte 2](classes/js2) (13/11 e 18/11) - Prática
-- [Javascript - Parte 3](classes/js3) (27/11)
+- [CSS - Parte 4](classes/css4) - Prática
+- [HTML - Parte 5](classes/html5)
+- [HTML - Parte 6](classes/html6)- Prática
+- [Javascript - Parte 1](classes/js1)
+- [CSS - Parte 5](classes/css5) - Prática
+- [CSS - Parte 6](classes/css6) 
+- [Javascript - Parte 2](classes/js2) - Prática
+- [Javascript - Parte 3](classes/js3)
 
 ---
 # Aulas (cont.)
 
-- [Javascript - Parte 4](classes/js4) (02/12) - Prática
-- [Server-side - Parte 1](classes/ssn1) (04/12)
-- [Server-side - Parte 2](classes/ssn2) (09/12) - Prática
-- [Server-side - Parte 3](classes/ssn3) (11/12)
-- [Server-side - Parte 4](classes/ssn4) (16/12) - Prática
-- Server-side - Parte 5 (18/12)
+- [Javascript - Parte 4](classes/js4) - Prática
+- [Server-side - Parte 1](classes/ssn1)
+- [Server-side - Parte 2](classes/ssn2) - Prática
+- [Server-side - Parte 3](classes/ssn3)
+- [Server-side - Parte 4](classes/ssn4) - Prática
+- [Server-side - Parte 5](classes/ssn5) - Prática
+- [Server-side - Parte 4](classes/ssn4) - Prática
+- [Javascript - Parte 5](http://fegemo.github.io/talk-es6/)
 
 ---
 # Distribuição de Pontos
