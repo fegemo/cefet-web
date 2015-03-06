@@ -53,7 +53,7 @@
 - O navegador armazena informações permanentemente para aquela página
   - Ou até que o usuário remova "Cookies e outros dados de site e plug-in"
 
-    ![](images/clear-cookies.png)
+    ![](../../images/clear-cookies.png)
 
 ---
 ## Exemplo de uso do **localStorage**
@@ -278,7 +278,7 @@
 # AJAX
 
 <figure class="portrait">
-  <img src="images/ajax-troy.jpg" alt="Foto do personagem Ajax no filme Tróia">
+  <img src="../../images/ajax-troy.jpg" alt="Foto do personagem Ajax no filme Tróia">
 </figure>
 
 ---
@@ -364,7 +364,7 @@
 ## Jake Weary
 
 <figure class="portrait">
-  <img src="images/jake-weary.jpg" alt="Foto do ator Jake Weary">
+  <img src="../../images/jake-weary.jpg" alt="Foto do ator Jake Weary">
 </figure>
 
 - Criado em 1990 na cidade de Trenton, New Jersey
@@ -376,7 +376,7 @@
 ## jQuery
 
 <figure class="portrait">
-  <img src="images/jquery-logo.png" alt="Foto do ator Jake Weary">
+  <img src="../../images/jquery-logo.png" alt="Foto do ator Jake Weary">
 </figure>
 
 - Criado em 2006 na cidade de Nova York

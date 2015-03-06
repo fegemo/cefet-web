@@ -7,25 +7,25 @@
 <ul class="list-horizontal">
   <li>
     <figure class="portrait">
-      <img src="images/larry-roberts.jpg" alt="Foto de Larry Roberts">
+      <img src="../../images/larry-roberts.jpg" alt="Foto de Larry Roberts">
       <figcaption>**Larry Roberts**, "pai" da ARPANET</figcaption>
     </figure>
   </li>
   <li>
     <figure class="portrait">
-      <img src="images/vint-cerf.jpg" alt="Foto de Vint Cerf">
+      <img src="../../images/vint-cerf.jpg" alt="Foto de Vint Cerf">
       <figcaption>**Vint Cerf**, "pai" dos protocolos TCP/IP</figcaption>
     </figure>
   </li>
   <li>
     <figure class="portrait">
-      <img src="images/bob-kahn.jpg" alt="Foto de Bob Kahn">
+      <img src="../../images/bob-kahn.jpg" alt="Foto de Bob Kahn">
       <figcaption>**Bob Kahn**, "pai" dos protocolos TCP/IP</figcaption>
     </figure>
   </li>
   <li>
     <figure class="portrait">
-      <img src="images/tim-berners-lee.jpg" alt="Foto de Tim Berners-Lee">
+      <img src="../../images/tim-berners-lee.jpg" alt="Foto de Tim Berners-Lee">
       <figcaption>**Tim Berners-Lee**, "pai" da Web</figcaption>
     </figure>
   </li>
@@ -87,7 +87,7 @@ _Fonte: [Estradas e Encruzilhadas da História da Internet (inglês)][roads-cros
 À partir de 1969 e durante a década de 1970, a ARPANET cresceu e se conectou com
 várias outras grandes redes.
 
-<img src="images/arpanet-1986.png" alt="Diagrama lógico da ARPANET em 1986">
+<img src="../../images/arpanet-1986.png" alt="Diagrama lógico da ARPANET em 1986">
 
 ---
 Contudo, **a falta de padrão de protocolos** de rede impedia o avanço.
@@ -125,7 +125,7 @@ confiabilidade**.
 # Mas se a Web surgiu apenas em 1989, o que era a Internet antes dela?
 
 <figure class="portrait">
-  <img src="images/philosoraptor.jpg" alt="O Filosoraptor">
+  <img src="../../images/philosoraptor.jpg" alt="O Filosoraptor">
 </figure>
 
 ---
@@ -138,50 +138,50 @@ confiabilidade**.
 
 ---
 <figure>
-  <img src="images/email-elm.png" alt="Tela do cliente de E-mail ELM">
+  <img src="../../images/email-elm.png" alt="Tela do cliente de E-mail ELM">
   <figcaption>Cliente de E-mail ELM (1986)</figcaption>
 </figure>
 
 ---
 <figure>
-  <img src="images/email-pine.png" alt="Tela do cliente de E-mail Pine">
+  <img src="../../images/email-pine.png" alt="Tela do cliente de E-mail Pine">
   <figcaption>Cliente de E-mail Pine (1989)</figcaption>
 </figure>
 
 ---
 <figure>
-  <img src="images/bbs-koala-country.jpg" alt="Tela do BBS Koala Country">
+  <img src="../../images/bbs-koala-country.jpg" alt="Tela do BBS Koala Country">
   <figcaption>BBS Koala Country (1989)</figcaption>
 </figure>
 
 ---
 <figure>
-  <img src="images/bbs-exec-pc.png" alt="Tela do BBS Exec-PC">
+  <img src="../../images/bbs-exec-pc.png" alt="Tela do BBS Exec-PC">
   <figcaption>BBS Exec-PC (1982)</figcaption>
 </figure>
 
 ---
 <figure>
   <figcaption>Usenet GNUs</figcaption>
-  <img src="images/usenet-gnus.png" alt="Tela do Usenet GNUs">
+  <img src="../../images/usenet-gnus.png" alt="Tela do Usenet GNUs">
 </figure>
 
 ---
 <figure>
   <figcaption>Gopher de Jospeh Maistre</figcaption>
-  <img src="images/gopher-jospeh-maistre.png" alt="Tela do gopher de Jospeh Maistre">
+  <img src="../..//gopher-jospeh-maistre.png" alt="Tela do gopher de Jospeh Maistre">
 </figure>
 
 ---
 <figure>
   <figcaption>Uma busca em gopher por Veronica</figcaption>
-  <img src="images/gopher-veronica-search-engine.png" alt="Tela mostrando uma busca em gopher via Veronica">
+  <img src="../../images/gopher-veronica-search-engine.png" alt="Tela mostrando uma busca em gopher via Veronica">
 </figure>
 
 ---
 <figure>
   <figcaption>Tela do Gopherpedia</figcaption>
-  <img src="images/gopherpedia.png" alt="Tela do Gopherpedia">
+  <img src="../../images/gopherpedia.png" alt="Tela do Gopherpedia">
 </figure>
 
 ---
@@ -227,7 +227,7 @@ confiabilidade**.
 Se estamos viajando no hiperespaço e escrevemos um texto
 
 <figure class="portrait">
-  <img src="images/philosoraptor.jpg" alt="O Filosoraptor">
+  <img src="../../images/philosoraptor.jpg" alt="O Filosoraptor">
 </figure>
 
 Ele se torna um hipertexto?
@@ -295,7 +295,7 @@ Este é um texto com <em>itálico</em>.
   - 2001: XHTML 1.1
 
 ---
-[![APIs do HTML5](images/html5-apis.png)][html5-apis-diagram]
+[![APIs do HTML5](../../images/html5-apis.png)][html5-apis-diagram]
 
 [html5-apis-diagram]: http://commons.wikimedia.org/wiki/File:HTML5-APIs-and-related-technologies-by-Sergey-Mavrody.png#mediaviewer/File:HTML5-APIs-and-related-technologies-by-Sergey-Mavrody.png
 
@@ -310,14 +310,14 @@ que seja capaz de renderizar** seu conteúdo e permitir a **navegação** de um
 arquivo html para outro.
 
 ---
-![Foto do navegador WorldWideWeb](images/browser-www.png)
+![Foto do navegador WorldWideWeb](../../images/browser-www.png)
 
 ---
 ## Linha do tempo dos navegadores
 
  - [Evolução da Web][evolution-of-web]
 
-![Tela do site Evolução da Web](images/evolution-of-web.png)
+![Tela do site Evolução da Web](../../images/evolution-of-web.png)
 
 [evolution-of-web]: http://www.evolutionoftheweb.com/
 

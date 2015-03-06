@@ -16,7 +16,7 @@
 # História
 
 <figure class="portrait">
-  <img src="images/brendan-eich.png" alt="Foto de Brendan Eich">
+  <img src="../../images/brendan-eich.png" alt="Foto de Brendan Eich">
   <figcaption>**Brendan Eich**, "pai" do Javascript</figcaption>
 </figure>
 
@@ -59,7 +59,7 @@
 ---
 ## JavaScript nos anos 90
 
-[![](images/pocketdragon.png)](http://fegemo.github.io/pocketdragon/)
+[![](../../images/pocketdragon.png)](http://fegemo.github.io/pocketdragon/)
 
 ---
 # Características da linguagem
@@ -124,7 +124,7 @@
 ---
 # Operadores
 
-![](images/js-operadores.png)
+![](../../images/js-operadores.png)
 
 ---
 # Variáveis

@@ -39,7 +39,7 @@
 [tab-completa]: http://jsfiddle.net/fegemo/wL3zg2y1/2/
 
 ---
-![Uma descrição das tags que formam uma tabela](images/table.png)
+![Uma descrição das tags que formam uma tabela](../../images/table.png)
 
 ---
 ## Na última aula... (cont.)
@@ -79,7 +79,7 @@
 ---
 ## Exercício 1: Programador sem café
 
-![Uma xícara com um delicioso café](images/cafe.png)
+![Uma xícara com um delicioso café](../../images/cafe.png)
 
 O código abaixo refere-se a uma página que deveria estar mostrando algumas
 músicas, contudo o programador que criou o código estava precisando de um
@@ -93,7 +93,7 @@ Baixe o [exercício][exer-prog-sem-cafe] ou pegue uma cópia com o professor.
 ---
 ## Exercício 2: Festa a fantasia das tags
 
-![Desenho de máscara de festa a fantasia](images/who-am-i.png)
+![Desenho de máscara de festa a fantasia](../../images/who-am-i.png)
 
 Um grupo de elementos HTML, usando fantasia, está fazendo uma brincadeira
 "Quem sou eu?". Eles dão uma dica e você tenta adivinhar que elemento está
@@ -132,7 +132,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
   ele faz outra requisição ao servidor para baixá-la e então poder exibi-la
 
 ---
-![Tela do site pudim.com.br](images/opudim.jpg)
+![Tela do site pudim.com.br](../../images/opudim.jpg)
 
 - http://www.pudim.com.br
 
@@ -196,7 +196,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
   ```
   &lt;!doctype html&gt;
   ```
-  ![Bebezinho fazendo cara de que gostou do que foi falado](images/baby-success.jpg)
+  ![Bebezinho fazendo cara de que gostou do que foi falado](../../images/baby-success.jpg)
 
 ---
 ## E se colocarmos um DOCTYPE inválido?
@@ -232,7 +232,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
 ---
 ## Arqueologia HTML
 
-![Página html escrita usando padrões antigos](images/html-antigo.png)
+![Página html escrita usando padrões antigos](../../images/html-antigo.png)
 
 ---
 # Referências

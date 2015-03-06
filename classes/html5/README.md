@@ -32,14 +32,14 @@
     <area href="..." shape="poly" coords="274,29,260,42,255,61,..." />
     <area href="..." shape="circle" coords="436,418,50" />
   </map>
-  <img src="images/humble-imagemap.png" usemap="#jogos">
+  <img src="../../images/humble-imagemap.png" usemap="#jogos">
   ```
 ---
 ## Resultado do exemplo
 
 - Resultado:
 
-  <img src="images/humble-imagemap.png" border="0" width="600" height="420" orgWidth="600" orgHeight="420" usemap="#image-maps-2014-10-22-192942" alt="" />
+  <img src="../../images/humble-imagemap.png" border="0" width="600" height="420" orgWidth="600" orgHeight="420" usemap="#image-maps-2014-10-22-192942" alt="" />
   <map name="image-maps-2014-10-22-192942" id="ImageMapsCom-image-maps-2014-10-22-192942">
   <area  alt="O desenho de uma mulher" title="Jogo Syberia" href="https://www.google.com.br/search?q=syberia+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=t0JIVLyYC_WCsQSk-4KACA&ved=0CAgQ_AUoAQ&biw=1366&bih=643" shape="rect" coords="125,19,182,161" style="outline:none;" target="_self"     />
   <area  alt="Um soldado" title="Neuroshima Hex" href="https://www.google.com.br/search?q=Neuroshima+Hex+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=yEJIVPurEenksAS91YGoCg&ved=0CAgQ_AUoAQ&biw=1366&bih=643" shape="poly" coords="274,29,260,42,255,61,251,80,253,109,263,113,267,123,237,149,276,155,340,154,335,138,289,133,289,122,290,104,292,89,298,82,303,98,319,83,339,71,325,55,307,53,303,30" style="outline:none;" target="_self"     />
@@ -77,7 +77,7 @@
 ## Problema
 
 <figure class="portrait" style="float: right;">
-  <img src="images/philosoraptor.jpg" alt="O Filosoraptor">
+  <img src="../../images/philosoraptor.jpg" alt="O Filosoraptor">
 </figure>
 
 - Já que temos um hipertexto (`html`), não podemos expandir o conceito para
@@ -128,7 +128,7 @@
   ```
 - Resultado:
 
-  <video src="videos/fendadobiquini.mp4" width="320" height="240"></video>
+  <video src="../../videos/fendadobiquini.mp4" width="320" height="240"></video>
 
 ---
 ## Querida, onde está o controle?
@@ -139,7 +139,7 @@
   ```
 - Resultado:
 
-  <video src="videos/fendadobiquini.mp4" width="320" height="240" controls></video>
+  <video src="../../videos/fendadobiquini.mp4" width="320" height="240" controls></video>
 
 ---
 ## Opções (atributos) de **video**
@@ -199,7 +199,7 @@
 
 - `<audio>` funciona **exatamente** da mesma forma que `<video>`
 
-  - ![](images/baby-success.jpg)
+  - ![](../../images/baby-success.jpg)
 - [Referência na MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
 
 ---
@@ -236,7 +236,7 @@
 
 - Eram uma forma para dividir a tela do navegador em várias páginas
 
-  ![](images/frames.png)
+  ![](../../images/frames.png)
 
 ---
 ## _Frames_ (cont.)

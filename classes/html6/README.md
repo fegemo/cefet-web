@@ -120,9 +120,9 @@
       placeholder="Digite...">
 
 ---
-## Caixa de texto para **e-mail** ![À partir do html5](images/html5-logo-32.png)
+## Caixa de texto para **e-mail** ![À partir do html5](../../images/html5-logo-32.png)
 
-- <img src="images/form-email-sample.png" style="float: right; margin-left: 20px">
+- <img src="../../images/form-email-sample.png" style="float: right; margin-left: 20px">
   Idêntico à caixa de texto, porém o navegador espera um e-mail válido
 - _Markup_:
   ```html
@@ -137,7 +137,7 @@
   </label>
 
 ---
-## Outros semelhantes à caixa de texto ![À partir do html5](images/html5-logo-32.png)
+## Outros semelhantes à caixa de texto ![À partir do html5](../../images/html5-logo-32.png)
 
 - Pesquisa
 
@@ -205,7 +205,7 @@
   - `selected`, para o `option`, para deixar selecionado
   - `multiple`, para o `select`, para permitir mais de um `option`
 ---
-## Data e Hora ![À partir do html5](images/html5-logo-32.png)
+## Data e Hora ![À partir do html5](../../images/html5-logo-32.png)
 
 - _Markup_
   ```html
@@ -234,7 +234,7 @@
   <input type="range" min="0" max="100" step="1">
 
 ---
-## Cores ![À partir do html5](images/html5-logo-32.png)
+## Cores ![À partir do html5](../../images/html5-logo-32.png)
 
 - _Markup_:
   ```html
@@ -257,7 +257,7 @@
 ---
 # Elementos de ação
 
-<img src="images/rambo.png" alt="Foto do Rambo" class="portrait">
+<img src="../../images/rambo.png" alt="Foto do Rambo" class="portrait">
 
 ---
 ## Botões de submissão
@@ -302,7 +302,7 @@
     ```
   - Resultado:
 
-    <input type="image" src="images/cafe.png">
+    <input type="image" src="../../images/cafe.png">
 
 ---
 # **GET** ou **POST**?
@@ -314,10 +314,10 @@
   chamada _query string_
   - Partes de uma URL
 
-    ![](images/url-1.png)
+    ![](../../images/url-1.png)
   - Uma URL completa
 
-    ![](images/url-2.png)
+    ![](../../images/url-2.png)
 
 ---
 ## Comparação
@@ -386,7 +386,7 @@
 ---
 ## Exercício
 
-- <div style="float: right; width: 120px; height: 160px; background-image: url('images/terrivel-eating-big.png')"></div>
+- <div style="float: right; width: 120px; height: 160px; background-image: url('../../images/terrivel-eating-big.png')"></div>
   Conheça o <span style="font-family: 'Ravie', serif; text-shadow: 2px 2px rgb(102, 102, 102)">Incrível <span style="color: #00FF21">Monstro Verde</style> que Come Pedras e Mora Debaixo da Terra</span>
 - Objetivo:
   1. Dar comida para o terrível monstro verde (etc. etc.)
@@ -437,7 +437,7 @@ Para dar comida a ele, você deve encomendá-las a partir de uma loja virtual.
 ---
 ## _Layout_ dos elementos do formulário
 
-![](images/form-layout-table.png)
+![](../../images/form-layout-table.png)
 
 - Uma opção é usar
   - `display: table;`

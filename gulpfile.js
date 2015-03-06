@@ -43,7 +43,7 @@ gulp.task('md', ['clean:md'], function() {
   tasks.push(gulp.src(['README.md'])
     .pipe(isDist ? through() : plumber())
     .pipe(gulp.dest('dist/'))
-    .pipe(connect.reload()))
+    .pipe(connect.reload()));
   tasks.push(gulp.src(['classes/**/*.md'])
     .pipe(isDist ? through() : plumber())
     .pipe(gulp.dest('dist/classes'))
@@ -144,8 +144,6 @@ gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images', 'fonts', 'videos'
   var folders = getFolders('.', 'classes').concat(getFolders('.', 'assignments')),
       tasks = folders.map(function(folder) {
         var t = [];
-        t.push(gulp.src(['dist/images/**/*.*', 'dist/build/**/*.*', 'dist/fonts/**/*.*', 'dist/videos/**/*.*'], { read: true, base: 'dist' })
-          .pipe(gulp.dest(path.join('dist', folder))));
         t.push(gulp.src(['html/index.html'])
           .pipe(replace('{path-to-root}', '../../.'))
           .pipe(gulp.dest(path.join('dist', folder))));

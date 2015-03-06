@@ -13,7 +13,7 @@
 # História
 
 <figure class="portrait">
-  <img src="images/howcome.jpg" alt="Foto de Håkon Wium Lie">
+  <img src="../../images/howcome.jpg" alt="Foto de Håkon Wium Lie">
   <figcaption>**Håkon Wium Lie**, "pai" do CSS</figcaption>
 </figure>
 
@@ -41,17 +41,17 @@
 ---
 ## Sintaxe: **regra**
 
-![Regra CSS](images/css-rule.png)
+![Regra CSS](../../images/css-rule.png)
 
 ---
 ## Sintaxe: **seletor** e **declaração**
 
-![Regra CSS](images/css-selector.png)
+![Regra CSS](../../images/css-selector.png)
 
 ---
 ## Sintaxe: **propriedade** e **valor**
 
-![Regra CSS](images/css-property-value.png)
+![Regra CSS](../../images/css-property-value.png)
 
 ---
 # Classes e IDs
@@ -190,7 +190,7 @@
    1. Observe: agora a cor do "C" voltou a ser vermelha
 1. Modifique seu código `CSS` para que a aparência da página fique assim:
 
-   ![](images/cascading-style-sheets-styled.png)
+   ![](../../images/cascading-style-sheets-styled.png)
 
 ---
 # Seletores
@@ -439,7 +439,7 @@ trabalhar apenas com código `css`.
 
 1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/2v6cuwzn/
 1. Estilize-o, usando `CSS`, para que a tabela fique assim:
-   ![](images/tabela-para-estilizar.png)
+   ![](../../images/tabela-para-estilizar.png)
 1. Output: exercicio3.html, exercicio3.css
 
 ---
@@ -450,7 +450,7 @@ trabalhar apenas com código `css`.
      a classe `alt`
 1. Escreva código `CSS` para estilizar essa tabela para que ela fique da mesma
    forma como no exercício anterior
-   ![](images/tabela-para-estilizar.png)
+   ![](../../images/tabela-para-estilizar.png)
 1. Output: exercicio4.html, exercicio4.css
 1. Você deve entregar todos os seus arquivos via Moodle
 

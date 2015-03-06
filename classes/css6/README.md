@@ -48,7 +48,7 @@
 ---
 ## Anatomia de uma _media query_
 
-![](images/media-query-anatomia.png)
+![](../../images/media-query-anatomia.png)
 
 - Formada por:
   1. _Media types_
@@ -148,19 +148,19 @@
 ---
 ## Exemplo de site não-_responsive_
 
-[![](images/submarino.jpg)](http://www.submarino.com.br)
+[![](../../images/submarino.jpg)](http://www.submarino.com.br)
 
 ---
 ## Exemplo de site _responsive_
 
-[![](images/muumilaakso.jpg)](http://muumilaakso.tampere.fi/)
+[![](../../images/muumilaakso.jpg)](http://muumilaakso.tampere.fi/)
 
 ---
 ## Vários exemplos
 
 - [mediaqueri.es](http://mediaqueri.es)
 
-![](images/mediaqueries.jpg)
+![](../../images/mediaqueries.jpg)
 
 ---
 ## Como fazer
@@ -250,9 +250,9 @@ div.produto {  display: inline-block; }
   transformá-lo em CSS, que é o que o navegador entende
 - Os mais populares:
   <ul class="horizontal-list">
-    <li><img src="images/sass-logo.png" style="width: 100%;"></li>
-    <li><img src="images/less-logo.png" style="width: 100%;"></li>
-    <li><img src="images/stylus-logo.png" style="width: 100%;"></li>
+    <li><img src="../../images/sass-logo.png" style="width: 100%;"></li>
+    <li><img src="../../images/less-logo.png" style="width: 100%;"></li>
+    <li><img src="../../images/stylus-logo.png" style="width: 100%;"></li>
   </ul>
 
 ---
@@ -430,7 +430,7 @@ div.produto {  display: inline-block; }
 ---
 ## Bootstrap
 
-![](images/bootstrap.png)
+![](../../images/bootstrap.png)
 
 ---
 ## Bootstrap (cont.)
@@ -455,12 +455,12 @@ div.produto {  display: inline-block; }
 ---
 ## Zurb Foundation (cont.)
 
-![](images/foundation.png)
+![](../../images/foundation.png)
 
 ---
 ## Comparação
 
-[![](images/good-war-ui.png)](http://henriquecholo.github.io/bootstrap-vs-foundation-talk/#/)
+[![](../../images/good-war-ui.png)](http://henriquecholo.github.io/bootstrap-vs-foundation-talk/#/)
 
 ---
 # Referências

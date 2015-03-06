@@ -102,7 +102,7 @@
 ---
 # O DOM
 
-<img src="images/don.png" alt="Foto do Don Corleone, do filme O Poderoso Chefão" class="portrait">
+<img src="../../images/don.png" alt="Foto do Don Corleone, do filme O Poderoso Chefão" class="portrait">
 
 ---
 ## O objeto **document**
@@ -110,7 +110,7 @@
 - O objeto `document` dá acesso ao **Document Object Model**, ou DOM
 - <p>O DOM é uma representação da estrutura dos elementos html na forma de
   árvore</p>
-  <img src="images/dom-tree.png" style="float:right;width:50%;">
+  <img src="../../images/dom-tree.png" style="float:right;width:50%;">
   <pre style="float:right;width:50%;margin:0;"><code class="hljs lang-html">&lt;!DOCTYPE html&gt;
   &lt;html lang="en"&gt;
   &lt;head&gt;
@@ -191,9 +191,9 @@
 ## Ponteiros entre nós
 
 <figure style="position: relative;width:100%;height:500px;">
-  <img src="images/dom-traversal.png" class="bullet bullet-no-anim" style="position:absolute;top:0;left:0;">
-  <img src="images/dom-traversal-2.png" class="bullet bullet-no-anim" style="position:absolute;top:0;left:0;">
-  <img src="images/dom-traversal-3.png" class="bullet bullet-no-anim" style="position:absolute;top:0;left:0;">
+  <img src="../../images/dom-traversal.png" class="bullet bullet-no-anim" style="position:absolute;top:0;left:0;">
+  <img src="../../images/dom-traversal-2.png" class="bullet bullet-no-anim" style="position:absolute;top:0;left:0;">
+  <img src="../../images/dom-traversal-3.png" class="bullet bullet-no-anim" style="position:absolute;top:0;left:0;">
 </figure>
 
 ---
@@ -450,7 +450,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 - Crie uma galeria de imagens similar à exibida abaixo.
 
 
-![](images/galeria-imagens.jpg)
+![](../../images/galeria-imagens.jpg)
 
 ---
 ## Exercício 2 (cont.)
@@ -469,7 +469,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 ---
 ## Exercício 3 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span>
 
-![](images/tela-dice-rollator.jpg)
+![](../../images/tela-dice-rollator.jpg)
 
 ---
 ## Exercício 3 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span> (cont.)

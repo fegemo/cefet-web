@@ -6,7 +6,7 @@
 - Conversamos sobre a história da Internet e da Web
 - Vimos as proezas de Tim (Berners-Lee), o coração valente ao criar
   <figure class="portrait">
-    <img src="images/tim-berners-lee.jpg" alt="Foto de Tim Berners-Lee">
+    <img src="../../images/tim-berners-lee.jpg" alt="Foto de Tim Berners-Lee">
   </figure>
   - Seu primeiro protocolo
   - Seu primeiro formato de arquivo
@@ -27,12 +27,12 @@
 ---
 ## Servidores Web e Navegadores
 
-![Como servidores web se comunicam com navegadores](images/how-web-works.png)
+![Como servidores web se comunicam com navegadores](../../images/how-web-works.png)
 
 ---
 ## O que um **servidor web** faz?
 
-![Um servidor web atendendo a requisições de arquivos html de um navegador](images/web-servers.png)
+![Um servidor web atendendo a requisições de arquivos html de um navegador](../../images/web-servers.png)
 
 - Ele fica escutando, em determinada porta (geralmente 80), requisições de
   arquivo realizadas por navegadores
@@ -66,10 +66,10 @@
 # Estrutura Básica do **HTML**
 
 ---
-![Exemplo de um arquivo html](images/exemplo-html.png)
+![Exemplo de um arquivo html](../../images/exemplo-html.png)
 
 ---
-![Exemplo de um arquivo html no navegador](images/exemplo-html-resultado.png)
+![Exemplo de um arquivo html no navegador](../../images/exemplo-html-resultado.png)
 
 - Demonstração: criando uma página no "blocão"
 
@@ -88,7 +88,7 @@
 ---
 ## Estrutura (cont.)
 
-![Bonecas russas mostrando a estrutura aninhada de um arquivo HTML](images/matrioskas.png)
+![Bonecas russas mostrando a estrutura aninhada de um arquivo HTML](../../images/matrioskas.png)
 
 ---
 ## Exemplo de _tag_: &lt;p&gt;...&lt;p&gt;
@@ -126,7 +126,7 @@
 ---
 ## Anatomia de uma _tag_
 
-![Anatomia de uma tag mostrando que ela consiste de seu nome envolto por sinais de "menor que" e "maior que"](images/anatomia-tag.png)
+![Anatomia de uma tag mostrando que ela consiste de seu nome envolto por sinais de "menor que" e "maior que"](../../images/anatomia-tag.png)
 
 - _tag_ de abertura: `<h1>`
 - conteúdo

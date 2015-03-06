@@ -59,7 +59,7 @@ web com seu conteúdo**. Além disso, você também tem uma **pequena loja de se
 dessas plantas e deseja divulgá-la em uma página web.
 
 <figure class="portrait">
-  <img src="images/piranha-mario.png" alt="Planta carnívora do jogo Mario Bros">
+  <img src="../../images/piranha-mario.png" alt="Planta carnívora do jogo Mario Bros">
 </figure>
 
 ---
