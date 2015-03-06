@@ -180,7 +180,7 @@
 
 - Se pudéssemos examinar a memória alocada, veríamos:
 
-  ![](images/objetos-memoria.png)
+  ![](../../images/objetos-memoria.png)
   - Repare que o código do método é repetido a cada instância
     - Podemos melhorar isso, se tivermos como definir o **método a nível da
       classe**, ao invés de fazê-lo na instância
@@ -205,7 +205,7 @@
 
 - Se usarmos a classe `ContatoV2` para alocar a lista de contatos, teremos:
 
-  ![](images/objetos-memoria2.png)
+  ![](../../images/objetos-memoria2.png)
   - Mas como isso funciona?
 
 ---
@@ -226,7 +226,7 @@
 ---
 ## O **Prototype** (cont.)
 
-![](images/prototype-chain.png)
+![](../../images/prototype-chain.png)
 
 ---
 ## Métodos de classe (estáticos)

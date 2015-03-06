@@ -135,7 +135,7 @@
 # Express
 
 ---
-## <img src="images/expressjs.png" style="float:right;margin-left:10px;border-radius:5px;">
+## <img src="../../images/expressjs.png" style="float:right;margin-left:10px;border-radius:5px;">
 
 - Se entitulam um _web framework_ para Node.js:
   1. Rápido
@@ -187,7 +187,7 @@ var server = app.listen(3000, function () {
 ```
 - Exemplo de diretório:
 
-  ![](images/diretorio-express-exemplo.png)
+  ![](../../images/diretorio-express-exemplo.png)
 
 ---
 ## Especificando rotas

@@ -13,13 +13,13 @@
 ---
 <h2 style="font-family: Ravie, serif; color: #e90c0c">Lanchonete do Coral 55</h2>
 
-<img class="portrait" src="images/siri.png" style="border: 1px solid rgba(0,0,0,.2)" alt="Bolhas de ar na água">
+<img class="portrait" src="../../images/siri.png" style="border: 1px solid rgba(0,0,0,.2)" alt="Bolhas de ar na água">
 
 ---
 ## <abbr title="Comprehensive Layout">Comp</abbr> / <abbr title="Specifications">Specs</abbr>
 
-[![](images/coral55-comp-thumb.png)](images/coral55-comp.png)
-[![](images/coral55-specs-thumb.png)](images/coral55-specs.png)
+[![](../../images/coral55-comp-thumb.png)](../../images/coral55-comp.png)
+[![](../../images/coral55-specs-thumb.png)](../../images/coral55-specs.png)
 
 ---
 ## Passos para o exercício

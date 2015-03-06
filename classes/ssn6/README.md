@@ -5,7 +5,7 @@
 
 1. MySQL
 1. Arquiteturas REST
-1. Entrando no ![](images/zombie-garden-logo.png)
+1. Entrando no ![](../../images/zombie-garden-logo.png)
 
 ---
 # Sistemas de Gerenciamento de Bancos de Dados
@@ -29,12 +29,12 @@
 - É o SGBD mais popular
 - Há conectores feitos pela comunidade Node.js para o MySQL
   - O pacote mais usado é chamado "mysql":
-    ![](images/npm-mysql.png)
+    ![](../../images/npm-mysql.png)
 
 ---
 ## O pacote "mysql"
 
-![](images/npm-mysql-info.png)
+![](../../images/npm-mysql-info.png)
 
 - Melhor ainda do que `npm install mysql` é:
   ```
@@ -172,7 +172,7 @@ connection.end();
   de um **cemitério zumbi fictício**
 - Veja o banco de dados:
 
-  ![](images/eer-zombie.png)
+  ![](../../images/eer-zombie.png)
 
 ---
 ## Exemplo de API REST (2/5)
@@ -233,12 +233,12 @@ connection.end();
   ```
 
 ---
-# Entrando no ![](images/zombie-garden-logo.png)
+# Entrando no ![](../../images/zombie-garden-logo.png)
 
 ---
 ## O Zombie Garden
 
-![](images/zombie-garden-ss.png)
+![](../../images/zombie-garden-ss.png)
 
 ---
 ## Descrição

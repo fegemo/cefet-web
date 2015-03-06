@@ -68,7 +68,7 @@
   ```
 
 ---
-![](images/divitities.png)
+![](../../images/divitities.png)
 
 ---
 ## A cura da Divitite: **_tags_ semânticas**
@@ -168,7 +168,7 @@
   div { background-image: url(images/bells.png); }
   ```
 - Resultado:
-  <div style="background-image: url(images/bells.png);">
+  <div style="background-image: url(../../images/bells.png);">
     Conteúdo
   </div>
 
@@ -184,7 +184,7 @@
   }
   ```
 - Resultado:
-  <div style="background-image: url(images/bells.png); background-repeat: no-repeat; padding-left: 40px;">
+  <div style="background-image: url(../../images/bells.png); background-repeat: no-repeat; padding-left: 40px;">
     Conteúdo
   </div>
 
@@ -201,7 +201,7 @@
   }
   ```
 - Resultado:
-  <div style="background-image: url(images/bells.png); background-repeat: no-repeat; background-position: 100% 0%;">
+  <div style="background-image: url(../../images/bells.png); background-repeat: no-repeat; background-position: 100% 0%;">
     Conteúdo
   </div>
 
@@ -241,27 +241,27 @@
 ---
 ## `border-width`
 
-![](images/border-width.png)
+![](../../images/border-width.png)
 
 ---
 ## `border-style`
 
-![](images/border-style.png)
+![](../../images/border-style.png)
 
 ---
 ## `border-color`
 
-![](images/border-color.png)
+![](../../images/border-color.png)
 
 ---
 ## Especificando **propriedades para cada lado**
 
-![](images/border-sides.png)
+![](../../images/border-sides.png)
 
 ---
 ## Especificando **cantos arredondados**
 
-![](images/border-radius.png)
+![](../../images/border-radius.png)
 
 ---
 # Cores e gradientes

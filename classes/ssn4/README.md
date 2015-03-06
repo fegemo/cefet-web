@@ -17,7 +17,7 @@
 ---
 ## <span style="font-family: Sacramento; font-size:120%">Geiser<small> - seu computador a todo vapor</small></span>
 
-![](images/geiser.png)
+![](../../images/geiser.png)
 
 - Veja funcionando: [http://geiser.herokuapp.com](http://geiser.herokuapp.com)
 
@@ -89,7 +89,7 @@
 # Parte 1 - configuração e servidor estático
 
 
-- <img src="images/geiser-diretorios.png" style="float:right; margin-left: 10px;">
+- <img src="../../images/geiser-diretorios.png" style="float:right; margin-left: 10px;">
   Repare que o projeto já tem uma estrutura de diretórios e alguns arquivos
   criados:
   1. Pasta **`client`** com arquivos estáticos (css, js, imgs)
@@ -119,7 +119,7 @@
 ---
 ## Parte 1 - configuração e servidor estático (cont.)
 
-![](images/geiser-app1.png)
+![](../../images/geiser-app1.png)
 
 ---
 # Parte 2 - página inicial
@@ -189,23 +189,23 @@
     1. Calculadas
 
 ---
-<a href="images/geiser-jogos1.png">
-  <img src="images/geiser-jogos1.png" style="max-width: 800px; max-height: 600px">
+<a href="../../images/geiser-jogos1.png">
+  <img src="../../images/geiser-jogos1.png" style="max-width: 800px; max-height: 600px">
 </a>
 
 ---
-<a href="images/geiser-jogos1-json.png">
-  <img src="images/geiser-jogos1-json.png" style="max-width: 800px; max-height: 600px">
+<a href="../../images/geiser-jogos1-json.png">
+  <img src="../../images/geiser-jogos1-json.png" style="max-width: 800px; max-height: 600px">
 </a>
 
 ---
-<a href="images/geiser-jogos2.png">
-  <img src="images/geiser-jogos2.png" style="max-width: 800px; max-height: 600px">
+<a href="../../images/geiser-jogos2.png">
+  <img src="../../images/geiser-jogos2.png" style="max-width: 800px; max-height: 600px">
 </a>
 
 ---
-<a href="images/geiser-jogos2-json.png">
-  <img src="images/geiser-jogos2-json.png" style="max-width: 800px; max-height: 600px">
+<a href="../../images/geiser-jogos2-json.png">
+  <img src="../../images/geiser-jogos2-json.png" style="max-width: 800px; max-height: 600px">
 </a>
 
 ---

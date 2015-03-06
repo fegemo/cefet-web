@@ -11,7 +11,7 @@
 ---
 # _Unicorns are real_ (Exercício)
 
-<img class="portrait" src="images/little-pony.png" alt="Little Pony">
+<img class="portrait" src="../../images/little-pony.png" alt="Little Pony">
 
 ---
 ## Exercício
@@ -26,8 +26,8 @@
 ---
 ## <abbr title="Comprehensive Layout">Comp</abbr> / <abbr title="Specifications">Specs</abbr>
 
-[![](images/unicorns-comp-thumb.png)](images/unicorns-comp.png)
-[![](images/unicorns-specs-thumb.png)](images/unicorns-specs.png)
+[![](../../images/unicorns-comp-thumb.png)](../../images/unicorns-comp.png)
+[![](../../images/unicorns-specs-thumb.png)](../../images/unicorns-specs.png)
 
 ---
 ## Passos para o exercício
@@ -98,12 +98,12 @@
 ---
 ## _Box Model_ (cont.)
 
-![](images/box-model.gif)
+![](../../images/box-model.gif)
 
 ---
 ## _Box Model_ (cont.)
 
-![](images/box-model3d.png)
+![](../../images/box-model3d.png)
 
 - _Fonte: http://creativecommons.org/licenses/by/2.0/_
 
@@ -143,7 +143,7 @@
 ---
 ## Mas primeiro, vamos falar do Fluxo (_Flow_)
 
-![](images/flow1.png)
+![](../../images/flow1.png)
 
 ---
 ## Fluxo
@@ -156,12 +156,12 @@
 ---
 ## Fluxo inline
 
-![](images/flow2.png)
+![](../../images/flow2.png)
 
 ---
 ## Fluxo block e inline, juntos
 
-![](images/flow3.png)
+![](../../images/flow3.png)
 
 ---
 ## Margens
@@ -190,7 +190,7 @@
 ---
 ## Float (cont.)
 
-- <img src="images/float-p1.png" style="float: right; margin-left: 20px">
+- <img src="../../images/float-p1.png" style="float: right; margin-left: 20px">
   Um elemento flutuante é removido do fluxo tradicional e
   - os elementos `block` depois dele fingem que ele não está ali
   - os elementos `inline` depois dele respeitam seu formato
@@ -198,7 +198,7 @@
 ## Float (exemplo)
 
 
-- <img src="images/float-p2.png" style="float: right; margin-left: 20px">
+- <img src="../../images/float-p2.png" style="float: right; margin-left: 20px">
   Alterando a largura de um parágrafo para 200px
   ```css
   p#amazing {
@@ -209,7 +209,7 @@
 ---
 ## Float (exemplo cont.)
 
-- <img src="images/float-p3.png" style="float: right; margin-left: 20px">
+- <img src="../../images/float-p3.png" style="float: right; margin-left: 20px">
   Flutuando o parágrafo à direita
   ```css
   p#amazing {

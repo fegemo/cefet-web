@@ -19,7 +19,7 @@
 ## Todos os caminhos levam a **Tim**
 
 <figure class="portrait">
-  <img src="images/tim-berners-lee.jpg" alt="Foto de Tim Berners-Lee">
+  <img src="../../images/tim-berners-lee.jpg" alt="Foto de Tim Berners-Lee">
 </figure>
 
 - Tim Berners-Lee desenvolveu as 4 tecnologias básicas da Web
@@ -47,7 +47,7 @@
 ---
 ## O computador onde o servidor rodava
 
-<a title="Coolcaesar at the English language Wikipedia [GFDL (www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3AFirst_Web_Server.jpg"><img style="width:600px" alt="Computador do primeiro servidor web" src="images/computador-tim.jpg"/></a>
+<a title="Coolcaesar at the English language Wikipedia [GFDL (www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3AFirst_Web_Server.jpg"><img style="width:600px" alt="Computador do primeiro servidor web" src="../../images/computador-tim.jpg"/></a>
 
 ---
 ## O NCSA HTTPd
@@ -135,14 +135,14 @@
     diretório atual
 - Exemplo:
 
-  <img src="images/py-server-folder.png" style="">
+  <img src="../../images/py-server-folder.png" style="">
 
 ---
 ## Um servidor Web simplão (cont.)
 
-<img src="images/py-server-terminal.png" style="">
+<img src="../../images/py-server-terminal.png" style="">
 
-<img src="images/py-server-browser.png" style="">
+<img src="../../images/py-server-browser.png" style="">
 
 ---
 ## Tipos de servidor Web
@@ -202,7 +202,7 @@
 ---
 ## Arquitetura do Apache
 
-<img src="images/arquitetura-apache.png" style="height: 300px;">
+<img src="../../images/arquitetura-apache.png" style="height: 300px;">
 
 - Os módulos são ativados/desativados e configurados por meio de arquivos de
   configuração
@@ -257,7 +257,7 @@
 
 - Não é um servidor web (OMG!!!)
 - <figure class="portrait" style="float:right;">
-    <img src="images/ryan-dahl.jpg" alt="Foto de Ryan Dahl">
+    <img src="../../images/ryan-dahl.jpg" alt="Foto de Ryan Dahl">
   </figure>
   **Ryan Dahl**, seu criador, teve o seguinte raciocínio:
   1. Gosto de Javascript e gostaria de poder usar a linguagem fora dos

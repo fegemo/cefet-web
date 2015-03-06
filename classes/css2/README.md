@@ -110,7 +110,7 @@ p strong em { }           /* 003 */
 ---
 ## [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)
 
-- <img src="images/font-families.png" style="float: right">
+- <img src="../../images/font-families.png" style="float: right">
   Altera a tipografia do texto para a fonte especificada
   ```css
   body {
@@ -140,7 +140,7 @@ p strong em { }           /* 003 */
 ## [font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)
 
 
-- <img src="images/font-weights.png" style="float: right; border: 3px solid white; margin-left: 40px; padding: 20px">
+- <img src="../../images/font-weights.png" style="float: right; border: 3px solid white; margin-left: 40px; padding: 20px">
   Altera o "peso" ou a grossura do traço da fonte
   ```css
   body {

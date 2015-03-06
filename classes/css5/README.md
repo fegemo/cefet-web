@@ -12,7 +12,7 @@
 ---
 <h2 style="font-family: Righteous, cursive; color: #e90c0c">EduKids Animals</h2>
 
-<img class="portrait" src="images/urso.jpg" style="border: 1px solid rgba(0,0,0,.2)" alt="Desenho de um Urso">
+<img class="portrait" src="../../images/urso.jpg" style="border: 1px solid rgba(0,0,0,.2)" alt="Desenho de um Urso">
 
 ---
 ## Motivação
@@ -29,7 +29,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
 ---
 ## O jogo
 
-[![](images/edukids-thumb.png)](images/edukids.png)
+[![](../../images/edukids-thumb.png)](../../images/edukids.png)
 
 ---
 ## O jogo, como está
@@ -103,7 +103,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
 
 - _Sprite_ é um arquivo de imagem que possuem várias imagens agrupadas
   - Muito comum em jogos digitais<br>
-    <img src="images/terrivel-eating.png" style="width: 150px;">
+    <img src="../../images/terrivel-eating.png" style="width: 150px;">
   - Pode ser usado para criar animações, mas também para agrupar as imagens
 - Benefício para páginas web
   - Apenas uma _round-trip_ de requisição/resposta `http`
@@ -151,7 +151,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
   }
   ```
 
-<div style="width: 24px;height: 32px;background-image: url('images/terrivel-eating.png');background-position: -48px 0;"></div>
+<div style="width: 24px;height: 32px;background-image: url('../../images/terrivel-eating.png');background-position: -48px 0;"></div>
 
 ---
 ## Usando _sprites_: forma **semântica**
@@ -171,7 +171,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
   ```
 
 <figure style="width: 24px;height: 32px;overflow: hidden;position: relative;  ">
-  <img src="images/terrivel-eating.png" style="position: absolute;left: -48px;top: 0;">
+  <img src="../../images/terrivel-eating.png" style="position: absolute;left: -48px;top: 0;">
 </figure>
 
 ---
@@ -180,7 +180,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
 ---
 ## Pra que isso?
 
-![](images/o-que-queremos-animacoes.png)
+![](../../images/o-que-queremos-animacoes.png)
 
 ---
 ## Transições CSS
@@ -292,7 +292,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
 ---
 ## Por que?
 
-![](images/o-que-queremos-transforms.png)
+![](../../images/o-que-queremos-transforms.png)
 
 ---
 ## A propriedade **transform**  ([na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform))
@@ -429,7 +429,7 @@ a.combinando:hover {
 }
   </style>
   <div style="position: absolute; top: 50%; left: 50%; margin-top: -75px; margin-left: -75px;">
-  <img src="images/urso.jpg" style="width: 150px; border-radius: 75px;" class="urso-flutuante">
+  <img src="../../images/urso.jpg" style="width: 150px; border-radius: 75px;" class="urso-flutuante">
   </div>
 
 ---

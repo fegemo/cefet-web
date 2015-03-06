@@ -2,7 +2,7 @@
 
 Conhecendo o Git
 
-![Logomarca do Git](images/git-logo.png)
+![Logomarca do Git](../../images/git-logo.png)
 
 
 _Data de entrega e valor em pontos vide plano de ensino_
@@ -17,7 +17,7 @@ que várias pessoas pudessem **eficientemente** trabalhar no Kernel do Linux
 ao mesmo tempo.
 
 ---
-![Foto do Linus Torvalds](images/linus-torvalds.jpg)
+![Foto do Linus Torvalds](../../images/linus-torvalds.jpg)
 
 _Fonte: foto ~~do filme Harry Potter e o Cálice de Fogo~~ de Linus Torvalds_
 
@@ -38,7 +38,7 @@ _Fonte: foto ~~do filme Harry Potter e o Cálice de Fogo~~ de Linus Torvalds_
 </div>
 
 ---
-<img src="images/git-trends.jpg" class="full-width" alt="Foto mostrando as pesquisas dos termos Git, SVN e CVS no Google ao longo dos anos">
+<img src="../../images/git-trends.jpg" class="full-width" alt="Foto mostrando as pesquisas dos termos Git, SVN e CVS no Google ao longo dos anos">
 
 ---
 Além disso,
@@ -47,7 +47,7 @@ Além disso,
   código aberto**
 - Todos os **trabalhos da disciplina** deverão ser entregues via [GitHub](http://www.github.com),
   um serviço de hospedagem de repositórios Git
-  ![Mascote do GitHub - o Octocat](images/octocat.png)
+  ![Mascote do GitHub - o Octocat](../../images/octocat.png)
   _Descrição: Octocat, mascote do GitHub.com_
 
 

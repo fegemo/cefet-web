@@ -98,7 +98,7 @@
 - Um dos _workshops_ ensina alguns conceitos acerca do NodeJS: o
   [_learnyounode_](https://github.com/rvagg/learnyounode)
 
-  ![](images/learnyounode.png)
+  ![](../../images/learnyounode.png)
 
 ---
 ## Instalando o _learnyounode_ pelo npm

@@ -12,7 +12,7 @@
 ---
 ## Interação cliente x servidor com estado
 
-- <img src="images/session-moodle.png" style="float:right; margin: 0 0 15px 15px;">
+- <img src="../../images/session-moodle.png" style="float:right; margin: 0 0 15px 15px;">
   Alguns sites parecem lembrar que você passou por ele. Mas como eles fazem
   isso?
   - HTTP é um protocolo que **não armazena estado** (_stateless_)
@@ -40,7 +40,7 @@
 ---
 ## Como os _cookies_ são enviados
 
-- <img src="images/cookies-envio.png" style="float:right; margin: 0 0 15px 15px;">
+- <img src="../../images/cookies-envio.png" style="float:right; margin: 0 0 15px 15px;">
   Quando o navegador solicita uma página, o servidor pode enviar
   _cookies_ de volta
 - Se o servidor já havia enviado _cookies_ para o navegador, este os enviará
@@ -66,7 +66,7 @@
 ---
 ## Um "_cookie_ de rastreamento"
 
-![](images/tracking-cookie.png)
+![](../../images/tracking-cookie.png)
 
 - Uma empresa de anúncios envai um _cookie_ quando você visita um site e o vê
   novamente quando você visita outro site que também usa esses anúncios
@@ -242,7 +242,7 @@
 1. O navegador faz requisição inicial ao servidor
 1. Servidor guarda o endereço IP/navegador do cliente, gera um identificador
    único de sessão e envia um _cookie_ de volta
-   - <img src="images/session-php.png" style="float:right;margin:0 0 15px 15px">
+   - <img src="../../images/session-php.png" style="float:right;margin:0 0 15px 15px">
      Em PHP, esse _cookie_ tem o nome `PHPSESSID`
    - Em Java, `JSESSIONID`
    - Express.js, `connect.sid`
@@ -309,7 +309,7 @@
    faça uma contagem das visualizações de página realizadas durante a sessão
    - Você deve mostrar a contagem no topo da página inicial:
 
-     ![](images/geiser-views.png)
+     ![](../../images/geiser-views.png)
    - Caso você não tenha feito ou terminado o exercício da aula passada,
      [clone ele pronto](https://github.com/fegemo/cefet-web-geiser-session)
 
