@@ -261,3 +261,28 @@ $bubble-tip-size = 8px
   for author-color, i in blueviolet brown cornflowerblue crimson darkmagenta forrestgreen limegreen darkgray
     &.bubble-author-{i}
       color author-color
+
+
+
+@media print
+  #page-header
+    display none
+  #presentation-container
+    height auto
+  .book-cover
+    height 150px
+  .list-horizontal
+    padding-left 0
+    figure
+      margin 1em
+  dt
+    width 120px
+  dd
+    margin-left 130px
+  dt, dd
+    font-size inherit
+
+  // gambiarra: alguns slides excedem a altura. Por agora, usar overflow:hidden
+  .bespoke-slide
+    overflow-y hidden
+

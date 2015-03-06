@@ -24,7 +24,7 @@
     "bespoke-progress": "^1.0.0",
     "bespoke-scale": "^1.0.1",
     "bespoke-state": "^1.0.0",
-    "bespoke-theme-fancy": "^0.1.1",
+    "bespoke-theme-fancy": "^0.3.1",
     "bespoke-touch": "^1.0.0",
     "debowerify": "^1.2.0",
     "specificity": "^0.1.4"

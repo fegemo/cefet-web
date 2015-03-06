@@ -171,10 +171,8 @@ gulp.task('watch', function() {
   gulp.watch('README.md', ['md']);
   gulp.watch('styles/**/*.styl', ['css']);
   gulp.watch('images/**/*', ['images']);
-  gulp.watch([
-    'scripts/**/*.js',
-    'bespoke-theme-*/dist/*.js' // Allow themes to be developed in parallel
-  ], ['js']);
+  gulp.watch('node_modules/bespoke-theme-fancy/dist/*.js', ['css']);
+  gulp.watch('scripts/**/*.js', ['js']);
 });
 
 gulp.task('deploy', ['build'], function(done) {
