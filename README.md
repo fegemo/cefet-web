@@ -15,13 +15,13 @@
 1. Tornar-se um ninja Javascript
 
 ---
-# Bibliografia
+# Bibliografia Básica
 
 ---
 ## **Livro texto** da parte 1
 
 <div class="book-cover-container">
-  <img class="book-cover" src="images/head-first-html-css.jpg">
+  <img class="book-cover" src="images/book-head-first-html-css.jpg">
   <div class="book-left"></div>
 </div>
 
@@ -33,13 +33,16 @@
 ## **Livro texto** da parte 2
 
 <div class="book-cover-container">
-  <img class="book-cover" src="images/head-first-servlets-jsp.jpg">
+  <img class="book-cover" src="images/book-nodejs-in-action.jpg">
   <div class="book-left"></div>
 </div>
 
-- **Título**	Use a Cabeça! Servlets e JSP, 2a Edição
-- **Autores**	Bryan Basham, Kathy Sierra & Ber
-- **Editora** Alta Books Editora
+- **Título**	Node.js in Action, First Edition
+- **Autores**	Mike Cantelon, Marc Harter, T.J. Holowaychuk, Nathan Rajlich
+- **Editora** Manning
+
+---
+# Bibliografia Complementar
 
 ---
 ## Dive into HTML5
@@ -109,15 +112,17 @@
 ---
 # Provas (40 pontos)
 
-- Primeira prova (20 pontos) - data: 25/11/2014
-- Segunda prova (20 pontos) - data _TBD_
+- Primeira prova (20 pontos) - data: 07/05/2015
+- Segunda prova (20 pontos) - data: 07/07/2015
+- Prova suplementar (20 pontos) - data: 09/07/2015
+- Exame especial (100 pontos) - data: 14/07/2015
 
 ---
 # Trabalhos (40 pontos)
 
-- [TP0: Git](assignments/tp0) (3 pontos, data: 25/09/2014 23:59)
-- [TP1: Seu site pessoal][tp1] (15 pontos, data: 18/11/2014 23:59)
-- [TP2: Empreendimentos SA][tp2] (22 pontos, data 15/01/2015 23:59)
+- [TP0: Git](assignments/tp0) (3 pontos, data: 17/03/2015 23:59)
+- [TP1: Seu site pessoal][tp1] (15 pontos, data: 14/05/2015 23:59)
+- [TP2: Empreendimentos SA][tp2] (22 pontos, data 05/07/2015 23:59)
 
 [tp1]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp1/README.md
 [tp2]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp2/README.md
