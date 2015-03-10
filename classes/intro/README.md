@@ -169,7 +169,7 @@ confiabilidade**.
 ---
 <figure>
   <figcaption>Gopher de Jospeh Maistre</figcaption>
-  <img src="../..//gopher-jospeh-maistre.png" alt="Tela do gopher de Jospeh Maistre">
+  <img src="../../images/gopher-jospeh-maistre.png" alt="Tela do gopher de Jospeh Maistre">
 </figure>
 
 ---

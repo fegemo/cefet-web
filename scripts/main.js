@@ -21,7 +21,7 @@ bespoke.from('article', [
   keys(),
   touch(),
   bullets('li, .bullet, dt:not(.bullet-old), dd:not(.bullet-old)'),
-  //scale(),
+  scale(),
   hash(),
   progress(),
   state(),
