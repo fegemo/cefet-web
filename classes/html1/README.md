@@ -4,14 +4,14 @@
 ## Na última aula...
 
 - Conversamos sobre a história da Internet e da Web
-- Vimos as proezas de Tim (Berners-Lee), o coração valente ao criar
-  <figure class="portrait">
+- Vimos as proezas de Tim (Berners-Lee), o coração valente, ao criar
+  <figure class="portrait" style="float: right">
     <img src="../../images/tim-berners-lee.jpg" alt="Foto de Tim Berners-Lee">
   </figure>
-  - Seu primeiro protocolo
-  - Seu primeiro formato de arquivo
-  - Seu primeiro servidor http
-  - Sua primeira página
+  - Seu primeiro protocolo (http)
+  - Seu primeiro formato de arquivo (html)
+  - Seu primeiro servidor http (CERN httpd)
+  - Sua primeiro navegador (WorldWideWeb)
 
 ---
 # Hoje vamos falar sobre
@@ -59,6 +59,8 @@
 
 - URL: Unique **Resource** Locator
   - É o endereço de coisas na Internet - páginas, imagens, arquivos, etc.
+    
+    ![](../../images/url-1.png)
 - Assim que a resposta é recebida, o navegador a exibe na tela, caso **consiga**
   - Por exemplo, os navegadores não conseguem exibir um arquivo .zip
 

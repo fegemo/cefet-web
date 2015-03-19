@@ -70,7 +70,9 @@
 # Aulas
 
 - [História da Web](classes/intro/) (12/03/2015)
-
+- [HTML - Parte 1](classes/html1/) (17/03/2015)
+- [HTML - Parte 2 (Prática)](classes/html2/) (19/03/2015)
+- [HTML - Parte 3]
 ---
 # Distribuição de Pontos
 
