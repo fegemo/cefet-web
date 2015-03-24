@@ -14,49 +14,54 @@ var pkg = require('./package.json'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
     through = require('through'),
-    opn = require('opn'),
     ghpages = require('gh-pages'),
     path = require('path'),
+    changed = require('gulp-changed'),
     merge = require('merge-stream'),
+    server = require('gulp-server-livereload'),
     isDist = process.argv.indexOf('serve') === -1;
 
-gulp.task('js', ['clean:js'], function() {
+gulp.task('js', function() {
+  var destination = 'dist/build';
   return gulp.src(['scripts/tutorial.js', 'scripts/main.js'])
+    .pipe(changed(destination))
     .pipe(isDist ? through() : plumber())
     .pipe(browserify({ transform: ['debowerify'], debug: !isDist }))
     .pipe(isDist ? uglify() : through())
     .pipe(rename('build.js'))
-    .pipe(gulp.dest('dist/build'))
-    .pipe(connect.reload());
+    .pipe(gulp.dest(destination));
 });
 
-gulp.task('html', ['clean:html'], function() {
+gulp.task('html', function() {
+  var destination = 'dist';
   return gulp.src('html/index.html')
+    .pipe(changed(destination))
     .pipe(isDist ? through() : plumber())
     .pipe(replace('{path-to-root}', './'))
-    .pipe(gulp.dest('dist'))
-    .pipe(connect.reload());
+    .pipe(gulp.dest(destination));
 });
 
-gulp.task('md', ['clean:md'], function() {
+gulp.task('md', function() {
   var tasks = [];
   tasks.push(gulp.src(['README.md'])
+    .pipe(changed('dist'))
     .pipe(isDist ? through() : plumber())
-    .pipe(gulp.dest('dist/'))
-    .pipe(connect.reload()));
+    .pipe(gulp.dest('dist')));
   tasks.push(gulp.src(['classes/**/*.md'])
+    .pipe(changed('dist/classes'))
     .pipe(isDist ? through() : plumber())
-    .pipe(gulp.dest('dist/classes'))
-    .pipe(connect.reload()));
+    .pipe(gulp.dest('dist/classes')));
   tasks.push(gulp.src(['assignments/**/*.md'])
+    .pipe(changed('dist/assignments'))
     .pipe(isDist ? through() : plumber())
-    .pipe(gulp.dest('dist/assignments'))
-    .pipe(connect.reload()));
+    .pipe(gulp.dest('dist/assignments')));
   return merge(tasks);
 });
 
-gulp.task('css', ['clean:css'], function() {
+gulp.task('css', function() {
+  var destination = 'dist/build';
   return gulp.src('styles/**.styl')
+    .pipe(changed(destination))
     .pipe(isDist ? through() : plumber())
     .pipe(stylus({
       // Allow CSS to be imported from node_modules and bower_components
@@ -66,26 +71,35 @@ gulp.task('css', ['clean:css'], function() {
     .pipe(autoprefixer('last 2 versions', { map: false }))
     .pipe(isDist ? csso() : through())
     .pipe(concat('build.css'))
-    .pipe(gulp.dest('dist/build'))
-    .pipe(connect.reload());
+    .pipe(gulp.dest(destination));
 });
 
-gulp.task('images', ['clean:images'], function() {
+gulp.task('attachments', function() {
+  var destination = 'dist/attachments';
+  return gulp.src('attachments/**/*')
+    .pipe(changed(destination))
+    .pipe(gulp.dest(destination));
+});
+
+gulp.task('images', function() {
+  var destination = 'dist/images';
   return gulp.src('images/**/*')
-    .pipe(gulp.dest('dist/images'))
-    .pipe(connect.reload());
+    .pipe(changed(destination))
+    .pipe(gulp.dest(destination));
 });
 
-gulp.task('fonts', ['clean:fonts'], function() {
+gulp.task('fonts', function() {
+  var destination = 'dist/fonts';
   return gulp.src('fonts/**/*')
-    .pipe(gulp.dest('dist/fonts'))
-    .pipe(connect.reload());
+    .pipe(changed(destination))
+    .pipe(gulp.dest(destination));
 });
 
 gulp.task('videos', ['clean:videos'], function() {
+  var destination = 'dist/videos';
   return gulp.src('videos/**/*')
-    .pipe(gulp.dest('dist/videos'))
-    .pipe(connect.reload());
+    .pipe(changed(destination))
+    .pipe(gulp.dest(destination));
 });
 
 gulp.task('clean', function() {
@@ -140,7 +154,7 @@ function getFolders(cwd, dir) {
     });
 }
 
-gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images', 'fonts', 'videos'], function() {
+gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images', 'fonts', 'videos', 'attachments'], function() {
   var folders = getFolders('.', 'classes').concat(getFolders('.', 'assignments')),
       tasks = folders.map(function(folder) {
         var t = [];
@@ -152,14 +166,13 @@ gulp.task('cefet-files', ['js', 'html', 'md', 'css', 'images', 'fonts', 'videos'
   return merge(tasks);
 });
 
-gulp.task('connect', ['build'], function(done) {
-  connect.server({
-    root: ['dist'],
-    port: 8081,
-    livereload: true
-  });
-
-  opn('http://localhost:8081', done);
+gulp.task('connect', ['build'], function() {
+  gulp.src('dist')
+    .pipe(server({
+      port:             8081,
+      livereload:       true,
+      open:             true
+    }));
 });
 
 gulp.task('watch', function() {

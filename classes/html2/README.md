@@ -74,7 +74,7 @@ dessas plantas e deseja divulgá-la em uma página web.
   - incluir **2 tipos diferentes de citações** em `html`
 
 
-[doc-tio]: https://docs.google.com/document/d/1uzLcB7UeaCLw4HQKvMHbJCeKHlNCmCxXm63GHWJVD8k/edit
+[doc-tio]: ../../attachments/html2-plantas.pdf
 
 ---
 ## Exercício 1 (cont.)
@@ -82,12 +82,12 @@ dessas plantas e deseja divulgá-la em uma página web.
 Algumas informações sobre o documento do seu tio:
 - Hiperlink no final do parágrafo 5 (_"Há mais de 500 espécies..."_):
   - lista extensa de espécies na Wikipedia: http://en.wikipedia.org/wiki/List_of_carnivorous_plants
-- Imagens:
+- Imagens usadas:
   - Dionaea: [link para baixar][dionaea]
   - Nepenthes: [link para baixar][nepenthes]
 
-[dionaea]: http://www.infoescola.com/wp-content/uploads/2009/12/dionaea.jpg
-[nepenthes]: http://www.infoescola.com/wp-content/uploads/2009/12/Nepenthes_villosa-225x300.jpg
+[dionaea]: ../../images/dionaea.jpg
+[nepenthes]: ../../images/nephenthes.jpg
 
 ---
 ## Exercício 2
@@ -97,8 +97,8 @@ Criar a página da loja seguindo [este modelo][loja] e usando
 `loja.html`. Você deve também criar um hiperlink da página `plantas.html` para
 sua nova `loja.html`.
 
-[loja]: https://docs.google.com/document/d/1C9Lrug5MwR4WOxCgTaOoFwAyDjnI6LwBQYzyd15bBLM/edit
-[precos]: https://docs.google.com/spreadsheets/d/1b6kCBYo_v07gK1qU1waAfgJaa7io0_v_oTdcLS3rez0/edit?usp=sharing
+[loja]: ../../attachments/html2-loja.pdf
+[precos]: ../../attachments/html2-tabela-de-precos.png
 
 ---
 ## Exercício 3
