@@ -67,11 +67,14 @@
 ```
 
 ---
-# Hoje vamos
+# Hoje veremos
 
-1. Fazer 2 exercícios
+1. 2 exercícios
 1. Um pouco mais sobre **imagens**
+1. Meta _tags_
+1. Codificação (_encoding_)
 1. DOCTYPE
+
 
 ---
 # Exercícios
@@ -95,9 +98,9 @@ Baixe o [exercício][exer-prog-sem-cafe] ou pegue uma cópia com o professor.
 
 ![Desenho de máscara de festa a fantasia](../../images/who-am-i.png)
 
-Um grupo de elementos HTML, usando fantasia, está fazendo uma brincadeira
-"Quem sou eu?". Eles dão uma dica e você tenta adivinhar que elemento está
-falando.
+Um grupo de elementos HTML, usando fantasia, está fazendo uma festa com a 
+temática "Quem sou eu?". Eles dão uma dica e você tenta adivinhar que 
+elemento está falando.
 
 Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
 
@@ -109,7 +112,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
 ---
 ## Imagens
 
-- Usamos a tag `<img src="">`, que é um **elemento _void_**
+- Usamos a tag `<img src="...">`, que é um **elemento _void_**
   - Ou seja, não tem conteúdo nem tag de fechamento
 - Formato geral
   ```html
@@ -152,7 +155,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
   ```html
   <img src="..." width="40" height="100">
   ```
-- Mas quase sempre devemos preferir **estipular os tamanhos via CSS**
+- Mas quase sempre (99%) devemos preferir **estipular os tamanhos via CSS**
   ```html
   <style>
     img {
@@ -161,6 +164,106 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
     }
   </style>
   ```
+
+---
+# Meta _tags_
+
+---
+## Meta _tags_
+
+```
+&lt;html&gt;
+	&lt;head&gt;
+	  &lt;title&gt; Aprendendo sobre as meta tags &lt;/title&gt;
+	  &lt;meta name="author" content="Flávio"&gt;
+	  &lt;meta name="description" content="Textão explicativo"&gt;
+	  &lt;meta name="keywords" content="web, css, html, js"&gt;
+	&lt;/head&gt;
+	...
+```
+
+- _Tags_ meta são elementos _void_
+- Referência na [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
+
+---
+## Meta _tag_: **keywords**
+
+- Palavras-chave de descrição da página
+- Limite (de bom senso) de aproximadamente 150 caracteres
+- Palavras separadas por vírgula, geralmente com tudo em minúsculo
+- Exemplo _real-life_:
+  ```html
+  <meta name="keywords" content="livro,games,ultrabook,ipad,macbook,blu-ray,celular,TV led ,gps,câmera digital">
+  ```
+  - Página inicial do site submarino.com.br
+  
+---
+## Meta _tag_: **description**
+
+- Um breve e preciso texto sumário do conteúdo da página
+- Alguns navegadores usam isto como a descrição da página quando adicionada aos favoritos
+- Exemplo:
+  ```html
+  <meta name="description" content="Meet the global face of the world's #1 games media brand.">
+  ```
+  - Página inicial do site ign.com
+
+---
+## Meta _tags_: **author** e **robots**
+
+- `author`: nome dos autores da página
+  - Exemplo:
+    ```html
+    <meta name="author" content="Flávio Coutinho">
+    ```
+- `robots`: indicar a buscadores (_crawlers_) se eles devem indexar a página ou não
+  - Exemplo:
+    ```html
+    <meta name="robots" content="index,follow">
+    ```
+  - A forma mais recente é usar um arquivo [/robots.txt com descrições](http://www.robotstxt.org/orig.html)
+
+---
+## Meta _tag_: **refresh**
+
+- Formato:
+  ```html
+  <meta name="refresh" content="X Y">
+  ```
+- Faz um redirecionamento dentro de X segundos para o endereço Y
+- Exemplo:
+  ```html
+  <meta name="refresh" content="5 ;url=http://www.pudim.com.br/">
+  ```
+
+---
+## Meta _tag_: **viewport**
+
+- Sugere ao navegador qual o tamanho inicial da _viewport_ (área visível) da página
+- Usado especialmente por navegadores de dispositivos móveis 
+- Exemplo:
+  ```html
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  ```
+  - [Referência completa na W3C](http://dev.w3.org/csswg/css-device-adapt/#viewport-meta)
+
+---
+# Codificação (_encoding_)
+
+---
+## Codificação
+
+- A codificação de uma página deve ser especificada de forma explícita
+  - Senão, UTF-8 é inferido
+- Usa-se a `<meta>` _tag_ com nome `charset` para isso:
+  ```html
+  <meta name="charset" content="ISO-8859-1">
+  ```
+  - Opções de codificação são gerenciadas pela IANA e [podem ser vistas aqui](http://www.iana.org/assignments/character-sets/character-sets.xhtml)
+- <img src="../../images/encoding-error.png" style="height: 150px; float:right;">
+  Erro de codificação:
+  - Deve-se manter a mesma codificação do banco de dados e da página
+  
 
 ---
 # DOCTYPE

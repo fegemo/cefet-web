@@ -18,7 +18,8 @@ var pkg = require('./package.json'),
     path = require('path'),
     changed = require('gulp-changed'),
     merge = require('merge-stream'),
-    server = require('gulp-server-livereload'),
+    // TODO: para usar LR com websocket: http://www.hiddentao.com/archives/2014/08/18/phonegap-development-with-on-device-livereload/
+    server = require('gulp-webserver'),
     isDist = process.argv.indexOf('serve') === -1;
 
 gulp.task('js', function() {
