@@ -214,7 +214,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
 - `author`: nome dos autores da página
   - Exemplo:
     ```html
-    <meta name="robots" content="index,follow">
+    <meta name="author" content="Flávio Coutinho">
     ```
 - `robots`: indicar a buscadores (_crawlers_) se eles devem indexar a página ou não
   - Exemplo:
