@@ -400,7 +400,7 @@
 ---
 ## Exercício 1
 
-Para os exercícios de hoje, você deve manter a estrutura `html` intocada e
+Para os exercícios de hoje, você deve **manter a estrutura `html` intocada** e
 trabalhar apenas com código `css`.
 
 1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/a4mr4h65/
@@ -437,23 +437,30 @@ trabalhar apenas com código `css`.
 ---
 ## Exercício 3
 
-1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/2v6cuwzn/
+1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/2v6cuwzn/.
 1. Estilize-o, usando `CSS`, para que a tabela fique assim:
    ![](../../images/tabela-para-estilizar.png)
+   - Repare a classe **`alt`** em linhas alternadas da tabela
 1. Output: exercicio3.html, exercicio3.css
 
 ---
 ## Exercício 4
 
 1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/2v6cuwzn/2/
-   - É o mesmo código `html` de antes, porém as linhas da tabela não possuem
-     a classe `alt`
+   - É o mesmo código `html` de antes, porém desta vez **as linhas da tabela não possuem
+     a classe `alt`**
 1. Escreva código `CSS` para estilizar essa tabela para que ela fique da mesma
    forma como no exercício anterior
    ![](../../images/tabela-para-estilizar.png)
 1. Output: exercicio4.html, exercicio4.css
-1. Você deve entregar todos os seus arquivos via Moodle
 
+---
+## Entrega
+
+1. Você deve entregar todos os seus arquivos via Moodle
+   - **Compacte** os 8 arquivos num formatos .zip, .7z, .rar, .tar.gz
+   - Entregue via atividade no Moodle até o final da aula
+ 
 ---
 # Referências
 
