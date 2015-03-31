@@ -74,6 +74,8 @@
 - [HTML - Parte 1](classes/html1/) (17/03/2015)
 - [HTML - Parte 2 (Prática)](classes/html2/) (19/03/2015)
 - [HTML - Parte 3](classes/html3/) (24/03/2015)
+- [CSS - Parte 1 (Prática)](classes/css1/) (26/03/2015)
+- [CSS - Parte 2](classes/css2/) (31/03/2015)
 
 ---
 # Distribuição de Pontos
@@ -94,8 +96,7 @@
 # Trabalhos (40 pontos)
 
 - [TP0: Git](assignments/tp0) (3 pontos, data: 17/03/2015 23:59)
-- TP1: Seu site pessoal (15 pontos, data: 14/05/2015 23:59)
+- [TP1: Seu site pessoal](assignments/tp1) (15 pontos, data: 30/04/2015 23:59)
 - TP2: Empreendimentos SA (22 pontos, data 05/07/2015 23:59)
 
-[tp1]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp1/README.md
 [tp2]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp2/README.md
