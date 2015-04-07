@@ -157,8 +157,9 @@
 ---
 ## Suporte dos navegadores por formato
 
-- Na data de hoje (23/Out/14), **nenhum formato de vídeo**, combinado a seus
-  CODECs de vídeo e áudio, **é suportado em todos** os principais navegadores
+- Na data de hoje (07/Abr/15), as versões mais recentes dos principais navegadores 
+  suportam em conjunto apenas o formato **H.264, ou MPEG-4 _part_ 10**
+- Porém, versões um pouco menos recentes não suportam **um mesmo formato de vídeo** em conjunto
 - Assim, usamos uma outra forma do elemento `<video>`:
   ```html
   <video width="320" height="240" controls>
@@ -198,10 +199,10 @@
 ## Audio
 
 - `<audio>` funciona **exatamente** da mesma forma que `<video>`
-
-  - ![](../../images/baby-success.jpg)
 - [Referência na MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
-
+  
+  ![](../../images/baby-success.jpg)
+  
 ---
 # _Object_ e _Embed_
 

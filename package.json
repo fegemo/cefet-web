@@ -27,6 +27,7 @@
     "bespoke-theme-fancy": "^0.3.1",
     "bespoke-touch": "^1.0.0",
     "debowerify": "^1.2.0",
+    "marked": "^0.3.3",
     "specificity": "^0.1.4"
   },
   "devDependencies": {
