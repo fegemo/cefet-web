@@ -103,13 +103,6 @@
 ---
 ## _Box Model_ (cont.)
 
-![](../../images/box-model3d.png)
-
-- _Fonte: http://creativecommons.org/licenses/by/2.0/_
-
----
-## _Box Model_ (cont.)
-
 - Quando define-se a largura (`width`) ou altura (`height`) de um elemento,
   está se definindo a dimensão do **conteúdo da caixa**
 - Elementos `inline` ignoram os valores de
@@ -242,7 +235,7 @@
 ---
 ## Exemplo de **clear**
 
-<iframe width="100%" height="450" src="http://jsfiddle.net/fegemo/7cofhyLc/1/embedded/html,css,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="450" src="http://jsfiddle.net/fegemo/7cofhyLc/6/embedded/html,css,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
 # Referências
