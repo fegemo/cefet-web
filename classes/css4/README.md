@@ -79,8 +79,12 @@
     position: static;
   }
   ```
-- Resultado
-  <div style="position: static; border: 3px dashed rebeccapurple">Conteúdo</div>
+- <div style="display:inline-block;float:right;height:1em;font-size:.4em;"><input type="checkbox" checked id="button-estatico" class="switch" onclick="javascript: (function() { var b = document.getElementById('estatico'); b.classList.toggle('estatico');}())" />
+    <label for="button-estatico">`.estatico`</label>
+  </div>
+  Resultado
+  <style>.estatico {position: static;}</style>
+  <div id="estatico" class="estatico" style="border: 3px dashed rebeccapurple">Conteúdo</div>
 
 ---
 ## Posição relativa
@@ -96,9 +100,13 @@
   .relativo2 { position: relative; width: 50%;
                left: 30px; top: -10px; }
   ```
-- Resultado:
+- <div style="display:inline-block;float:right;height:1em;font-size:.4em;"><input type="checkbox" checked id="button-relativo2" class="switch" onclick="javascript: (function() { var b = document.getElementById('relativo2'); b.classList.toggle('relativo2');}())" />
+    <label for="button-relativo2">`.relativo2`</label>
+  </div>
+  Resultado:
+  <style>.relativo2 { position: relative; width: 50%; left: 30px; top: -10px; }</style>
   <div style="position: relative; border: 3px dashed rebeccapurple; background: white;">Comporta-se como <code>static</code>.</div>
-  <div style="position: relative; width: 50%; left: 30px; top: -10px; border: 3px dashed green; background: white;">Mas pode ter um deslocamento.</div>
+  <div id="relativo2" class="relativo2" style="border: 3px dashed green; background: white;">Mas pode ter um deslocamento.</div>
 
 ---
 ## Posição absoluta
@@ -122,9 +130,13 @@
   .absoluto { position: absolute; width: 50%;
                right: 30px; bottom: 10px; }
   ```
-- Resultado:
+- <div style="display:inline-block;float:right;height:1em;font-size:.4em;"><input type="checkbox" checked id="button-absoluto" class="switch" onclick="javascript: (function() { var b = document.getElementById('absoluto'); b.classList.toggle('absoluto');}())" />
+    <label for="button-absoluto">`.absoluto`</label>
+  </div>
+  Resultado:
+  <style>.absoluto { position: absolute; width: 50%; right: 30px; bottom: 10px; }</style>
   <div style="position: relative; height: 150px; border: 3px dashed rebeccapurple; background: white">Este é um recipiente relativo.
-    <div style="position: absolute; right: 30px; bottom: 10px; border: 3px dashed green; background: white">Este é absoluto.</div>
+    <div id="absoluto" class="absoluto" style="border: 3px dashed green; background: white">Este é absoluto.</div>
   </div>
 
 ---
@@ -214,8 +226,9 @@
   <div class="passo">3<br>Programar</div>
   ```
   ```css
-  .passo { display: inline-block; width: 150px;
-          height: 100px; /* ... */ }
+  .passo { display: inline-block;
+           width: 150px;
+           height: 100px; /* ... */ }
   ```
 
 ---
@@ -260,7 +273,7 @@
   ```css
   .centraliza-position { left: (LARGURA_P - LARGURA_E)/2; }
   ```
-  - Onde `LARGURA_P` é a largura do recipiente e LARGURA_E é a largura
+  - Onde `LARGURA_P` é a largura do recipiente e `LARGURA_E` é a largura
     conhecida do elemento que queremos centralizar
 - Centralizando um elemento com `position` `absolute` ou `fixed` em um
   recipiente fluido (largura pode variar)

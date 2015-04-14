@@ -146,7 +146,7 @@
     `background-attachment.`
 
 ---
-## `background-color`
+## **`background-color`**
 
 - Define uma cor de fundo
   ```css
@@ -161,7 +161,7 @@
   </div>
 
 ---
-## `background-image`
+## **`background-image`**
 
 - Define uma imagem de fundo
   ```css
@@ -173,7 +173,7 @@
   </div>
 
 ---
-## `background-repeat`
+## **`background-repeat`**
 
 - Define se e como a imagem de fundo deve ser repetida
   ```css
@@ -189,7 +189,7 @@
   </div>
 
 ---
-## `background-position`
+## **`background-position`**
 
 - Define a posição de onde deve começar a(s) imagem(ns) definida(s) em
   `background-image`
