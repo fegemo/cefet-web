@@ -77,7 +77,9 @@
 - [CSS - Parte 1 (Prática)](classes/css1/) (26/03/2015)
 - [CSS - Parte 2](classes/css2/) (31/03/2015)
 - [HTML - Parte 5](classes/html5/) (07/04/2015)
-- [HTML - Parte 4 (Prática)](classes/html4) (09/04/2015)
+- [HTML - Parte 4 (Prática)](classes/html4/) (09/04/2015)
+- [CSS- Parte 3](classes/css3/) (14/04/2015)
+- [CSS - Parte 4 (Prática)](classes/css4/) (16/04/2015)
 
 ---
 # Distribuição de Pontos
