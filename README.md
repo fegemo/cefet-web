@@ -98,7 +98,7 @@
 # Trabalhos (40 pontos)
 
 - [TP0: Git](assignments/tp0) (3 pontos, data: 17/03/2015 23:59)
-- [TP1: Seu site pessoal](assignments/tp1) (15 pontos, data: 30/04/2015 23:59)
-- TP2: Empreendimentos SA (22 pontos, data 05/07/2015 23:59)f
+- [TP1: Seu site pessoal](assignments/tp1) (15 pontos, data: ~~30/04/2015~~ 07/05/2015 23:59)
+- TP2: Empreendimentos SA (22 pontos, data 05/07/2015 23:59)
 
 [tp2]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp2/README.md
