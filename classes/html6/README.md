@@ -411,15 +411,15 @@ pessoas, você deve dar a ele seu segundo alimento preferido: pedras.
 
 Para isso, você deve ir até onde ele está e enviar algumas pedras para ele.
 Atualmente, ele está neste endereço: http://terrivel.herokuapp.com/monster.
-Para dar comida a ele, você deve encomendá-las a partir de uma loja virtual.
+Para dar comida a ele, você deve encomendá-las a partir de um formulário html.
 
 ---
 ## Enunciado (cont.)
 
-- Para fazer sua encomenda, você deve fazer um formulário web especificando o seu
-  pedido. Ele deve conter as seguintes informações:
-  - `num_pedras`, [0, &infin;[, &isin; N
-  - `tam_pedras`, [1, 7], sendo 3 o padrão
+- Para fazer sua encomenda, você deve criar uma página com um formulário web 
+  especificando o seu pedido. Ele deve conter as seguintes informações:
+  - `num_pedras`, [0, &infin;[, &isin; N (quantidade de pedras)
+  - `tam_pedras`, [1, 7], sendo 3 o padrão (tamanho das pedras)
     - são permitidos valores decimais a cada 0,5 (e.g.: 1, 1,5, 2)
   - `nome`, para dar um apelido carinhoso ao seu monstro
     - Deve conter apenas letras, maiúsculas ou minúsculas
@@ -427,17 +427,18 @@ Para dar comida a ele, você deve encomendá-las a partir de uma loja virtual.
 ---
 ## Enunciado (cont.)
 
-- Você também pode fornecer algumas informações adicionais, como:
+- Você também deve fornecer informações adicionais, como:
   - `corCeu1`, a cor do céu
   - `corCeu2`, outra cor para o céu
   - `tipo_pedras`, {`'marroada'`, `'ametista'`, `'topazio'`, `'espinela'`}
   - `tipo_pedras_sortidas`, {`não`, `sim`}
-    - Se o valor for `sim`, você deve proibir definir um valor para `tipo_pedras`
 
 ---
 ## Enunciado (cont.)
 
-- Você deve criar uma página web com um formulário
+- Você precisa conseguir enviar o pedido usando GET e POST. Possibilidades:
+  1. Ter dois `form`s na página, cada um com um `method`
+  1. Criar cada `form` em uma página separada (dois arquivos html)
 - Você deve usar os elementos que mais se aproximem do tipo de dados que você
   precisa representar.
 - O formulário deve ter validação de acordo com o domínio de cada campo
