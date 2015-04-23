@@ -11,12 +11,17 @@ var bespoke = require('bespoke'),
     state = require('bespoke-state'),
     markdown = require('bespoke-meta-markdown'),
     forms = require('bespoke-forms'),
+    backdrop = require('bespoke-backdrop'),
     tutorial = require('./tutorial'),
     caniuseWidget = require('./caniuse');
 
 // Bespoke.js
 bespoke.from('article', [
-  markdown(),
+  markdown({
+    backdrop: function(slide, value) {
+      slide.setAttribute('data-bespoke-backdrop', value);
+    }
+  }),
   fancy(),
   keys(),
   touch(),
@@ -26,6 +31,7 @@ bespoke.from('article', [
   progress(),
   state(),
   forms(),
+  backdrop(),
   tutorial(document.getElementsByClassName('tutorial')[0])
 ]);
 
