@@ -76,12 +76,17 @@
 - O atributo `method="..."` pode ter o valor `POST` ou `GET` e **altera o
   método `http`** a ser usado para fazer a requisição quando o formulário for
   submetido
+
+---
+## Como montar um formulário
+
 - O atributo `enctype="..."` descreve como os dados do formulário são
-  codificados para serem transmitidos em uma requisição `http`
+  **codificados** para serem transmitidos em uma requisição `http`
   - Valores possíveis
     1. `application/x-www-form-urlencoded`, formato padrão
-    1. `multipart/form-data`, para envio de arquivos
+    1. `multipart/form-data`, para envio (_upload_) de arquivos
     1. `text/plain`, desencorajado - apenas para _debug_
+
 
 ---
 ## Como funciona o exemplo
@@ -90,8 +95,12 @@
   é ativado**
   - `<input type="submit">`, ou
   - `<button type="submit">` (`html5`)
+
+---
+## Como funciona o exemplo
+
 - Quando ocorre a submissão, o navegador realiza uma requisição `http` usando
-  um método (atributo `method`) para um endereço (atributo `action`)
+  um método (atributo `method` do `form`) para um endereço (atributo `action` do `form`)
   ```
   POST /enviar.php HTTP/1.1
   Host: fegemo.github.io
@@ -100,7 +109,7 @@
   ```
   - Repare que os dados são enviados como uma _string_ de pares de nome
     e valor concatenados com o sinal &amp;
-  - Os nomes advêm da propriedade `name` dos `input`s
+  - Os nomes advêm da propriedade `name` dos `input`s (e não do atributo `id`)
 
 ---
 # Elementos de *dados**
@@ -155,13 +164,13 @@
 - _Markup_:
   ```html
   <label>
-    <input name="subscricao" type="checkbox" value="sim">Inscrever-se?
+    <input name="subscricao" type="checkbox" value="sim">Inscrever?
   </label>
   ```
 - Resultado:
 
   <label>
-    <input type="checkbox">Inscrever-se?
+    <input type="checkbox">Inscrever?
   </label>
 - Atributos:
   - `checked`, para deixar marcado
@@ -262,7 +271,7 @@
 ---
 ## Botões de submissão
 
-- Quando acionados, enviam (submetem) os dados para o endereço
+- Quando acionados, enviam (`submit`) os dados para o endereço
   especificado pelo atributo `action` do formulário
 - Existem duas formas para criar a marcação
   - `input`
