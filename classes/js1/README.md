@@ -74,6 +74,7 @@
   - Opera &#8594; Carakan &#8594; V8 (2013)
   - Safari &#8594; SquirrelFish 
   - Internet Explorer &#8594; Chakra
+  - Spartan &#8594; Chakra
 
 ---
 ## O que é Javascript?
@@ -83,6 +84,7 @@
 - Programação dirigida por **eventos**
 - Sintaxe parecida com C, C++, C# e Java
   - Javascript **não** é Java
+  - Ter "Java" no nome foi uma jogada de marketing da Netscape
 - Memória auto-gerenciada (_garbage collector_)
 - _case-sensitive_
 
@@ -95,7 +97,7 @@
 - O navegador executa o código assim que vê o elemento `<script></script>` e
   faz _download_ do arquivo apontado
 - As formas de incluir código Javascript em uma página são semelhantes às de
-  inclusão de CSS
+  inclusão de CSS:
   - Externa
       ```
         ...
@@ -110,13 +112,13 @@
 ---
 ## Inclusão em páginas
 
-- embutida
+- Embutida
   ```html
   <script>
     // código aqui
   </script>
   ```
-- inline
+- Inline
   ```html
   <button onclick="javascript: alert();">Mensagem</button>
   ```
@@ -124,7 +126,9 @@
 ---
 # Operadores
 
-![](../../images/js-operadores.png)
+- Semelhantes aos de C, Java e C#:
+
+  ![](../../images/js-operadores.png)
 
 ---
 # Variáveis
@@ -138,13 +142,19 @@
   var num_alunos = 20;
   ```
 - Para criar nomes de variáveis (e funções, parâmetros, propriedades etc.):
-  - Começar com letra
-  - Quaisquer combinações de **letra, número ou traço baixo _ **
-- Alguns nomes, entretanto, são reservados da linguagem e não podem ser usados
-  (continue...)
+  - Começar com os símbolos $, \_ ou qualquer caractere unicode que represente uma letra (&larr; _tricky_)
+  - Quaisquer combinações do conjunto anterior mais caracteres unicode que representem números e alguns 
+    tipos de pontuação
+
+---
+## Validador de nomes
+
+<iframe src="https://mothereff.in/js-variables" width="500" height="400"></iframe>
 
 ---
 ## Nomes reservados
+
+- Alguns nomes, entretanto, são reservados da linguagem e não podem ser usados
 
 <pre style="font-size: 1em; background: white; border-radius: 10px; padding: 20px">
   abstract
@@ -212,11 +222,19 @@
 - Representa uma entidade lógica e pode ter dois valores:
   - `true`
   - `false`
-
+- Exemplo:
+  ```js
+  var isPlaying = true;   // poderia ser false
+  /* ... */
+  if (isPlaying) {
+    /* ... */
+  }
+  ```
+  
 ---
 ## Number
 
-- Em Javascript há apenas um tipo numérico: 64bits (precisão dupla)
+- Em Javascript **há apenas um tipo numérico**: 64bits (precisão dupla)
 - Não há um tipo para representar inteiros
   - 1 e 1.0 são o mesmo valor
 - De forma literal, pode ser expressado com parte inteira, decimal e expoente
@@ -233,8 +251,16 @@
 
 - Valores especiais
   - `NaN` - _not a number_
+    - Retornado quando uma operação ilegal é executada (e.g., divisão por 0)
   - `Infinity`
-- Números têm métodos
+- Números têm métodos, por exemplo:
+  - [`toPrecision`][toPrecision], retorna uma string com o **número arredondado com o certo número de casas decimais**
+  - [`toFixed`][toFixed], retorna uma string com o número arredondado com certo número de casas decimais **em formato decimal**
+  - [`toExponential`][toExponential], retorna uma string com o número arredondando no **formato de notação científica**
+
+[toFixed]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+[toPrecision]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision
+[toExponential]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential
 
 ---
 ## String
@@ -259,7 +285,7 @@
   ```js
   'c' + 'a' + 't' === 'cat'
   ```
-- Strings têm métodos
+- Strings têm métodos, [vários deles](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
   - Exemplos:
   ```js
   'barba negra'.toUpperCase() === 'BARBA NEGRA'
@@ -272,7 +298,7 @@
 
 - O tipo Null contém apenas um valor
   - `null`
-- Usado quando uma variável não tem um valor aplicável àquele momento
+- Usado quando uma variável **não tem um valor aplicável àquele momento**
   ```js
   var x = null;
   console.assert(typeof x === 'null');
@@ -281,7 +307,7 @@
 ---
 ## Undefined
 
-- O tipo Undefined é o tipo atribuido a variáveis que não foram associadas a
+- O tipo Undefined é o tipo atribuído a variáveis que não foram associadas a
   nenhum valor
 - Tem um único valor
   - `undefined`
@@ -296,15 +322,15 @@
 ---
 ## Object
 
-- É um "container" de propriedades (nome &#8594; valor)
-  - Propriedade: nome e valor
+- É um "container" de propriedades
+  - Propriedade: (nome &#8594; valor)
     - Nome: qualquer string
     - Valor: qualquer valor Javascript exceto `undefined`
 - É como se cada objeto fosse um dicionário (Java, C#), só que as chaves
-  devem ser strings
+  devem sempre ser strings
 - Não existem classes
-  - Mas um objeto pode "herdar" de outro
-- Novas propriedades podem ser atribuidas mesmo após a instanciação
+  - Mas um objeto pode "herdar" de outro (!!!)
+- Novas propriedades podem ser atribuídas mesmo após a instanciação (!!!)
 
 ---
 ## Instanciando um Object
@@ -361,6 +387,54 @@ var flight = {
   - Array
 
 ---
+# Arrays
+
+- Arrays são vetores unidimensionais, heterogêneos
+- Os itens dos vetores **não** precisam ter o mesmo tipo
+  ```js
+  var listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
+  ```
+  
+- Propriedades:
+  - `length`
+    ```js
+    console.assert(listaDeCoisas.length === 5);
+    ```
+
+---
+## Arrays (cont.)
+
+- Indexação: usa-se os símbolos `[` e `]` para acessar um item do array
+  ```js
+  console.assert(listaDeCoisas[1] === 35);
+  listaDeCoisas[0] = '';
+  console.assert(listaDeCoisas[0] === '');
+  ```
+- Arrays possuem métodos, [vários](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array):
+  ```js
+  var fruits = [];
+  fruits.push('kiwi', 'apple', 'banana');
+  console.log(fruits.length); // 3
+  ```
+---
+## Métodos de Arrays
+
+- Inserindo e removendo elementos
+  ```js
+  fruits.push('papaya');        // insere 'papaya' no final
+  fruits.pop();                 // remove o último ('papaya')
+  
+  fruits.unshift('tangerine');  // insere 'tangerine' no início
+  fruits.shift();               // remove o primeiro ('tangerine')
+  ```
+- E alguns outros:
+  ```js
+  fruits.reverse()              // inverte a ordem dos itens
+  fruits.sort();                // ['apple', 'banana', 'kiwi']
+  fruits.splice(2, 1);          // Remove 1 elemento, a partir do 3º
+  ```
+  
+---
 # _Statements_
 
 ---
@@ -375,10 +449,10 @@ var flight = {
   }
   ```
   ```js
-  if (nota < 3)     { conceito = 'D'; }
-  else if (nota === 3) { conceito = 'C'; }
+  if (nota === 3)      { conceito = 'C'; }
   else if (nota === 4) { conceito = 'B'; }
   else if (nota === 5) { conceito = 'A'; }
+  else                 { conceito = 'D'; }
   ```
 
 ---
@@ -391,7 +465,7 @@ for (var i = 0; i !== 10; i++) {
 ```
 ```js
 var cores = ['azul', 'rosa', 'branco'];
-for (var cor in cores) {
+for (var i in cores) {
   console.log(cores[i]);
 }
 ```
@@ -418,13 +492,6 @@ do {
 
 ---
 # Funções
-
----
-## Funções
-
-- Funções são objetos, então podem ser usadas em variáveis, objetos e arrays
-  - Elas podem ser passadas como parâmetro ou retornadas de outras funções
-  - Como elas são objetos, elas podem ter propriedades ou mesmo métodos
 
 ---
 ## Funções (cont.)
@@ -531,6 +598,45 @@ do {
     }
     construir('casa');          // Ok, retorna a casa
     ```
+
+---
+## Funções são objetos
+
+1. Funções são objetos, então podem ser usadas em variáveis, objetos e arrays
+  ```js
+  var operacoes = [add, subtract, multiply];
+  operacoes[0](4, 5);   // retorna 9
+  ```
+
+---
+## Funções são objetos (cont.)
+
+1. Elas podem ser passadas como parâmetro ou retornadas de outras funções
+  ```js
+  function currifica(f, parametro1) {
+    return function(parametro2) {
+      return f(parametro1, parametro2);
+    }
+  }
+  var add1 = currifica(add, 1);
+  add1(10);     // retorna 11;
+  ```
+
+---
+## Funções são objetos (cont.)
+
+1. Como elas são objetos, elas podem ter propriedades ou mesmo métodos
+  ```js
+  function fibonacci(n) {
+    if (fibonacci.cache[n]) return fibonacci.cache[n];
+    else {
+      var f = fibonacci(n-1) + fibonacci(n-2);
+      fibonacci.cache[n] = f;
+      return f;
+    }
+  }
+  fibonacci.cache = { 1: 1,  2: 1 };
+  ```
 
 ---
 # Referências
