@@ -20,12 +20,28 @@ bespoke.from('article', [
   markdown({
     backdrop: function(slide, value) {
       slide.setAttribute('data-bespoke-backdrop', value);
+    },
+    scripts: function(slide, value) {
+      var placeToPutScripts = document.body;
+      try {
+        // if it's an array, we need to parse
+        // if it's not, JSON.parse will throw err
+        value = JSON.parse(value);
+      } catch (e) {
+        // value was just a url. Just ignore this exception
+        value = [value];
+      }
+      value.forEach(function (url) {
+        var s = document.createElement('script');
+        s.src = url;
+        placeToPutScripts.appendChild(s);
+      });
     }
   }),
   fancy(),
   keys(),
   touch(),
-  bullets('li, .bullet, dt:not(.bullet-old), dd:not(.bullet-old)'),
+  bullets('li:not(.bullet-old), .bullet, dt:not(.bullet-old), dd:not(.bullet-old)'),
   scale(),
   hash(),
   progress(),
@@ -61,3 +77,6 @@ if (inputEl) {
 
 // Can I Use widget
 window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
+
+// Used to load gmaps api async (it require a callback to be passed)
+window.noop = function() {};
