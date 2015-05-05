@@ -27,7 +27,7 @@
 </div>
 
 - **Título**	Head First HTML and CSS, Second Edition
-- **Autores**	Elisabeth Robson, Eric Freeman
+- **Autores**	Elisabeth Robson, ~~Gordon~~ Eric Freeman
 - **Editora** O'Reilly Media, 2012
 
 ---
@@ -49,7 +49,7 @@
 ## Dive into HTML5
 
 <div class="book-cover-container">
-  <img class="book-cover" src="images/dive-into-html5.png">
+  <img class="book-cover" src="images/book-dive-into-html5.png">
   <div class="book-left book-light"></div>
 </div>
 
@@ -59,13 +59,26 @@
 ## JavaScript: The Good Parts
 
 <div class="book-cover-container">
-  <img class="book-cover" src="images/js-good-parts.png">
+  <img class="book-cover" src="images/book-js-good-parts.png">
   <div class="book-left book-light"></div>
 </div>
 
 - **Título**	JavaScript, the Good Parts, First Edition
-- **Autores**	Douglas Crockford
+- **Autor**	Douglas Crockford
 - **Editora** O'Reilly Media, 2008
+
+---
+## Head First HTML5 Programming
+
+<div class="book-cover-container">
+  <img class="book-cover" src="images/book-head-first-html5-programming.jpg">
+  <div class="book-left"></div>
+</div>
+
+- **Título**	Head First HTML5 Programming
+- **Autores**	~~Gordon~~ Eric Freeman, Elisabeth Robson
+- **Editora** O'Reilly Media, 2011
+
 
 ---
 # Aulas
@@ -77,14 +90,17 @@
 - [CSS - Parte 1 (Prática)](classes/css1/) (26/03/2015)
 - [CSS - Parte 2](classes/css2/) (31/03/2015)
 - [HTML - Parte 5](classes/html5/) (07/04/2015)
-- [HTML - Parte 4 (Prática)](classes/html4/) (09/04/2015)
 
 ---
 # Aulas (p. 2)
 
+- [HTML - Parte 4 (Prática)](classes/html4/) (09/04/2015)
 - [CSS- Parte 3](classes/css3/) (14/04/2015)
 - [CSS - Parte 4 (Prática)](classes/css4/) (16/04/2015)
 - [HTML - Parte 6 (Prática)](classes/html6/) (23/04/2015)
+- [Javascript - Parte 1](classes/js1/) (28/04/2015)
+- [Javascript - Parte 2 (Prática)](classes/js2/) (30/04/2015)
+- [Javascript - Parte 5](classes/js5/) (05/04/2015)
 
 ---
 # Distribuição de Pontos
@@ -105,7 +121,8 @@
 # Trabalhos (40 pontos)
 
 - [TP0: Git](assignments/tp0) (3 pontos, data: 17/03/2015 23:59)
-- [TP1: Seu site pessoal](assignments/tp1) (15 pontos, data: ~~30/04/2015~~ 07/05/2015 23:59)
+- [TP1: Seu site pessoal][tp1] (15 pontos, data: ~~30/04/2015~~ 07/05/2015 23:59)
 - TP2: Empreendimentos SA (22 pontos, data 05/07/2015 23:59)
 
-[tp2]: https://github.com/fegemo/cefet-web/blob/master/src/assignments/tp2/README.md
+[tp1]: https://github.com/fegemo/cefet-web/blob/master/assignments/tp1/README.md
+[tp2]: https://github.com/fegemo/cefet-web/blob/master/assignments/tp2/README.md
