@@ -133,6 +133,17 @@
   ```
 
 ---
+## Simulação de _**retina display**_
+
+<img src="../../images/mario-star.png" style="width: 100px">
+<img src="../../images/mario-star-half.png" style="width: 100px">
+
+## Para testar em um dispositivo de **tela com alta densidade de pixels**:
+
+<img src="../../images/mario-star-double.png" style="width: 100px">
+<img src="../../images/mario-star.png" style="width: 100px">
+  
+---
 # _Responsive Design_
 
 ---
