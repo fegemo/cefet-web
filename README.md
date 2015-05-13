@@ -100,7 +100,13 @@
 - [HTML - Parte 6 (Prática)](classes/html6/) (23/04/2015)
 - [Javascript - Parte 1](classes/js1/) (28/04/2015)
 - [Javascript - Parte 2 (Prática)](classes/js2/) (30/04/2015)
-- [Javascript - Parte 5](classes/js5/) (05/04/2015)
+- [Javascript - Parte 5](classes/js5/) (05/05/2015)
+
+---
+# Aulas (p. 3)
+
+- [CSS - Parte 6](classes/css6/) (12/05/2015)
+- [CSS - Parte 5 (Prática)](classes/css5/) (14/05/2015)
 
 ---
 # Distribuição de Pontos
