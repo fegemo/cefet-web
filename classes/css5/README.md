@@ -58,18 +58,18 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
    - `instinto-selvagem`, quando um animal com fome não é alimentado a tempo
 
 ---
-## Pede-se
+## Pede-se: fazer os **3 exercícios** abaixo
 
-1. Criar uma transição para quando o mouse estiver em cima dos botões
+1. Criar uma **transição para quando o mouse estiver em cima dos botões**
    _play/stop_ (para que o elemento se revele lentamente)
-1. Criar uma imagem _sprite_ com as imagens de todos os 9 animais e, assim,
-   fazer com que a página carregue mais rápido
-1. Você deve implementar uma metáfora visual para cada um dos 4 estados dos
+1. Você deve implementar uma **metáfora visual** para cada um dos 4 estados dos
    animais. Algumas sugestões:
    - `agitado`, animal piscando (opacidade variando)
    - `alimentado`, uma borda verde no animal e o animal fica girando de alegria
    - `perturbado`, animal vai crescendo, ou fica pulsando
    - `instinto-selvagem`, animal dá um salto e cresce, com uma borda vermelha
+1. Criar uma **imagem _sprite_**   com as imagens dos ícones de "começar/parar" o jogo 
+   de forma a fazer com que a página carregue mais rápido
 
 ---
 ## Entrega do exercício
@@ -195,16 +195,18 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
 ## Como usar
 
 - ```css
-  a:link  { color: #66c; }
+  a:link  { color: #f00; }
   a:hover { color: #000; }
-  a       { transition: color 200ms linear; }
+  a       { transition: color 600ms linear; }
   ```
   <style>
     a.transition-link {
-      transition: color 200ms linear;
-      -webkit-transition: color 200ms linear;
+      transition: color 600ms linear;
+      -webkit-transition: color 600ms linear;
+      -moz-transition: color 600ms linear;
+      -ms-transition: color 600ms linear;
     }
-    a.transition-link:link  { color: #66c; }
+    a.transition-link:link  { color: red; }
     a.transition-link:hover { color: #000; text-decoration: none; }
   </style>
   <a href="#" class="transition-link">Heyyy, hover me</a>
@@ -391,7 +393,7 @@ a.combinando:hover {
   ```css
   #urso {
     position: relative;
-    animation: flutuando .5s ease-in-out 0 infinite alternate;
+    animation: flutuando .5s ease-in-out 0s infinite alternate;
   }
   @keyframes flutuando {
     from { top: 0;     }
@@ -401,11 +403,11 @@ a.combinando:hover {
   - <style>
 .urso-flutuante {
   position: relative;
-  -webkit-animation: urso-flutuando .5s ease-in-out 0 infinite alternate;
-  -moz-animation: urso-flutuando .5s ease-in-out 0 infinite alternate;
-  -ms-animation: urso-flutuando .5s ease-in-out 0 infinite alternate;
-  -o-animation: urso-flutuando .5s ease-in-out 0 infinite alternate;
-  animation: urso-flutuando .5s ease-in-out 0 infinite alternate;
+  -webkit-animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
+  -moz-animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
+  -ms-animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
+  -o-animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
+  animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
 }
 @-webkit-keyframes urso-flutuando {
   from { top: 0;     }
@@ -416,10 +418,6 @@ a.combinando:hover {
   to   { top: -30px; }
 }
 @-ms-keyframes urso-flutuando {
-  from { top: 0;     }
-  to   { top: -30px; }
-}
-@-o-keyframes urso-flutuando {
   from { top: 0;     }
   to   { top: -30px; }
 }
@@ -494,10 +492,118 @@ a.combinando:hover {
   right: 0;
   z-index: -1;
   -webkit-animation: terra-ao-longo-do-dia 20s linear 4s 1 normal forwards;
-  animation: terra-ao-longo-do-dia 10s linear 2s 1 normal forwards;
+  -moz-animation: terra-ao-longo-do-dia 20s linear 4s 1 normal forwards;
+  -ms-animation: terra-ao-longo-do-dia 20s linear 4s 1 normal forwards;
+  animation: terra-ao-longo-do-dia 20s linear 4s 1 normal forwards;
 }
   </style>
   <div class="terra"> </div>
+
+---
+## Definindo **@keyframes** (cont.)
+  
+- ```css
+  .estrela-mario-1:hover {
+    animation: girando 1s ease-in-out 0s infinite alternate;
+  }
+  @keyframes girando {
+    from { transform: rotate(15deg); }
+    to   { transform: rotate(-15deg); }
+  }
+  ```
+  <style>
+.estrela-mario-1:hover {
+  -webkit-animation: girando 1s ease-in-out 0s infinite alternate;
+  -moz-animation: girando 1s ease-in-out 0s infinite alternate;
+  -ms-animation: girando 1s ease-in-out 0s infinite alternate;
+  animation: girando 1s ease-in-out 0s infinite alternate;
+}
+@-webkit-keyframes girando {
+  from { transform: rotate(15deg); }
+  to   { transform: rotate(-15deg); }
+}
+@-moz-keyframes girando {
+  from { transform: rotate(15deg); }
+  to   { transform: rotate(-15deg); }
+}@-ms-keyframes girando {
+  from { transform: rotate(15deg); }
+  to   { transform: rotate(-15deg); }
+}
+@keyframes girando {
+  from { transform: rotate(15deg); }
+  to   { transform: rotate(-15deg); }
+}  
+  </style>
+    <img class="estrela-mario-1" src="../../images/mario-star.png">
+
+---
+## Definindo **@keyframes** (cont.)
+  
+- ```css
+  .estrela-mario-2:hover {
+    animation: pirando 600ms ease-in 3s 1 forwards,
+               girando-costas 3600ms ease-in 1 forwards;
+  }
+  ```
+  <style>
+.estrela-mario-2:hover {
+  -webkit-animation: pirando 600ms ease-in 3s 1 forwards, girando-costas 3600ms ease-in 1 forwards;
+  -moz-animation: pirando 600ms ease-in 3s 1 forwards, girando-costas 3600ms ease-in 1 forwards;
+  -ms-animation: pirando 600ms ease-in 3s 1 forwards, girando-costas 3600ms ease-in 1 forwards;
+  animation: pirando 600ms ease-in 3s 1 forwards, girando-costas 3600ms ease-in 1 forwards;
+}
+
+@-webkit-keyframes pirando {
+  from { opacity: 1; top: 0;      width: 100px; left: 0     }
+  to   { opacity: 0; top: -200px; width: 20px;  left: 40px; }
+}
+@-moz-keyframes pirando {
+  from { opacity: 1; top: 0;      width: 100px; left: 0     }
+  to   { opacity: 0; top: -200px; width: 20px;  left: 40px; }
+}
+@-ms-keyframes pirando {
+  from { opacity: 1; top: 0;      width: 100px; left: 0     }
+  to   { opacity: 0; top: -200px; width: 20px;  left: 40px; }
+}
+@keyframes pirando {
+  from { opacity: 1; top: 0;      width: 100px; left: 0     }
+  to   { opacity: 0; top: -200px; width: 20px;  left: 40px; }
+}
+
+@-webkit-keyframes girando-costas {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(3600deg); }
+}
+@-moz-keyframes girando-costas {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(3600deg); }
+}
+@-ms-keyframes girando-costas {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(3600deg); }
+}
+@keyframes girando-costas {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(3600deg); }
+}
+  </style>
+  <div style="position:relative;">
+    <img class="estrela-mario-2" src="../../images/mario-star.png" style="position:absolute;">
+  </div>
+
+---
+## Definindo **@keyframes** (cont.)
+
+- ```css
+  @keyframes pirando {
+    from { opacity: 1; top: 0;      width: 100px; left: 0     }
+    to   { opacity: 0; top: -200px; width: 20px;  left: 40px; }
+  }
+  @keyframes girando-costas {
+    from { transform: rotateY(0); }
+    to   { transform: rotateY(3600deg); }
+  }
+  ```
 
 ---
 ## **animation** ou **transition**?
