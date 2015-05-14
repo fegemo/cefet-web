@@ -624,3 +624,17 @@ a.combinando:hover {
 
 - [Mozilla Developer Network](https://developer.mozilla.org/)
 - [caniuse.com](http://caniuse.com/)
+
+---
+# Slide **_easter egg_**!!
+
+- Em 01/04/2015, a Google lançou um espelho para seu buscador, o com.google. 
+  Ele se parecia com isto:
+  [com.google](../../images/comgoogle.png)
+  
+- Usando transformações e animações, fica facinho fazer um desses!!
+  <a class="bookmarklet" href="javascript:(function(){ if (document.body.style.transform === '') { document.body.style.transform='rotateY(180deg)'; } else { document.body.style.transform = '';}})()">Paradinha do Google</a>
+  <a class="bookmarklet" href="javascript:(function(){ if (!document.getElementById('aew-anim')) { document.getElementsByTagName('html')[0].style.overflowX='hidden'; var s= document.createElement('style'); s.id='aew-anim'; s.innerText='@-webkit-keyframes aew { from { transform: skewX(-2deg); } to { transform: skewX(2deg); }}'; document.head.appendChild(s); } if (document.body.style.webkitAnimation === '') { document.body.style.transform='skewX(10deg)';document.body.style.transformOrigin='-50% 0';document.body.style.webkitAnimation='aew 400ms ease-in-out infinite alternate'; } else { document.body.style.webkitAnimation='';document.body.style.transform='';}})()">Rabo do cachorro</a>
+  
+  - Modo de uso de um **_bookmarklet_**: arraste o link para sua barra de favoritos e 
+    simplesmente clique no favorito quando estiver em uma página

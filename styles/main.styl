@@ -345,6 +345,20 @@ input.switch:checked ~ label:before
 input.switch:checked ~ label:after
   margin-left 2.1em
 
+// bookmarklets (links looking like buttons)
+a.bookmarklet
+  border-radius 5px
+  border 2px solid silver
+  padding 4px 7px
+  background-color rgba(255,255,255,.1)
+  transition all 200ms ease-out
+  &:hover
+    text-decoration none
+    background-color #b66c7e
+    color #ddd
+    border-color #333
+    cursor move
+
 
 // pulling images left or right
 img[alt$="right"]
