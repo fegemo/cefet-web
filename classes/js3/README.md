@@ -109,7 +109,7 @@
 ---
 ## Construção de objetos por **construtor**
 
-- Mas existe uma terceira forma, em que podemos criar e inicializar o objeto
+- Mas existe uma terceira forma, em que podemos criar e inicializar o objeto. 
   Nessa forma, criamos uma **função construtora** que vai instanciar e
   inicializar objetos:
   ```js
@@ -554,7 +554,7 @@ gato.diz();                 // 'Miau'
 # Escopo
 
 ---
-## Problem de escopo em Javascript
+## Problema de escopo em Javascript
 
 - Sabemos que apenas funções delimitam escopo
 - Tudo o que é criado fora de uma função é associado ao objeto `window` (!!!)
@@ -574,14 +574,14 @@ gato.diz();                 // 'Miau'
   - Este é o padrão de projeto <abbr title="Immediately Invoked Function Expression">IIFE</abbr>
 
 ---
-## Padrão de Projeto: Immediately Invoked Function Expression
+## Padrão de Projeto: _Immediately Invoked Function Expression_
 
 - Tentativa 1:
   ```html
   <script>
     function a() {
       var umBoizinho = 'verde';
-      console.log(window.umBoizinho);   // verde
+      console.log(window.umBoizinho);   // undefined
     }
     a();
   </script>
@@ -589,7 +589,7 @@ gato.diz();                 // 'Miau'
   - Problema: poluímos com `a`
 
 ---
-## Padrão de Projeto: Immediately Invoked Function Expression (cont.)
+## Padrão de Projeto: _Immediately Invoked Function Expression_ (cont.)
 
 - Tentativa 2, certeira:
   ```html
@@ -600,7 +600,6 @@ gato.diz();                 // 'Miau'
   })();
   </script>
   ```
-  - IIFE, Sua Linda!!
 
 ---
 # Referências

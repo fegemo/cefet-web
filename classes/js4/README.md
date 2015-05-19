@@ -191,8 +191,8 @@
   </ul>
 - Um objeto JSON é como um objeto Javascript: um container não ordenado de
   propriedades
-  - Uma chave é sempre uma string entre àspas duplas
-    - Diferente de Javascript, que não precisa de àspas
+  - Uma chave é sempre uma string entre aspas duplas
+    - Diferente de Javascript, que não precisa de aspas
   - Um valor pode ser qualquer um dos listados acima
 - Espaço em branco ou quebras de linha não alteram a semântica
 
