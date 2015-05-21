@@ -416,11 +416,14 @@
   realização de requisições AJAX
   - Veja como ficaria o exemplo do botão "curtir" usando jQuery:
     ```js
-    $.get('/curtir/3434', function() {
-      alert('Post curtido!');
+    $.ajax({
+      url: '/curtir/3434', 
+      method: 'GET',          // opcional: 'GET' é o valor padrão
+      success: function(resposta) {
+        alert('Post curtido!');
     });
-    ```
-
+    ```    
+    
 ---
 # Exercício 3
 
@@ -429,8 +432,9 @@
 - Você deve escrever código Javascript para fazer chamadas AJAX para 
   uma API pública com informações sobre Star Wars
   - Disponível em https://swapi.co/
-  
-  
+    <div class="resolution">Resolução: http://codepen.io/fegemo/pen/YXGxzN</div>
+- O uso de jQuery está liberado neste exercício \o/
+ 
 ---
 # Referências
 
