@@ -424,17 +424,13 @@
 ---
 # Exercício 3
 
-- Vamos carregar fotos do site Flicker com o pressionar de um botão
-  1. Para usar a API do Flicker, devemos fazer uma requisição AJAX para um
-     endereço neste formato:
-     http://www.flickr.com/services/feeds/photos_public.gne?tags=soccer&format=json
-     - [Descrição da URL](https://www.flickr.com/services/feeds/docs/photos_public/)
-  1. Você deve criar uma página com um botão que vá mostrar 5 imagens de um
-     assunto a sua escolha (no exemplo, futebol)  
-     - Cada imagem deve ter um link apontando para a página da foto no Flicker
-     - _**Dikentinha**_: você vai precisar inspecionar a resposta da API para
-       saber o formato do objeto JSON retornado
-
+- Vamos criar um letreiro Star Wars em Javascript e CSS \o/
+- Faça um _fork_ deste _pen_: http://codepen.io/fegemo/pen/PqGjep
+- Você deve escrever código Javascript para fazer chamadas AJAX para 
+  uma API pública com informações sobre Star Wars
+  - Disponível em https://swapi.co/
+  
+  
 ---
 # Referências
 
