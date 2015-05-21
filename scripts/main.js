@@ -12,6 +12,7 @@ var bespoke = require('bespoke'),
     markdown = require('bespoke-meta-markdown'),
     forms = require('bespoke-forms'),
     backdrop = require('bespoke-backdrop'),
+    easter = require('./easter'),
     tutorial = require('./tutorial'),
     caniuseWidget = require('./caniuse');
 
@@ -74,6 +75,8 @@ if (inputEl) {
     buttonEl
   ).start();
 }
+
+easter();
 
 // Can I Use widget
 window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
