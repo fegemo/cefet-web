@@ -95,7 +95,7 @@ gulp.task('attachments', function() {
 
 gulp.task('images', function() {
   var destination = 'dist/images';
-  return gulp.src('images/**/*')
+  return gulp.src(['images/**/*', '!images/**/*.db'])
     .pipe(changed(destination))
     .pipe(gulp.dest(destination));
 });
@@ -206,7 +206,7 @@ gulp.task('watch', function() {
   gulp.watch('scripts/classes/*.js', ['js-classes']);
 });
 
-gulp.task('deploy', ['build'], function(done) {
+gulp.task('deploy', [], function(done) {
   ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
 });
 
