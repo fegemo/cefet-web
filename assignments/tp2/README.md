@@ -4,49 +4,51 @@ Você acordou um dia sentindo-se um empreendedor nato e se juntou a outro (1)
 colega para desenvolver um novo serviço Web revolucionário e, de quebra, ficar
 rico.
 
+Esse novo serviço que você vai criar deve ser um dos listados abaixo:
+
+- Um **loja** de e-commerce tão boa que venda gelo para eskimó
+- Um **ambiente virtual de aprendizagem** (AVA) que vá substituir o Moodle
+- Um **sistema de blogs** para desbancar o Wordpress
+- Um **portal de notícias** forjadas
+- Um sistema de gerenciamento de **tarefas** a serem procrastinadas
+- Uma aplicação para visualizar e compartilhar **trechos de código** html, css e javascript fazendo forte concorrência ao jsfiddle
+
+Você também pode propor outra alternativa para o professor, mas faça isso o
+quanto antes para que haja tempo de desenvolver. Não vale entregar algo que o professor não sabia que vocês estavam desenvolvendo.
+
 Como você se lembra do curso de programação Web via correspondência que fez,
 o serviço Web que você vai criar deve possuir os seguintes elementos:
 
+1. A funcionalidade básica, porém completa, típica do serviço que está criando. Por exemplo:
+  - Para uma loja, precisa da página inicial, página
+    de produto e carrinho de compra
+  - Para o sistema de tarefas, precisa de cadastro de
+    usuário, registro, edição e exclusão de tarefas etc.
 1. Pelo menos 3 páginas diferentes
 1. As páginas devem ter conteúdo dinâmico
 1. Persistência de dados no servidor (banco de dados ou arquivos)
-1. Chamadas AJAX para recuperação de dados ou atualização de trechos da página
-1. Autenticação de usuário
-1. _Layout_ e _design_ agradáveis - não precisa ser profissional, mas também não
-  pode ter carinha de site da década de 90
-
-Esse novo serviço que você vai criar deve ser um dos listados abaixo:
-
-- Um loja de e-commerce que venda gelo para eskimó
-- Um ambiente virtual de aprendizagem (AVA) que vá substituir o Moodle
-- Um sistema de blogs para desbancar o Wordpress
-- Um portal de notícias forjadas
-- Um sistema de gerenciamento de tarefas a serem procrastinadas
-
-Você também pode propor outra alternativa para o professor, mas faça isso o
-quanto antes para que haja tempo de desenvolver.
+1. Chamadas AJAX para recuperação de dados ou para atualização de trechos da página
+1. Autenticação/criação de usuário
+1. _Layout_ e _design_ agradáveis - não precisa ser profissional, mas também não pode ter carinha de site da década de 90
 
 ## Funcionalidade extra
 
 O que foi descrito anteriormente do trabalho equivale a uma pontuação de 80%.
-Para chegar a 100% (ou a mais e ganhar uns pontinhos extras), você deve
+Para chegar a 100% (ou a mais e ganhar uns pontinhos extras, até o limite de 120%), você deve
 implementar também um conjunto de outras funcionalidades, a saber:
 
-- Solicitar e utilizar a localização do usuário para algum propósito (5%)
-- Usar o armazenamento local e/ou de sessão (_Web Storage_) (7%)
+- Usar APIs do HTML5 de forma a melhorar a experiência de usuário (3-8% cada)
 - Fazer as páginas "responsivas" (5%)
 - Animações e/ou transições CSS (5%)
-- Acessibilidade (5-10%)
-- Desenvolver uma _Single Page Application_ usando (15%)
+- Desenvolver no formato de _Single Page Application_ usando (12%)
   - [Backbone](http://backbone.org)
   - [Angular](http://angularjs.org/)
   - [Knockout](http://knockoutjs.com/)
   - [Ember](http://emberjs.com/)
-  - [Durandal](http://durandaljs.com/), etc
-- Incluir audio/video (sem ser `iframe`) (5%)
+  - [React](https://facebook.github.io/react/), etc
 - Usar um preprocessador CSS (7%)
 - Usar _sprites_ CSS para imagens pequenas (5%)
-- Usar um serviço de autenticação como Google, Facebook, Twitter, Github etc.
+- Usar um serviço de autenticação de terceiros como Google, Facebook, Twitter, Github etc.
   (8%)
 - Usar um _task runner_ como GruntJS, Gulp, Broccoli etc. para
   - "Minificar" os arquivos CSS e JS (3%)
@@ -56,7 +58,7 @@ implementar também um conjunto de outras funcionalidades, a saber:
   Browserify) (8%)
 - _Drag'n'Drop_ (7%)
 - _Upload_ de arquivos (5%)
-- Integrar a uma API existente, e.g., Google Analytics, Google Maps, Facebook,
+- Integrar a uma API de terceiros existente, e.g., Google Analytics, Google Maps, Facebook,
   Google+ etc. (1-10%)
 
 Você pode usar bibliotecas/frameworks Javascript e CSS. Contudo, para usar as
