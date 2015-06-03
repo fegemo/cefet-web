@@ -121,7 +121,6 @@
       <li>Sobre</li>
     </ul>
     ```
-  - Mas de uma forma organizada :)
 
 ---
 ## Um servidor Web simplão
@@ -133,9 +132,8 @@
   ```
   - Com isso, temos um servidor Web funcional, servindo os arquivos do
     diretório atual
-- Exemplo:
-
-  <img src="../../images/py-server-folder.png" style="">
+- ![right](../../images/py-server-folder.png)
+  Exemplo:
 
 ---
 ## Um servidor Web simplão (cont.)
@@ -319,7 +317,7 @@
   var http = require('http');
   http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('!doctype>html>.... /html>\n');
+    res.end('conteudo do arquivo html');
   }).listen(1337, '127.0.0.1');
   console.log('Server running at http://127.0.0.1:1337/');
   ```
