@@ -64,7 +64,7 @@
 ---
 ## Servindo os arquivos, com _MIME types_
 
-- Existem mais de 1.500 _MIME types_
+- Existem [mais de 1.500 _MIME types_](http://www.iana.org/assignments/media-types/media-types.xhtml)
 - Em vez de criar a lista nós mesmos, vamos buscar se alguém já não passou por
   esse problema e já propôs uma solução:
   ```
@@ -129,7 +129,7 @@
   1. Saber responder a métodos HTTP diferentes de GET (POST, PUT, DELETE, HEAD etc.)
   1. Saber falar outros métodos (e.g., HTTPS)
   1. Gerar arquivos HTML dinamicamente
-- Novamente, vejamos se não estamos reiventando a roda =)
+- Novamente, vejamos se não estamos reinventando a roda =)
 
 ---
 # Express
