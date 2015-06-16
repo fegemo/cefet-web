@@ -41,12 +41,12 @@
 ## Como os _cookies_ são enviados
 
 - <img src="../../images/cookies-envio.png" style="float:right; margin: 0 0 15px 15px;">
-  Quando o navegador solicita uma página, o servidor pode enviar
-  _cookies_ de volta
-- Se o servidor já havia enviado _cookies_ para o navegador, este os enviará
-  de volta ao servidor nas requisições seguintes
-- Modelo alternativo: também é possível criar e usar cookies à partir do lado
-  cliente, usando Javascript
+  Quando o navegador solicita uma página, o **servidor pode enviar
+  _cookies_** de volta
+- Se o servidor já havia enviado _cookies_ para **o navegador**, este os **enviará
+  de volta ao servidor** nas requisições seguintes
+- Modelo alternativo: também é possível **criar e usar cookies** a partir **do lado
+  cliente**, usando Javascript
 
 ---
 ## Mitos sobre _cookies_
@@ -68,7 +68,7 @@
 
 ![](../../images/tracking-cookie.png)
 
-- Uma empresa de anúncios envai um _cookie_ quando você visita um site e o vê
+- Uma empresa de anúncios envia um _cookie_ quando você visita um site e o vê
   novamente quando você visita outro site que também usa esses anúncios
 - Assim, eles sabem que a mesma pessoa visitou os dois sites
 - Pode ser corrigido dizendo-se ao navegador para não aceitar "_cookies_ de
@@ -106,7 +106,7 @@
 ---
 ## Exemplo de uso de _cookie_ (3/5)
 
-3) Navegador armazenou _cookie_ e usuário navega para outra página do site:
+3) Navegador armazenou o _cookie_ e o usuário navega para outra página do site:
    ```
    GET /promotions.html HTTP/1.1
    Host: www.ispeakmanymanylanguages.com
@@ -114,7 +114,7 @@
    Accept: */*
    ```
    - Todas as páginas subsequentes serão mostradas em inglês, porque em toda
-     nova requisição o navegador passa a enviar o cabeçalho `Cookie`, que
+     nova requisição, **o navegador passa a enviar o cabeçalho `Cookie`**, que
      contém o _cookie_ criado pelo servidor para armazenar a língua selecionada
 
 ---
@@ -138,7 +138,7 @@
    Content-type: text/html
    <strong>Set-Cookie: lang=portuguese</strong>
 
-   (conteúdo da página)
+   (conteúdo da página em Português)
    ```
 
 
@@ -173,7 +173,7 @@
 - Ao incluir o atributo `Expires` ou `Max-Age` no cabeçalho `Set-Cookie`,
   dizemos ao navegador para criar um _cookie_ **persistente**
   - `Expires` define a data em que o navegador deve excluir o _cookie_
-  - `Max-Age` define um valor em milissegundos à partir de quando o navegador
+  - `Max-Age` define um valor em milissegundos a partir de quando o navegador
     deve excluir o _cookie_
 - Para consertar, o servidor deve enviar o `Set-Cookie` do passo 5:
   ```
@@ -223,9 +223,9 @@
 ---
 ## O que é uma sessão?
 
-- **sessão**: conceito abstrato que representa uma série de requisições
-  e respostas HTTP entre um navegador e um servidor
-- O protocolo HTTP não conhece o conceito de sessão, mas linguagens de
+- **sessão**: conceito abstrato que representa **uma série de requisições
+  e respostas HTTP** entre um navegador e um servidor
+- O protocolo HTTP não conhece o conceito de sessão (ele é _stateless_), mas linguagens de
   programação para Web sim (Express.js, PHP, ASP.NET, Java etc.)
 - sessões _vs._ _cookies_:
   - Um _cookie_ é um dado armazenado no cliente

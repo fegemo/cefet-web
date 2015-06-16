@@ -44,8 +44,8 @@
 - Na atividade de hoje, vamos usar:
   1. o [Express](http://expressjs.com) como nosso _web framework_
   1. algum _templating engine_ para renderizar html dinamicamente (e.g.,
-    [Handlebars](http://http://handlebarsjs.com/.org))
-  1. o [Underscore.js](http://underscore.org), que fornece utilidades típicas
+    [Handlebars](http://http://handlebarsjs.com/))
+  1. o [Underscore.js](http://underscorejs.org), que fornece utilidades típicas
      de linguagens funcionais para o Javascript e vai facilitar nossa vida hoje
 
 ---
@@ -270,12 +270,12 @@
 ---
 # Entrega
 
-- Entrega via **Moodle** até quinta-feira
+- Entrega via **Moodle**
 
 
 ---
 # Referências
 
-1. Site oficial do [underscore.js](http://underscore.org)
-1. Site oficial do [handlebars](http://http://handlebarsjs.com/.org)
+1. Site oficial do [underscore.js](http://underscorejs.org)
+1. Site oficial do [handlebars](http://http://handlebarsjs.com/)
 1. Site oficial do [Express.js](http://expressjs.com)
