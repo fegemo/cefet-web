@@ -110,16 +110,19 @@
 - [Javascript - Parte 3](classes/js3/) (19/05/2015)
 - [Javascript - Parte 4 (Prática)](classes/js4/) (21/05/2015)
 - [Server-side Node.js - Parte 1](classes/ssn1/) (26/05/2015)
-- [Server-side Node.js - Parte 2 (Prática)](classes/ssn2/) (28/05/2015)
+- [Server-side Node.js - Parte 2 (Prática learnyounode)](classes/ssn2/) (28/05/2015)
 - [Server-side Node.js - Parte 3](classes/ssn3/) (02/06/2015)
 - [Javascript - Parte 7](classes/js7/) (09/06/2015)
-- [Server-side Node.js - Parte 4 (Prática)](classes/ssn4/) (11/06/2015)
+- [Server-side Node.js - Parte 4 (Prática  Geiser)](classes/ssn4/) (11/06/2015)
 - [Server-side Node.js - Parte 5](classes/ssn5/) (16/06/2015)
 
 ---
 # Aulas (página 4)
 
-- [Server-side Node.js - Parte 6 (Prática)](classes/ssn6/) (18/06/2015)
+- [Server-side Node.js - Parte 6 (Prática Jardim Zumbi)](classes/ssn6/) (18/06/2015)
+- [Server-side Node.js - Parte 7](classes/ssn7/) (23/06/2015)
+- [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/) (18/06/2015)
+
 
 ---
 # Distribuição de Pontos
@@ -133,8 +136,8 @@
 
 - Primeira prova (20 pontos) - data: 07/05/2015
 - Segunda prova (20 pontos) - data: 07/07/2015
-- Prova suplementar (20 pontos) - data: 09/07/2015
-- Exame especial (100 pontos) - data: 14/07/2015
+- Prova suplementar (20 pontos) - data: 07/07/2015
+- Exame especial (100 pontos) - data: 09/07/2015
 
 ---
 # Trabalhos (40 pontos)
