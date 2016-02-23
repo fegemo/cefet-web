@@ -3,10 +3,10 @@ var pkg = require('./package.json'),
     gulp = require('gulp'),
     gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
-    rimraf = require('gulp-rimraf'),
+    del = require('del'),
     rename = require('gulp-rename'),
-    connect = require('gulp-connect'),
-    browserify = require('gulp-browserify'),
+    connect = require('gulp-connect'),            // Blacklisted
+    browserify = require('gulp-browserify'),      // Blacklisted
     uglify = require('gulp-uglify'),
     stylus = require('gulp-stylus'),
     replace = require('gulp-replace'),
@@ -19,7 +19,7 @@ var pkg = require('./package.json'),
     changed = require('gulp-changed'),
     merge = require('merge-stream'),
     // TODO: para usar LR com websocket: http://www.hiddentao.com/archives/2014/08/18/phonegap-development-with-on-device-livereload/
-    server = require('gulp-webserver'),
+    server = require('gulp-webserver'),           // Blacklisted
     isDist = process.argv.indexOf('serve') === -1;
 
 gulp.task('js', function() {
@@ -107,7 +107,7 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(destination));
 });
 
-gulp.task('videos', ['clean:videos'], function() {
+gulp.task('videos', function() {
   var destination = 'dist/videos';
   return gulp.src('videos/**/*')
     .pipe(changed(destination))
@@ -122,43 +122,7 @@ gulp.task('favicon', function() {
 });
 
 gulp.task('clean', function() {
-  return gulp.src('dist')
-    .pipe(rimraf());
-});
-
-gulp.task('clean:html', function() {
-  return gulp.src('dist/index.html')
-    .pipe(rimraf());
-});
-
-gulp.task('clean:md', function() {
-  return gulp.src('dist/**/*.md')
-    .pipe(rimraf());
-});
-
-gulp.task('clean:js', function() {
-  return gulp.src('dist/build/build.js')
-    .pipe(rimraf());
-});
-
-gulp.task('clean:css', function() {
-  return gulp.src('dist/build/build.css')
-    .pipe(rimraf());
-});
-
-gulp.task('clean:images', function() {
-  return gulp.src('dist/images')
-    .pipe(rimraf());
-});
-
-gulp.task('clean:fonts', function() {
-  return gulp.src('dist/fonts')
-    .pipe(rimraf());
-});
-
-gulp.task('clean:videos', function() {
-  return gulp.src('dist/videos')
-    .pipe(rimraf());
+  return del('dist');
 });
 
 
