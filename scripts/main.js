@@ -4,7 +4,7 @@ var bespoke = require('bespoke'),
     fancy = require('bespoke-theme-fancy'),
     keys = require('bespoke-keys'),
     touch = require('bespoke-touch'),
-    bullets = require('bespoke-bullets'),
+    //bullets = require('bespoke-bullets'),
     scale = require('bespoke-scale'),
     hash = require('bespoke-hash'),
     progress = require('bespoke-progress'),
@@ -13,8 +13,8 @@ var bespoke = require('bespoke'),
     forms = require('bespoke-forms'),
     backdrop = require('bespoke-backdrop'),
     easter = require('./easter'),
-    tutorial = require('./tutorial'),
-    caniuseWidget = require('./caniuse');
+    tutorial = require('./tutorial')
+    ;//caniuseWidget = require('./caniuse');
 
 // Bespoke.js
 bespoke.from('article', [
@@ -42,7 +42,7 @@ bespoke.from('article', [
   fancy(),
   keys(),
   touch(),
-  bullets('li:not(.bullet-old), .bullet, dt:not(.bullet-old), dd:not(.bullet-old)'),
+  //bullets('li:not(.bullet-old), .bullet, dt:not(.bullet-old), dd:not(.bullet-old)'),
   scale(),
   hash(),
   progress(),
@@ -79,7 +79,7 @@ if (inputEl) {
 easter();
 
 // Can I Use widget
-window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
+//window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
 
 // Used to load gmaps api async (it require a callback to be passed)
 window.noop = function() {};
