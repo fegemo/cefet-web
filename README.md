@@ -9,8 +9,8 @@
 ---
 ## Objetivos
 
-1. Criar páginas **HTML com uso de CSS e Javascript**.
-1. Desenvolver **sistemas web dinâmicos** com banco de dados, ~~JSP, JSF~~ (Node.js).
+1. Criar páginas **HTML com uso de CSS e Javascript**
+1. Desenvolver **sistemas web dinâmicos** com banco de dados e Node.js
 1. Fazer trabalhos práticos legais
 1. Tornar-se um ninja Javascript
 
@@ -84,6 +84,8 @@
 # Aulas (página 1)
 
 - [História da Web](classes/intro/) (12/03/2015)
+
+<!--
 - [HTML - Parte 1](classes/html1/) (17/03/2015)
 - [HTML - Parte 2 (Prática)](classes/html2/) (19/03/2015)
 - [HTML - Parte 3](classes/html3/) (24/03/2015)
@@ -92,7 +94,6 @@
 - [HTML - Parte 5](classes/html5/) (07/04/2015)
 - [HTML - Parte 4 (Prática)](classes/html4/) (09/04/2015)
 
----
 # Aulas (página 2)
 
 - [CSS- Parte 3](classes/css3/) (14/04/2015)
@@ -104,7 +105,6 @@
 - [CSS - Parte 6](classes/css6/) (12/05/2015)
 - [CSS - Parte 5 (Prática)](classes/css5/) (14/05/2015)
 
----
 # Aulas (página 3)
 
 - [Javascript - Parte 3](classes/js3/) (19/05/2015)
@@ -116,35 +116,35 @@
 - [Server-side Node.js - Parte 4 (Prática  Geiser)](classes/ssn4/) (11/06/2015)
 - [Server-side Node.js - Parte 5](classes/ssn5/) (16/06/2015)
 
----
 # Aulas (página 4)
 
 - [Server-side Node.js - Parte 6 (Prática Jardim Zumbi)](classes/ssn6/) (18/06/2015)
 - [Server-side Node.js - Parte 7](classes/ssn7/) (23/06/2015)
 - [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/) (18/06/2015)
+-->
 
 
 ---
 # Distribuição de Pontos
 
-- Provas: **40** pontos
-- Exercícios e atividades práticas em sala: **20** pontos
+- 2 Provas: **30** pontos
+- ~10 Atividades práticas: **20** pontos
+- Questionários marotos: **10** pontos
 - Trabalhos práticos: **40** pontos
 
 ---
-# Provas (40 pontos)
+# Provas (30 pontos)
 
-- Primeira prova (20 pontos) - data: 07/05/2015
-- Segunda prova (20 pontos) - data: 07/07/2015
-- Prova suplementar (20 pontos) - data: 07/07/2015
-- Exame especial (100 pontos) - data: 09/07/2015
+- Primeira prova (15 pontos) - data: <abbr title="To be defined">TBD</abbr>
+- Segunda prova (15 pontos) - data: <abbr title="To be defined">TBD</abbr>
+- Exame especial (100 pontos) - data: <abbr title="To be defined">TBD</abbr>
 
 ---
 # Trabalhos (40 pontos)
 
-- [TP0: Git](assignments/tp0) (3 pontos, data: 17/03/2015 23:59)
-- [TP1: Seu site pessoal][tp1] (15 pontos, data: ~~30/04/2015~~ 07/05/2015 23:59)
-- [TP2: Empreendimentos SA][tp2] (22 pontos, data 05/07/2015 23:59)
+- [TP0: Git](assignments/tp0) (3 pontos, data: 01/03/2015 10:40)
+- TP1: ~~Seu site pessoal~~ (15 pontos, data: TBD)
+- TP2: ~~Empreendimentos SA~~ (22 pontos, data TBD)
 
 [tp1]: https://github.com/fegemo/cefet-web/blob/master/assignments/tp1/README.md
 [tp2]: https://github.com/fegemo/cefet-web/blob/master/assignments/tp2/README.md
