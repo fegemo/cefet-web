@@ -27,7 +27,7 @@ _Fonte: foto ~~do filme Harry Potter e o Cálice de Fogo~~ de Linus Torvalds_
 ---
 ## Por que **Git**?
 
-<img src="images/git-trends.jpg" class="medium-height" alt="Foto mostrando as pesquisas dos termos Git, SVN e CVS no Google ao longo dos anos">
+<img src="../../images/git-trends.jpg" class="medium-height" alt="Foto mostrando as pesquisas dos termos Git, SVN e CVS no Google ao longo dos anos">
 
 <div class="layered-paragraph">
   <p>
