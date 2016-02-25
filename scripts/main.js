@@ -13,6 +13,7 @@ var bespoke = require('bespoke'),
     markdown = require('bespoke-meta-markdown'),
     forms = require('bespoke-forms'),
     backdrop = require('bespoke-backdrop'),
+    qrcode = require('bespoke-qrcode'),
     easter = require('./easter'),
     tutorial = require('./tutorial')
     ;//caniuseWidget = require('./caniuse');
@@ -51,6 +52,7 @@ bespoke.from('article', [
   state(),
   forms(),
   backdrop(),
+  qrcode(),
   tutorial(document.getElementsByClassName('tutorial')[0])
 ]);
 

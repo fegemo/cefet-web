@@ -29,8 +29,9 @@ gulp.task('js', function() {
       debug: true
     })
     .bundle()
-    .on('error', function() {
-      gutil.log(err.message);
+    .on('error', function(err) {
+      gutil.log(gutil.colors.red('Browserify bundle error: ') + err);
+      // gutil.beep('**--*');
       browserSync.notify("Browserify Error!");
       this.emit('end');
     })
@@ -38,9 +39,15 @@ gulp.task('js', function() {
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(isDist ? uglify() : through())
-      .on('error', gutil.log)
+      .on('error', function(err) {
+        gutil.log(gutil.colors.red('Uglify error: ') + err.message);
+        // gutil.beep('**--*');
+        browserSync.notify("Uglify Error!");
+        this.emit('end');
+    })
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist/build'))
+    // .on('end', gutil.beep.bind(null, '*'))
     .pipe(browserSync.stream({ once: true }));
 });
 
