@@ -1,89 +1,107 @@
-var pkg = require('./package.json'),
-    fs = require('fs'),
+var fs = require('fs'),
     gulp = require('gulp'),
     gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
     del = require('del'),
     rename = require('gulp-rename'),
-    connect = require('gulp-connect'),            // Blacklisted
-    browserify = require('gulp-browserify'),      // Blacklisted
     uglify = require('gulp-uglify'),
     stylus = require('gulp-stylus'),
     replace = require('gulp-replace'),
-    concat = require('gulp-concat'),
+    preprocess = require('gulp-preprocess'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
+    changed = require('gulp-changed'),
+    sourcemaps = require('gulp-sourcemaps');
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
+    browserify = require('browserify'),
+    browserSync = require('browser-sync'),
+    reload = function() { browserSync.reload() },
     through = require('through'),
     ghpages = require('gh-pages'),
     path = require('path'),
-    changed = require('gulp-changed'),
     merge = require('merge-stream'),
-    // TODO: para usar LR com websocket: http://www.hiddentao.com/archives/2014/08/18/phonegap-development-with-on-device-livereload/
-    server = require('gulp-webserver'),           // Blacklisted
     isDist = process.argv.indexOf('serve') === -1;
 
 gulp.task('js', function() {
-  var destination = 'dist/build';
-  return gulp.src(['scripts/tutorial.js', 'scripts/main.js'])
-    .pipe(changed(destination))
-    .pipe(isDist ? through() : plumber())
-    .pipe(browserify({ transform: ['debowerify'], debug: !isDist }))
-    .pipe(isDist ? uglify() : through())
-    .pipe(rename('build.js'))
-    .pipe(gulp.dest(destination));
+  return browserify({
+      entries: 'scripts/main.js',
+      debug: true
+    })
+    .bundle()
+    .on('error', function() {
+      gutil.log(err.message);
+      browserSync.notify("Browserify Error!");
+      this.emit('end');
+    })
+    .pipe(source('build.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(isDist ? uglify() : through())
+      .on('error', gutil.log)
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('dist/build'))
+    .pipe(browserSync.stream({ once: true }));
 });
 
-gulp.task('js-classes', function() {
-  var destination = 'dist/scripts/classes';
-  return gulp.src(['scripts/classes/**/*.js'])
-    .pipe(changed(destination))
-    .pipe(isDist ? through() : plumber())
-    .pipe(browserify({ transform: ['debowerify'], debug: !isDist }))
-    .pipe(isDist ? uglify() : through())
-    .pipe(uglify())
-    .pipe(gulp.dest(destination));
-});
+gulp.task('js-watch', ['js'], reload);
+
+// gulp.task('js-classes', function() {
+  // var destination = 'dist/scripts/classes';
+  // return gulp.src(['scripts/classes/**/*.js'])
+  //   .pipe(changed(destination))
+  //   .pipe(isDist ? through() : plumber())
+  //   .pipe(browserify({ debug: !isDist }))
+  //   .pipe(isDist ? uglify() : through())
+  //   .pipe(uglify())
+  //   .pipe(gulp.dest(destination));
+// });
+
+
 
 gulp.task('html', function() {
-  var destination = 'dist';
   return gulp.src('html/index.html')
-    .pipe(changed(destination))
+    .pipe(preprocess({context: { NODE_ENV: isDist ? 'production' : 'development', DEBUG: true}}))
     .pipe(isDist ? through() : plumber())
-    .pipe(replace('{path-to-root}', './'))
-    .pipe(gulp.dest(destination));
+    .pipe(replace('{path-to-root}', '.'))
+    .pipe(gulp.dest('dist'))
+    .on('end', reload);
 });
 
 gulp.task('md', function() {
   var tasks = [];
-  tasks.push(gulp.src(['README.md'])
+  tasks.push(gulp.src('README.md')
     .pipe(changed('dist'))
     .pipe(isDist ? through() : plumber())
-    .pipe(gulp.dest('dist')));
-  tasks.push(gulp.src(['classes/**/*.md'])
+    .pipe(gulp.dest('dist'))
+    .on('end', reload));
+  tasks.push(gulp.src('classes/**/*.md')
     .pipe(changed('dist/classes'))
     .pipe(isDist ? through() : plumber())
-    .pipe(gulp.dest('dist/classes')));
-  tasks.push(gulp.src(['assignments/**/*.md'])
+    .pipe(gulp.dest('dist/classes'))
+    .on('end', reload));
+  tasks.push(gulp.src('assignments/**/*.md')
     .pipe(changed('dist/assignments'))
     .pipe(isDist ? through() : plumber())
-    .pipe(gulp.dest('dist/assignments')));
+    .pipe(gulp.dest('dist/assignments'))
+    .on('end', reload));
   return merge(tasks);
 });
 
 gulp.task('css', function() {
-  var destination = 'dist/build';
-  return gulp.src('styles/**.styl')
-    .pipe(changed(destination))
+  return gulp.src('styles/main.styl')
+    .pipe(changed('dist/build'))
     .pipe(isDist ? through() : plumber())
     .pipe(stylus({
       // Allow CSS to be imported from node_modules and bower_components
       'include css': true,
-      'paths': ['./node_modules', './bower_components']
+      'paths': ['./node_modules']
     }))
     .pipe(autoprefixer('last 2 versions', { map: false }))
     .pipe(isDist ? csso() : through())
-    .pipe(concat('build.css'))
-    .pipe(gulp.dest(destination));
+    .pipe(rename('build.css'))
+    .pipe(gulp.dest('dist/build'))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task('attachments', function() {
@@ -97,28 +115,32 @@ gulp.task('images', function() {
   var destination = 'dist/images';
   return gulp.src(['images/**/*', '!images/**/*.db'])
     .pipe(changed(destination))
-    .pipe(gulp.dest(destination));
+    .pipe(gulp.dest(destination))
+    .on('end', reload);
 });
 
 gulp.task('fonts', function() {
   var destination = 'dist/fonts';
   return gulp.src('fonts/**/*')
     .pipe(changed(destination))
-    .pipe(gulp.dest(destination));
+    .pipe(gulp.dest(destination))
+    .on('end', reload);
 });
 
 gulp.task('videos', function() {
   var destination = 'dist/videos';
   return gulp.src('videos/**/*')
     .pipe(changed(destination))
-    .pipe(gulp.dest(destination));
+    .pipe(gulp.dest(destination))
+    .on('end', reload);
 });
 
-
 gulp.task('favicon', function() {
-  return gulp.src('favicon.ico')
-    .pipe(gulp.dest('dist'))
-    .pipe(connect.reload());
+  var destination = 'dist/favicon';
+  return gulp.src('favicon/**/*')
+    .pipe(changed(destination))
+    .pipe(gulp.dest(destination))
+    .on('end', reload);
 });
 
 gulp.task('clean', function() {
@@ -137,7 +159,7 @@ function getFolders(cwd, dir) {
     });
 }
 
-gulp.task('cefet-files', ['js', 'js-classes', 'html', 'md', 'css', 'images', 'fonts', 'videos', 'attachments', 'favicon'], function() {
+gulp.task('build', ['js', /*'js-classes',*/ 'html', 'md', 'css', 'images', 'fonts', 'videos', 'attachments', 'favicon'], function() {
   var folders = getFolders('.', 'classes').concat(getFolders('.', 'assignments')),
       tasks = folders.map(function(folder) {
         var t = [];
@@ -149,31 +171,25 @@ gulp.task('cefet-files', ['js', 'js-classes', 'html', 'md', 'css', 'images', 'fo
   return merge(tasks);
 });
 
-gulp.task('connect', ['build'], function() {
-  gulp.src('dist')
-    .pipe(server({
-      port:             8081,
-      livereload:       true,
-      open:             true
-    }));
-});
-
-gulp.task('watch', function() {
-  gulp.watch('html/**/*.html', ['html']);
-  gulp.watch('classes/**/*.md', ['md']);
-  gulp.watch('assignments/**/*.md', ['md']);
-  gulp.watch('README.md', ['md']);
-  gulp.watch('styles/**/*.styl', ['css']);
-  gulp.watch('images/**/*', ['images']);
-  gulp.watch('node_modules/bespoke-theme-fancy/dist/*.js', ['css']);
-  gulp.watch('scripts/*.js', ['js']);
-  gulp.watch('scripts/classes/*.js', ['js-classes']);
-});
-
 gulp.task('deploy', [], function(done) {
   ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
 });
 
-gulp.task('build', ['cefet-files']);
-gulp.task('serve', ['connect', 'watch']);
+gulp.task('serve', ['build'], function() {
+  browserSync.init({
+    server: 'dist',
+    port: 8080
+  });
+
+  gulp.watch('scripts/*.js', ['js-watch']);
+  // gulp.watch('scripts/classes/*.js', ['js-classes']);
+  gulp.watch('html/**/*.html', ['html']);
+  gulp.watch('classes/**/*.md');
+  gulp.watch('assignments/**/*.md', ['md']);
+  gulp.watch('README.md', ['md']);
+  gulp.watch('styles/**/*.styl', ['css']);
+  gulp.watch('styles/classes/*.css', ['css-classes']);
+  gulp.watch('images/**/*', ['images']);
+});
+
 gulp.task('default', ['build']);
