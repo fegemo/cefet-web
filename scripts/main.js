@@ -46,7 +46,7 @@ bespoke.from('article', [
   touch(),
   overview({ insertStyles: false }),
   //bullets('li:not(.bullet-old), .bullet, dt:not(.bullet-old), dd:not(.bullet-old)'),
-  scale(),
+  // scale(),
   hash(),
   progress(),
   state(),
