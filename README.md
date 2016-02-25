@@ -21,10 +21,27 @@
 ---
 ## **Livro texto** da parte 1
 
-<div class="book-cover-container">
-  <img class="book-cover" src="images/book-head-first-html-css.jpg">
-  <div class="book-left"></div>
-</div>
+<figure class="book">
+  <ul class="hardcover_front" class="no-bullet">
+    <li class="no-bullet"><img src="images/book-head-first-html-css.jpg" width="100%" height="100%"></li>
+    <li class="no-bullet"></li>
+  </ul>
+  <ul class="page no-bullet">
+    <li class="no-bullet"></li>
+    <li class="no-bullet"><a class="book-btn" href="http://headfirstlabs.com/books/hfhtml/" target="blank">Sobre</a></li>
+    <li class="no-bullet"></li>
+    <li class="no-bullet"></li>
+    <li class="no-bullet"></li>
+  </ul>
+  <ul class="hardcover_back no-bullet">
+    <li class="no-bullet"></li>
+    <li class="no-bullet"></li>
+  </ul>
+  <ul class="book_spine no-bullet">
+    <li class="no-bullet"></li>
+    <li class="no-bullet"></li>
+  </ul>
+</figure>  
 
 - **Título**	Head First HTML and CSS, Second Edition
 - **Autores**	Elisabeth Robson, ~~Gordon~~ Eric Freeman
@@ -33,10 +50,27 @@
 ---
 ## **Livro texto** da parte 2
 
-<div class="book-cover-container">
-  <img class="book-cover" src="images/book-nodejs-in-action.jpg">
-  <div class="book-left"></div>
-</div>
+<figure class="book">
+  <ul class="hardcover_front" class="no-bullet">
+    <li class="no-bullet"><img src="images/book-nodejs-in-action.jpg" width="100%" height="100%"></li>
+    <li class="no-bullet"></li>
+  </ul>
+  <ul class="page no-bullet">
+    <li class="no-bullet"></li>
+    <li class="no-bullet"><a class="book-btn" href="https://www.manning.com/books/node-js-in-action" target="blank">Sobre</a></li>
+    <li class="no-bullet"></li>
+    <li class="no-bullet"></li>
+    <li class="no-bullet"></li>
+  </ul>
+  <ul class="hardcover_back no-bullet">
+    <li class="no-bullet"></li>
+    <li class="no-bullet"></li>
+  </ul>
+  <ul class="book_spine no-bullet">
+    <li class="no-bullet"></li>
+    <li class="no-bullet"></li>
+  </ul>
+</figure>  
 
 - **Título**	Node.js in Action, First Edition
 - **Autores**	Mike Cantelon, Marc Harter, T.J. Holowaychuk, Nathan Rajlich
