@@ -49,7 +49,7 @@
 ---
 ## O que um **navegador** faz?
 
-![Um navegador recebendo uma resposta html e mostrando na tela](images/web-browser.png)
+![Um navegador recebendo uma resposta html e mostrando na tela](../../images/web-browser.png)
 
 - Quando o usuário "vai" até um novo endereço (URL), o navegador solicita esse
   **recurso** ao servidor
@@ -59,7 +59,7 @@
 
 - URL: Unique **Resource** Locator
   - É o endereço de coisas na Internet - páginas, imagens, arquivos, etc.
-    
+
     ![](../../images/url-1.png)
 - Assim que a resposta é recebida, o navegador a exibe na tela, caso **consiga**
   - Por exemplo, os navegadores não conseguem exibir um arquivo .zip
@@ -86,6 +86,7 @@
 - Indentação e espaçamento são livres e não afetam o resultado
 - Um arquivo html é _plain-text_, ou puramente textual
   - em contraposição a um arquivo binário, por exemplo
+- Questionário Maroto: [Elementos HTML básicos](https://moodle.cefetmg.br/mod/quiz/view.php?id=17713)
 
 ---
 ## Estrutura (cont.)
@@ -103,7 +104,7 @@
 </p>
   ```
 - Resultado: apenas um bloco de texto, como esperávamos
-  <iframe width="100%" height="120" src="http://jsfiddle.net/fegemo/ofs1csr0/embedded/result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>  
+  <iframe width="100%" height="120" src="http://jsfiddle.net/fegemo/ofs1csr0/embedded/result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>  
 
 ---
 ## Exemplo de tag: &lt;p&gt;...&lt;p&gt; (cont.)
@@ -123,22 +124,26 @@
 ## Exemplo de tag: &lt;p&gt;...&lt;p&gt; (cont.)
 
 - Resultado: um bloco de texto com quebras de linha onde foram necessárias.
-  <iframe width="100%" height="300" src="http://jsfiddle.net/fegemo/62afu86f/embedded/result,html/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  <iframe width="100%" height="300" src="http://jsfiddle.net/fegemo/62afu86f/embedded/result,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
 ## Anatomia de uma _tag_
 
 ![Anatomia de uma tag mostrando que ela consiste de seu nome envolto por sinais de "menor que" e "maior que"](../../images/anatomia-tag.png)
 
-- _tag_ de abertura: `<h1>`
-- conteúdo
 - _tag_ de fechamento: `</h1>`
   - É idêntica à _tag_ de abertura, porém com uma barra antes do nome da _tag_
 - Chamamos `<TAG>CONTEÚDO</TAG>` de um **elemento** da página
-
+- Tags de abertura podem ter **atributos**:
+  ```html
+  <img src="bob-esponja.png">
+  ```
+  - Em `<img>`, o atributo `src="..."` aponta para a URL do arquivo
+  - Não deve haver espaço entre seu nome e seu valor: `<img src = "...">` (errado!)
 ---
 ## Voltando ao arquivo completo...
-<iframe width="100%" height="500" src="http://jsfiddle.net/fegemo/weft22qL/embedded/html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<iframe width="100%" height="500" src="//jsfiddle.net/fegemo/weft22qL/embedded/html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
 ## A _tag_ &lt;html&gt;
@@ -237,41 +242,41 @@ body {
 ---
 ## Definindo o estilo (cont.)
 
-<iframe width="100%" height="500" src="http://jsfiddle.net/fegemo/9po3sd1m/2/embedded/result,html,css/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="500" src="//jsfiddle.net/fegemo/9po3sd1m/2/embedded/result,html,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
 ## Entendendo o estilo
 
-- ```css
+- Define a cor (_color_) do fundo (_background_) para marrom (definido em
+  hexadecimal):
+  ```css
   background-color: #d2b48c;
   ```
-- Define a cor (_color_) do fundo (_background_) para marrom (definido em
-  hexadecimal)
-- ```css
+- Define as margens laterais:
+  ```css
   margin-left: 20%;
   margin-right: 20%;
   ```
-- Define as margens laterais
 
 ---
 ## Entendendo o estilo (cont.)
 
-- ```css
+- Coloca uma borda preta (_black_) com largura de 2px e pontilhada (_dotted_)
+  ```css
   border: 2px dotted black;
   ```
-- Coloca uma borda preta (_black_) com largura de 2px e pontilhada (_dotted_)
-- ```css
+- Altera a fonte para `sans-serif` (parecida com Arial)
+  ```css
   font-family: sans-serif;
   ```
-- Altera a fonte para `sans-serif` (parecida com Arial)
 
 ---
 ## Entendendo o estilo (cont.)
 
-- ```css
+- Define um espaço de preenchimento de 10px entre a borda e o conteúdo
+  ```css
   padding: 10px 10px 10px 10px;
   ```
-- Define um espaço de preenchimento de 10px entre a borda e o conteúdo
   - `padding:` é um atalho para
     - `padding-top:`
     - `padding-right:`
