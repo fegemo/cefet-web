@@ -1,5 +1,6 @@
 var fs = require('fs'),
     gulp = require('gulp'),
+    connect = require('gulp-connect'),
     gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
     del = require('del'),
@@ -15,8 +16,6 @@ var fs = require('fs'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     browserify = require('browserify'),
-    browserSync = require('browser-sync'),
-    reload = function() { browserSync.reload() },
     through = require('through'),
     ghpages = require('gh-pages'),
     path = require('path'),
@@ -31,8 +30,6 @@ gulp.task('js', function() {
     .bundle()
     .on('error', function(err) {
       gutil.log(gutil.colors.red('Browserify bundle error: ') + err);
-      // gutil.beep('**--*');
-      browserSync.notify("Browserify Error!");
       this.emit('end');
     })
     .pipe(source('build.js'))
@@ -41,17 +38,12 @@ gulp.task('js', function() {
       .pipe(isDist ? uglify() : through())
       .on('error', function(err) {
         gutil.log(gutil.colors.red('Uglify error: ') + err.message);
-        // gutil.beep('**--*');
-        browserSync.notify("Uglify Error!");
         this.emit('end');
     })
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist/build'))
-    // .on('end', gutil.beep.bind(null, '*'))
-    .pipe(browserSync.stream({ once: true }));
+    .pipe(connect.reload());
 });
-
-gulp.task('js-watch', ['js'], reload);
 
 // gulp.task('js-classes', function() {
   // var destination = 'dist/scripts/classes';
@@ -72,7 +64,7 @@ gulp.task('html', function() {
     .pipe(isDist ? through() : plumber())
     .pipe(replace('{path-to-root}', '.'))
     .pipe(gulp.dest('dist'))
-    .on('end', reload);
+    .pipe(connect.reload());
 });
 
 gulp.task('md', function() {
@@ -81,17 +73,17 @@ gulp.task('md', function() {
     .pipe(changed('dist'))
     .pipe(isDist ? through() : plumber())
     .pipe(gulp.dest('dist'))
-    .on('end', reload));
+    .pipe(connect.reload()));
   tasks.push(gulp.src('classes/**/*.md')
     .pipe(changed('dist/classes'))
     .pipe(isDist ? through() : plumber())
     .pipe(gulp.dest('dist/classes'))
-    .on('end', reload));
+    .pipe(connect.reload()));
   tasks.push(gulp.src('assignments/**/*.md')
     .pipe(changed('dist/assignments'))
     .pipe(isDist ? through() : plumber())
     .pipe(gulp.dest('dist/assignments'))
-    .on('end', reload));
+    .pipe(connect.reload()));
   return merge(tasks);
 });
 
@@ -108,7 +100,7 @@ gulp.task('css', function() {
     .pipe(isDist ? csso() : through())
     .pipe(rename('build.css'))
     .pipe(gulp.dest('dist/build'))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(connect.reload());
 });
 
 gulp.task('attachments', function() {
@@ -123,7 +115,7 @@ gulp.task('images', function() {
   return gulp.src(['images/**/*', '!images/**/*.db'])
     .pipe(changed(destination))
     .pipe(gulp.dest(destination))
-    .on('end', reload);
+    .pipe(connect.reload());
 });
 
 gulp.task('fonts', function() {
@@ -131,7 +123,7 @@ gulp.task('fonts', function() {
   return gulp.src('fonts/**/*')
     .pipe(changed(destination))
     .pipe(gulp.dest(destination))
-    .on('end', reload);
+    .pipe(connect.reload());
 });
 
 gulp.task('videos', function() {
@@ -139,7 +131,7 @@ gulp.task('videos', function() {
   return gulp.src('videos/**/*')
     .pipe(changed(destination))
     .pipe(gulp.dest(destination))
-    .on('end', reload);
+    .pipe(connect.reload());
 });
 
 gulp.task('favicon', function() {
@@ -147,7 +139,7 @@ gulp.task('favicon', function() {
   return gulp.src('favicon/**/*')
     .pipe(changed(destination))
     .pipe(gulp.dest(destination))
-    .on('end', reload);
+    .pipe(connect.reload());
 });
 
 gulp.task('clean', function() {
@@ -182,13 +174,16 @@ gulp.task('deploy', [], function(done) {
   ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
 });
 
-gulp.task('serve', ['build'], function() {
-  browserSync.init({
-    server: 'dist',
-    port: 8080
+gulp.task('connect', ['build'], function() {
+  connect.server({
+    root: ['dist'],
+    livereload: true,
+    port: 8081
   });
+});
 
-  gulp.watch('scripts/*.js', ['js-watch']);
+gulp.task('watch', function() {
+  gulp.watch('scripts/*.js', ['js']);
   // gulp.watch('scripts/classes/*.js', ['js-classes']);
   gulp.watch('html/**/*.html', ['html']);
   gulp.watch('classes/**/*.md');
@@ -200,3 +195,4 @@ gulp.task('serve', ['build'], function() {
 });
 
 gulp.task('default', ['build']);
+gulp.task('serve', ['connect', 'watch']);
