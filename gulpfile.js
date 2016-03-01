@@ -186,9 +186,7 @@ gulp.task('watch', function() {
   gulp.watch('scripts/*.js', ['js']);
   // gulp.watch('scripts/classes/*.js', ['js-classes']);
   gulp.watch('html/**/*.html', ['html']);
-  gulp.watch('classes/**/*.md');
-  gulp.watch('assignments/**/*.md', ['md']);
-  gulp.watch('README.md', ['md']);
+  gulp.watch(['README.md', 'classes/**/*.md', 'assignments/**/*.md'], ['md']);
   gulp.watch('styles/**/*.styl', ['css']);
   gulp.watch('styles/classes/*.css', ['css-classes']);
   gulp.watch('images/**/*', ['images']);
