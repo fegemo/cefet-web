@@ -1,104 +1,165 @@
 # HTML - Parte 2
 
 ---
-## Na última aula...
-
-- HTML e CSS são 2 das linguagens que usamos para criar páginas web
-- Servidores web armazenam e servem páginas web. Navegadores recuperam e
-  renderizam seu conteúdo baseado no HTML e no CSS
-- **HTML** é uma abreviatura para HyperText Markup Language e é usado para
-  **estruturar sua página web**
-- **CSS** é uma abreviatura para Cascading Style Sheets e é usado para **controlar
-  a apresentação (aparência)** do seu HTML
-
----
-## Na última aula... (cont.)
-
-- Um **elemento** é composto por uma tag de abertura, seu conteúdo e uma tag
-  de fechamento: `<p>conteúdo</p>`
-  - Alguns elementos são exceção, pois não têm conteúdo nem precisam ser
-  fechados
-    - `<img>`
-    - `<br>`
-- Tags de abertura (e.g., `<h1>`) podem conter atributos (e.g., `class='nome'`)
-
----
-## Na última aula... (cont.)
-
-- Toda página começa com uma tag `html`, que contém um cabeçalho -
-  `head` - e um corpo - `body`
-- O elemento de cabeçalho (`head`) contém meta-informações sobre a página
-- O que se coloca no corpo (`body`) é o que se pode ver no navegador (todo
-  o conteúdo da página)
-
----
-## Na última aula... (cont.)
-
-- A grande maioria do **espaçamento** (espaço, quebra de linha, _tabs_) é
-  **ignorada** pelos navegadores, o que nos possibilita indentar o código para
-  que fique mais legível
-- Você especifica as características de aparência (cor, espaçamento, posição
-  etc.) do seu arquivo HTML usando CSS
-- Você pode adicionar CSS em um arquivo HTML dentro de um elemento `<style>`
-  - Os elementos `<style>` devem estar sempre dentro do `<head>`
-
----
 # Hoje vamos
 
-- Aprender sobre plantas carnívoras
-- Praticar `html`: imagens, hiperlinks, tabelas, citações
-- Praticar `css`: _margin_, _inline_, _block_ etc.
-- Exercícios 1, 2 e 3 a serem entregues ao final da aula via Moodle
+- Aprender sobre plantas carnívoras \o/
+- Praticar `html`: imagens, hiperlinks, tabelas, citações, ênfase, destaque etc.
+- Praticar `css`: _color_, _margin_, _text-align_ etc.
 
 ---
 # Atividade de Hoje
 
-Você tem um novo _hobby_: **criar plantas carnívoras**. Você encontrou um documento
-solto em um antigo livro do seu tio e, depois de lê-lo, decidiu **criar uma página
-web com seu conteúdo**. Além disso, você também tem uma **pequena loja de sementes**
-dessas plantas e deseja divulgá-la em uma página web.
+Você tem um novo _hobby_: **criar plantas carnívoras**. Você encontrou um
+documento solto em um antigo livro do seu tio e, depois de lê-lo, decidiu
+**criar uma página web com seu conteúdo**. Além disso, você também tem
+uma **pequena loja de sementes** dessas plantas e deseja divulgá-la em uma
+página web.
 
 <figure class="portrait">
   <img src="../../images/piranha-mario.png" alt="Planta carnívora do jogo Mario Bros">
 </figure>
 
 ---
-## Exercício 1
+## Passos para o exercício
 
-- Você deve pegar o [documento do seu tio][doc-tio] e criar uma página web com
-  o mesmo conteúdo e formatação. Você pode salvar o arquivo como `plantas.html`.
-
-- Você vai precisar saber como:
-  - **incluir uma imagem** em `html`
-  - incluir **hiperlinks** em `html`
-  - incluir **2 tipos diferentes de citações** em `html`
-
-
-[doc-tio]: ../../attachments/html2-plantas.pdf
+1. Instalar o git na máquina, caso ele não esteja instalado
+1. **Criar um _fork_** do repositório do professor em [`https://github.com/fegemo/cefet-web-piranha-plant`](https://github.com/fegemo/cefet-web-piranha-plant)
+  e **cloná-lo para sua área de trabalho**
+1. Fazer o exercício e fazer _commits_ e _push_ no seu repositório
+1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
 
 ---
-## Exercício 1 (cont.)
+## Exercício 1
 
-Algumas informações sobre o documento do seu tio:
-- Hiperlink no final do parágrafo 5 (_"Há mais de 500 espécies..."_):
-  - lista extensa de espécies na Wikipedia: http://en.wikipedia.org/wiki/List_of_carnivorous_plants
-- Imagens usadas:
-  - Dionaea: [link para baixar][dionaea]
-  - Nepenthes: [link para baixar][nepenthes]
+- Você deve pegar o documento do seu tio
+  (arquivo: `/documentos-do-tio/pagina-sobre-plantas.pdf`) e criar uma página web com
+  o mesmo conteúdo e formatação. Salve o arquivo como `plantas.html`.
+  - O arquivo `/documentos-do-tio/pagina-sobre-plantas`**`specs`**`.pdf` descreve os detalhes
+  - A pasta `/imagens` contém os arquivos de imagens a serem usados
+- Veja nos próximos slides algumas tags HTML
 
-[dionaea]: ../../images/dionaea.jpg
-[nepenthes]: ../../images/nephenthes.jpg
+---
+## Tags de Importância
+
+- <div>
+    <strong>estou em destaque (negrito)</strong>
+    <em>tenho ênfase (itálico)</em>
+    <u>sublinho-me (sublinhado)</u>
+    <strike>fui riscado! (risco)</strike>
+  </div>
+  ```html
+  <strong>estou em destaque (negrito)</strong>
+  <em>tenho ênfase (itálico)</em>
+  <u>sublinho-me (sublinhado)</u>
+  <strike>fui riscado! (risco)</strike>
+  ```
+
+---
+## Tags de Citação
+
+- <div>
+    <q>estou dentro de um texto, em linha</q>
+  </div>
+  ```html
+  <q>estou dentro de um texto, em linha</q>
+  ```
+- <div>
+    <blockquote>estou dentro de um texto, em linha</blockquote>
+  </div>
+  ```html
+  <blockquote>estou dentro de um texto, quebrando linhas</blockquote>
+  ```
+
+---
+## Tag de _Hyperlink_
+
+- [Link para fora da página](http://www.wikipedia.org)
+  ```html
+  <a href="http://www.wikipedia.org">Link para fora da página</a>
+  ```
+- [Link para dentro da página](#uma-secao-do-site)
+  ```html
+  <a href="#um-id-de-elemento">Link para dentro da página</a>
+  ```
+- [Link que abre cliente de email](mailto:adamastor@fazenda.mg.br)
+  ```html
+  <a href="mailto:adamastor@...">Link para cliente de email</a>
+  ```
+---
+## Tag de Lista de itens (1/2)
+
+- Lista não ordenada (bolinhas):
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  ```html
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  ```
+
+---
+## Tag de Lista de itens (2/2)
+
+- Lista ordenada (números):
+  <ol>
+    <li>Item</li>
+    <li>Item</li>
+  </ol>
+  ```html
+  <ol>
+    <li>Item</li>
+    <li>Item</li>
+  </ol>
+```
+
+---
+## Tags de Tabela
+
+- Tabelas são criadas com as tags
+  - **`table`**, para marcar a tabela
+  - `thead`, cabeçalho
+  - `tbody`, corpo
+  - `tfoot`, rodapé
+  - **`tr`**, linha
+  - **`td`**, célula
+  - `th`, célula do cabeçalho
+- [Referência na Mozilla Developer Network][mdn-table]
+
+[mdn-table]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
+
+---
+![Uma descrição das tags que formam uma tabela](../../images/table.png)
+
+---
+## Agora, algumas **propriedades <u>CSS</u>**
+
+```css
+p {
+  color: #ff0033;       /* cor do texto */
+  font-family: "Arial";
+  text-align: center;   /* centraliza texto */
+}
+
+body {
+  background-image: url(imagens/fundo-da-pagina.png);
+}
+
+img {
+  border: 1px solid blue; /* borda azul sólida */
+}
+```
 
 ---
 ## Exercício 2
 
-Criar a página da loja seguindo [este modelo][loja] e usando
-[esta tabela de preços][precos]. Depois de criada, salve o arquivo como
-`loja.html`. Você deve também criar um hiperlink da página `plantas.html` para
+Criar a página da loja seguindo o modelo do arquivo
+`/documentos-do-tio/pagina-loja.pdf`. Depois de criada, salve o arquivo como
+**`loja.html`**. Você deve também criar um hiperlink da página `plantas.html` para
 sua nova `loja.html`.
-
-[loja]: ../../attachments/html2-loja.pdf
-[precos]: ../../attachments/html2-tabela-de-precos.png
 
 ---
 ## Exercício 3
