@@ -23,7 +23,7 @@
     "bespoke-keys": "^1.0.0",
     "bespoke-meta-markdown": "1.0.0",
     "bespoke-progress": "^1.0.0",
-    "bespoke-qrcode": "fegemo/bespoke-qrcode",
+    "bespoke-qrcode": "^1.0.0",
     "bespoke-scale": "^1.0.1",
     "bespoke-simple-overview": "^1.0.0",
     "bespoke-state": "^1.0.0",
