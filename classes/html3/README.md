@@ -69,12 +69,80 @@
 ---
 # Hoje veremos
 
-1. 2 exercícios
+1. Editores de texto/IDEs
+1. Depurando páginas web
 1. Um pouco mais sobre **imagens**
+1. Mapas de imagens
 1. Meta _tags_
 1. Codificação (_encoding_)
-1. DOCTYPE
+1. DOCTYPE (versão do HTML)
 
+---
+# **Editores de Texto** e **<abbr title="Integrated Development Environment">IDE</abbr>s**
+
+---
+## Como ser mais **produtivo**
+
+- Na hora de escrever/editar código HTML, CSS e JavaScript, queremos ter:
+  - **Destacamento de código fonte**
+  - **Indentação** automática
+  - **Auto-completar** tags HTML, propriedades CSS etc.
+- É desejável:
+  - Suporte a controle de versão (_e.g._, git)
+  - _Linting_ (verificação estática de erros no código)
+
+---
+## Exemplos com **_Seal of Approval_** do Professor
+
+- Editor:
+  - [Atom][atom] (gratuito, do GitHub)
+  - [Sublime Text 3][sublime] (pago, faz vista grossa com quem não paga)
+  - [Notepad++][notepad] (gratuito, levão)
+- IDE:
+  - [WebStorm][webstorm] (pago, da JetBrains)
+  - [Visual Studio Express][visual] (gratuito, do tio Bill)
+
+[atom]: https://atom.io/
+[sublime]: https://www.sublimetext.com/3
+[notepad]: https://notepad-plus-plus.org/
+[webstorm]: https://www.jetbrains.com/webstorm/
+[visual]: https://www.visualstudio.com/features/modern-web-tooling-vs
+
+---
+## Sugestão do Professor
+
+- [![Página inicial do editor de texto Atom right](../../images/atom-homepage.png)](https://atom.io)
+  Benefícios:
+  - **Gratuito**
+  - Mais **leve** do que um IDE
+  - Altamente **personalizável**
+  - Exemplo de **"web fora do navegador"** - É baseado no Chromium e no Node.js
+  - Suporte nativo a **Git**
+  - Muitas **_hotkeys_ \o/**
+
+---
+# **Depurando** Páginas Web
+
+---
+## Ferramentas do Desenvolvedor
+
+- Os navegadores possuem **excelentes ferramentas de suporte** ao programador
+
+![Ferramentas do desenvolvedor do Chromium right](../../images/chrome-dev-tools.png)
+
+---
+## Usando as Ferramentas
+
+- Visualizando o código fonte:
+  - Tecla de atalho no Chrome: <kbd>Ctrl-U</kbd>
+  - Ou então:
+    1. clicar com **botão direito** do Mouse **na página**
+    1. selecionar **"Ver código fonte"**
+- Ativando o depurador:
+  - Tecla de atalho padrão: <kbd>Ctrl-Shift-I</kbd> ou <kbd>F12</kbd>
+  - Ou então:
+    1. clicar com **botão direito** do Mouse **na página**
+    1. selecionar **"Inspecionar elemento"**
 
 ---
 # Exercícios
@@ -98,8 +166,8 @@ Baixe o [exercício][exer-prog-sem-cafe] ou pegue uma cópia com o professor.
 
 ![Desenho de máscara de festa a fantasia](../../images/who-am-i.png)
 
-Um grupo de elementos HTML, usando fantasia, está fazendo uma festa com a 
-temática "Quem sou eu?". Eles dão uma dica e você tenta adivinhar que 
+Um grupo de elementos HTML, usando fantasia, está fazendo uma festa com a
+temática "Quem sou eu?". Eles dão uma dica e você tenta adivinhar que
 elemento está falando.
 
 Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
@@ -166,6 +234,68 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
   ```
 
 ---
+# Mapas de imagens
+
+---
+## Problema:
+
+- Você tem imagens grandes e quer que o usuário acesse hiperlinks
+  diferentes dependendo de onde ele clicar na imagem
+  - Opção 1: picotar a imagem grande em várias menores e encapsular cada
+    `<img>` dentro de um `<a></a>`
+    - Dá trabalho demais
+    - E se você quiser uma região circular em vez de retangular?
+  - Opção 2: usar o recurso do `html` para **mapas de imagens**
+
+---
+## Exemplo de mapa de imagem
+
+- Exemplo:
+  ```html
+  <map name="jogos">
+    <area href="..." shape="rect" coords="125,19,182,161" />
+    <area href="..." shape="poly" coords="274,29,260,42,255,61,..." />
+    <area href="..." shape="circle" coords="436,418,50" />
+  </map>
+  <img src="../../images/humble-imagemap.png" usemap="#jogos">
+  ```
+---
+## Resultado do exemplo
+
+- Resultado:
+
+  <img src="../../images/humble-imagemap.png" border="0" width="600" height="420" orgWidth="600" orgHeight="420" usemap="#image-maps-2014-10-22-192942" alt="" />
+  <map name="image-maps-2014-10-22-192942" id="ImageMapsCom-image-maps-2014-10-22-192942">
+  <area  alt="O desenho de uma mulher" title="Jogo Syberia" href="https://www.google.com.br/search?q=syberia+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=t0JIVLyYC_WCsQSk-4KACA&ved=0CAgQ_AUoAQ&biw=1366&bih=643" shape="rect" coords="125,19,182,161" style="outline:none;" target="_self"     />
+  <area  alt="Um soldado" title="Neuroshima Hex" href="https://www.google.com.br/search?q=Neuroshima+Hex+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=yEJIVPurEenksAS91YGoCg&ved=0CAgQ_AUoAQ&biw=1366&bih=643" shape="poly" coords="274,29,260,42,255,61,251,80,253,109,263,113,267,123,237,149,276,155,340,154,335,138,289,133,289,122,290,104,292,89,298,82,303,98,319,83,339,71,325,55,307,53,303,30" style="outline:none;" target="_self"     />
+  <area  alt="Um bardo bárbaro" title="Bardbarian" href="https://www.google.com.br/search?q=bardbarian+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=u0JIVNaMHoa1sQSm4oKYCg&ved=0CAkQ_AUoAg&biw=1366&bih=643" shape="poly" coords="439,20,411,26,387,42,371,66,365,94,371,122,387,146,411,162,439,168,467,162,491,146,507,122,513,94,507,66,491,42,467,26" style="outline:none;" target="_self"     />
+  </map>
+
+---
+## Mapa de Imagem (na [MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/map))
+
+- O mapa é representado pelo elemento `<map></map>`, que possui um `name`
+- Dentro do mapa, coloca-se um `<area />` para cada região que se quer ter um
+  hiperlink, definindo os detalhes do link e as coordenadas
+- As regiões podem ser de três tipos:
+  1. `shape="rect"`, `coords="left, top, right, and bottom"`
+  1. `shape="circle"`, `coords="x, y, radius"`
+  1. `shape="poly"`, `coords="x1, y1, x2, y2, x3, y3, ..."`
+- A imagem (`<img>`) deve usar o atributo `usemap="nome"` para se referenciar
+  ao mapa
+
+---
+## Prós e Contras
+
+- Prós
+  - Mais prático que imagens picotadas
+  - Única forma para se definir áreas não retangulares de links
+- Contras
+  - Pode dar trabalho gerar as coordenadas
+  - Não é fluido - se a imagem é redimensionada, os valores (em px) não serão
+    mais válidos
+
+---
 # Meta _tags_
 
 ---
@@ -196,7 +326,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
   <meta name="keywords" content="livro,games,ultrabook,ipad,macbook,blu-ray,celular,TV led ,gps,câmera digital">
   ```
   - Página inicial do site submarino.com.br
-  
+
 ---
 ## Meta _tag_: **description**
 
@@ -240,7 +370,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
 ## Meta _tag_: **viewport**
 
 - Sugere ao navegador qual o tamanho inicial da _viewport_ (área visível) da página
-- Usado especialmente por navegadores de dispositivos móveis 
+- Usado especialmente por navegadores de dispositivos móveis
 - Exemplo:
   ```html
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -263,7 +393,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
 - <img src="../../images/encoding-error.png" style="height: 150px; float:right;">
   Erro de codificação:
   - Deve-se manter a mesma codificação do banco de dados e da página
-  
+
 
 ---
 # DOCTYPE
