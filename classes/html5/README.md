@@ -3,72 +3,10 @@
 ---
 # Roteiro
 
-1. Mapas de imagens
 1. Conteúdo multimídia - Audio e Video
 1. _Object_ e _Embed_
 1. _Frames_ e _iframe_
 
----
-# Mapas de imagens
-
----
-## Problema:
-
-- Você tem imagens grandes e quer que o usuário acesse hiperlinks
-  diferentes dependendo de onde ele clicar na imagem
-  - Opção 1: picotar a imagem grande em várias menores e encapsular cada
-    `<img>` dentro de um `<a></a>`
-    - Dá trabalho demais
-    - E se você quiser uma região circular em vez de retangular?
-  - Opção 2: usar o recurso do `html` para **mapas de imagens**
-
----
-## Exemplo de mapa de imagem
-
-- Exemplo:
-  ```html
-  <map name="jogos">
-    <area href="..." shape="rect" coords="125,19,182,161" />
-    <area href="..." shape="poly" coords="274,29,260,42,255,61,..." />
-    <area href="..." shape="circle" coords="436,418,50" />
-  </map>
-  <img src="../../images/humble-imagemap.png" usemap="#jogos">
-  ```
----
-## Resultado do exemplo
-
-- Resultado:
-
-  <img src="../../images/humble-imagemap.png" border="0" width="600" height="420" orgWidth="600" orgHeight="420" usemap="#image-maps-2014-10-22-192942" alt="" />
-  <map name="image-maps-2014-10-22-192942" id="ImageMapsCom-image-maps-2014-10-22-192942">
-  <area  alt="O desenho de uma mulher" title="Jogo Syberia" href="https://www.google.com.br/search?q=syberia+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=t0JIVLyYC_WCsQSk-4KACA&ved=0CAgQ_AUoAQ&biw=1366&bih=643" shape="rect" coords="125,19,182,161" style="outline:none;" target="_self"     />
-  <area  alt="Um soldado" title="Neuroshima Hex" href="https://www.google.com.br/search?q=Neuroshima+Hex+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=yEJIVPurEenksAS91YGoCg&ved=0CAgQ_AUoAQ&biw=1366&bih=643" shape="poly" coords="274,29,260,42,255,61,251,80,253,109,263,113,267,123,237,149,276,155,340,154,335,138,289,133,289,122,290,104,292,89,298,82,303,98,319,83,339,71,325,55,307,53,303,30" style="outline:none;" target="_self"     />
-  <area  alt="Um bardo bárbaro" title="Bardbarian" href="https://www.google.com.br/search?q=bardbarian+game&safe=off&hl=pt-BR&source=lnms&tbm=isch&sa=X&ei=u0JIVNaMHoa1sQSm4oKYCg&ved=0CAkQ_AUoAg&biw=1366&bih=643" shape="poly" coords="439,20,411,26,387,42,371,66,365,94,371,122,387,146,411,162,439,168,467,162,491,146,507,122,513,94,507,66,491,42,467,26" style="outline:none;" target="_self"     />
-  </map>
-
----
-## Mapa de Imagem (na [MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/map))
-
-- O mapa é representado pelo elemento `<map></map>`, que possui um `name`
-- Dentro do mapa, coloca-se um `<area />` para cada região que se quer ter um
-  hiperlink, definindo os detalhes do link e as coordenadas
-- As regiões podem ser de três tipos:
-  1. `shape="rect"`, `coords="left, top, right, and bottom"`
-  1. `shape="circle"`, `coords="x, y, radius"`
-  1. `shape="poly"`, `coords="x1, y1, x2, y2, x3, y3, ..."`
-- A imagem (`<img>`) deve usar o atributo `usemap="nome"` para se referenciar
-  ao mapa
-
----
-## Prós e Contras
-
-- Prós
-  - Mais prático que imagens picotadas
-  - Única forma para se definir áreas não retangulares de links
-- Contras
-  - Pode dar trabalho gerar as coordenadas
-  - Não é fluido - se a imagem é redimensionada, os valores (em px) não serão
-    mais válidos
 
 ---
 # Conteúdo multimídia - Audio e Video
@@ -157,7 +95,7 @@
 ---
 ## Suporte dos navegadores por formato
 
-- Na data de hoje (07/Abr/15), as versões mais recentes dos principais navegadores 
+- Na data de hoje (07/Abr/15), as versões mais recentes dos principais navegadores
   suportam em conjunto apenas o formato **H.264, ou MPEG-4 _part_ 10**
 - Porém, versões um pouco menos recentes não suportam **um mesmo formato de vídeo** em conjunto
 - Assim, usamos uma outra forma do elemento `<video>`:
@@ -200,9 +138,9 @@
 
 - `<audio>` funciona **exatamente** da mesma forma que `<video>`
 - [Referência na MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
-  
+
   ![](../../images/baby-success.jpg)
-  
+
 ---
 # _Object_ e _Embed_
 
