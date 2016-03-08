@@ -89,7 +89,7 @@ página web.
 ---
 ## Tag de Lista de itens (1/2)
 
-- Lista não ordenada (bolinhas):
+- Lista **não ordenada** (bolinhas):
   <ul>
     <li>Item 1</li>
     <li>Item 2</li>
@@ -104,7 +104,7 @@ página web.
 ---
 ## Tag de Lista de itens (2/2)
 
-- Lista ordenada (números):
+- Lista **ordenada** (números):
   <ol>
     <li>Item</li>
     <li>Item</li>
@@ -121,18 +121,23 @@ página web.
 
 - Tabelas são criadas com as tags
   - **`table`**, para marcar a tabela
-  - `thead`, cabeçalho
-  - `tbody`, corpo
-  - `tfoot`, rodapé
   - **`tr`**, linha
   - **`td`**, célula
   - `th`, célula do cabeçalho
+  - `thead`¹, marca as linhas do **cabeçalho**
+  - `tbody`¹, marca as linhas do **corpo**
+  - `tfoot`¹, marca as linhas do **rodapé**
 - [Referência na Mozilla Developer Network][mdn-table]
+- ¹: elementos opcionais, mas desejáveis
 
 [mdn-table]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
 ---
 ![Uma descrição das tags que formam uma tabela](../../images/table.png)
+
+---
+## Um exemplo de Tabela
+
 
 ---
 ## Agora, algumas **propriedades <u>CSS</u>**
