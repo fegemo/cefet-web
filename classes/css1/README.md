@@ -41,7 +41,7 @@
 ---
 ## Sintaxe: **regra**
 
-![Regra CSS](../../images/css-rule.png)
+![Uma regra CSS mostrando](../../images/css-rule.png)
 
 ---
 ## Sintaxe: **seletor** e **declaração**
@@ -54,8 +54,18 @@
 ![Regra CSS](../../images/css-property-value.png)
 
 ---
-# Classes e IDs
+## Problema: **selecionando** elementos
 
+- Como fazemos para selecionar (_e.g._):
+  1. apenas **alguns parágrafos** em vez de todos?
+  1. apenas o **primeiro título h2** da página?
+  1. apenas **uma imagem em especial**?
+- Uma solução possível é usar os atributos universais¹ HTML chamados
+  **`class`** e **`id`** para identificar os elementos e estilizá-los
+  - ¹: atributos que qualquer elemento pode ter
+
+---
+# Classes e IDs
 ---
 ## Classe
 
@@ -73,7 +83,7 @@
 ---
 ## Classe (cont.)
 
-- Dada a seguinte estrutura de um `&lt;body&gt;`:
+- Dada a seguinte estrutura de um &lt;body&gt;&lt;/body&gt;:
   ```html
   <p>Primeiro</p>
   <p>Segundo</p>
@@ -107,7 +117,7 @@
   ```
 
 ---
-## ID
+## Atributo Universal **ID**
 
 - Caso soubermos que um elemento deve aparecer apenas uma vez no arquivo `html`
   (por exemplo, o menu principal, o logotipo etc.), podemos usar **um
@@ -129,38 +139,50 @@
 ---
 ## Cascata
 
-- `CSS` é a sigla para _**Cascading** Style Sheets_
+- CSS é a sigla para _**Cascading** Style Sheets_
 - Algumas propriedades são herdadas dos elementos ascendentes
   - ```css
     body {
       color: red;
     }
     ```
+    - Todo o texto que estiver dentro de &lt;body&gt;, mesmo que dentro de
+      parágrafos ou outros elementos, ficarão vermelhos
+
+---
+## Exemplo da Cascata
+
+<iframe width="100%" height="300" src="//jsfiddle.net/fegemo/gqgacz36/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+- Nota: clique nas abas "HTML", "CSS" e "Result". Para editar o código, clique
+  em "Edit in JSFiddle"
 
 ---
 ## Cascata (cont.)
 
-- As propriedades que não são herdadas, podemos forçá-las para que sejam
-  - ```css
-    p {
-      border: 1px solid red;
-    }
-    em {
-      border: inherit;
-    }
-    ```
+- Para as propriedades que não são herdadas por padrão (_e.g._, `border`),
+  podemos forçar que sejam herdadas usando o valor `inherit`:
+  ```css
+  p {
+    border: 1px solid red;
+  }
+  em {
+    border: inherit;
+  }
+  ```
+
 ---
 ## Cascata (cont.)
 
-- Também podemos sobrepor a herança de uma propriedade
-  - ```css
-    body {
-      font-weight: bold;
-    }
-    em {
-      font-weight: normal;
-    }
-    ```
+- Também podemos sobrescrever a herança de uma propriedade:
+  ```css
+  body {
+    font-weight: bold;
+  }
+  em {
+    font-weight: normal;
+  }
+  ```
 
 ---
 ## Atividade
@@ -199,10 +221,13 @@
 ## Seletores
 
 - Até agora, já sabemos selecionar elementos:
-  1. Pelo nome de sua _tag_
-  1. Por (uma de) suas classes
-  1. Por seu id
+  1. Pelo **nome de sua _tag_**: `p { color: white; }`
+  1. Por (uma de) suas **classes**: `.spam { color: red; }`
+  1. Por seu **id**: `#topo-da-pagina { color: green; }`
 - Contudo, a vida não para por aí...
+  - Há 20+ tipos de seletores (dos quais já vimos 3)
+  - Não é necessário decorar todos, apenas saber que existem para poder
+    consultá-los (Google) depois ;)
 
 ---
 ## Seletor: **Descendente**
@@ -383,19 +408,17 @@
 ---
 ## Outros seletores
 
-- `X:nth-child(n)`
-- `X:nth-last-child(n)`
-- `X:nth-of-type(n)`
-- `X:nth-last-of-type(n)`
-
----
-## Outros seletores (cont.)
-- `X:first-child`
-- `X:last-child`
-- `X:only-child`
-- `X:only-of-type`
-- `X:first-of-type`
-
+<ul class="multi-column-list-2">
+  <li>`X:first-child`</li>
+  <li>`X:last-child`</li>
+  <li>`X:nth-child(n)`</li>
+  <li>`X:nth-last-child(n)`</li>
+  <li>`X:nth-of-type(n)`</li>
+  <li>`X:nth-last-of-type(n)`</li>
+  <li>`X:only-child`</li>
+  <li>`X:only-of-type`</li>
+  <li>`X:first-of-type`</li>
+</ul>
 
 ---
 ## Exercício 1
@@ -460,7 +483,7 @@ trabalhar apenas com código `css`.
 1. Você deve entregar todos os seus arquivos via Moodle
    - **Compacte** os 8 arquivos num formatos .zip, .7z, .rar, .tar.gz
    - Entregue via atividade no Moodle até o final da aula
- 
+
 ---
 # Referências
 
