@@ -448,21 +448,25 @@ th {
   -webkit-column-count: 2;
      -moz-column-count: 2;
           column-count: 2;
+  list-style-position: inside;
 }
 .multi-column-list-3 {
   -webkit-column-count: 3;
      -moz-column-count: 3;
           column-count: 3;
+  list-style-position: inside;
 }
 .multi-column-list-4 {
   -webkit-column-count: 4;
      -moz-column-count: 4;
           column-count: 4;
+  list-style-position: inside;
 }
 .multi-column-list-5 {
   -webkit-column-count: 5;
      -moz-column-count: 5;
           column-count: 5;
+  list-style-position: inside;
 }
 .bullet.bullet.bullet-no-anim.bespoke-bullet-inactive {
   -webkit-transform: none;
