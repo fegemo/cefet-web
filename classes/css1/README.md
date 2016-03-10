@@ -6,8 +6,9 @@
 1. História
 1. A sintaxe
 1. Classes e IDs
-1. A cascata (Atividade)
-1. Seletores (Exercício)
+1. A cascata
+1. Seletores
+1. **Os Ninjas**
 
 ---
 # História
@@ -183,36 +184,6 @@
     font-weight: normal;
   }
   ```
-
----
-## Atividade
-
-1. Abra o código no jsfiddle: http://jsfiddle.net/fegemo/3go90nj0/
-1. Adicione o seguinte código `CSS` **no início** do arquivo:
-   ```css
-   p {
-     color: blue;
-     text-decoration: underline;
-   }
-   ```
-   1. Observe: estilizamos apenas o `<p></p>`, mas o `<strong></strong>` também
-   ficou sublinhado.
-
----
-## Atividade (cont.)
-
-1. Adicione uma nova classe "destacado" no primeiro `<strong></strong>` e
-   a seguinte regra **no final** do arquivo `CSS`
-   ```css
-   .destaque {
-     color: green;
-   }
-   ```
-1. **Mova** a regra que você acabou incluir para o **início do arquivo**
-   1. Observe: agora a cor do "C" voltou a ser vermelha
-1. Modifique seu código `CSS` para que a aparência da página fique assim:
-
-   ![](../../images/cascading-style-sheets-styled.png)
 
 ---
 # Seletores
@@ -421,68 +392,26 @@
 </ul>
 
 ---
-## Exercício 1
+## Atividade de Hoje
 
-Para os exercícios de hoje, você deve **manter a estrutura `html` intocada** e
-trabalhar apenas com código `css`.
-
-1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/a4mr4h65/
-1. Dê cores diferentes para os links em seus 3 estados: `:hover, :link, :visited`
-1. Atribua tamanhos de fonte diferentes para cada nível do menu: fontes maiores
-   para o elemento raiz e fontes menores para as folhas
+1. Instalar o git na máquina, caso ele não esteja instalado
+1. **Criar um _fork_** do repositório do professor em [`https://github.com/fegemo/cefet-web-ninjas`](https://github.com/fegemo/cefet-web-ninjas)
+  e **cloná-lo para sua área de trabalho**
+1. Fazer o exercício e fazer _commits_ e _push_ no seu repositório
+1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
 
 ---
-## Exercício 1 (cont.)
+## Exercício
 
-1. Estilize os links externos (www.omo..., www.pudim...) de forma que eles
-   exibam uma imagem de um globo
-   - _Dica_: você pode usar [esta imagem](https://www.google.com/help/hc/images/chrome_95440_predictionicon.png)
-     e você precisará das propriedades `background` e `padding`
-1. Output: exercicio1.html, exercicio1.css
+![](../../images/print-ninja-logo.png)
 
----
-## Exercício 2 (desafio)
-
-1. Escreva algumas regras `CSS` para transformar a lista de listas do exercício
-   anterior em um menu de navegação em que cada item revela seus subitems na
-   medida em que o _mouse_ é passado sobre o item
-
-   - _Dicas:_
-     - _2 regras são suficientes_
-       ```css
-       display: none; /* para ocultar */
-       ```
-       ```
-       display: block; /* para mostrar */
-       ```
-1. Output: exercicio2.html, exercicio2.css
-
----
-## Exercício 3
-
-1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/2v6cuwzn/.
-1. Estilize-o, usando `CSS`, para que a tabela fique assim:
-   ![](../../images/tabela-para-estilizar.png)
-   - Repare a classe **`alt`** em linhas alternadas da tabela
-1. Output: exercicio3.html, exercicio3.css
-
----
-## Exercício 4
-
-1. Considere o código no jsfiddle: http://jsfiddle.net/fegemo/2v6cuwzn/2/
-   - É o mesmo código `html` de antes, porém desta vez **as linhas da tabela não possuem
-     a classe `alt`**
-1. Escreva código `CSS` para estilizar essa tabela para que ela fique da mesma
-   forma como no exercício anterior
-   ![](../../images/tabela-para-estilizar.png)
-1. Output: exercicio4.html, exercicio4.css
-
----
-## Entrega
-
-1. Você deve entregar todos os seus arquivos via Moodle
-   - **Compacte** os 8 arquivos num formatos .zip, .7z, .rar, .tar.gz
-   - Entregue via atividade no Moodle até o final da aula
+1. Você deve estilizar as duas páginas web do repositório usando os
+  conhecimentos que vimos nas aulas anteriores
+1. Lembre-se das boas práticas - prefira usar CSS _linked_ (_i.e._, em arquivo
+  separado)
+1. Você pode modificar o HTML das páginas para colocar `class` e `id` nos
+  elementos para os quais essa alteração seja necessária
+1. Siga os passos descritos no [arquivo README.md do exercício](https://github.com/fegemo/cefet-web-ninjas/blob/gh-pages/README.md)
 
 ---
 # Referências
