@@ -12,9 +12,9 @@
 - [HTML - Parte 2 (Prática)](classes/html2/) (03/03/2016)
 - [HTML - Parte 3](classes/html3/) (08/03/2016)
 - [CSS - Parte 1 (Prática)](classes/css1/) (10/03/2016)
+- [CSS - Parte 2](classes/css2/) (15/03/2016)
 
 <!--
-- [CSS - Parte 2](classes/css2/) (31/03/2015)
 - [HTML - Parte 5](classes/html5/) (07/04/2015)
 - [HTML - Parte 4 (Prática)](classes/html4/) (09/04/2015)
 
@@ -160,24 +160,23 @@
 ---
 # Distribuição de Pontos
 
-- 2 Provas: **30** pontos
 - ~10 Atividades práticas: **20** pontos
 - Questionários marotos: **10** pontos
-- Trabalhos práticos: **40** pontos
+- 1 Prova Final: **15** pontos
+- 1 Seminário: **15** pontos
+- Projeto Prático: **15** pontos
 
 ---
-# Provas (30 pontos)
+# Prova (15 pontos)
 
-- Primeira prova (15 pontos) - data: <abbr title="To be defined">TBD</abbr>
-- Segunda prova (15 pontos) - data: <abbr title="To be defined">TBD</abbr>
+- Prova (15 pontos) - data: <abbr title="To be defined">TBD</abbr> (ao final)
 - Exame especial (100 pontos) - data: <abbr title="To be defined">TBD</abbr>
 
 ---
-# Trabalhos (40 pontos)
+# Trabalhos (55 pontos)
 
-- [TP0: Git](assignments/tp0) (3 pontos, data: 01/03/2015 10:40)
-- TP1: ~~Seu site pessoal~~ (15 pontos, data: TBD)
-- TP2: ~~Empreendimentos SA~~ (22 pontos, data TBD)
+- [TP0: Git][tp0] (3 pontos, data: 01/03/2015 10:40)
+- Seminário: APIs HTML5  (15 pontos, data: TBD)
+- Projeto: (40 pontos em 2 entregas, data TBD)
 
-[tp1]: https://github.com/fegemo/cefet-web/blob/master/assignments/tp1/README.md
-[tp2]: https://github.com/fegemo/cefet-web/blob/master/assignments/tp2/README.md
+[tp0]: assignments/tp0
