@@ -92,24 +92,24 @@ p strong em { }           /* 003 */
 
 ## **Specificator Tabajara**
 
-<article id="specTabajara">
+<article id="spec-tabajara">
   <div>
-    <input type="text" id="specTabajaraInput" placeholder="seletor...">
+    <input type="text" id="spec-tabajara-input" placeholder="seletor...">
   </div>
   <div>
-    <button id="specTabajaraButton">Calcular</button>
+    <button id="spec-tabajara-button">Calcular</button>
   </div>
   <div>
-    <div class="specClass">
-      <div id="specTabajaraOutputA" class="specOutput">0</div>
+    <div class="spec-class">
+      <div id="spec-tabajara-output-a" class="spec-output">0</div>
       <div>A IDs</div>
     </div>
-    <div class="specClass">
-      <div id="specTabajaraOutputB" class="specOutput">0</div>
+    <div class="spec-class">
+      <div id="spec-tabajara-output-b" class="spec-output">0</div>
       <div>Classes, atributos e pseudo-classes</div>
     </div>
-    <div class="specClass">
-      <div id="specTabajaraOutputC" class="specOutput">0</div>
+    <div class="spec-class">
+      <div id="spec-tabajara-output-c" class="spec-output">0</div>
       <div>Elementos, pseudo-elementos</div>
     </div>
   </div>
