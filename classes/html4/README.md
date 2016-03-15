@@ -214,7 +214,7 @@
 ---
 ## Exemplo vivo de float
 
-<iframe width="100%" height="450" src="http://jsfiddle.net/fegemo/7cofhyLc/embedded/html,css,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="450" src="http://jsfiddle.net/fegemo/7cofhyLc/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
 ## Cancelando o float com **clear**
@@ -235,7 +235,7 @@
 ---
 ## Exemplo de **clear**
 
-<iframe width="100%" height="450" src="http://jsfiddle.net/fegemo/7cofhyLc/6/embedded/html,css,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="450" src="http://jsfiddle.net/fegemo/7cofhyLc/6/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
 # Referências
