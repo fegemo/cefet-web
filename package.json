@@ -36,6 +36,7 @@
     "browserify": "^13.0.0",
     "del": "^2.2.0",
     "gh-pages": "^0.10.0",
+    "glob": "^7.0.3",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-changed": "^1.2.1",

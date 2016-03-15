@@ -1,4 +1,4 @@
-# CSS - Parte 2
+﻿# CSS - Parte 2
 
 ---
 # Roteiro de hoje
@@ -79,6 +79,11 @@ p strong em { }           /* 003 */
   ```
 
 ---
+<!--
+  scripts: [../../scripts/classes/spec-tabajara.min.js]
+  styles: [../../styles/classes/spec-tabajara.min.css]
+-->
+
 ## **Specificator Tabajara**
 
 <article id="specTabajara">

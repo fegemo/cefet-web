@@ -15,8 +15,8 @@ var bespoke = require('bespoke'),
     backdrop = require('bespoke-backdrop'),
     qrcode = require('bespoke-qrcode'),
     easter = require('./easter'),
-    tutorial = require('./tutorial')
-    ;//caniuseWidget = require('./caniuse');
+    tutorial = require('./tutorial'),
+    caniuseWidget = require('./caniuse');
 
 // Bespoke.js
 bespoke.from('article', [
@@ -24,22 +24,32 @@ bespoke.from('article', [
     backdrop: function(slide, value) {
       slide.setAttribute('data-bespoke-backdrop', value);
     },
-    scripts: function(slide, value) {
+    scripts: function(slide, url) {
       var placeToPutScripts = document.body;
-      try {
-        // if it's an array, we need to parse
-        // if it's not, JSON.parse will throw err
-        value = JSON.parse(value);
-      } catch (e) {
-        // value was just a url. Just ignore this exception
-        value = [value];
-      }
-      value.forEach(function (url) {
+      url = !Array.isArray(url) ? [url] : url;
+
+      function loadScriptChain(i) {
         var s = document.createElement('script');
-        s.src = url;
+        s.src = url[i];
+        if (i < url.length - 1) {
+          s.addEventListener('load', function () {
+              loadScriptChain(i+1);
+          });
+        }
         placeToPutScripts.appendChild(s);
+      }
+      loadScriptChain(0);
+    },
+    styles: function(slide, value) {
+      var placeToPutStyles = document.head;
+      value = !Array.isArray(value) ? [value] : value;
+      value.forEach(function (url) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = url;
+        placeToPutStyles.appendChild(l);
       });
-    }
+    },
   }),
   fancy(),
   keys(),
@@ -56,34 +66,10 @@ bespoke.from('article', [
   tutorial(document.getElementsByClassName('tutorial')[0])
 ]);
 
-
-// CSS Specificator Tabajara
-var inputEl = document.getElementById('specTabajaraInput'),
-    SpecificatorTabajara,
-    outputEls,
-    buttonEl;
-
-if (inputEl) {
-  SpecificatorTabajara = require('./specificity');
-  outputEls = [
-      document.getElementById('specTabajaraOutputA'),
-      document.getElementById('specTabajaraOutputB'),
-      document.getElementById('specTabajaraOutputC')
-    ];
-  buttonEl = document.getElementById('specTabajaraButton');
-  new SpecificatorTabajara(
-    inputEl,
-    outputEls[0],
-    outputEls[1],
-    outputEls[2],
-    buttonEl
-  ).start();
-}
-
 easter();
 
 // Can I Use widget
-//window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
+window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
 
 // Used to load gmaps api async (it require a callback to be passed)
 window.noop = function() {};

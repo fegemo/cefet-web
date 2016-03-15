@@ -1,26 +1,27 @@
 var fs = require('fs'),
-    gulp = require('gulp'),
-    connect = require('gulp-connect'),
-    gutil = require('gulp-util'),
-    plumber = require('gulp-plumber'),
-    del = require('del'),
-    rename = require('gulp-rename'),
-    uglify = require('gulp-uglify'),
-    stylus = require('gulp-stylus'),
-    replace = require('gulp-replace'),
-    preprocess = require('gulp-preprocess'),
-    autoprefixer = require('gulp-autoprefixer'),
-    csso = require('gulp-csso'),
-    changed = require('gulp-changed'),
-    sourcemaps = require('gulp-sourcemaps');
-    source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer'),
-    browserify = require('browserify'),
-    through = require('through'),
-    ghpages = require('gh-pages'),
-    path = require('path'),
-    merge = require('merge-stream'),
-    isDist = process.argv.indexOf('serve') === -1;
+  gulp = require('gulp'),
+  connect = require('gulp-connect'),
+  gutil = require('gulp-util'),
+  plumber = require('gulp-plumber'),
+  del = require('del'),
+  rename = require('gulp-rename'),
+  uglify = require('gulp-uglify'),
+  stylus = require('gulp-stylus'),
+  replace = require('gulp-replace'),
+  preprocess = require('gulp-preprocess'),
+  autoprefixer = require('gulp-autoprefixer'),
+  csso = require('gulp-csso'),
+  changed = require('gulp-changed'),
+  sourcemaps = require('gulp-sourcemaps'),
+  glob = require('glob'),
+  source = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer'),
+  browserify = require('browserify'),
+  through = require('through'),
+  ghpages = require('gh-pages'),
+  path = require('path'),
+  merge = require('merge-stream'),
+  isDist = process.argv.indexOf('serve') === -1;
 
 gulp.task('js', function() {
   return browserify({
@@ -45,16 +46,44 @@ gulp.task('js', function() {
     .pipe(connect.reload());
 });
 
-// gulp.task('js-classes', function() {
-  // var destination = 'dist/scripts/classes';
-  // return gulp.src(['scripts/classes/**/*.js'])
-  //   .pipe(changed(destination))
-  //   .pipe(isDist ? through() : plumber())
-  //   .pipe(browserify({ debug: !isDist }))
-  //   .pipe(isDist ? uglify() : through())
-  //   .pipe(uglify())
-  //   .pipe(gulp.dest(destination));
-// });
+gulp.task('js-classes', function(done) {
+  var destination = 'dist/scripts/classes';
+
+  glob('scripts/classes/**/*.js', function(err, files) {
+    if (err) done(err);
+
+    var tasks = files.map(function(file) {
+      var fileName = path.basename(file);
+
+      return browserify({
+        entries: [file],
+        debug: true
+      })
+      .bundle()
+      .on('error', function(err) {
+        gutil.log(gutil.colors.red('Browserify bundle error: ') + err);
+        this.emit('end');
+      })
+      .pipe(source(fileName))
+      .pipe(rename({
+        extname: '.min.js'
+      }))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(isDist ? uglify() : through())
+        .on('error', function(err) {
+          gutil.log(gutil.colors.red('Uglify error: ') + err.message);
+          this.emit('end');
+      })
+      .pipe(sourcemaps.write('./'))
+      .pipe(gulp.dest(destination))
+      .pipe(connect.reload());
+    });
+
+    merge(tasks);
+    done();
+  });
+});
 
 
 
@@ -96,11 +125,41 @@ gulp.task('css', function() {
       'include css': true,
       'paths': ['./node_modules']
     }))
-    .pipe(autoprefixer('last 2 versions', { map: false }))
+    .pipe(autoprefixer('last 2 versions', { map: true }))
     .pipe(isDist ? csso() : through())
     .pipe(rename('build.css'))
     .pipe(gulp.dest('dist/build'))
     .pipe(connect.reload());
+});
+
+gulp.task('css-classes', function(done) {
+  var destination = 'dist/styles/classes';
+
+  glob('styles/classes/**/*.styl', function(err, files) {
+    if (err) done(err);
+
+    var tasks = files.map(function(file) {
+      var fileName = path.basename(file);
+
+      return gulp.src(file)
+        .pipe(changed(destination))
+        .pipe(isDist ? through() : plumber())
+        .pipe(stylus({
+          'include css': true,
+          'paths': ['./node_modules']
+        }))
+        .pipe(autoprefixer('last 2 versions', { map: true }))
+        .pipe(isDist ? csso() : through())
+        .pipe(rename({
+          extname: '.min.css'
+        }))
+        .pipe(gulp.dest(destination))
+        .pipe(connect.reload());
+    });
+
+    merge(tasks);
+    done();
+  });
 });
 
 gulp.task('attachments', function() {
@@ -158,7 +217,14 @@ function getFolders(cwd, dir) {
     });
 }
 
-gulp.task('build', ['js', /*'js-classes',*/ 'html', 'md', 'css', 'images', 'fonts', 'videos', 'attachments', 'favicon'], function() {
+gulp.task('build', ['js', 'js-classes',
+  'html', 'md',
+  'css', 'css-classes',
+  'images',
+  'fonts',
+  'videos',
+  'attachments',
+  'favicon'], function() {
   var folders = getFolders('.', 'classes').concat(getFolders('.', 'assignments')),
       tasks = folders.map(function(folder) {
         var t = [];
@@ -184,11 +250,11 @@ gulp.task('connect', ['build'], function() {
 
 gulp.task('watch', function() {
   gulp.watch('scripts/*.js', ['js']);
-  // gulp.watch('scripts/classes/*.js', ['js-classes']);
+  gulp.watch('scripts/classes/*.js', ['js-classes']);
   gulp.watch('html/**/*.html', ['html']);
   gulp.watch(['README.md', 'classes/**/*.md', 'assignments/**/*.md'], ['md']);
   gulp.watch('styles/**/*.styl', ['css']);
-  gulp.watch('styles/classes/*.css', ['css-classes']);
+  gulp.watch('styles/classes/*.styl', ['css-classes']);
   gulp.watch('images/**/*', ['images']);
 });
 

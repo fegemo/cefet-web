@@ -36,4 +36,22 @@ SpecificatorTabajara.prototype.calculate = function() {
 };
 
 
-module.exports = SpecificatorTabajara;
+var options = {
+  input: 'specTabajaraInput',
+  output: [
+    'specTabajaraOutputA',
+    'specTabajaraOutputB',
+    'specTabajaraOutputC'],
+  button: 'specTabajaraButton'
+  },
+  inputEl = document.getElementById(options.input);
+
+if (inputEl) {
+  new SpecificatorTabajara(
+    inputEl,
+    document.getElementById(options.output[0]),
+    document.getElementById(options.output[1]),
+    document.getElementById(options.output[2]),
+    document.getElementById(options.button)
+  ).start();
+}
