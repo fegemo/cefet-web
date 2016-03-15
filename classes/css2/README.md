@@ -4,10 +4,13 @@
 # Roteiro de hoje
 
 1. **Especificidade** de seletores
-1. Família de propriedades: **font-* **
-1. Família de propriedades: **text-* **
+1. Família de propriedades: **background-***
+1. Família de propriedades: **border-***
+1. Cores e Gradientes
+1. Família de propriedades: **text-***
+1. Família de propriedades: **font-***
 1. Fontes personalizadas
-1. TP1
+1. Projeto: Entrega 1
 
 ---
 # Especificidade de seletores
@@ -50,12 +53,15 @@
 ---
 ## Exemplos
 
-```
+```css
+/* seletor { propriedades }  abc */
 li { }                    /* 001 */
 .destaque { }             /* 010 */
-#rodape { }               /* 100 */
 li.destaque { }           /* 011 */
-#rodape > #logo { }       /* 200 */
+
+#rodape { }               /* 100 */
+#rodape #logo { }         /* 200 */
+
 a[href^="www"] { }        /* 011 */
 p strong em { }           /* 003 */
 ```
@@ -70,15 +76,20 @@ p strong em { }           /* 003 */
     .d .e .f { color: green; }
     .g .h #i { color: blue; }
   </style>
-
   <p id="a" class="d g">
       <strong class="b e h">
-          <em id="i" class="c f">What is the color of this text?</em>
+          <em id="i" class="c f">Qual é a minha cor?</em>
       </strong>
   </p>
   ```
+  - [Questionário Maroto](https://moodle.cefetmg.br/mod/quiz/view.php?id=17987) e [Resposta](https://jsfiddle.net/fegemo/bw1xt1az/) no JSFiddle
 
 ---
+<!--
+  scripts: [../../scripts/classes/spec-tabajara.min.js]
+  styles: [../../styles/classes/spec-tabajara.min.css]
+-->
+
 ## **Specificator Tabajara**
 
 <article id="specTabajara">
@@ -105,7 +116,248 @@ p strong em { }           /* 003 */
 </article>
 
 ---
-# Propriedades **font-* **
+# Propriedade **background**
+
+---
+## **background**
+
+- Usada para definir o preechimento do fundo de uma caixa (_box model_)
+- A propriedade `background ` é um atalho para
+  - `background-clip, background-color, background-image, background-origin,
+    background-position, background-repeat, background-size` e
+    `background-attachment.`
+
+---
+## **`background-color`**
+
+- Define uma cor de fundo
+  ```css
+  div { background-color: #ff00f0; }
+  ```
+  ```html
+  <div>Conteúdo</div>
+  ```
+- Resultado:
+  <div style="background-color: #ff00f0;">
+    Conteúdo
+  </div>
+
+---
+## **`background-image`**
+
+- Define uma imagem de fundo
+  ```css
+  div { background-image: url(images/bells.png); }
+  ```
+- Resultado:
+  <div style="background-image: url(../../images/bells.png);">
+    Conteúdo
+  </div>
+
+---
+## **`background-repeat`**
+
+- Define se e como a imagem de fundo deve ser repetida
+  ```css
+  div {
+    background-image: url(images/bells.png);
+    background-repeat: no-repeat;
+    padding-left: 40px;
+  }
+  ```
+- Resultado:
+  <div style="background-image: url(../../images/bells.png); background-repeat: no-repeat; padding-left: 40px;">
+    Conteúdo
+  </div>
+
+---
+## **`background-position`**
+
+- Define a posição de onde deve começar a(s) imagem(ns) definida(s) em
+  `background-image`
+  ```css
+  div {
+    background-image: url(images/bells.png);
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+  }
+  ```
+- Resultado:
+  <div style="background-image: url(../../images/bells.png); background-repeat: no-repeat; background-position: 100% 0%;">
+    Conteúdo
+  </div>
+
+---
+## Outras propriedades background-*
+
+- `background-clip`
+  - Define, em termos da caixa (_box model_), até onde o `background` será
+    pintado
+  - Valores: `content-box`, `padding-box` (padrão) ou `border-box`
+- `background-origin`
+  - Define o significado do início (0%, 0%) dos valores dados à propriedade
+    `background-position`
+- `background-attachment`
+  - Define se a(s) imagem(ns) definida(s) por `background` devem seguir a
+    rolagem da página (`scroll`) ou se deve se manter fixo (`fixed`)
+
+---
+# Propriedade **border**
+
+---
+## **border**
+
+- Usada para definir a borda da caixa (_box model_) de um elemento
+- A propriedade `border` é um atalho para `border-width`, `border-style` e
+  `border-color`
+  - Exemplo:
+    ```css
+    p {
+      border: 1px solid red;
+    }
+    ```
+    ```css
+    .retrato {
+      border-width: 1px;
+      border-style: solid;
+      border-color: red;      
+    }
+    ```
+
+---
+## `border-width`
+
+![](../../images/border-width.png)
+
+---
+## `border-style`
+
+![](../../images/border-style.png)
+
+---
+## `border-color`
+
+![](../../images/border-color.png)
+
+---
+## Especificando **propriedades para cada lado**
+
+![](../../images/border-sides.png)
+
+---
+## Especificando **cantos arredondados**
+
+![](../../images/border-radius.png)
+
+---
+# Cores e gradientes
+
+---
+## Cor
+
+- Em `CSS`, existe um [tipo de dados `color`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
+- Um valor de `color` pode ser dado por:
+  - uma palavra-chave
+  - um valor do espaço cúbico RGB (em hexadecimal, `rgb()` ou `rgba()`)
+  - um valor do espaço cilíndrico HSL (`hsl()` ou `hsla()`)
+
+---
+## Cor (cont.)
+
+- Exemplos de cores:
+  ```css
+  #ff0033
+  #F03                      /* Mesmo que anterior */
+  rgb(255, 0, 51)
+  rgb(100%, 0%, 20%)
+  hsl(60, 100%,50%)
+  rgba(255,0,0,0.1)         /* 10% opaque red */  
+  hsla(240,100%,50%,0.05)   /* 5% opaque blue */
+  rebeccapurple             /* !!! CSS4 */
+  ```
+  <div style="font-size: 1.5em; color: #663399; font-family: Calligraffitti, cursive">Rebecca Purple</div>
+
+---
+## Gradientes
+
+- Assim como `color`,
+  [`gradient`](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient) é
+  um tipo de dados em CSS
+  - **Herda de [`image`](https://developer.mozilla.org/en-US/docs/Web/CSS/image)**,
+    não de `color`
+    - Ou seja, `linear-gradient` é um **valor válido para `background-image`**,
+      e não para `background-color`
+- Podemos definir um gradiente (degradê) linear usando dois valores
+  - ```css
+    linear-gradient( 45deg, blue, red );
+    linear-gradient( to left top, blue, red);
+    linear-gradient( 0deg, blue, white 20%, red ); /* exemplo */
+    ```
+- <div style="background-image: linear-gradient(90deg, blue, white 20%, red)">
+    Conteúdo
+  </div>
+  ```css
+  li { background-image: linear-gradient(90deg, blue, white 20%, red); }
+  ```
+
+
+---
+# Propriedades **text-***
+
+---
+## [text-decoration](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)
+
+- Aplica sublinhado, tachado, linha sobre o texto ou remove efeitos
+  ```css
+  a {
+    text-decoration: none;    /* underline, overline, line-through */
+  }
+  ```
+- Uma combinação pode ser usada também
+  `text-decoration: underline overline`
+
+---
+## [text-align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
+
+- Alinha o texto (e conteúdo) à esquerda, à direita ou justificado
+  ```css
+  p {
+    text-align: justify;      /* left, right */
+  }
+  ```
+
+---
+## [text-overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
+
+- Muda a visibilidade do texto que não cabe no seu _container_
+  ```css
+  li {
+    text-overflow: ellipsis;  /* clip */
+  }
+  ```
+- Exemplo
+  - `clip`: <div style="white-space: nowrap; width: 134px; overflow: hidden">Este texto foi</div>
+  - `ellispsis`: <div style="white-space: nowrap; width: 134px; overflow: hidden; text-overflow: ellipsis">Este texto foi</div>
+
+---
+## [text-transform](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)
+
+- Altera o _casing_ (maiúsculas vs minúsculas) de um texto
+  ```css
+  h1 {
+    text-transform: uppercase;   /* none, capitalize, lowercase */
+  }
+  ```
+
+---
+## Outras
+
+- `text-indent`
+- `text-justify`
+- `text-shadow`
+
+---
+# Propriedades **font-***
 
 ---
 ## [font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)
@@ -164,61 +416,6 @@ p strong em { }           /* 003 */
 - `font-kerning`
 - `font-stretch`
 - `font-variant`
-
----
-# Propriedades **text-* **
-
----
-## [text-decoration](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)
-
-- Aplica sublinhado, tachado, linha sobre o texto ou remove efeitos
-  ```css
-  a {
-    text-decoration: none;    /* underline, overline, line-through */
-  }
-  ```
-- Uma combinação pode ser usada também
-  `text-decoration: underline overline`
-
----
-## [text-align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
-
-- Alinha o texto (e conteúdo) à esquerda, à direita ou justificado
-  ```css
-  p {
-    text-align: justify;      /* left, right */
-  }
-  ```
-
----
-## [text-overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
-
-- Muda a visibilidade do texto que não cabe no seu _container_
-  ```css
-  li {
-    text-overflow: ellipsis;  /* clip */
-  }
-  ```
-- Exemplo
-  - `clip`: <div style="white-space: nowrap; width: 134px; overflow: hidden">Este texto foi</div>
-  - `ellispsis`: <div style="white-space: nowrap; width: 134px; overflow: hidden; text-overflow: ellipsis">Este texto foi</div>
-
----
-## [text-transform](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)
-
-- Altera o _casing_ (maiúsculas vs minúsculas) de um texto
-  ```css
-  h1 {
-    text-transform: uppercase;   /* none, capitalize, lowercase */
-  }
-  ```
-
----
-## Outras
-
-- `text-indent`
-- `text-justify`
-- `text-shadow`
 
 ---
 # Web Fonts

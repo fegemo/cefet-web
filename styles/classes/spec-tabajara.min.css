@@ -1,0 +1,57 @@
+#specTabajaraInput {
+  padding: 4px 8px;
+  font-family: monospace;
+  font-size: 30px;
+  border: 1px solid #c0c0c0;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+}
+#specTabajaraButton {
+  font-size: 24px;
+  border-radius: 2px;
+  border: 1px solid #c0c0c0;
+  padding: 10px 25px;
+  background-color: #f5f5f5;
+}
+#specTabajara > div {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.specClass {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+.specClass:nth-child(1) {
+  background-color: #6495ed;
+  border: 2px solid #286ce6;
+  color: #0e3479;
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+  -webkit-transform: rotate3d(0, 0, 1, -30deg);
+          transform: rotate3d(0, 0, 1, -30deg);
+  border-radius: 75px 75px 0 75px;
+}
+.specClass:nth-child(2) {
+  background-color: #ff7f50;
+  border: 2px solid #ff4e0d;
+  color: #862400;
+  border-radius: 75px 75px 0 0;
+}
+.specClass:nth-child(3) {
+  background-color: #9932cc;
+  border: 2px solid #7a28a3;
+  color: #3d1452;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: rotate3d(0, 0, 1, 30deg);
+          transform: rotate3d(0, 0, 1, 30deg);
+  border-radius: 75px 75px 75px 0;
+}
+.specClass .specOutput {
+  display: block;
+  margin-top: 0.125em;
+  height: 1.5em;
+  font-size: 50px;
+}

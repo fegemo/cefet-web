@@ -19668,152 +19668,352 @@ if (typeof exports === 'object') {
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
 },{}],187:[function(require,module,exports){
-/**
- * Calculates the specificity of CSS selectors
- * http://www.w3.org/TR/css3-selectors/#specificity
- *
- * Returns an array of objects with the following properties:
- *  - selector: the input
- *  - specificity: e.g. 0,1,0,0
- *  - parts: array with details about each part of the selector that counts towards the specificity
- */
-var SPECIFICITY = (function() {
-	var calculate,
-		calculateSingle;
+/*jshint curly: true, eqeqeq: true, immed: true, indent: 4, browser: true, jquery: true, evil: true, regexdash: true, browser: true, trailing: true, sub: true, unused: true, devel: true */
 
-	calculate = function(input) {
-		var selectors,
-			selector,
-			i,
-			len,
-			results = [];
+// author: andi smith
+// website: www.andismith.com
+// version: 0.1
 
-		// Separate input by commas
-		selectors = input.split(',');
+var canIUse = (function () {
 
-		for (i = 0, len = selectors.length; i < len; i += 1) {
-			selector = selectors[i];
-			if (selector.length > 0) {
-				results.push(calculateSingle(selector));
-			}
-		}
+    /*  CONFIGURATION =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
 
-		return results;
-	};
+    //  URL to the data feed
+    var SOURCE_DATA_URL = 'https://raw.github.com/Fyrd/caniuse/master/data.json';
 
-	// Calculate the specificity for a selector by dividing it into simple selectors and counting them
-	calculateSingle = function(input) {
-		var selector = input,
-			findMatch,
-			typeCount = {
-				'a': 0,
-				'b': 0,
-				'c': 0
-			},
-			parts = [],
-			// The following regular expressions assume that selectors matching the preceding regular expressions have been removed
-			attributeRegex = /(\[[^\]]+\])/g,
-			idRegex = /(#[^\s\+>~\.\[:]+)/g,
-			classRegex = /(\.[^\s\+>~\.\[:]+)/g,
-			pseudoElementRegex = /(::[^\s\+>~\.\[:]+|:first-line|:first-letter|:before|:after)/gi,
-			// A regex for pseudo classes with brackets - :nth-child(), :nth-last-child(), :nth-of-type(), :nth-last-type(), :lang()
-			pseudoClassWithBracketsRegex = /(:[\w-]+\([^\)]*\))/gi,
-			// A regex for other pseudo classes, which don't have brackets
-			pseudoClassRegex = /(:[^\s\+>~\.\[:]+)/g,
-			elementRegex = /([^\s\+>~\.\[:]+)/g;
+    /*  Turn auto run on page load on or off with AUTO_RUN.
+        If you turn it off, just use canIUse.render() to kick it off again.
+        If you don't want the WhenCanIUse data to load in the background, turn BE_READY to false.
+    */
+    var AUTO_RUN = true,
+        BE_READY = true;
 
-		// Find matches for a regular expression in a string and push their details to parts
-		// Type is "a" for IDs, "b" for classes, attributes and pseudo-classes and "c" for elements and pseudo-elements
-		findMatch = function(regex, type) {
-			var matches, i, len, match, index, length;
-			if (regex.test(selector)) {
-				matches = selector.match(regex);
-				for (i = 0, len = matches.length; i < len; i += 1) {
-					typeCount[type] += 1;
-					match = matches[i];
-					index = selector.indexOf(match);
-					length = match.length;
-					parts.push({
-						selector: match,
-						type: type,
-						index: index,
-						length: length
-					});
-					// Replace this simple selector with whitespace so it won't be counted in further simple selectors
-					selector = selector.replace(match, Array(length + 1).join(' '));
-				}
-			}
-		};
+    /*  Configure the browsers you want to show here.
+        The order defines the order they will appear on the page.
 
-		// Remove the negation psuedo-class (:not) but leave its argument because specificity is calculated on its argument
-		(function() {
-			var regex = /:not\(([^\)]*)\)/g;
-			if (regex.test(selector)) {
-				selector = selector.replace(regex, '     $1 ');
-			}
-		}());
+        Browser options are:
+        * android   - Android
+        * and_ff    - Android Firefox
+        * and_chr   - Android Chrome
+        * bb        - Blackberry
+        * chrome    - Google Chrome
+        * firefox   - Mozilla Firefox
+        * ie        - Internet Explorer
+        * ios_saf   - iOS Safari
+        * opera     - Opera
+        * op_mini   - Opera Mini
+        * op_mob    - Opera Mobile
+        * safari    - Apple Safari
+    */
+    var BROWSERS = ['chrome', 'firefox', 'ie', 'opera', 'safari'];
 
-		// Remove anything after a left brace in case a user has pasted in a rule, not just a selector
-		(function() {
-			var regex = /{[^]*/gm,
-				matches, i, len, match;
-			if (regex.test(selector)) {
-				matches = selector.match(regex);
-				for (i = 0, len = matches.length; i < len; i += 1) {
-					match = matches[i];
-					selector = selector.replace(match, Array(match.length + 1).join(' '));
-				}
-			}
-		}());
+    //  Customise HTML here
+    var TMPL_TITLE = '<h2>{title}</h2>', // feature title {title}
+        TMPL_STATUS = '<p class="status">{status}</p>', // feature status (W3C Recommendation) {status}
+        TMPL_DESCRIPTION = '<p>Suportado à partir de:</p>', // description to user
+        TMPL_DESKTOP_TITLE = '', // desktop header
+        TMPL_MOBILE_TITLE = '', // mobile header
+        TMPL_SUPPORT_WRAPPER = '<ul class="agents">{items}</ul>', // support wrapper {items}
+        TMPL_SUPPORT = '<li title="{browser} - {support}" class="icon-{browsercode} {supportcode}"><span class="version">{version}{prefixed}</span></li>',
+        TMPL_PREFIX_NOTE = '<p>* requer prefixo.</p>',
+        TMPL_LEGEND = '<ul class="legend"><li>Legenda:</li><li class="y">Sim</li><li class="n">Não</li><li class="a">Parcial</li><li class="p">Polyfill</li></ul>',
+        TMPL_FOOTER = '<p class="stats">Dados de <a href="http://caniuse.com/#feat={feature}" target="_blank">caniuse.com</a></p>',
+        TMPL_LOADING = '<h2>Carregando</h2>',
+        TMPL_ERROR = '<h2>Erro</h2><p>Feature "{feature}" não encontrada!</p>';
 
-		// Add attribute selectors to parts collection (type b)
-		findMatch(attributeRegex, 'b');
+    /* END CONFIGURATION =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
 
-		// Add ID selectors to parts collection (type a)
-		findMatch(idRegex, 'a');
+    var canIUseData, // store data for multiple uses.
+        storeElementId, // temp storage for elementId if we need to JSONP request
+        populateOnLoad; // temp storage for if we should populate
 
-		// Add class selectors to parts collection (type b)
-		findMatch(classRegex, 'b');
 
-		// Add pseudo-element selectors to parts collection (type c)
-		findMatch(pseudoElementRegex, 'c');
 
-		// Add pseudo-class selectors to parts collection (type b)
-		findMatch(pseudoClassWithBracketsRegex, 'b');
-		findMatch(pseudoClassRegex, 'b');
+    // get feature data based on feature name
+    function getFeature(featureName) {
+        featureName = featureName.toLowerCase();
+        if (canIUseData.query) {
+            return canIUseData.query.results.json.data[featureName];
+        } else if (canIUseData.data) {
+            return canIUseData.data[featureName];
+        } else {
+            return null;
+        }
+    }
 
-		// Remove universal selector and separator characters
-		selector = selector.replace(/[\*\s\+>~]/g, ' ');
+    // get the full text description for the support status
+    function getSupportStatus(key) {
+        var status = {
+            "y": "Yes",
+            "x": "With Prefix",
+            "n": "No",
+            "a": "Partial Support",
+            "p": "Polyfill",
+            "u": "Unknown"
+        };
 
-		// Remove any stray dots or hashes which aren't attached to words
-		// These may be present if the user is live-editing this selector
-		selector = selector.replace(/[#\.]/g, ' ');
+        return status[key];
+    }
 
-		// The only things left should be element selectors (type c)
-		findMatch(elementRegex, 'c');
+    // get the specification status
+    function getSpecStatus(key) {
+        var status = {
+            "rec": "W3C Recommendation",
+            "pr": "W3C Proposed Recommendation",
+            "cr": "W3C Candidate Recommendation",
+            "wd": "W3C Working Draft",
+            "other": "Non-W3C, but Reputable",
+            "unoff": "Unofficial or W3C 'Note'"
+        };
 
-		// Order the parts in the order they appear in the original selector
-		// This is neater for external apps to deal with
-		parts.sort(function(a, b) {
-			return a.index - b.index;
-		});
+        return status[key] || "Unknown";
+    }
 
-		return {
-			selector: input,
-			specificity: '0,' + typeCount.a.toString() + ',' + typeCount.b.toString() + ',' + typeCount.c.toString(),
-			parts: parts
-		};
-	};
+    // find the first version that had this status
+    function find(needle, haystack) {
 
-	return {
-		calculate: calculate
-	};
+        var result = {
+                "version": -1,
+                "prefixed": false
+            },
+            compare = -1;
+
+        for (var item in haystack) {
+            if (haystack.hasOwnProperty(item) && haystack[item].indexOf(needle) > -1) {
+                // some browser versions are formatted n-n, take the first number for comparison
+                compare = parseFloat(item.split('-')[0]);
+                // is this version lower than the current version we have stored?
+                if (result.version === -1 || result.version > compare) {
+                    result.version = compare;
+                    result.prefixed = (haystack[item].indexOf('x') > -1);
+                }
+            }
+        }
+        return result;
+    }
+
+    function findSupport(browserData) {
+        var status = ['y', 'a', 'p'],
+            result = {};
+        // find what support is available for this browser
+        for (var i = 0; i < status.length; i++) {
+            result = find(status[i], browserData);
+            if (result.version !== -1) {
+                return {
+                    'result': status[i], // what type of support
+                    'prefixed': result.prefixed,
+                    'version': (result.version !== '0') ? result.version : '0' // the version with that support
+                };
+            }
+        }
+        return {
+            'result': 'n',
+            'prefixed': false,
+            'version': 'No'
+        };
+    }
+
+    /* put the data in a more platable format */
+    function generateResults(feature) {
+        var agents = {},
+            results = {},
+            currentBrowser = '',
+            support = {};
+
+        agents = canIUseData.agents || canIUseData.query.results.json.agents;
+
+        results.title = feature.title; // feature name
+        results.code = feature; // feature code?
+        results.status = getSpecStatus(feature.status); // feature specification status
+        results.agents = [];
+
+        for (var i = 0, l = BROWSERS.length; i < l; i++) {
+
+            currentBrowser = BROWSERS[i];
+
+            if (agents[currentBrowser]) {
+
+                support = findSupport(feature.stats[BROWSERS[i]]);
+
+                results.agents.push({
+                    "browsercode": currentBrowser,
+                    "prefixed": support.prefixed,
+                    "supportcode": support.result,
+                    "support": getSupportStatus(support.result),
+                    "title": agents[currentBrowser].browser,
+                    "type": agents[currentBrowser].type.toLowerCase(),
+                    "version": support.version
+                });
+            }
+        }
+
+        return results;
+    }
+
+
+    function generateHtml(results) {
+
+        var html = '',
+            resultHtml = '',
+            desktopHtml = '',
+            mobileHtml = '',
+            prefixes = false,
+            result = {},
+            i = 0,
+            l = 0;
+
+        resultHtml = TMPL_TITLE.replace('{title}', results.title);
+        resultHtml += TMPL_STATUS.replace('{status}', results.status);
+        resultHtml += TMPL_DESCRIPTION;
+
+        for (i = 0, l = results.agents.length; i < l; i++) {
+            result = results.agents[i]; // simply things
+
+            // we need to show that prefix notice, captain
+            if (result.prefixed) {
+                prefixes = true;
+            }
+
+            html = TMPL_SUPPORT.replace(/\{browsercode\}/g, result.browsercode)
+                                    .replace(/\{prefixed\}/g, (result.prefixed === true) ? '*' : '')
+                                    .replace(/\{supportcode\}/g, result.supportcode)
+                                    .replace(/\{support\}/g, result.support)
+                                    .replace(/\{browser\}/g, result.title)
+                                    .replace(/\{version\}/g, result.version);
+
+            if (result.type === 'desktop') {
+                desktopHtml += html;
+            } else if (result.type === 'mobile') {
+                mobileHtml += html;
+            }
+        }
+
+        // only show if we are including desktop browsers
+        if (desktopHtml !== '') {
+            resultHtml += TMPL_DESKTOP_TITLE;
+            resultHtml += TMPL_SUPPORT_WRAPPER.replace(/\{items\}/g, desktopHtml);
+        }
+
+        // only show if we are including mobile browsers
+        if (mobileHtml !== '') {
+            resultHtml += TMPL_MOBILE_TITLE;
+            resultHtml += TMPL_SUPPORT_WRAPPER.replace(/\{items\}/g, mobileHtml);
+        }
+
+        if (prefixes) {
+            resultHtml += TMPL_PREFIX_NOTE;
+        }
+
+        resultHtml += TMPL_LEGEND;
+        resultHtml += TMPL_FOOTER.replace(/\{feature\}/g, results.featureCode);
+        return resultHtml;
+    }
+
+    function generate(elementId) {
+        var $canIUse = [],
+            $instance,
+            featureCode = '',
+            feature = {},
+            result = {},
+            i = 0,
+            l = 0;
+
+        if (typeof elementId === "undefined") {
+            $canIUse = document.querySelectorAll('.caniuse');
+        } else {
+            $canIUse.push(document.getElementById(elementId));
+        }
+
+        l = $canIUse.length;
+
+        for (i = 0; i < l; i++) {
+            $instance = $canIUse[i];
+            featureCode = $instance.getAttribute('data-feature') || 'unknown';
+            feature = getFeature(featureCode);
+            if (feature) {
+                result = generateResults(feature);
+                result.featureCode = featureCode;
+                $instance.innerHTML = generateHtml(result);
+            } else {
+                $instance.innerHTML = TMPL_ERROR.replace(/\{feature\}/g, featureCode);
+            }
+        }
+    }
+
+    function showLoading(elementId) {
+        var $canIUse = [],
+            $instance,
+            i = 0,
+            l = 0;
+
+        if (typeof elementId === "undefined") {
+            $canIUse = document.querySelectorAll('.caniuse');
+        } else {
+            $canIUse.push(document.getElementById(elementId));
+        }
+
+        l = $canIUse.length;
+
+        for (i = 0; i < l; i++) {
+            $instance = $canIUse[i];
+            $instance.innerHTML = TMPL_LOADING;
+        }
+    }
+
+    /*
+     * Load the data that will be used to display information.
+     */
+    function loadData(elementId, populate) {
+        var url = '',
+            script = document.createElement('SCRIPT');
+
+        url = 'http://query.yahooapis.com/v1/public/yql?q=' +
+            'select * from json where url = \'' + SOURCE_DATA_URL + '\'' +
+            '&format=json&jsonCompat=new&callback=canIUseDataLoaded';
+
+        // remember these for when our JSONP returns
+        storeElementId = elementId;
+        populateOnLoad = populate;
+
+        script.src = url;
+        document.body.appendChild(script);
+    }
+
+    function populate(elementId) {
+        if (typeof canIUseData === 'undefined') {
+            showLoading(elementId);
+            loadData(elementId, true);
+        } else {
+            generate(elementId);
+        }
+    }
+
+    /*
+     * Public Methods
+     */
+    return {
+        render: populate,
+        dataLoaded: function (data) {
+            canIUseData = data;
+            if (populateOnLoad) {
+                generate(storeElementId);
+            }
+        },
+        init: (function () {
+            if (AUTO_RUN) {
+                populate();
+            } else if (BE_READY) {
+                loadData(undefined, false);
+            }
+        })()
+    };
 }());
 
-// Export for Node JS
-if (typeof exports !== 'undefined') {
-	exports.calculate = SPECIFICITY.calculate;
+function canIUseDataLoaded(data) {
+    canIUse.dataLoaded(data);
 }
+
+module.exports = {canIUseDataLoaded: canIUseDataLoaded};
 
 },{}],188:[function(require,module,exports){
 var cheet = require('cheet.js');
@@ -19847,8 +20047,8 @@ var bespoke = require('bespoke'),
     backdrop = require('bespoke-backdrop'),
     qrcode = require('bespoke-qrcode'),
     easter = require('./easter'),
-    tutorial = require('./tutorial')
-    ;//caniuseWidget = require('./caniuse');
+    tutorial = require('./tutorial'),
+    caniuseWidget = require('./caniuse');
 
 // Bespoke.js
 bespoke.from('article', [
@@ -19856,22 +20056,32 @@ bespoke.from('article', [
     backdrop: function(slide, value) {
       slide.setAttribute('data-bespoke-backdrop', value);
     },
-    scripts: function(slide, value) {
+    scripts: function(slide, url) {
       var placeToPutScripts = document.body;
-      try {
-        // if it's an array, we need to parse
-        // if it's not, JSON.parse will throw err
-        value = JSON.parse(value);
-      } catch (e) {
-        // value was just a url. Just ignore this exception
-        value = [value];
-      }
-      value.forEach(function (url) {
+      url = !Array.isArray(url) ? [url] : url;
+
+      function loadScriptChain(i) {
         var s = document.createElement('script');
-        s.src = url;
+        s.src = url[i];
+        if (i < url.length - 1) {
+          s.addEventListener('load', function () {
+              loadScriptChain(i+1);
+          });
+        }
         placeToPutScripts.appendChild(s);
+      }
+      loadScriptChain(0);
+    },
+    styles: function(slide, value) {
+      var placeToPutStyles = document.head;
+      value = !Array.isArray(value) ? [value] : value;
+      value.forEach(function (url) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = url;
+        placeToPutStyles.appendChild(l);
       });
-    }
+    },
   }),
   fancy(),
   keys(),
@@ -19888,80 +20098,15 @@ bespoke.from('article', [
   tutorial(document.getElementsByClassName('tutorial')[0])
 ]);
 
-
-// CSS Specificator Tabajara
-var inputEl = document.getElementById('specTabajaraInput'),
-    SpecificatorTabajara,
-    outputEls,
-    buttonEl;
-
-if (inputEl) {
-  SpecificatorTabajara = require('./specificity');
-  outputEls = [
-      document.getElementById('specTabajaraOutputA'),
-      document.getElementById('specTabajaraOutputB'),
-      document.getElementById('specTabajaraOutputC')
-    ];
-  buttonEl = document.getElementById('specTabajaraButton');
-  new SpecificatorTabajara(
-    inputEl,
-    outputEls[0],
-    outputEls[1],
-    outputEls[2],
-    buttonEl
-  ).start();
-}
-
 easter();
 
 // Can I Use widget
-//window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
+window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
 
 // Used to load gmaps api async (it require a callback to be passed)
 window.noop = function() {};
 
-},{"./easter":188,"./specificity":190,"./tutorial":191,"bespoke":14,"bespoke-backdrop":1,"bespoke-forms":2,"bespoke-hash":3,"bespoke-keys":4,"bespoke-meta-markdown":6,"bespoke-progress":7,"bespoke-qrcode":8,"bespoke-scale":9,"bespoke-simple-overview":10,"bespoke-state":11,"bespoke-theme-fancy":12,"bespoke-touch":13}],190:[function(require,module,exports){
-var spec = require('specificity'),
-
-    SpecificatorTabajara = function(inputEl, outputAEl, outputBEl,
-      outputCEl, buttonEl) {
-      this.inputEl = inputEl;
-      this.outputAEl = outputAEl;
-      this.outputBEl = outputBEl;
-      this.outputCEl = outputCEl;
-      this.buttonEl = buttonEl;
-    };
-
-// attaches the event handlers
-SpecificatorTabajara.prototype.start = function() {
-  var specificator = this;
-  this.buttonEl.onclick = function() {
-    specificator.calculate();
-  };
-};
-
-SpecificatorTabajara.prototype.calculate = function() {
-  // gets the value from the input
-  var input = this.inputEl.value,
-      result = spec.calculate(input)[0],
-      specificity;
-
-  if (result && result.specificity) {
-    result = result.specificity.split(',');
-  } else {
-    result = [0, 0, 0, 0];
-  }
-
-  // sets the value of the 3 outputs
-  this.outputAEl.innerHTML = result[1];
-  this.outputBEl.innerHTML = result[2];
-  this.outputCEl.innerHTML = result[3];
-};
-
-
-module.exports = SpecificatorTabajara;
-
-},{"specificity":187}],191:[function(require,module,exports){
+},{"./caniuse":187,"./easter":188,"./tutorial":190,"bespoke":14,"bespoke-backdrop":1,"bespoke-forms":2,"bespoke-hash":3,"bespoke-keys":4,"bespoke-meta-markdown":6,"bespoke-progress":7,"bespoke-qrcode":8,"bespoke-scale":9,"bespoke-simple-overview":10,"bespoke-state":11,"bespoke-theme-fancy":12,"bespoke-touch":13}],190:[function(require,module,exports){
 var tutorial = {
     turnedOn: true,
 
