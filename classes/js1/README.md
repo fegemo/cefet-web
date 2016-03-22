@@ -68,19 +68,18 @@
 ## O que é Javascript?
 
 - Linguagem imperativa, com tipagem dinâmica, interpretada
-- Há um interpretador embutido em cada navegador
+- Há um interpretador embutido em cada navegador:
   - Chrome &#8594; V8
   - Firefox &#8594; SpiderMonkey
   - Opera &#8594; Carakan &#8594; V8 (2013)
-  - Safari &#8594; SquirrelFish 
+  - Safari &#8594; SquirrelFish
   - Internet Explorer &#8594; Chakra
-  - Spartan &#8594; Chakra
+  - Edge &#8594; Chakra
 
 ---
 ## O que é Javascript?
 
 - Linguagem **orientada a objetos**, mas não existem classes
-  - _"Pode isso, produção?"_
 - Programação dirigida por **eventos**
 - Sintaxe parecida com C, C++, C# e Java
   - Javascript **não** é Java
@@ -115,7 +114,7 @@
 - Embutida
   ```html
   <script>
-    // código aqui
+    // código javascript aqui
   </script>
   ```
 - Inline
@@ -127,8 +126,42 @@
 # Operadores
 
 - Semelhantes aos de C, Java e C#:
-
-  ![](../../images/js-operadores.png)
+  <ul class="multi-column-list-2">
+    <li>Aritméticos
+      <ul>
+        <li>**`+`** soma</li>
+        <li>**`-`** subtração</li>
+        <li>**`*`** multiplicação</li>
+        <li>**`/`** divisão</li>
+        <li>**`%`** resto da divisão</li>
+        <li>**`++`** incremento</li>
+        <li>**`--`** decremento</li>
+      </ul>
+    </li>
+    <li>Atribuição
+      <ul>
+        <li>**`=`** simples</li>
+        <li>**`+=  /=  %=`** composta</li>
+      </ul>
+    </li>
+    <li>Relacionais
+      <ul>
+        <li>**`==`** igualdade</li>
+        <li>**`===`** igualdade forte</li>
+        <li>**`!=`** desigualdade</li>
+        <li>**`!==`** desigualdade forte</li>
+        <li>**&lt;  &lt;=** menor/menor igual</li>
+        <li>**&gt;  &gt;=** maior/maior igual</li>
+      </ul>
+    </li>
+    <li>Lógicos
+      <ul>
+        <li>**`!`** não</li>
+        <li>**&amp;&amp;** e</li>
+        <li>**`||`** ou</li>
+      </ul>
+    </li>
+  </ul>
 
 ---
 # Variáveis
@@ -143,7 +176,7 @@
   ```
 - Para criar nomes de variáveis (e funções, parâmetros, propriedades etc.):
   - Começar com os símbolos $, \_ ou qualquer caractere unicode que represente uma letra (&larr; _tricky_)
-  - Quaisquer combinações do conjunto anterior mais caracteres unicode que representem números e alguns 
+  - Quaisquer combinações do conjunto anterior mais caracteres unicode que representem números e alguns
     tipos de pontuação
 
 ---
@@ -230,7 +263,7 @@
     /* ... */
   }
   ```
-  
+
 ---
 ## Number
 
@@ -251,7 +284,7 @@
 
 - Valores especiais
   - `NaN` - _not a number_
-    - Retornado quando uma operação ilegal é executada (e.g., divisão por 0)
+    - Retornado quando uma operação ilegal é executada (e.g., `numero + string`)
   - `Infinity`
 - Números têm métodos, por exemplo:
   - [`toPrecision`][toPrecision], retorna uma string com o **número arredondado com o certo número de casas decimais**
@@ -291,6 +324,7 @@
   'barba negra'.toUpperCase() === 'BARBA NEGRA'
   'Mississippi'.indexOf('ss') === 2
   'Orinoco'.replace('noco', '') === 'Ori'
+  'a'.repeat(3) === 'aaa'
   ```
 
 ---
@@ -314,7 +348,7 @@
 - Exemplo:
   ```js
   var x;
-  if (x === undefined) {
+  if (typeof x === 'undefined') {
     // será executado
   }
   ```
@@ -322,8 +356,8 @@
 ---
 ## Object
 
-- É um "container" de propriedades
-  - Propriedade: (nome &#8594; valor)
+- É um **"container" de propriedades**
+  - Propriedade: (**nome &#8594; valor**)
     - Nome: qualquer string
     - Valor: qualquer valor Javascript exceto `undefined`
 - É como se cada objeto fosse um dicionário (Java, C#), só que as chaves
@@ -333,9 +367,9 @@
 - Novas propriedades podem ser atribuídas mesmo após a instanciação (!!!)
 
 ---
-## Instanciando um Object
+## Instanciando um Object de 2 formas
 
-- Forma literal
+- Forma literal (preferida):
   ```js
   var jogador = {
     pontos: 1420,
@@ -343,7 +377,7 @@
   };
   ```
   ```js
-  var jogador = {};
+  var jogador = {};           // um objeto vazio
   jogador['pontos'] = 1420;   // acesso à propriedade via índice
   jogador.vidas = 2;          // acesso via ponto
   ```
@@ -351,7 +385,7 @@
 ---
 ## Instanciando um Object (cont.)
 
-- Forma usando operador `new`
+- Forma usando operador `new` (menos legal):
   ```js
   var jogador = new Object();
   jogador['pontos'] = 1420;
@@ -377,14 +411,15 @@ var flight = {
     }
 };
 ```
+- `departure` e `arrival` são objetos são membros de `flight` e são objetos por si mesmos
 
 ---
 ## Outros tipos
 
-- O Javascript possui outros tipos complexos que são baseados em Object:
-  - Function (sim! funções são objetos)
-  - RegExp
-  - Array
+- O Javascript possui **outros tipos complexos, que são baseados em Object**:
+  - `Function` (sim! funções são objetos)
+  - `RegExp`
+  - `Array`
 
 ---
 # Arrays
@@ -394,7 +429,6 @@ var flight = {
   ```js
   var listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
   ```
-  
 - Propriedades:
   - `length`
     ```js
@@ -423,7 +457,6 @@ var flight = {
   ```js
   fruits.push('papaya');        // insere 'papaya' no final
   fruits.pop();                 // remove o último ('papaya')
-  
   fruits.unshift('tangerine');  // insere 'tangerine' no início
   fruits.shift();               // remove o primeiro ('tangerine')
   ```
@@ -433,7 +466,7 @@ var flight = {
   fruits.sort();                // ['apple', 'banana', 'kiwi']
   fruits.splice(2, 1);          // Remove 1 elemento, a partir do 3º
   ```
-  
+
 ---
 # _Statements_
 
@@ -441,7 +474,7 @@ var flight = {
 ## if/else
 
 - Similar a C, Java
-  ```js
+  ```
   if (hora < 12) {
     manha = true;
   } else {
@@ -458,17 +491,37 @@ var flight = {
 ---
 ## for
 
-```js
-for (var i = 0; i !== 10; i++) {
-  console.log(i);
-}
-```
-```js
-var cores = ['azul', 'rosa', 'branco'];
-for (var i in cores) {
-  console.log(cores[i]);
-}
-```
+- Forma tradicional:
+  ```js
+  for (var i = 0; i !== 10; i++) {
+    console.log(i);
+  }
+  ```
+- Percorre items do objeto (indesejada):
+  ```js
+  var cores = ['azul', 'rosa', 'branco'];
+  for (var i in cores) {
+    console.log(cores[i]);
+  }
+  ```
+
+---
+## for (cont.)
+
+- Forma modernosa:
+  ```js
+  var cores = ['azul', 'rosa', 'branco'];
+  cores.forEach(function(cor) {
+    console.log(cor);
+  });
+  ```
+- Forma moderníssima (ES6):
+  ```js
+  var cores = ['azul', 'rosa', 'branco'];
+  for (var cor of cores) {
+    console.log(cor);
+  }
+  ```
 
 ---
 ## while/do..while
@@ -496,7 +549,7 @@ do {
 ---
 ## Funções (cont.)
 
-- São declaradas de forma literal:
+- São declaradas de forma literal, usando a palavra `function`:
   ```js
   function add(a, b) {
     return a + b;
@@ -533,7 +586,7 @@ do {
   passados como argumentos na chamada da função
   ```js
   function media() {
-    for (var i = 0, acum = 0; i < arguments.length; i++) {
+    for (var i = 0, acum = 0; i !== arguments.length; i++) {
       acum += arguments[i];
     }
     return acum / arguments.length;
@@ -549,7 +602,7 @@ do {
 - Funções podem ser definidas dentro de outras funções
   - As funções internas tem acesso ao escopo das externas (_closure_)
 - Quando uma função é armazenada em uma propriedade de um objeto, chamamos ela
-  de método
+  de método:
   ```js
   var passaro = {
     nome: 'Abelardo',
@@ -558,12 +611,13 @@ do {
       // pegar impulso e saltar
     }
   };
+  passaro.voar();     // chamando o método
   ```
 
 ---
 ## Métodos
 
-- Um objeto especial chamado `this` é disponibilizado para os métodos e são
+- Um **objeto especial chamado `this`** é disponibilizado para os métodos e são
   uma referência ao objeto "dono" do método
   ```js
   var passaro = {
@@ -577,7 +631,7 @@ do {
 ---
 ## Valor de retorno
 
-- Uma função (ou método) sempre retorna um valor
+- Uma função (ou método) **sempre retorna um valor**
 - Se não houver um `return` na função, esse valor é `undefined`
   - Mas em certas circunstâncias, também pode ser o valor de `this`
 

@@ -134,10 +134,12 @@ O projeto será entregue em duas etapas, a saber:
 1. Primeira entrega: _front-end_
   - Entregar: Páginas navegáveis, usando dados _mocked_
   - Data: daqui 16 dias (vide Moodle)
+  - Pontuação: 15 pontos
 1. Segunda entrega: _back-end_ + _front-end_
   - Entregar: código fonte final e _link_ para sistema publicado em
     servidor gratuito
   - Data: final do semestre (vide Moodle)
+  - Pontuação: 25 pontos (+extras)
 
 ## Critérios de avaliação
 
