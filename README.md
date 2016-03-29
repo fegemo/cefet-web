@@ -14,15 +14,17 @@
 - [CSS - Parte 1 (Prática)](classes/css1/) (10/03/2016)
 - [CSS - Parte 2](classes/css2/) (15/03/2016)
 - [HTML - Parte 4 (Prática)](classes/html4/) (20/03/2016)
-
-<!--
 - [Javascript - Parte 1](classes/js1/) (22/03/2016)
-- [HTML - Parte 5](classes/html5/) (07/04/2015)
 
+---
 # Aulas (página 2)
 
-- [CSS- Parte 3](classes/css3/) (14/04/2015)
-- [CSS - Parte 4 (Prática)](classes/css4/) (16/04/2015)
+- [CSS- Parte 3](classes/css3/) (29/03/2016)
+- [CSS - Parte 4 (Prática)](classes/css4/) (31/03/2016)
+
+<!--
+
+- [HTML - Parte 5](classes/html5/) (07/04/2015)
 - [HTML - Parte 6 (Prática)](classes/html6/) (23/04/2015)
 - [Javascript - Parte 2 (Prática)](classes/js2/) (30/04/2015)
 - [Javascript - Parte 5](classes/js5/) (05/05/2015)

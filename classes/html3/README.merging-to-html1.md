@@ -69,56 +69,12 @@
 ---
 # Hoje veremos
 
-1. Editores de texto/IDEs
-1. Depurando páginas web
+1. 2 exercícios
 1. Um pouco mais sobre **imagens**
-1. Mapas de imagens
 1. Meta _tags_
 1. Codificação (_encoding_)
-1. DOCTYPE (versão do HTML)
+1. DOCTYPE
 
----
-# Editores de Texto/<abbr title="Integrated Development Environment">IDE</abbr>s
-
----
-## Como ser mais produtivo
-
-- Na hora de escrever/editar código HTML, CSS e JavaScript, queremos ter:
-  - Destacamento de código fonte
-  - Indentação automática
-  - Auto-completar
-- É desejável:
-  - Suporte a controle de versão (_e.g._, git)
-  - _Linting_ (verificação estática de erros no código)
-
----
-## Exemplos de Editores/IDEs com <abbr title="Professor's Seal of Approval">PSoA</abbr>
-
-- Editor:
-  - [Atom][atom] (gratuito, do GitHub)
-  - [Sublime Text 3][sublime] (pago, faz vista grossa com quem não paga)
-  - [Notepad++][notepad] (gratuito, levão)
-- IDE:
-  - [WebStorm][webstorm] (pago, da JetBrains)
-  - [Visual Studio Express][visual] (gratuito, do tio Bill)
-
-[atom]: https://atom.io/
-[sublime]: https://www.sublimetext.com/3
-[notepad]: https://notepad-plus-plus.org/
-[webstorm]: https://www.jetbrains.com/webstorm/
-[visual]: https://www.visualstudio.com/features/modern-web-tooling-vs
-
----
-## Sugestão do Professor
-
-- [![Página inicial do editor de texto Atom right](../../images/atom-homepage.png)](https://atom.io)
-  Benefícios:
-  - Gratuito
-  - Mais leve do que um IDE
-  - Altamente personalizável
-  - Exemplo de "web fora do navegador"
-  - Suporte nativo a Git
-  - Muitas _hotkeys_ \o/
 
 ---
 # Exercícios
@@ -142,8 +98,8 @@ Baixe o [exercício][exer-prog-sem-cafe] ou pegue uma cópia com o professor.
 
 ![Desenho de máscara de festa a fantasia](../../images/who-am-i.png)
 
-Um grupo de elementos HTML, usando fantasia, está fazendo uma festa com a
-temática "Quem sou eu?". Eles dão uma dica e você tenta adivinhar que
+Um grupo de elementos HTML, usando fantasia, está fazendo uma festa com a 
+temática "Quem sou eu?". Eles dão uma dica e você tenta adivinhar que 
 elemento está falando.
 
 Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
@@ -240,7 +196,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
   <meta name="keywords" content="livro,games,ultrabook,ipad,macbook,blu-ray,celular,TV led ,gps,câmera digital">
   ```
   - Página inicial do site submarino.com.br
-
+  
 ---
 ## Meta _tag_: **description**
 
@@ -284,7 +240,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
 ## Meta _tag_: **viewport**
 
 - Sugere ao navegador qual o tamanho inicial da _viewport_ (área visível) da página
-- Usado especialmente por navegadores de dispositivos móveis
+- Usado especialmente por navegadores de dispositivos móveis 
 - Exemplo:
   ```html
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -307,7 +263,7 @@ Baixe o [exercício][exer-who-am-i] ou pegue uma cópia com o professor.
 - <img src="../../images/encoding-error.png" style="height: 150px; float:right;">
   Erro de codificação:
   - Deve-se manter a mesma codificação do banco de dados e da página
-
+  
 
 ---
 # DOCTYPE

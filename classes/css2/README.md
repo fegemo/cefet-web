@@ -461,3 +461,4 @@ p strong em { }           /* 003 */
   - O código por trás do Specificator Tabajara
 - [Google Fonts](https://www.google.com/fonts)
 - [CSS Zen Garden](http://www.csszengarden.com/)
+- [Origem da cor `rebeccapurple`](http://lists.w3.org/Archives/Public/www-style/2014Jun/0312.html)
