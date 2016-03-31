@@ -27,67 +27,104 @@ página web.
 1. **Criar um _fork_** do repositório do professor em [`https://github.com/fegemo/cefet-web-piranha-plant`](https://github.com/fegemo/cefet-web-piranha-plant)
   e **cloná-lo para sua área de trabalho**
 1. Fazer o exercício e fazer _commits_ e _push_ no seu repositório
+  - O arquivo `REAMDE.md` do repositório contém as instruções do exercício
 1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
 
 ---
-## Exercício 1
-
-- Você deve pegar o documento do seu tio
-  (arquivo: `/documentos-do-tio/pagina-sobre-plantas.pdf`) e criar uma página web com
-  o mesmo conteúdo e formatação. Salve o arquivo como `plantas.html`.
-  - O arquivo `/documentos-do-tio/pagina-sobre-plantas`**`specs`**`.pdf` descreve os detalhes
-  - A pasta `/imagens` contém os arquivos de imagens a serem usados
-- Veja nos próximos slides algumas tags HTML
-
----
-## Tags de Importância
+## _Tags_ que indicam **Importância**
 
 - <div>
-    <strong>estou em destaque (negrito)</strong>
-    <em>tenho ênfase (itálico)</em>
-    <u>sublinho-me (sublinhado)</u>
-    <strike>fui riscado! (risco)</strike>
+    <strong>estou em destaque (tipicamente negrito)</strong>
   </div>
   ```html
-  <strong>estou em destaque (negrito)</strong>
-  <em>tenho ênfase (itálico)</em>
-  <u>sublinho-me (sublinhado)</u>
-  <strike>fui riscado! (risco)</strike>
+  <strong>estou em destaque (tipicamente negrito)</strong>
+  ```
+- <div>
+    <em>tenho ênfase (tipicamente itálico)</em>
+  </div>
+  ```html
+  <em>tenho ênfase (tipicamente itálico)</em>
+  ```
+- <div>
+    <del>fui riscado! (tipicamente riscado)</del>
+  </div>
+  ```html
+  <del>fui riscado! (tipicamente riscado)</del>
   ```
 
 ---
-## Tags de Citação
+## _Tags_ de **Citação**
 
-- <div>
-    <q>estou dentro de um texto, em linha</q>
+- Citação **"em linha"**:
+  <div>
+    Romário disse: <q>o Pelé calado é um poeta.</q>
   </div>
   ```html
-  <q>estou dentro de um texto, em linha</q>
+  Romário disse: <q>o Pelé calado é um poeta.</q>
   ```
-- <div>
-    <blockquote>estou dentro de um texto, em linha</blockquote>
+- Citação **"em bloco"**:
+  <div>
+    <blockquote>Tô quebrado, peixe</blockquote> - Romário negando-se a
+    pagar mais de R$ 3 mil de pensão
   </div>
   ```html
-  <blockquote>estou dentro de um texto, quebrando linhas</blockquote>
+  <blockquote>Tô quebrado, peixe</blockquote> - Romário
+  negando-se a pagar mais de R$ 3 mil de pensão
   ```
 
 ---
-## Tag de _Hyperlink_
+## _Tag_ de **_Hyperlink_** (1/3)
 
-- [Link para fora da página](http://www.wikipedia.org)
+- [Link para fora da página](http://www.google.com):
   ```html
-  <a href="http://www.wikipedia.org">Link para fora da página</a>
+  <a href="http://www.google.com">Link para fora da página</a>
   ```
-- [Link para dentro da página](#uma-secao-do-site)
+- [Link para um arquivo](../../images/flavio-avatar.jpg) que o navegador sabe
+  abrir (_e.g._, uma imagem):
   ```html
-  <a href="#um-id-de-elemento">Link para dentro da página</a>
+  <a href="images/flavio-avatar.jpg">Link para um arquivo</a>
   ```
-- [Link que abre cliente de email](mailto:adamastor@fazenda.mg.br)
+- [Link para um arquivo](../../attachments/exemplo.zip) que o navegador não
+  sabe abrir (_e.g._, `.zip`):
+  ```html
+  <a href="attachments/exemplo.zip">Link para um arquivo</a>
+  ```
+
+---
+## _Tag_ de _Hyperlink_ (2/3)
+
+- [Link para email](mailto:adamastor@fazenda.mg.br) - abre o programa de email
+  do usuário:
   ```html
   <a href="mailto:adamastor@...">Link para cliente de email</a>
   ```
+  - Repare o **`mailto:`** antes do endereço de email
+- [Link para telefone](tel:+553130143045):
+  ```html
+  <a href="tel:+553133196870">3319-6870</a>
+  ```
+
 ---
-## Tag de Lista de itens (1/2)
+## _Tag_ de _Hyperlink_ (1/3)
+
+- [Link para uma outra página](/classes/html1/index.html) do próprio site:
+  ```html
+  <a href="outra_pagina.html">Outra página</a>
+  ```
+- [Link para dentro da página](#uma-secao-do-site) - rola até a seção:
+  ```html
+  <a href="#um-id-de-elemento">Link para dentro da página</a>
+  ```
+  - Repare o `#um-id-de-elemento`
+    ```html
+    <!-- ...outras coisas... -->
+    <h2 id="um-id-de-elemento">Um título</h2>
+    ```
+    - Ao clicar no link, o navegador vai rolar a barra até que esse `<h2></h2>`
+      fique visível e no topo do navegador
+
+---
+## _Tags_ de **Lista de Itens** (1/2)
 
 - Lista **não ordenada** (bolinhas):
   <ul>
@@ -117,9 +154,9 @@ página web.
 ```
 
 ---
-## Tags de Tabela
+## _Tags_ de **Tabela**
 
-- Tabelas são criadas com as tags
+- Tabelas são criadas com as tags:
   - **`table`**, para marcar a tabela
   - **`tr`**, linha
   - **`td`**, célula
@@ -145,7 +182,7 @@ página web.
 ```css
 p {
   color: #ff0033;       /* cor do texto */
-  font-family: "Arial";
+  font-family: "Arial", sans-serif;
   text-align: center;   /* centraliza texto */
 }
 
@@ -155,55 +192,19 @@ body {
 
 img {
   border: 1px solid blue; /* borda azul sólida */
+
+  /* para centralizar a imagem */
+  display: block;
+  margin: 0 auto;
 }
 ```
-
----
-## Exercício 2
-
-Criar a página da loja seguindo o modelo do arquivo
-`/documentos-do-tio/pagina-loja.pdf`. Depois de criada, salve o arquivo como
-**`loja.html`**. Você deve também criar um hiperlink da página `plantas.html` para
-sua nova `loja.html`.
-
----
-## Exercício 3
-
-Agora que você já criou as duas páginas e estilizou as duas, deve ter criado
-regras de formatação em `CSS` dentro de elementos `<style>` nas duas páginas.
-
-Por exemplo, as regras da borda verde nas imagens está repetida nos dois
-arquivos.
-
-Para **evitar repetição de código**, é possível escrever código **`CSS` em um
-arquivo separado** e **incluí-lo** em cada arquivo `html`:
-
-(continua...)
-
----
-## Exercício 3 (cont.)
-
-- Em vez de:
-  ```
-    ...
-    &lt;style&gt;
-      ...
-    &lt;/style&gt;
-  &lt;/head&gt;
-  ```
-- Você pode:
-  ```
-    &lt;link rel="stylesheet" href="arquivo-de-estilos.css" /&gt;
-  ```
-
-- E mover suas regras `CSS` dentro de `<style>` para o novo `arquivo-de-estilos.css`.
 
 ---
 # Referências
 
 1. Capítulos 1, 2 e 3 do livro
-1. [Artigo sobre plantas carnívoras do site InfoEscola][info-escola]
 1. Darwin, C. [Insectivorous Plants][darwin-carnivoras]. John Murray, 1875.
+1. [Artigo sobre plantas carnívoras do site InfoEscola][info-escola]
 
 [info-escola]: http://www.infoescola.com/plantas/plantas-carnivoras/
 [darwin-carnivoras]: http://darwin-online.org.uk/content/frameset?itemID=F1217&viewtype=text&pageseq=1
