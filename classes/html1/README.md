@@ -252,7 +252,7 @@ body {
   ```css
   background-color: #d2b48c;
   ```
-- Define as margens laterais:
+- Define as margens laterais da página:
   ```css
   margin-left: 20%;
   margin-right: 20%;
@@ -261,11 +261,11 @@ body {
 ---
 ## Entendendo o estilo (cont.)
 
-- Coloca uma borda preta (_black_) com largura de 2px e pontilhada (_dotted_)
+- Coloca uma borda preta (_black_) com largura de 2px e pontilhada (_dotted_):
   ```css
   border: 2px dotted black;
   ```
-- Altera a fonte para `sans-serif` (parecida com Arial)
+- Altera a fonte para `sans-serif` (parecida com Arial):
   ```css
   font-family: sans-serif;
   ```
