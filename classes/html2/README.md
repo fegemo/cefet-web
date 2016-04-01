@@ -173,29 +173,115 @@ página web.
 ![Uma descrição das tags que formam uma tabela](../../images/table.png)
 
 ---
-## Um exemplo de Tabela
+## Exemplo: **tabela simples** (1/3)
 
+```
+&lt;table>
+  &lt;tr>
+    &lt;th>Fruta&lt;/th>
+    &lt;th>Preço&lt;/th>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>Goiaba&lt;/td>
+    &lt;td>R$ 1,89/Kg&lt;/td>
+  &lt;/tr>
+&lt;/table>
+```
+- Apenas uma tabelinha 2x2
+- Exemplo: http://jsfiddle.net/fegemo/wL3zg2y1/11/
 
 ---
-## Agora, algumas **propriedades <u>CSS</u>**
+## Exemplo: **mesclando células horizontais** (2/3)
+
+```
+&lt;table>
+  &lt;tr>
+    &lt;th colspan="2">Pessoas&lt;/th>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>2005046102&lt;/td>&lt;td>Epaminondas&lt;/td>
+  &lt;/tr>
+&lt;/table>
+```
+- **`colspan="X"`** faz com que aquela **célula ocupe `X` colunas**
+  - Para mesclar células "para baixo", usamos **`rowspan="Y"`**, onde `Y` é o
+    **número de linhas** que a célula vai ocupar
+- Exemplos: de [`colspan`](https://jsfiddle.net/fegemo/o6gsb0t9/) e
+  de [`rowspan`](https://jsfiddle.net/fegemo/65rvt05m/)
+
+---
+## Exemplo: **legenda, cabeçalho e rodapé** (3/3)
+
+```
+&lt;table>
+  &lt;caption>Alunos de Web&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th colspan="2">Pessoas&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr>
+      &lt;td>2005046102&lt;/td>&lt;td>Epaminondas&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
+&lt;/table>
+```
+- Exemplo: http://jsfiddle.net/fegemo/wL3zg2y1/7/
+
+---
+## Agora, algumas **propriedades <u>CSS</u>** (1/3)
 
 ```css
 p {
-  color: #ff0033;       /* cor do texto */
+  color: #ff0033;       /* cor do texto: vermelho */
   font-family: "Arial", sans-serif;
-  text-align: center;   /* centraliza texto */
+  text-align: center;   /* left, right, justify */
 }
 
 body {
+  /* imagem de fundo para a página */
   background-image: url(imagens/fundo-da-pagina.png);
+
+  /* faz o conteúdo da página começar a 10%
+    da largura lateralmente */
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-img {
-  border: 1px solid blue; /* borda azul sólida */
+```
 
-  /* para centralizar a imagem */
-  display: block;
-  margin: 0 auto;
+---
+## Mais algumas propriedades (2/3)
+
+```css
+/* coloca uma borda azul em toda <img> */
+img {
+  border: 1px solid blue; /* azul, sólida, de 1px */
+}
+
+/* muda a cor de todos <h1></h1> e <h2></h2> */
+h1, h2 {
+  color: brown;   /* cor do texto: marrom */
+}
+```
+
+---
+## Mais ainda (3/3)
+
+```css
+table {
+  /* tira espaço entre as bordas */
+  border-collapse: collapse;
+
+  /* centraliza a tabela e define uma largura */
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td, th {
+  border: 1px solid silver;
 }
 ```
 
