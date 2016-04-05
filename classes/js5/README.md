@@ -402,13 +402,24 @@ ctx.stroke();
 - [Manipulando imagens][imgs]
 - [Transformações][tranfs]
 - [Animações][anim]
+- [_Frameworks_](https://html5gameengine.com/) para jogos 2D:
+  - [Phaser][phaser]
+  - [Impact.js][impact]
+  - [CraftyJS][crafty]
 
 [estilos]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors
 [texto]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text
 [imgs]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images
 [tranfs]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Transformations
 [anim]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations
+[phaser]: http://phaser.io/
+[impact]: http://impactjs.com/
+[crafty]: http://craftyjs.com/
 
+---
+## Exemplo na Phaser
+
+[![Exemplo de space invaders feito na Phaser](../../images/phaser-example)](http://phaser.io/examples/v2/games/invaders)
 
 ---
 ## Professor, já posso usar **Canvas**??
