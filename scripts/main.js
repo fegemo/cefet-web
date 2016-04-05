@@ -25,6 +25,8 @@ bespoke.from('article', [
       slide.setAttribute('data-bespoke-backdrop', value);
     },
     scripts: function(slide, url) {
+      console.log('tried to load: ' + url);
+      debugger;
       var placeToPutScripts = document.body;
       url = !Array.isArray(url) ? [url] : url;
 
@@ -71,5 +73,5 @@ easter();
 // Can I Use widget
 window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
 
-// Used to load gmaps api async (it require a callback to be passed)
+// Used to load gmaps api async (it requires a callback to be passed)
 window.noop = function() {};

@@ -40,7 +40,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-changed": "^1.2.1",
-    "gulp-connect": "^2.3.1",
+    "gulp-connect": "^3.2.2",
     "gulp-csso": "^1.0.0",
     "gulp-plumber": "^1.0.1",
     "gulp-preprocess": "^2.0.0",

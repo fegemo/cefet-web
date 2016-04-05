@@ -12,7 +12,7 @@ backdrop: blastoff
 1. APIs do HTML5
   1. Geolocation
   1. Canvas
-  1. Drag'n'drop 
+  1. Drag'n'drop
   1. History
   1. E muito mais
 
@@ -23,11 +23,11 @@ backdrop: blastoff
 ## APIs do HTML5
 
 - O HTML5 trouxe (e continua trazendo) muitas funcionalidades para sites e aplicações web
-  - Uma das ideias do HTML5 era de ser uma plataforma capaz de **acessar os recursos de _hardware_** 
+  - Uma das ideias do HTML5 era de ser uma plataforma capaz de **acessar os recursos de _hardware_**
     da mesma forma como um aplicativo nativo podia fazer
-- Apesar de serem funcionalidades do HTML, a maior parte delas é acessível de forma programática, o 
+- Apesar de serem funcionalidades do HTML, a maior parte delas é acessível de forma programática, o
   que faz com que precisemos **recorrer a Javascript para utilizá-las**
-  
+
 ---
 # Geolocation API
 
@@ -48,14 +48,14 @@ backdrop: blastoff
   1. Aproximação pelo IP
 - É possível saber qual método foi/será usado?
   - Não, mas é possível saber **a precisão do resultado**
-  
+
 ---
 ## Geolocation API
 
 - Como usar:
   ```js
   navigator.geolocation.getCurrentPosition(rastrear);
-  
+
   function rastrear(posicao) {
     var msg = 'Eu sei aonde você está!!\n\n';
     msg += 'lat: ' + posicao.coords.latitude + ', ';
@@ -69,7 +69,7 @@ backdrop: blastoff
 ## **Métodos** da Geolocation API ([MDN](https://developer.mozilla.org/pt-BR/docs/Using_geolocation))
 
 - O objeto `navigator.geolocation` possui três métodos:
-  1. Solicita a posição **uma vez**: 
+  1. Solicita a posição **uma vez**:
     ```js
     getCurrentPosition(successCallback, errorCallback, options)
     ```
@@ -90,7 +90,7 @@ backdrop: blastoff
 - **`coords.accuracy`**, precisão em metros
 - **`coords.speed`**, velocidade tangencial em metros por segundo
   - Se não é possível obter velocidade &rarr; `heading = null`
-- **`coords.heading`**, orientação em graus (0° &rarr; norte, 
+- **`coords.heading`**, orientação em graus (0° &rarr; norte,
   90° &rarr; leste, 180° &rarr; sul, 270° &rarr; oeste)
   - Se a velocidade é 0 &rarr; `heading = NaN`
   - Se não é possível obter orientação &rarr; `heading = null`
@@ -151,9 +151,10 @@ window.onload = function() {
 <!--
 scripts: https://maps.googleapis.com/maps/api/js?API_KEY=AIzaSyCSdP45elEaQN0CIIWpAfMq6XIRGhcICM4&callback=noop
 -->
+
 ## O resultado
 
-<button type="button" onclick="function showMap(a){var b=a.coords,c={zoom:12,center:{lat:b.latitude,lng:b.longitude}},d=document.getElementById('gmaps-example');map=new google.maps.Map(d,c)}var map;navigator.geolocation&&navigator.geolocation.getCurrentPosition(showMap);">Carregar mapa</button>
+<button type="button" onclick="function showMap(a){var b=a.coords,c={zoom:12,center:{lat:b.latitude,lng:b.longitude}},d=document.getElementById('gmaps-example');map=new window.google.maps.Map(d,c)}var map;navigator.geolocation&&navigator.geolocation.getCurrentPosition(showMap);">Carregar mapa</button>
 <div id="gmaps-example" class="gmap" style="border: 1px dotted rgba(0,0,0,.3);">
   O mapa será carregado aqui...
 </div>
@@ -198,12 +199,12 @@ function addMarker(map, latlong, title, content) {
   - Resulta em:
 
     <canvas width="200" height="50" style="border: 1px solid black"></canvas>
- 
+
 ---
 ## Desenhando no canvas
 
 - Inicialmente, o `canvas` é apenas um retângulo transparente
-- Para desenharmos nele, precisamos (em javascript) solicitar um contexto de desenho, que é um objeto 
+- Para desenharmos nele, precisamos (em javascript) solicitar um contexto de desenho, que é um objeto
   que contém a API gráfica (os métodos para desenho)
 - Para os exemplos a seguir, considere o seguinte código html:
   ```html
@@ -305,13 +306,13 @@ function desenhaRetanguloFurado() {
   stroke()
   fill()
   ```
-  Desenha a forma especificada pela trajetória como um contorno 
+  Desenha a forma especificada pela trajetória como um contorno
   (`stroke`) ou como uma forma preenchida (`fill`)
 
 ---
 ## Métodos de **desenho de segmentos de trajetórias**
 
-- Entre `beginPath` e `closePath`, devemos especificar que segmentos 
+- Entre `beginPath` e `closePath`, devemos especificar que segmentos
   formam a trajetória sendo criada
 - A API de desenho de segmentos lembra `turtle graphics`:
   - Move-se para uma posição
@@ -344,15 +345,15 @@ function desenhaRetanguloFurado() {
 - ```js
   arcTo(x1, y1, x2, y2, radius)
   ```
-  Acrescenta um arco com 2 pontos de controle `(x1, y1), (x2, y2)` e raio igual a 
+  Acrescenta um arco com 2 pontos de controle `(x1, y1), (x2, y2)` e raio igual a
   `radius`, conectados ao último ponto por uma linha reta
 - ```js
   arc(x, y, radius, startAngle, endAngle, anticlockwise)
   ```
-  Acrescenta um arco centralizado em `(x, y)` com raio `radius`, com ângulos entre 
-  `startAngle` e `endAngle` na direção horária caso `anticlockwise` seja `false` ou 
+  Acrescenta um arco centralizado em `(x, y)` com raio `radius`, com ângulos entre
+  `startAngle` e `endAngle` na direção horária caso `anticlockwise` seja `false` ou
    não especificado
-  
+
 ---
 ## Exemplos de trajetórias (arcos)
 
@@ -417,11 +418,11 @@ ctx.stroke();
 ---
 # Drag'n'drop
 
-
 ---
 <!--
-scripts: ['../../scripts/classes/draganddrop.js']
+scripts: ['../../scripts/classes/draganddrop.min.js']
 -->
+
 ## Exemplo de _Drag and Drop_
 
 <div id="dnd-example-container">
@@ -456,13 +457,13 @@ scripts: ['../../scripts/classes/draganddrop.js']
 ---
 ## 2º passo para _Drag and Drop_
 
-- Deve haver um elemento alvo para receber os elementos soltos (_dropped_). 
-  Para que um elemento seja considerado um alvo, ele deve implementar os eventos: 
+- Deve haver um elemento alvo para receber os elementos soltos (_dropped_).
+  Para que um elemento seja considerado um alvo, ele deve implementar os eventos:
   **`dragenter`** e **`dragover`**
   ```js
   dragTarget.addEventListener('dragover', function(e) {
     e.preventDefault();
-    this.classList.add('element-over-me'); 
+    this.classList.add('element-over-me');
     e.dataTransfer.dropEffect = 'move';
   });
  ```
@@ -470,7 +471,7 @@ scripts: ['../../scripts/classes/draganddrop.js']
 ---
 ## 3º passo para _Drag and Drop_
 
-- O alvo deve também implementar o evento `drop`, que é chamado quando o elemento 
+- O alvo deve também implementar o evento `drop`, que é chamado quando o elemento
   sendo arrastado é solto:
   ```js
   dragTarget.addEventListener('drop', function(e) {
@@ -480,35 +481,35 @@ scripts: ['../../scripts/classes/draganddrop.js']
     dragTarget.classList.remove('element-over-me');
   });
   ```
-  
+
 ---
 ## 4º passo para _Drag and Drop_
 
-- O alvo pode implementar o evento `dragleave`, chamado quando um elemento 
+- O alvo pode implementar o evento `dragleave`, chamado quando um elemento
   arrastado sai de cima dela (sem largar):
   ```js
   dragTarget.addEventListener('dragleave', function() {
     this.classList.remove('element-over-me');
   });
   ```
-  
+
 ---
 ## 5º passo para _Drag and Drop_
 
-- Por fim, os elementos arrastáveis devem implementar o evento `dragstart` e 
+- Por fim, os elementos arrastáveis devem implementar o evento `dragstart` e
   declarar o conteúdo que será "arrastado":
   ```js
   var draggables = document.getElementsByClassName('monstrinho');
   for (var i in draggables) {
     draggables[i].addEventListener('dragstart', function(e) {
       e.dataTransfer.effectAllowed = 'move';
-      
+
       // "arrasta" o id do elemento
       e.dataTransfer.setData('text/plain', this.id);
     });
   }  
   ```
-  
+
 ---
 ## **Críticas** à Drag'n'Drop API
 
@@ -517,7 +518,7 @@ scripts: ['../../scripts/classes/draganddrop.js']
   - Vários erros de projeto acabaram por criar uma API feia:
     - 7 eventos diferentes, sendo que apenas o evento `drop` poderia resolver
     - Necessidade de previnir a ação padrão (`e.preventDefault()`) de `dragover` e `dragenter` para funcionar
-    - `dragenter` é chamado múltiplas vezes em vez de apenas 1x quando um elemento 
+    - `dragenter` é chamado múltiplas vezes em vez de apenas 1x quando um elemento
       é arrastado para um alvo
   - Veja os palavrões de [Peter-Paul Koch](http://www.quirksmode.org/blog/archives/2009/09/the_html5_drag.html)
 
@@ -540,32 +541,32 @@ backdrop: oldtimes
   ```html
   <input type="button" onclick="javascript: history.back()">
   ```
-- Além de `history.back()`, havia (e há) também `history.forward()` e 
-  `history.go(numero)`, sendo que este último tem um parâmetro que indica 
-  o número de navegações no histórico que devem ser feitas 
+- Além de `history.back()`, havia (e há) também `history.forward()` e
+  `history.go(numero)`, sendo que este último tem um parâmetro que indica
+  o número de navegações no histórico que devem ser feitas
   (positivo para frente e negativo para o passado)
   - `history.back` é o mesmo que `history.go(-1)`
-  
+
 ---
 ## _History_ API, hoje em dia
 
-- O histórico de navegação de uma janela/aba é armazenado pelo navegador 
+- O histórico de navegação de uma janela/aba é armazenado pelo navegador
   numa **pilha (_push, pop_) de páginas visitadas**
-- O HTML5 introduziu **dois métodos** que possibilitam a **modificação da pilha**, sem 
+- O HTML5 introduziu **dois métodos** que possibilitam a **modificação da pilha**, sem
   que haja uma mudança de página:
   1. `history.pushState(stateObject, title, url)`
   1. `history.replaceState(stateObject, title, url)`
-- Além disso, foi criado também um **evento `popstate`** lançado no objeto `window` 
-  sempre que a pilha do histórico é alterada (seja por chamadas a `pushState/replaceState` 
+- Além disso, foi criado também um **evento `popstate`** lançado no objeto `window`
+  sempre que a pilha do histórico é alterada (seja por chamadas a `pushState/replaceState`
   ou pelo próprio usuário clicando nos botões `back` e `forward` do navegador
-  
+
 ---
 ## Por que precisamos dos novos métodos?
 
-- Uma tendência de páginas e aplicações web que surgiu nos anos 2000 é do uso da 
-  criação de **_single-page applications_** (SPAs), que são aplicações web construídas 
+- Uma tendência de páginas e aplicações web que surgiu nos anos 2000 é do uso da
+  criação de **_single-page applications_** (SPAs), que são aplicações web construídas
   inteiramente em cima de apenas um arquivo .html
-- Uma SPA funciona com o uso de AJAX para atualizar pequenos pedaços da tela em vez 
+- Uma SPA funciona com o uso de AJAX para atualizar pequenos pedaços da tela em vez
   de atualizar a tela inteira quando "troca-se" de página
   - Na verdade, nas SPAs não há troca de página
 - Exemplo canônico de SPA: [gmail.com](http://gmail.com)
@@ -575,12 +576,12 @@ backdrop: oldtimes
 ---
 ## Método **pushState** e evento **popstate**
 
-- Toda vez que desejamos alterar a URL da página (navegar), porém sem carregar uma 
+- Toda vez que desejamos alterar a URL da página (navegar), porém sem carregar uma
   outra página, chamamos:
   ```js
   history.pushState(null, null, '/novo-endereco');
   ```
-  
+
 ---
 ## Professor, já posso usar **History API**??
 
