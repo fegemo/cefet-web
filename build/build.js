@@ -20057,6 +20057,8 @@ bespoke.from('article', [
       slide.setAttribute('data-bespoke-backdrop', value);
     },
     scripts: function(slide, url) {
+      console.log('tried to load: ' + url);
+      debugger;
       var placeToPutScripts = document.body;
       url = !Array.isArray(url) ? [url] : url;
 
@@ -20103,7 +20105,7 @@ easter();
 // Can I Use widget
 window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
 
-// Used to load gmaps api async (it require a callback to be passed)
+// Used to load gmaps api async (it requires a callback to be passed)
 window.noop = function() {};
 
 },{"./caniuse":187,"./easter":188,"./tutorial":190,"bespoke":14,"bespoke-backdrop":1,"bespoke-forms":2,"bespoke-hash":3,"bespoke-keys":4,"bespoke-meta-markdown":6,"bespoke-progress":7,"bespoke-qrcode":8,"bespoke-scale":9,"bespoke-simple-overview":10,"bespoke-state":11,"bespoke-theme-fancy":12,"bespoke-touch":13}],190:[function(require,module,exports){
