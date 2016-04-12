@@ -1,111 +1,150 @@
 # Seminário - APIs do HTML5
 
+> Já tenho a melodia, agora só falta compor a letra!! [Música “A Lenda do Herói”][lenda-do-heroi]
+> -- _Sir_ Fegemo
+
+Era uma vez um reino encantado chamado **Weblot** :european_castle:.
+Lá viviam bravos cavaleiras
+e cavaleiros :crossed_flags:, magos tinhosos :sparkles:, um rei com sua
+espada :crown: e menestréis fanfarrões :beers:.
+
+[lenda-do-heroi]: https://soundcloud.com/fegemo/tema-de-a-lenda-do-heroi
+
+_Sir_ Fegemo, um representante excelente desses últimos, costumava
+acompanhar aventureiros pelo reino e era conhecido por cantar belas
+músicas contando suas histórias. Em sua última aventura ele foi para a
+temida região de **“JavasCripta”** :skull:, juntamente com seu grande amigo e lenda
+weblotiana, o bárbaro chamado **“Agáte Êmi-Éli, o Quinto”**
+![](images/icon-html5.png). Lá eles encontraram o mago mais conhecido
+como **“Cascatas Estilosas, o Terceiro”** ![](images/icon-css3.png)
+(por causa de seu cabelo em “ondinhas”) e conseguiram o feito épico de
+erradicar todo o mal que assombrava o lugar.
+
+Finda a aventura, chegou a hora de Sir Fegemo contar a prosa vivida com seus
+amiguinhos em forma de música e tocá-la na taverna “<u>O Olho</u>
+do Beholder”. Desta vez, ele decidiu compor um conto para enaltecer as
+peripécias de **“Agáte Êmi-Éli, o Quinto”** ![](images/icon-html5.png) que,
+tudo que tem de forte, tem de atrapalhado.
+
+O nome da música é **“Os Ataques Potencialmente Irresponsáveis do
+Agáte Êmi-Éli, o Quinto”**, mas a taverna achou muito grande e
+escreveu apenas **APIs do HTML5** em seu mural.
+
+Para que a canção seja uma obra prima da acústica, sem que seu amigo
+saiba, _Sir_ Fegemo propôs **comprar mais informações :money_with_wings:
+sobre outras histórias de atrapalhadas do bárbaro** - muito fácil depois
+da grande quantidade de peças de _Webdollars_ (PW$) :moneybag: acumulada com
+sua parte do espólio em **“JavasCripta”**.
+
+Quem quiser ajudar e ainda angariar umas ricas peças de W$ (~~que se traduzem
+em **15 pontos** na matéria~~), deve:
+
+1. Apresentar ~~o conceito~~a história de ~~uma~~um
+  <abbr title="Ataque Potencialmente Irresponsável">API</abbr> do HTML5
+  para a turma
+  - Cada API tem um valor diferente e pode ser que em vez de
+    escolher ~~uma~~um com um valor alto, você escolha 2 ou mais
+    com valores mais baixos
+    - O importante é conseguir **pelo menos 100 peças de W$**, até um
+      limite de 120 peças
+  - ~~A~~O API pode ser ~~apresentada~~apresentado com _slides_, que
+    podem ser criados em ~~HTML/CSS/JS~~JavasCripta **(até +10% PW$)**
+    - Veja [bespoke.js][bespoke], [reveal.js][reveal],
+      [slides.com][slides.com] etc.
+1. ~~Um código ilustrativo~~Uma ilustração ~~da~~do API que mostre, de
+  forma simples e preferencialmente burlesca, como ~~ela funciona~~foi a atrapalhada do bárbaro
+  - Deve haver 1 para cada API ~~escolhida~~escolhido
+
+[bespoke]: http://markdalgleish.com/projects/bespoke.js/
+[reveal]: http://lab.hakim.se/reveal-js/
+[slides.com]: https://slides.com/
+
+Dentre os feitos de HTML5, _Sir_ Fegemo já ouviu falar e está disposto a
+comprar informações sobre:
 
 - Acesso a Dispositivo
-  - _Gamepad API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.7)
-  - _Vibration API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.5)
-  - _Proximity API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.5)
-  - _Ambient Light API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.3)
-  - _Geolocation API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.3)
-  - _Device Orientation API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.2)
-  - _Battery Status API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.2)
+  - _Gamepad API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
+  - _Vibration API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
+  - _Proximity API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
+  - _Ambient Light API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
+  - _Geolocation API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
+  - _Device Orientation API_ (valor:
+    <abbr title="Peças de Webdollars">PW$</abbr> 20)
+  - _Battery Status API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+    20)
 - Multimídia e Gráficos
-  - _Canvas API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 1.0)
-  - _WebGL_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 1.0)
-  - _Web Audio API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.7)
-  - _Web MIDI API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.5)
-  - _Pointer Lock API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.3)
-  - _Fullscreen API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.3)
-  - _Acessible Rich Internet Applications_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 1.0)
-  - _Speech Synthesis API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.8)
-  - _Speech Recognition API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.8)
-  - _Presentation API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.7)
-  - _Media Capture and Streams API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.7)
-  - _Page Visibility API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.2)
+  - _Canvas API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _WebGL_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _Web Audio API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
+  - _Web MIDI API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
+  - _Pointer Lock API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
+  - _Fullscreen API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
+  - _Accessible Rich Internet Applications_ (valor:
+    <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _Speech Synthesis API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+    80)
+  - _Speech Recognition API_ (valor:
+    <abbr title="Peças de Webdollars">PW$</abbr> 80)
+  - _Presentation API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
+  - _Media Capture and Streams API_ (valor:
+    <abbr title="Peças de Webdollars">PW$</abbr> 70)
+  - _Page Visibility API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+    20)
 - Conectividade
-  - _WebSockets_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.7)
-  - _WebRTC_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 1.0)
-  - _Beacon API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.3)
+  - _WebSockets_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _WebRTC_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _Beacon API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
 - Armazenamento e _Offline_
-  - _Offline Resources: application cache_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.8)
-  - _Web Application SDK_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.5)
-  - _IndexedDB_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.8)
-  - _Web Storage_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.2)
-  - _File API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.3)
+  - _Offline Resources: application cache_ (valor:
+    <abbr title="Peças de Webdollars">PW$</abbr> 80)
+  - _Web Application SDK_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+    50)
+  - _IndexedDB_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 80)
+  - _Web Storage_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 20)
+  - _File API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
 - Desempenho e Segurança
-  - _User Timing API_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.5)
-  - _Web Cryptography_ (custo: <abbr title="Programação Web Dollars">PWD</abbr> 0.5)
+  - _User Timing API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
+  - _Web Cryptography_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
 
+![](images/criatividade-off.png)
 
-## Referências
+## O Formato
+
+ :one: Primeiramente, o grupo deve comunicar à turma e ao ~~_Sir_ Fegemo~~professor qual(is) foi(ram) a(s) API(s) escolhida(s). O grupo deve escolher **apenas APIs que são suportadas por pelo menos 1 navegador**, porque o grupo deve implementar um código demonstrando a funcionalidade  (veja [caniuse.com][caniuse]). Além disso, **cada API pode ser escolhida por apenas 1 grupo**.
+
+:two: Uma **breve** apresentação de slides deve ser criada e, em data combinada, apresentada pelo grupo para a turma. A apresentação terá no máximo **10 minutos** e deve conter, pelo menos:
+
+- Uma descrição da(s) API(s), contendo códigos de exemplo
+- Uma demonstração da(s) API(s) em ação (usando seu próprio código)
+- A compatibilidade dos navegadores com a(s) API(s) (veja [caniuse.com][caniuse])
+
+:three: Um código de um exemplo simples de uso da(s) API(s), publicado, de forma que todos possam acessar. O código deve ser exibido durante a apresentação e deve ser entregue no repositório [cefet-web-weblot][repo-weblot] do professor, conforme descrito em seu [README.md][readme-weblot].
+
+[caniuse]: http://caniuse.com
+[repo-weblot]: https://github.com/fegemo/cefet-web-weblot
+[readme-weblot]: https://github.com/fegemo/cefet-web-weblot/blob/master/README.md#cefet-web-weblot
+
+## Referências Úteis
 
 Como pontos iniciais de busca, você pode usar:
 
 - [Artigo na MDN sobre HTML5][mdn-html5]
-- APIs no [Can I Use][caniuse-pesquisa]
+- Busca por APIs no [Can I Use][caniuse-pesquisa]
 - [Índice de APIs do HTML5][html5-api-index]
 
 [mdn-html5]: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 [caniuse-pesquisa]: http://caniuse.com/#search=api
 [html5-api-index]: http://html5index.org/
 
-## Critérios de avaliação
-
-O código do serviço Web será avaliado, dentre outros fatores, segundo:
-
-1. **Esforço de implementação**
-1. **Aderência** da implementação dos elementos obrigatórios **à especificação**
-1. **Separação de responsabilidades** (HTML -> estrutura, CSS -> apresentação,
-    JS -> comportamento)
-1. **Boas práticas de programação** tanto no cliente quanto no servidor
-1. Utilização de **HTML5 e CSS3 válidos** e de compatibilidade entre os
-  principais navegadores
-
 ## Instruções gerais
 
-O trabalho deve ser produzido integralmente pelo grupo. **Trabalhos muito
+O trabalho deve ser produzido integralmente pela dupla. **Trabalhos muito
 semelhantes receberão nota 0**, independente de quem copiou de quem.
 Trabalhos semelhantes aos de outras pessoas (ex-alunos, pessoas na Internet)
 também receberão nota 0.
 
-## O que faz perder nota
+## Critérios de avaliação
 
-Alguns descuidos podem fazer com que sua nota fique muito abaixo do esperado:
-- Cópia de trabalho de outrem: nota 0
-- Ausência de qualquer item obrigatório da entrega
-- Ausência de itens da especificação obrigatória
-- Baixa legibilidade do código
-- Baixa qualidade da implementação
-- Atraso na entrega. Cada dia de atraso reduz o valor máximo de nota da
- maneira abaixo. Considere `x` como dias de atraso e `y` a penalidade
- percentual na nota:
-
- ![Fórmula de penalidade por atraso](../../images/penalidade-por-atraso.png)
- - Isso implica que 1 ou 2 dias de atraso são pouco penalizados
- - E após 5 dias de atraso, o trabalho vale 0
- - _Seeing is believing_: https://www.google.com.br/search?q=y%3D(2%5E(x-2)%2F0.16)%2Cy%3D100
-
-## O que deve ser **entregue**
-
-O trabalho deve ser entregue via GitHub ou BitBucket, em um
-repositório com o nome `web-projeto`. Não se esqueça de fazer vários e
-pequenos _commits_, que é uma importante boa prática em `git` e também é
-interessante para demonstrar seu progresso. Todos os integrantes do grupo
-devem participar (vou procurar a carinha de cada um nos _commits_ :).
-
-Além do código do seu serviço Web, seu repositório deve conter também
-um arquivo README.md em sua pasta raiz que descreva brevemente o que ele é
-e contenha a lista de itens extras (ou penalidades) as quais está pleiteando.
-
-Você deve usar um serviço de hospedagem gratuito para a avaliação do seu
-trabalho. Abaixo, uma lista desses serviços que possuem um plano gratuito:
-
-- [Heroku](https://www.heroku.com/) (Java, Grails, Node, Ruby)
-- [Appfog](https://www.appfog.com/) (Java, Grails, Node, Ruby)
-- [cloudno.de](http://cloudno.de/) (Node)
-
-Se você não conhecer serviços gratuitos que atendam às necessidades do seu
-projeto, converse com o professor.
-
-Ao final do seu trabalho, você deve submeter pelo Moodle o link do seu
-repositório e o link do seu site hospedado.
+O grupo será avaliado conforme a qualidade da apresentação e do código com
+exemplo de uso da(s) API(s), e também pela abrangência de conteúdo no seminário
+e contemplada no código fonte.
