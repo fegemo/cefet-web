@@ -51,9 +51,10 @@
 ## **localStorage**
 
 - O navegador armazena informações permanentemente para aquela página
-  - Ou até que o usuário remova "Cookies e outros dados de site e plug-in"
+  - ![right](../../images/clear-cookies.png)
+    Ou até que o usuário remova "Cookies e outros dados de site e plug-in"
 
-    ![](../../images/clear-cookies.png)
+
 
 ---
 ## Exemplo de uso do **localStorage**
@@ -393,8 +394,8 @@
 - O objeto é uma função de busca de elementos no DOM através de uma `String`
   que contém um seletor `CSS`:
   ```js
-  var itens = window.jQuery('nav#menu-principal .item');
-  var itens = window.$('nav#menu-principal .item'); // mesma coisa
+  var itens = window.jQuery('nav#main-menu .item');
+  var itens = window.$('nav#main-menu .item'); // mesma coisa
   ```
 
 ---
@@ -417,24 +418,24 @@
   - Veja como ficaria o exemplo do botão "curtir" usando jQuery:
     ```js
     $.ajax({
-      url: '/curtir/3434', 
-      method: 'GET',          // opcional: 'GET' é o valor padrão
+      url: '/curtir/3434',
+      method: 'GET',      // opcional: 'GET' é o valor padrão
       success: function(resposta) {
         alert('Post curtido!');
     });
     ```    
-    
+
 ---
 # Exercício 3
 
 - Vamos criar um letreiro Star Wars em Javascript e CSS \o/
 - Faça um _fork_ deste _pen_: http://codepen.io/fegemo/pen/PqGjep
-- Você deve escrever código Javascript para fazer chamadas AJAX para 
+- Você deve escrever código Javascript para fazer chamadas AJAX para
   uma API pública com informações sobre Star Wars
   - Disponível em https://swapi.co/
     <div class="resolution">Resolução: http://codepen.io/fegemo/pen/YXGxzN</div>
 - O uso de jQuery está liberado neste exercício \o/
- 
+
 ---
 # Referências
 

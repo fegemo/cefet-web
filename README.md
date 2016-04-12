@@ -21,20 +21,21 @@
 
 - [CSS- Parte 3](classes/css3/) (29/03/2016)
 - [CSS - Parte 4 (Prática)](classes/css4/) (31/03/2016)
+- [Javascript - Parte 5](classes/js5/) (05/05/2016)
+- [Javascript - Parte 2 (Prática)](classes/js2/) (07/04/2016)
+- [Javascript - Parte 3](classes/js3/) (12/04/2016)
+- [Javascript - Parte 4 (Prática)](classes/js4/) (14/05/2016)
+- Palestra do ~~Profissional da Indústria~~ Pedro Colen: Git (19/04/2016)
+- [HTML - Parte 5](classes/html5/) (26/04/2016)
 
 <!--
 
-- [HTML - Parte 5](classes/html5/) (07/04/2015)
 - [HTML - Parte 6 (Prática)](classes/html6/) (23/04/2015)
-- [Javascript - Parte 2 (Prática)](classes/js2/) (30/04/2015)
-- [Javascript - Parte 5](classes/js5/) (05/05/2015)
 - [CSS - Parte 6](classes/css6/) (12/05/2015)
 - [CSS - Parte 5 (Prática)](classes/css5/) (14/05/2015)
 
 # Aulas (página 3)
 
-- [Javascript - Parte 3](classes/js3/) (19/05/2015)
-- [Javascript - Parte 4 (Prática)](classes/js4/) (21/05/2015)
 - [Server-side Node.js - Parte 1](classes/ssn1/) (26/05/2015)
 - [Server-side Node.js - Parte 2 (Prática learnyounode)](classes/ssn2/) (28/05/2015)
 - [Server-side Node.js - Parte 3](classes/ssn3/) (02/06/2015)
