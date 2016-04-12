@@ -3,13 +3,31 @@
 ---
 # Roteiro
 
-1. Mais sobre objetos
-1. Mais sobre funções
+1. Criando objetos
+1. Funções Construtoras (ou classes)
 1. Herança
+  - Pseudo-clássica
 1. Padrões de projeto
+  - `this`, `that`
+  - _`new` enforcer_
+  - _single-`var`_
+  - _Revealing Module_
+  - <abbr title="Immediately Invoked Function Expression">IIFE</abbr>
 
 ---
-# Mais sobre objetos
+## Java (ou C#) _vs_ Javascript
+
+| Java              | Javascript        |
+|-------------------|-------------------|
+| Fortemente tipada | Fracamente tipada |
+| Estática          | Dinâmica          |
+| Clássica          | Prototípica       |
+| Classes           | Funções           |
+| Construtores      | Funções           |
+| Métodos           | Funções           |
+
+---
+# Criando Objetos
 
 ---
 ## Instanciação de Objetos
@@ -109,12 +127,12 @@
 ---
 ## Construção de objetos por **construtor**
 
-- Mas existe uma terceira forma, em que podemos criar e inicializar o objeto. 
+- Mas existe uma terceira forma, em que podemos criar e inicializar o objeto.
   Nessa forma, criamos uma **função construtora** que vai instanciar e
   inicializar objetos:
   ```js
   function Moto(modelo, dono) {
-    this.modelo = modelo;     // Lembre que this dentro de um
+    this.modelo = modelo;     // Lembre que 'this' dentro de um
     this.dono = dono;         // objeto aponta para ele mesmo
   }
   var moto1 = new Moto('Kawasaki', 'Ninja Jiraya');
@@ -124,11 +142,20 @@
 ---
 ## Construção de objetos por **construtor** (cont.)
 
-- Uma função construtora (ou **construtor**) é apenas uma função, porém ela
-  usa a referência `this` para definir propriedades de um objeto novinho que
-  está sendo criado
-  - Tipicamente, o nome de toda função construtora começa com letra maiúscula
-    (convenção)
+- Uma função construtora (ou **construtor**) é apenas uma função.
+  - Porém ela usa a referência `this` para definir propriedades de um
+    objeto novinho que está sendo criado
+  - Tipicamente, **o nome de toda função construtora começa com letra
+    maiúscula** (convenção). _E.g._:
+    ```js
+    function Leguminosa(nome, calorias) {   // legal!
+      // this.nome = nome
+      // ...
+    }
+    function verdura(nome, calorias) {   // funciona, mas evite
+      //...
+    }
+    ```
 
 ---
 ## Construção de objetos por **construtor** (cont.)
@@ -182,8 +209,9 @@
 
   ![](../../images/objetos-memoria.png)
   - Repare que o código do método é repetido a cada instância
-    - Podemos melhorar isso, se tivermos como definir o **método a nível da
-      classe**, ao invés de fazê-lo na instância
+    - Podemos melhorar isso, se tivermos como definir **o método
+      `linkParaMensagem` a nível da classe**, ao invés de fazê-lo
+      na instância
 
 ---
 ## Exemplo: Lista de contatos (cont.)
@@ -211,7 +239,7 @@
 ---
 ## O **Prototype** (protótipo)
 
-- Um objeto possui uma propriedade especial chamada `prototype` de onde ele
+- Todo objeto possui uma propriedade especial chamada `prototype` de onde ele
   **pode herdar propriedades**
   - Podemos visualizar isso ao criarmos um objeto vazio e verificar que ele já
     tem algumas propriedades:
@@ -242,7 +270,7 @@
     ```
 
 ---
-# Mais sobre funções
+# Funções Construtoras (classes)
 
 ---
 ## Funções em Javascript (recordando)
@@ -351,7 +379,7 @@
     multiplica: function(fator) {
       var that = this;
       var soma = function(parcela) {
-        that.valor += parcela;    // that aponta para a instância
+        that.valor += parcela;  // that aponta para a instância
       }
       var v = this.valor;
       for (; fator !== 1; fator--) { soma(v); }
@@ -370,10 +398,11 @@
   }
   var presidente = new Contato('Seu Adamastor');  // construt.
   ```
-  - Por causa do `new`, três coisas acontecem:
-    1. Um objeto é criado e seu `prototype` é o mesmo do da função
-    1. O valor de `this` dentro da função aponta para o novo objeto
-    1. Se não houver `return`, `this` é retornado automaticamente
+  - Por causa do **operador `new`, três coisas acontecem**:
+    1. Um **objeto "em branco"** é criado e seu **`prototype` é o mesmo do
+      da função**
+    1. O valor de **`this`** dentro da função **aponta para o novo objeto**
+    1. Se não houver `return`, **`this` é retornado** automaticamente
 
 ---
 ## _Caveat_ da invocação por **construtor**
@@ -430,7 +459,7 @@
   - Código de um site:
     ```js
     var carrinho = {
-       adicionarProduto(idProduto, quantidade, preco) { /* ... */ }
+       adicionarProduto(idProduto, qtde, preco) { /* ... */ }
     };
     ```
   - Código do malvado programador javascript no console:
@@ -470,13 +499,19 @@
     bar();
   };
   ```
+- [Marotex: Escopos](https://moodle.cefetmg.br/mod/quiz/view.php?id=18345)
+
+<!--
 - Resposta:
   ```js
   a = 21;  b = 5; c = undefined;
   ```
+-->
 
 ---
-## Padrão de projeto: **single var**
+# Padrões de Projeto
+---
+## PdP: **single var** (1/2)
 
 - Como só existe escopo de função, optamos por deixar isso claro e declarar
   todas as variáveis usadas dentro da função logo em seu início
@@ -493,7 +528,7 @@
   ```
 
 ---
-## Padrão de projeto: **single var**
+## PdP: **single var** (2/2)
 
 - Melhor ainda, como todos os `var` estão no topo da função, podemos
   economizar uns _bytes_ e usar apenas um `var`
