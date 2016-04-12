@@ -1,6 +1,6 @@
 # Seminário - APIs do HTML5
 
-> Já tenho a melodia, agora só falta compor a letra!! [Música “A Lenda do Herói”][lenda-do-heroi]
+> Já tenho a melodia, agora só falta compor a letra!! ([Melodia da música tema deste trabalho][lenda-do-heroi])
 > -- _Sir_ Fegemo
 
 Era uma vez um reino encantado chamado **Weblot** :european_castle:.
