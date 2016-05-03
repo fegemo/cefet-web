@@ -3,7 +3,7 @@
 ---
 # Roteiro
 
-1. Instalando o NodeJS
+1. Instalando o Node.js
 1. O npm
 1. Fazendo um _workshop_: **learnyounode**
 1. Exercícios 1 a 4
@@ -12,12 +12,12 @@
 1. Exercícios 10 e 11
 
 ---
-# Instalando o NodeJS
+# Instalando o Node.js
 
 ---
 ## Verificando se já está instalado
 
-- Para verificar se o NodeJS já está instalado,
+- Para verificar se o Node.js já está instalado,
   **abra um terminal e digite**:
   ```
   $ node -v
@@ -29,7 +29,7 @@
   - ...ou uma mensagem de erro, caso não esteja
 
 ---
-## Instalando o NodeJS
+## Instalando o Node.js
 
 - Há versões binárias e/ou instaladores para sistemas Unix, OSX ou Windows
   [no site oficial](http://www.nodejs.org) (**recomendado** para hoje)
@@ -48,10 +48,10 @@
     ```
 
 ---
-## Instalando por um **gerenciador de versões do NodeJS**
+## Instalando por um **gerenciador de versões do Node.js**
 
 - Assim como `ruby` possui o `rvm` ou o `rbenv` para gerenciar múltiplas
-  versões da plataforma instaladas, o NodeJS possui algumas alternativas
+  versões da plataforma instaladas, o Node.js possui algumas alternativas
   também:
   - Para Linux e OSX: [`nvm`](https://github.com/creationix/nvm)
     ```
@@ -70,7 +70,7 @@
 ---
 ## O **npm**
 
-- Ao instalar o NodeJS, dois programas são instalados:
+- Ao instalar o Node.js, dois programas são instalados:
   1. O `node`, propriamente dito;
   1. E o `npm`
 - O `npm` (_Node Packaged Modules_) é um gerenciador de pacotes _à la
@@ -85,7 +85,7 @@
 ---
 ## Um **pacote**
 
-- É um "programa" NodeJS
+- É um "programa" Node.js
 - Pode ser privado ou público (padrão)
   - Quando é público, qualquer um pode instalá-lo e ver seu código fonte
 - É **descrito** por um arquivo chamado **`package.json`**:
@@ -119,7 +119,7 @@
 ## _Workshop_: **learnyounode**
 
 - O [nodeschool.io](http://nodeschool.io) é uma comunidade de desenvolvedores
-  que se dedicam ao ensino de tecnologias relacionadas a NodeJS
+  que se dedicam ao ensino de tecnologias relacionadas a Node.js
   - Eles criam "programas _workshoppers_", que são mini-cursos,
     auto-explicativos, cujo objetivo é auxiliar o aprendizado dessas
     tecnologias por meio de exercícios práticos
@@ -128,7 +128,7 @@
 ---
 ## _Workshop_: **learnyounode**
 
-- Um dos _workshops_ ensina alguns conceitos acerca do NodeJS: o
+- Um dos _workshops_ ensina alguns conceitos acerca do Node.js: o
   [_learnyounode_](https://github.com/rvagg/learnyounode)
 
   ![](../../images/learnyounode.png)
@@ -171,13 +171,13 @@
   em 2 arquivos (o enunciado pede isso)
 - Dentro dos navegadores, os arquivos Javascript são incluídos por meio do
   arquivo HTML e as _tags_ `script`
-  - No NodeJS, existe uma função global chamada `require` que possibilita a
+  - No Node.js, existe uma função global chamada `require` que possibilita a
     inclusão de um arquivo no contexto de outro
 
 ---
 ## Exemplo de módulos
 
-- Incluindo um módulo **da plataforma** do NodeJS:
+- Incluindo um módulo **da plataforma** do Node.js:
   ```js
   var fs = require('fs');             // módulo file system
   var arqs = fs.readdirSync('.');     // diretório atual
@@ -232,5 +232,5 @@
 ---
 # Referências
 
-1. Capítulo 2 do livro "NodeJS in Action"
+1. Capítulo 2 do livro "Node.js in Action"
 1. [NodeSchool.io](http://nodeschool.io)
