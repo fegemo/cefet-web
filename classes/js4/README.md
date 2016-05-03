@@ -262,6 +262,7 @@
 2. Crie um botão **"carregar"** que possibilite a recuperação dos dados
    cadastrados e os mostre em uma DIV ou nos próprios campos do formulário
    criado
+- [Código seminal](https://jsfiddle.net/fegemo/uj42ynbv/1/) no JSFiddle
 
 ---
 # Exercício 2
@@ -274,6 +275,7 @@
      1. Ele só é exibido **uma vez por sessão**
      1. Após a **terceira vez** exibido, mesmo fora da sessão, ele não será
         mostrado novamente
+<!-- Resposta: http://jsfiddle.net/fegemo/d4yk0uh9/29/ -->
 
 ---
 # AJAX
@@ -421,6 +423,7 @@
       url: '/curtir/3434',
       method: 'GET',      // opcional: 'GET' é o valor padrão
       success: function(resposta) {
+        console.dir(resposta);  // veja a resposta no terminal
         alert('Post curtido!');
     });
     ```    
