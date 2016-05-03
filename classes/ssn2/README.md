@@ -15,11 +15,25 @@
 # Instalando o NodeJS
 
 ---
+## Verificando se já está instalado
+
+- Para verificar se o NodeJS já está instalado,
+  **abra um terminal e digite**:
+  ```
+  $ node -v
+  ```
+  - E o terminal deve mostrar a versão que está instalada, _e.g._:
+    ```
+    $ v5.10.1
+    ```
+  - ...ou uma mensagem de erro, caso não esteja
+
+---
 ## Instalando o NodeJS
 
 - Há versões binárias e/ou instaladores para sistemas Unix, OSX ou Windows
   [no site oficial](http://www.nodejs.org) (**recomendado** para hoje)
-- Alterativas:
+- Alternativas:
   - Mac (via brew)
     ```
     $ brew install node
@@ -34,20 +48,21 @@
     ```
 
 ---
-## Instalando por um gerenciador de versões do NodeJS
+## Instalando por um **gerenciador de versões do NodeJS**
 
 - Assim como `ruby` possui o `rvm` ou o `rbenv` para gerenciar múltiplas
   versões da plataforma instaladas, o NodeJS possui algumas alternativas
   também:
   - Para Linux e OSX: [`nvm`](https://github.com/creationix/nvm)
     ```
-    $ nvm install 0.10
+    $ nvm install v6.0.0
     ```
   - Para Windows: [`nodist`](https://github.com/marcelklehr/nodist)
     ```
-    $ nodist 0.10
+    $ nodist v6.0.0
     ```
-- Recomendo este tipo de instalação para seu computador de trabalho
+- **Recomendo** este tipo de instalação para seu computador de trabalho
+  - Fica bem fácil estar sempre com a versão mais recente
 
 ---
 # O **npm**
@@ -62,9 +77,27 @@
   `rubygems`_ (ruby) ou `NuGet` (.NET) ou `easy_install` + python `eggs`
   (python) etc.
   - A idéia do `npm` é:
-    1. Possibilitar a reutilização de programas
+    1. Possibilitar a reutilização de programas (**pacotes**)
     1. Gerenciar as dependências do seu projeto
     1. Tornar seus programas/utilitários disponíveis para a comunidade
+  - Mas o que é um pacote?!
+
+---
+## Um **pacote**
+
+- É um "programa" NodeJS
+- Pode ser privado ou público (padrão)
+  - Quando é público, qualquer um pode instalá-lo e ver seu código fonte
+- É **descrito** por um arquivo chamado **`package.json`**:
+  ```json
+  {
+    "name": "bespoke-math",
+    "version": "1.2.0",
+    "dependencies": {
+      "katex": "^0.6.0"
+    }
+  }
+  ```
 
 ---
 ## O **npm** (cont.)
@@ -74,7 +107,7 @@
   $ npm install &lt;nome>
   ```
 - Se quisermos instalar um pacote de forma global (acessível de qualquer
-  lugar):
+  lugar, como um programa executável):
   ```
   $ npm install -g &lt;nome>
   ```

@@ -45,7 +45,7 @@
   - Configuração via arquivo
 
 ---
-## O computador onde o servidor rodava
+## O computador onde o servidor executava
 
 <a title="Coolcaesar at the English language Wikipedia [GFDL (www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3AFirst_Web_Server.jpg"><img style="width:600px" alt="Computador do primeiro servidor web" src="../../images/computador-tim.jpg"/></a>
 
@@ -62,7 +62,7 @@
   - Eles se entitularam o **Apache Group**, em referência à nação nativa da
     américa do norte
     - Também pode ser "A patchy web server", pelo fato de ter sido criado com
-      diversos patches em cima do NCSA HTTPd
+      diversos _patches_ em cima do NCSA HTTPd
 
 ---
 ## Do Apache em diante
@@ -94,31 +94,31 @@
 ---
 ## O que faz um servidor Web? (cont.)
 
-- O servidor Web precisa:
+- O servidor Web **precisa**:
   1. Saber falar o protocolo HTTP para atender as requisições
   1. Conhecer o sistema de arquivos do SO para entregar arquivos solicitados
-- O servidor Web pode:
-  1. Permitir a geração de recursos (e.g., arquivos html) dinamicamente
+- O servidor Web **pode**:
+  1. Permitir a geração dinâmica de recursos (e.g., arquivos html)
   1. Permitir a recepção de arquivos (formulários que fazem _upload_)
   1. Entender outros protocolos além de HTTP: FTP, HTTPS, FTPS etc.
   1. Gerenciar conexões simultâneas de vários "solicitantes"
 
 ---
-## Geração de recursos dinamicamente
+## Geração dinâmica de recursos
 
-- Queremos poder fazer algo como isto:
+- Queremos poder escrever algo como isto:
   ```
   &lt;ul&gt;
-    &lt;% menu.forEach(item) { %&gt;
-      &lt;li&gt;&lt;%= item.nome %&gt;&lt;li&gt;
+    &lt;% for (int i=0; i < products.length; i++) { %&gt;
+      &lt;li&gt;&lt;%= products[i].name %&gt;&lt;li&gt;
     &lt;% } %&gt;
   &lt;/ul&gt;
   ```
-  - Gerando código HTML (que o navegador entende)
+  - Gerando código HTML (que o navegador entende):
     ```html
     <ul>
-      <li>Principal</li>
-      <li>Sobre</li>
+      <li>Picolé</li>
+      <li>Sorvete</li>
     </ul>
     ```
 
@@ -146,11 +146,11 @@
 ## Tipos de servidor Web
 
 - Existem dois tipos de servidor Web
-  1. Em espaço de usuário
+  1. **Em espaço de usuário**:
      - É um programa, como qualquer outro, executando no computador. Precisa
        "entrar na fila" para conseguir recursos de _hardware_, solicitados ao
        Sistema Operacional (SO)
-  1. Em espaço de _kernel_
+  1. **Em espaço de _kernel_**:
      - É parte do SO e não compete com aplicativos de usuário
        - Exemplos:
          1. IIS no Windows
@@ -164,7 +164,7 @@
 
 - Os servidores Web disponíveis hoje em dia tipicamente atendem a todas as
   demandas de um servidor Web listadas anteriormente
-- Eles se divergem:
+- Eles se **divergem**:
   1. Na linguagem com que se é permitido gerar páginas html dinamicamente
   1. No suporte a versões mais recentes de protocolos
   1. Nos protocolos "extras" suportados
@@ -174,7 +174,7 @@
 ## Apache
 
 - Em primeiro lugar desde 1995 como o mais utilizado
-- Tipicamente usado associado à linguagem PHP
+- Tipicamente (mas não exclusivamente) usado associado à linguagem PHP
 - Fonte do sucesso:
   1. Projeto altamente modularizado e configurável
   1. Gratuito
@@ -224,12 +224,12 @@
 ---
 ## Outros servidores
 
-- IIS
+- **IIS**
   - Servidor Web da Microsoft
   - Executa em Windows apenas (confirmar)
   - Em cima da plataforma .NET
   - Possibilita a utilização de linguagens da plataforma
-- Tomcat, Wildfly, Glassfish
+- **Tomcat, Wildfly, Glassfish**
   - Servidores Web da ASF, ~~Sun~~ Oracle etc.
   - Executa em qualquer OS com máquinas virtuais Java
   - Em cima da plataforma Java
@@ -238,7 +238,7 @@
 ---
 ## Outros servidores
 
-- NginX (_Engine X_)
+- **NginX** (_Engine X_)
   - Servidor russo, mais recente (2004)
   - Objetivos
     1. alta simultaneidade
@@ -292,7 +292,7 @@
 ## _Hello World_ em NodeJS
 
 - Instale o NodeJS
-- Crie um arquivo, `hello.js`
+- Crie um arquivo, `hello.js`, contendo:
   ```js
   console.log("woot woot");
   ```
@@ -314,7 +314,7 @@
 
 - Arquivo `servidorSimplao.js`
   ```js
-  var http = require('http');
+  var http = require('http');   // módulo "http", super útil
   http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end('conteudo do arquivo html');
@@ -332,7 +332,7 @@
 
 - Arquivo `lendoArquivo.js`
   ```js
-  var fs = require('fs');     // fs é o módulo file system
+  var fs = require('fs');     // fs é o módulo "file system"
   fs.readFile('./pessoas.json', function(erro, dados) {
     console.log(dados);
   })
@@ -342,20 +342,21 @@
 ## _Non-blocking I/O_
 
 - Operações de E/S são caras, devido ao custo de acesso a memórias mais lentas
-- _Non-blocking I/O_ significa que operações de E/S, que bloqueariam a execução
-  do restante do programa, não bloqueiam :)
+- _Non-blocking I/O_ significa que **operações de E/S**, que bloqueariam
+  a execução do restante do programa, **não bloqueiam** :)
 - Um banco de dados tipicamente reside em um disco rígido
-  1. Vamos acessar uma tabela grande em Apache + PHP
+  1. Vamos acessar uma tabela grande em <u>Apache + PHP</u>
      ```php
      $result = mysql_query('SELECT * FROM myVeryBigTable');
      print_r($result);
      ```
-     - A execução da aplicação fica parada até que a operação de E/S termine
+     - A execução da aplicação <u>fica parada na 1ª linha</u> até que a
+      operação de E/S termine
 
 ---
 ## _Non-blocking I/O_ (cont.)
 
-- Em NodeJS, escreveríamos
+- Em <u>NodeJS</u>  , escreveríamos:
     ```js
     c.query('SELECT * FROM myVeryBigTable',
       function(err, results, fields) {
@@ -364,14 +365,14 @@
       }
     );
     ```
-  - Enquanto a operação do SELECT está sendo feita, o programa continua
-    executando
+  - Enquanto a operação do `SELECT` está sendo feita, <u>o programa continua
+    executando</u>
 
 ---
 ## _Single threaded_ e _event driven_
 
-- O Apache cria uma nova _thread_ para atender cada requisição
-- O NodeJS executa todinho em uma única _thread_
+- O <u>Apache</u> cria uma <u>nova _thread_</u> para atender <u>cada requisição</u>
+- O <u>NodeJS</u> executa todinho em uma <u>única _thread_</u>
   - Isso funciona por causa do _non-blocking I/O_ e do _event driven_
 - Existe um _loop_ de eventos que fica esperando por "trabalhos assíncronos"
   que precisam ser executados
@@ -384,12 +385,15 @@
   distribui no tempo (:O)
 - Exemplo:
   ```js
-  var stream = fs.createReadStream('./resource.json')
+  var stream = fs.createReadStream('./arquivao-gigante.json');
   stream.on('data', function (chunk) {
-    console.log(chunk)
+    // chamada de vez em quando, sempre que foi possível
+    // ler mais um pouco (um chunk) do arquivo
+    console.log(chunk);
   });
   stream.on('end', function () {
-    console.log('finished')
+    // esta callback é chamada quando o arquivo foi todo lido
+    console.log('finished');
   });
   ```
 
