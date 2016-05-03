@@ -9,7 +9,7 @@
   1. Tomcat
   1. IIS
   1. NginX
-1. NodeJS
+1. Node.js
 1. O problem c10k
 
 ---
@@ -226,7 +226,7 @@
 
 - **IIS**
   - Servidor Web da Microsoft
-  - Executa em Windows apenas (confirmar)
+  - Executa em Windows apenas
   - Em cima da plataforma .NET
   - Possibilita a utilização de linguagens da plataforma
 - **Tomcat, Wildfly, Glassfish**
@@ -248,10 +248,10 @@
   - Muito usado para fazer _load balacing_
 
 ---
-# O NodeJS
+# ![Node.js](../../images/nodejs-logo.png)
 
 ---
-## NodeJS
+## Node.js
 
 - Não é um servidor web (OMG!!!)
 - <figure class="portrait" style="float:right;">
@@ -266,10 +266,10 @@
      programas JS possam acessar o sistema de arquivos **_y otras cositas más_**
 
 ---
-## NodeJS (cont.)
+## Node.js (cont.)
 
-- É uma plataforma para se desenvolver aplicações usando Javascript (fora do
-  navegador)
+- É uma plataforma para se desenvolver **aplicações usando Javascript fora do
+  navegador**
 - Características:
   1. Escrito em C/C++ e Javascript
   1. Executa código Javascript de forma leve e rápida
@@ -289,12 +289,12 @@
 1. [etc. etc. etc.](http://nodejs.org/api/)
 
 ---
-## _Hello World_ em NodeJS
+## _Hello World_ em Node.js
 
-- Instale o NodeJS
+- Instale o Node.js
 - Crie um arquivo, `hello.js`, contendo:
   ```js
-  console.log("woot woot");
+  console.log('woot woot');
   ```
 - Execute seu arquivo no terminal:
   ```
@@ -304,15 +304,15 @@
 ---
 ## Mas onde está "servidor web" nisso?
 
-- A arquitetura do NodeJS (_event-driven_ + _non-blocking I/O_), somados às
+- A arquitetura do Node.js (_event-driven_ + _non-blocking I/O_), somados às
   facilidades desenvolvidas na plataforma tornam a criação de um servidor Web
   muito concisa e simples
 - Vamos criar um servidor Web no próximo slide
 
 ---
-## Servidor Web em NodeJS
+## Servidor Web em Node.js
 
-- Arquivo `servidorSimplao.js`
+- Arquivo `servidor-simplao.js`:
   ```js
   var http = require('http');   // módulo "http", super útil
   http.createServer(function (req, res) {
@@ -323,12 +323,12 @@
   ```
 - Para rodar:
   ```
-  $ node servidorSimplao.js
+  $ node servidor-simplao.js
   $ Server running at http://127.0.0.1:1337/
   ```
 
 ---
-## Como ler um arquivo em NodeJS
+## Como ler um arquivo em Node.js
 
 - Arquivo `lendoArquivo.js`
   ```js
@@ -356,7 +356,7 @@
 ---
 ## _Non-blocking I/O_ (cont.)
 
-- Em <u>NodeJS</u>  , escreveríamos:
+- Em <u>Node.js</u>  , escreveríamos:
     ```js
     c.query('SELECT * FROM myVeryBigTable',
       function(err, results, fields) {
@@ -372,7 +372,7 @@
 ## _Single threaded_ e _event driven_
 
 - O <u>Apache</u> cria uma <u>nova _thread_</u> para atender <u>cada requisição</u>
-- O <u>NodeJS</u> executa todinho em uma <u>única _thread_</u>
+- O <u>Node.js</u> executa todinho em uma <u>única _thread_</u>
   - Isso funciona por causa do _non-blocking I/O_ e do _event driven_
 - Existe um _loop_ de eventos que fica esperando por "trabalhos assíncronos"
   que precisam ser executados
@@ -421,7 +421,7 @@
   ```
   $ ab -r -n 100000 -c 1000 <url>
   ```
-- Um teste entre Apache e NodeJS: http://zgadzaj.com/benchmarking-nodejs-basic-performance-tests-against-apache-php
+- Um teste entre Apache e Node.js: http://zgadzaj.com/benchmarking-nodejs-basic-performance-tests-against-apache-php
 
 ---
 ## Para ler com calma
@@ -431,5 +431,5 @@
 ---
 # Referências
 
-1. Capítulo 1 do livro "NodeJS in Action"
-1. [Apresentação NodeJS do Peter Thorun, 2014](http://prthorun.github.io/talk-nodejs/#/20)
+1. Capítulo 1 do livro "Node.js in Action"
+1. [Apresentação Node.js do Peter Thorun, 2014](http://prthorun.github.io/talk-nodejs/#/20)
