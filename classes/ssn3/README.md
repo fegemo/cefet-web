@@ -4,7 +4,8 @@
 # Roteiro
 
 1. Continuando nosso servidor web <abbr title="Do it yourself">DIY</abbr>
-1. Express
+1. O _framework_ Express.js
+1. Geração dinâmica de HTML
 
 ---
 # Continuando nosso servidor web
@@ -70,10 +71,11 @@
   ```
   $ npm search mime
   ```
-  - Ou, para quem não acordou muito _hardcore_, pesquise no [site do npm](https://www.npmjs.com/search?q=mime)
+  - Ou então pesquise no [site do npm](https://www.npmjs.com/search?q=mime)
     - Resultado: um pacote chamado `mime`, com a descrição _"A comprehensive
       library for mime-type mapping"_
-      - [Repositório](https://github.com/broofa/node-mime) no GitHub com documentação
+      - [Repositório](https://github.com/broofa/node-mime) no GitHub
+        com documentação
 ---
 ## Usando o pacote **mime**
 
@@ -92,12 +94,14 @@
 ---
 ## Usando o pacote **mime** (cont.)
 
-- (1) Incluindo o módulo `mime`
+- (1) Incluindo o módulo `mime`:
   ```js
   var http = require('http'),
       fs = require('fs'),
       url = require('url'),
-      mime = require('mime'); // incluído e atribuido à var. mime
+
+      // incluído e atribuido à variável "mime"
+      mime = require('mime');
 
   /* ... */
   ```
@@ -124,7 +128,7 @@
 - Nosso servidor web ainda precisa de algumas coisas:
   1. Controlar _cache_ de arquivos já solicitados
     - Se um navegador solicita um arquivo, o servidor pode enviar uma resposta
-      `304 not modified` em vez de `200 OK`
+      **`304 not modified` em vez de `200 OK`**
   1. Prevenir que um usuário acesse http://localhost:8080/../../../
   1. Saber responder a métodos HTTP diferentes de GET (POST, PUT, DELETE, HEAD etc.)
   1. Saber falar outros métodos (e.g., HTTPS)
@@ -167,7 +171,7 @@ app.get('/', function (req, res) {
 var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('Listening at http://%s:%s', host, port);
 });
 ```
 
@@ -177,26 +181,25 @@ var server = app.listen(3000, function () {
 ```js
 var express = require('express'),
     app = express();
-                                                // suponhamos que
-app.use(express.static(__dirname + '/public')); // /public é uma pasta
-                                                // com nosssos
-                                                // arqs. estáticos
+
+// suponhamos que "/public" é uma pasta com
+// nossos arquivos estáticos
+app.use(express.static(__dirname + '/public'));
+
 var server = app.listen(3000, function () {
-  console.log('Servidor escutando em: http://localhost:3000');
+  console.log('Escutando em: http://localhost:3000');
 });
 ```
-- Exemplo de diretório:
-
   ![](../../images/diretorio-express-exemplo.png)
 
 ---
 ## Especificando rotas
 
-- O _express_ facilita a especificação da ação a ser tomada dependendo da URL
-  solicitada
-  - Uma rota é definida por um verbo HTTP (GET, POST etc.) e um caminho de uma
+- O _express_ facilita a **especificação da ação** a ser tomada **dependendo
+  da URL solicitada**
+  - Uma rota é definida por um verbo HTTP (`GET`, `POST` etc.) e um caminho de uma
     URL
-  - A cada rota é associada uma _callback_
+  - A cada rota é associada uma _callback_:
     ```js
     // GET /
     app.get('/', function(request, response) {
@@ -215,7 +218,7 @@ var server = app.listen(3000, function () {
   ```js
   // HEAD /user/122   (verificar se usuário id=122 existe)
   app.head('/user/:ident', function(request, response) {
-    if (bandoDeDadosUsuarios[request.params.ident]) {
+    if (tabelaDeUsuarios[request.params.ident]) {
       response.status(200).end();
     } else {
       response.status(404).end();
