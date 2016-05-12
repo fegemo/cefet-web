@@ -301,7 +301,7 @@ var server = app.listen(3000, function () {
 
 - (1) Configurando o Express:
   ```js
-  app.set('view engine', 'handlebars');
+  app.set('view engine', 'hbs');
   ```
 - (2) Criando arquivos no formato `.hbs`:
   ```hbs
