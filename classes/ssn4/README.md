@@ -62,7 +62,7 @@
     {
       "name": "Geiser",
       "version": "0.1.0",
-      "description": "Um cadastrador de jogos"
+      "description": "Um visualizador de PCs fritando"
       ...
     }
     ```
@@ -110,7 +110,7 @@
        especificando a pasta onde estão os arquivos estáticos
     1. "Abra" o servidor e o deixe escutando ([`app.listen`](http://expressjs.com/4x/api.html#app.listen)) em alguma porta
        maior que 1024
-    1. Teste seu servidor Executando:
+    1. Teste seu servidor executando:
         ```
         $ node server/app.js
         ```
@@ -160,10 +160,10 @@
   app.set('views', 'server/views');
   ```
 - Crie uma rota ([`app.get`](http://expressjs.com/starter/basic-routing.html))
-  para o caminho `"/"` que renderize ([`response.render`](http://expressjs.com/4x/api.html#res.render))
+  para o caminho `"/"` que renderize ([`response.render`](http://expressjs.com/en/4x/api.html#res.render))
   a _view_ que está em `server/views/index.hbs` (nome: apenas `index`)
 - Teste no navegador. Você deve conseguir ter o mesmo resultado de
-  quando visualiza http://localhost:PORTA/index.exemplo.html
+  quando visualiza http://localhost:PORTA/
 
 ---
 ## Parte 2 - página inicial (cont.)
@@ -174,7 +174,8 @@
   como mapear os campos do "banco de dados" para a interface
 - Do [Handlebars](http://handlebarsjs.com/), você vai precisar:
   1. [Expressões](http://handlebarsjs.com/#getting-started)
-  1. [Bloco `each`](http://handlebarsjs.com/builtin_helpers.html#iteration), para iterar no _array players_
+  1. [Bloco `each`](http://handlebarsjs.com/builtin_helpers.html#iteration),
+    para iterar no _array players_
 
 ---
 # Parte 3 - página de detalhes do jogador
@@ -237,7 +238,8 @@
      ```
   1. Busca de todos elementos que batem um critério ([`_.where`](http://underscorejs.org/#where)):
     ```js
-    var naoJogados = _.where(desteJogador, { playtime_forever: 0 });
+    var naoJogados = _.where(desteJogador,
+      { playtime_forever: 0 });
     ```
 
 ---
@@ -245,7 +247,9 @@
 
 1. Ordenação ([`_.sortBy`](http://underscorejs.org/#sortBy)):
   ```js
-  var ordenadoDesc = _.sortBy([5,4,6,1], function(el) { return -el; });
+  var ordenadoDesc = _.sortBy([5,4,6,1], function(el) {
+    return -el;
+  });
   ```
 1. X primeiros ([`_.first`](http://underscorejs.org/#first)):
   ```js
@@ -266,13 +270,6 @@
     favorito: jogosDesteJogador[0]
   });
   ```
-
----
-# Entrega
-
-- Entrega via **Moodle**
-
-
 ---
 # Referências
 
