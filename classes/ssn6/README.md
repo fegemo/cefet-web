@@ -3,7 +3,8 @@
 ---
 # Roteiro
 
-1. MySQL
+1. SGBDs
+  1. MySQL
 1. Arquiteturas REST
 1. Entrando no ![](../../images/zombie-garden-logo.png)
 
@@ -41,7 +42,7 @@
   $ npm install mysql --save
   ```
   - Porque ele salva no arquivo `package.json` que o projeto depende
-    do `mysql`
+    do pacote `mysql`
 
 ---
 ## Primeiros passos
@@ -55,6 +56,9 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
+
+// chamada assíncrona (retorno via callback)
+// para conseguirmos non-blocking I/O - woot woot
 connection.query('SELECT * FROM meals', function(err, rows) {
   console.log('First meal is: ', rows[0].mealName);
 });
@@ -65,12 +69,13 @@ connection.end();
 ## Fazendo consultas
 
 - As consultas são feitas por meio do método
-  `connection.query(query, callback)`, em que:
+  **`connection.query(query, callback)`**, em que:
   - `query` é uma `string` contendo uma consulta SQL
   - `callback` é uma função que é invocada quando do término da consulta. Ela
     possui 2 parâmetros:
-    1. `err`, contendo uma descrição de um eventual erro que possa ter ocorrido
-    1. `result`, um `Array` em que cada elemento é um registro do resultado da
+    1. **`err`**, contendo uma descrição de um eventual erro que possa
+      ter ocorrido - ou `null`, caso não haja erro
+    1. **`result`**, um `Array` em que cada elemento é um registro do resultado da
        consulta
 
 ---
@@ -79,12 +84,23 @@ connection.end();
 - Exemplo:
   ```js
   connection.query('SELECT name, time FROM meals',
-    function(err, result) {
-      console.log('A hobbit has ' + result[0].name +
-                  ' at ' result[0].time + ' everyday.');
+    function(err, result) { // itera o array 'result'
+      result.forEach(function(meal) {
+        console.log(meal.time + ' - ' + meal.name);
+      });
     }
   );
   ```
+- Saída:
+  <ul class="multi-column-list-3">
+    <li style="font-size: 0.7em">07:00 - Breakfast</li>
+    <li style="font-size: 0.7em">09:00 - Snd Breakfast</li>
+    <li style="font-size: 0.7em">11:00 - Elevensies</li>
+    <li style="font-size: 0.7em">13:00 - Luncheon</li>
+    <li style="font-size: 0.7em">16:00 - Afternoon Tea</li>
+    <li style="font-size: 0.7em">18:00 - Dinner</li>
+    <li style="font-size: 0.7em">20:00 - Supper</li>
+  </ul>
 
 ---
 ## Inserindo um registro
@@ -126,7 +142,8 @@ connection.end();
   registros alterados.
 - Exemplo:
   ```js
-  db.query('UPDATE food SET name="bad" WHERE name LIKE "%elvish%',
+  db.query('UPDATE food SET name="bad"'
+    + 'WHERE name LIKE "%elvish%',
     function(err, result) {
       console.log('Number of food items updated: ' +
                    result.changedRows);
@@ -140,7 +157,8 @@ connection.end();
 ---
 ## Propriedades
 
-- Informação vista como um **recurso HTTP** (assim como uma imagem)
+- Os dados são vistos como um **recurso HTTP** (assim como uma imagem,
+  uma página HTML etc.)
   - Cada informação exposta pelo banco de dados tem uma URL
   - Operações (buscar, excluir, atualizar etc.) são realizadas
     na informação usando verbos HTTP (`GET, DELETE, POST` etc.)
@@ -160,16 +178,16 @@ connection.end();
 - API REST: Conjunto de métodos públicos expostos por meio de
   um _web service_ na arquitetura REST
 - Como fazer?
-  1. Identifique os recursos
-  1. Identifique as operações sobre recursos
-  1. Implemente os métodos para cada recurso, respondendo
-     possivelmente em vários formatos (.html, .json, .xml)
+  1. **Identifique os recursos** de dados do BD
+  1. **Identifique as operações sobre recursos** que são permitidas
+  1. **Implemente os métodos** para cada recurso, respondendo
+     possivelmente em vários formatos (`.html, .json, .xml`)
 
 ---
 ## Exemplo de API REST (1/5)
 
 - Vamos criar uma API REST de acesso ao banco de dados
-  de um **cemitério zumbi fictício**
+  de um **cemitério zumbi <u>fictício</u>**
 - Veja o banco de dados:
 
   ![](../../images/eer-zombie.png)
@@ -204,8 +222,8 @@ connection.end();
 ---
 ## Exemplo de API REST (4/5)
 
-- A rota para listar todos os zumbis é análoga. Vamos agora mostrar **o detalhe
-  de um zumbi**:
+- A rota para listar todos os zumbis é análoga. Vamos agora mostrar
+  **o detalhamento de um zumbi**:
   ```js
   app.get('/zombies/:id', function(req, res) {
     var id = connection.escape(req.params.id);
@@ -243,7 +261,7 @@ connection.end();
 ---
 ## Descrição
 
-- O Zombie é um simulador de jardins-infestados-por-zumbis-de-noite-mas-que-de-dia-as-pessoas-frequentam
+- O ![](../../images/zombie-garden-logo.png) é um simulador de jardins-infestados-por-zumbis-de-noite-mas-que-de-dia-as-pessoas-frequentam
 - O programa já possui quase todas as funcionalidades implementadas, exceto:
   1. A rota e a lógica de banco para **excluir uma pessoa**
   1. A rota e a lógica de banco para **adicionar uma pessoa**
@@ -253,7 +271,7 @@ connection.end();
 ## Enunciado
 
 1. Crie um _fork_ do repositório [cefet-web-zombie-garden](https://github.com/fegemo/cefet-web-zombie-garden) no GitHub e clone-o
-1. Siga as instruções de execução descritas no README.md do projeto
+1. Siga as instruções de execução descritas no `README.md` do projeto
 1. Suas alterações devem ser feitas apenas no arquivo `router/people.js`, que
    descreve as rotas que começam com `/people/`
 1. Você deve entregar o link do seu repositório completamente implementado

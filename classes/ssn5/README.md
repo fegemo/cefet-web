@@ -28,7 +28,7 @@
 ## O que é um _cookie_?
 
 - _cookie_: um pequeno objeto de informação enviado pelo servidor para o
-  navegador e então enviado de volta para o navegador nas próximas
+  navegador e então enviado de volta para o servidor nas próximas
   requisições de páginas
 - _cookies_ possuem várias utilidades:
   1. Autenticação
@@ -81,7 +81,7 @@
   - Que é inglês por padrão, mas pode ser alterada e deve ser mantida quando
     o usuário voltar
 - Passos:
-  1. Navegador solicita a página inicial:
+  - (1) Navegador **solicita** a página inicial:
      ```
      GET /index.html HTTP/1.1
      Host: www.ispeakmanymanylanguages.com
@@ -90,57 +90,60 @@
 ---
 ## Exemplo de uso de _cookie_ (2/5)
 
-2) Servidor responde, definindo um _cookie_ com nome "`lang`" com o
+- (2) Servidor **responde**, definindo um _cookie_ com nome "`lang`" com o
    valor (padrão) "`english`":
    ```
-   HTTP/1.0 200 OK
+   HTTP/1.1 200 OK
    Content-type: text/html
    <strong>Set-Cookie: lang=english</strong>
 
    (conteúdo da página)
    ```
+   - O cabeçalho HTTP `Set-Cookie` serve para o servidor criar _cookies_
    - O servidor instruiu ao navegador a armazenar a propriedade `lang=english`
      em um _cookie_ para uso posterior
-   - O cabeçalho HTTP `Set-Cookie` serve para se criar _cookies_ pelo servidor
+     - O navegador costuma salvar isso em um arquivo `.txt`
 
 ---
 ## Exemplo de uso de _cookie_ (3/5)
 
-3) Navegador armazenou o _cookie_ e o usuário navega para outra página do site:
-   ```
-   GET /promotions.html HTTP/1.1
-   Host: www.ispeakmanymanylanguages.com
-   <strong>Cookie: lang=english</strong>
-   Accept: */*
-   ```
-   - Todas as páginas subsequentes serão mostradas em inglês, porque em toda
-     nova requisição, **o navegador passa a enviar o cabeçalho `Cookie`**, que
-     contém o _cookie_ criado pelo servidor para armazenar a língua selecionada
+- (3) Navegador armazenou o _cookie_. Agora, o usuário navega para outra
+  página do site e **o _cookie_ é enviado na requisição**:
+  ```
+  GET /promotions.html HTTP/1.1
+  Host: www.ispeakmanymanylanguages.com
+  <strong>Cookie: lang=english</strong>
+  Accept: */*
+  ```
+  - Todas as páginas subsequentes serão mostradas em inglês, porque em toda
+    nova requisição, **o navegador passa a enviar o cabeçalho `Cookie`**, que
+    contém o _cookie_ criado pelo servidor para armazenar a língua selecionada
 
 ---
 ## Exemplo de uso de _cookie_ (4/5)
 
-4) Usuário altera a língua para `"portuguese"`. A forma como servidor do site
-   possibilita isso é através de um GET para `/changeLanguage?l=portuguese`:
-   ```
-   GET <strong>/changeLanguage?l=portuguese</strong> HTTP/1.1
-   Host: www.ispeakmanymanylanguages.com
-   Cookie: lang=english
-   ```
+- (4) Usuário altera a língua para `"portuguese"`. A forma como nosso servidor
+  de exemplo possibilita isso é através de uma **requisção** GET para
+  `/changeLanguage?l=portuguese`:
+  ```
+  GET <strong>/changeLanguage?l=portuguese</strong> HTTP/1.1
+  Host: www.ispeakmanymanylanguages.com
+  Cookie: lang=english
+  ```
 
 ---
 ## Exemplo de uso de _cookie_ (5/5)
 
-5) Recebendo esta mensagem, o servidor responde com a página inicial já em
-   português e com um novo `Set-Cookie` para sobrescrever o _cookie_ `lang`
-   ```
-   HTTP/1.0 200 OK
-   Content-type: text/html
-   <strong>Set-Cookie: lang=portuguese</strong>
+- (5) Recebendo esta mensagem, o servidor **responde** com a página inicial
+  já em português e com um novo `Set-Cookie` para sobrescrever
+  o _cookie_ `lang`:
+  ```
+  HTTP/1.1 200 OK
+  Content-type: text/html
+  <strong>Set-Cookie: lang=portuguese</strong>
 
-   (conteúdo da página em Português)
-   ```
-
+  (conteúdo da página em Português)
+  ```
 
 ---
 ## Quanto tempo um _cookie_ vive?
@@ -185,19 +188,24 @@
   ```
 
 ---
+# Cookies no Express.js
+
+---
 ## Definindo _cookies_ no Express.js (1/2)
 
 - Como vimos, o servidor deve apenas inserir um cabeçalho `Set-Cookie` para
-  instruir o navegador a criar um _cookie_
-- Podemos fazer isso no Express.js assim:
+  instruir o navegador a criar um _cookie_. No Express.js:
   ```js
   app.get('/changeLanguage', function(req, res) {
-    // pega parâmetro da querystring
-    var desiredLang = req.params.l;
-    // define o cabeçalho Set-Cookie
-    res.cookie('lang', desiredLang, { expires: 'Wed, 01-Jan-...' });
-    // renderiza a view index
-    res.render('index', { language: desiredLang });
+    // pega parâmetro com nome "lang" da querystring
+    var desiredLang = req.params.lang;
+    // inclui o cabeçalho Set-Cookie "lang=%%%;Expires=Wed..."
+    res.cookie('lang', desiredLang, { expires: 'Wed...' });
+    // redireciona para a rota index
+    res.redirect('index',);
+  });
+  app.get('/', function(req, res) { // usa cookie ou 'english'
+    res.render('index', {lang: req.cookies.lang || 'english'});
   });
   ```
 
@@ -210,12 +218,14 @@
   ```js
   var express      = require('express');
   var cookieParser = require('cookie-parser');
-
   var app = express();
   app.use(cookieParser());
   ```
   - Ele processará o cabeçalho `Cookie` das requisições e populará
     `res.cookies` com os _cookies_ presentes
+    ```
+    $ npm i --save cookie-parser
+    ```
 
 ---
 # Sessões
@@ -230,9 +240,9 @@
 - sessões _vs._ _cookies_:
   - Um _cookie_ é um dado armazenado no cliente
   - Os dados de uma sessão são armazenados no servidor
-- Sessões são normalmente criadas usando _cookies_
+- **Sessões são normalmente criadas usando _cookies_**
   - A única informação guardada pelo cliente é um _cookie_ contendo um
-    identificador único de sessão
+    **identificador único de sessão**
   - A cada requisição, o cliente envia o _cookie_ de sessão e o servidor o
     utiliza para recuperar as informações da sessão do cliente
 
@@ -245,7 +255,7 @@
    - <img src="../../images/session-php.png" style="float:right;margin:0 0 15px 15px">
      Em PHP, esse _cookie_ tem o nome `PHPSESSID`
    - Em Java, `JSESSIONID`
-   - Express.js, `connect.sid`
+   - Express.js, **`connect.sid`**
 1. O cliente envia o mesmo ID da sessão de volta ao servidor
 1. Servidor usa o ID recebido para recuperar os dados da sessão do cliente
 
@@ -264,15 +274,18 @@
     ```
     - A opção `secret` é uma string usada para criar um _hash_ do valor do
       _cookie_ de sessão, como uma medida de segurança
+      ```
+      $ npm i --save express-session
+      ```
 
 ---
 ## Sessões no Express.js (2/2)
 
-- Para armazenar algum dado referente a uma sessão, usamos o objeto
-  `req.session`:
+- Para **armazenar algum dado** referente a uma sessão, usamos **o objeto
+  `req.session`**:
   ```js
   app.get('/', function(req, res) {
-    if (req.session.views) {
+    if (req.session.views) {  // contador de vis. nesta sessão
       req.session.views++;
       res.setHeader('Content-Type', 'text/html');
       res.write('<p>views: ' + req.session.views + '</p>');
@@ -296,9 +309,10 @@
   servidor
   - _web storage_ é um recurso puramente do navegador e o protocolo HTTP não
     tem nenhum acesso a ele
-- Portanto, para manter uma sessão entre cliente e servidor, ainda precisamos
-  dos _cookies_ ;)
-
+- Portanto, para manter uma sessão entre cliente e servidor, **ainda precisamos
+  dos _cookies_** ;)
+- Ademais, **_cookies_ surgiram 1996-1997** (Netscape) e _Web Storage_ é uma API
+  do HTML5 (2009+)
 ---
 # Exercício
 
