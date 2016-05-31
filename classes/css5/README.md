@@ -68,7 +68,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
    - `alimentado`, uma borda verde no animal e o animal fica girando de alegria
    - `perturbado`, animal vai crescendo, ou fica pulsando
    - `instinto-selvagem`, animal dá um salto e cresce, com uma borda vermelha
-1. Criar uma **imagem _sprite_**   com as imagens dos ícones de "começar/parar" o jogo 
+1. Criar uma **imagem _sprite_**   com as imagens dos ícones de "começar/parar" o jogo
    de forma a fazer com que a página carregue mais rápido
 
 ---
@@ -170,7 +170,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
     left: -48px; top: 0;  }
   ```
 
-<figure style="width: 24px;height: 32px;overflow: hidden;position: relative;  ">
+<figure style="width: 24px;height: 32px;overflow: hidden;position: relative;margin-top:-10px;">
   <img src="../../images/terrivel-eating.png" style="position: absolute;left: -48px;top: 0;">
 </figure>
 
@@ -253,7 +253,7 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
 ---
 ## Função de interpolação (_**timing-function**_)
 
-<iframe width="100%" height="340" src="http://jsfiddle.net/fegemo/2a5450ds/embedded/result,html,css/presentation/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="440" src="http://jsfiddle.net/fegemo/2a5450ds/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
 ## Compatibilidade nos navegadores
@@ -400,7 +400,7 @@ a.combinando:hover {
     to   { top: -30px; }
   }
   ```
-  - <style>
+<style>
 .urso-flutuante {
   position: relative;
   -webkit-animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
@@ -408,6 +408,10 @@ a.combinando:hover {
   -ms-animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
   -o-animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
   animation: urso-flutuando .5s ease-in-out 0s infinite alternate;
+  transition: opacity 200ms ease-out;
+}
+.urso-flutuante:hover {
+  opacity: 0.25;
 }
 @-webkit-keyframes urso-flutuando {
   from { top: 0;     }
@@ -501,7 +505,7 @@ a.combinando:hover {
 
 ---
 ## Definindo **@keyframes** (cont.)
-  
+
 - ```css
   .estrela-mario-1:hover {
     animation: girando 1s ease-in-out 0s infinite alternate;
@@ -538,7 +542,7 @@ a.combinando:hover {
 
 ---
 ## Definindo **@keyframes** (cont.)
-  
+
 - ```css
   .estrela-mario-2:hover {
     animation: pirando 600ms ease-in 3s 1 forwards,
@@ -628,13 +632,13 @@ a.combinando:hover {
 ---
 # Slide **_easter egg_**!!
 
-- Em 01/04/2015, a Google lançou um espelho para seu buscador, o com.google. 
+- Em 01/04/2015, a Google lançou um espelho para seu buscador, o com.google.
   Ele se parecia com isto:
   [com.google](../../images/comgoogle.png)
-  
+
 - Usando transformações e animações, fica facinho fazer um desses!!
   <a class="bookmarklet" href="javascript:(function(){ if (document.body.style.transform === '') { document.body.style.transform='rotateY(180deg)'; } else { document.body.style.transform = '';}})()">Paradinha do Google</a>
   <a class="bookmarklet" href="javascript:(function(){ if (!document.getElementById('aew-anim')) { document.getElementsByTagName('html')[0].style.overflowX='hidden'; var s= document.createElement('style'); s.id='aew-anim'; s.innerText='@-webkit-keyframes aew { from { transform: skewX(-2deg); } to { transform: skewX(2deg); }}'; document.head.appendChild(s); } if (document.body.style.webkitAnimation === '') { document.body.style.transform='skewX(10deg)';document.body.style.transformOrigin='-50% 0';document.body.style.webkitAnimation='aew 400ms ease-in-out infinite alternate'; } else { document.body.style.webkitAnimation='';document.body.style.transform='';}})()">Rabo do cachorro</a>
-  
-  - Modo de uso de um **_bookmarklet_**: arraste o link para sua barra de favoritos e 
+
+  - Modo de uso de um **_bookmarklet_**: arraste o link para sua barra de favoritos e
     simplesmente clique no favorito quando estiver em uma página

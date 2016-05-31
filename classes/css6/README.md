@@ -33,7 +33,7 @@
 - Exemplos:
   1. Arquivo com regras CSS para impressão
     ```html
-    <link rel="stylesheet" media="print" href="para-impressao.css" />
+    <link rel="stylesheet" media="print" href="p-impressao.css" />
     ```
   1. Dentro de um arquivo CSS, regras diferentes para o tamanho de uma imagem
      se o dispositivo estiver orientado verticalmente (_portrait_) ou
@@ -73,13 +73,13 @@
 - Arquivos externos:
   ```html
   <link rel="stylesheet" media="all" href="estilos-gerais.css" />
-  <link rel="stylesheet" media="screen" href="para-monitores.css" />
-  <link rel="stylesheet" media="print" href="para-impressao.css" />
+  <link rel="stylesheet" media="screen" href="p-monitores.css" />
+  <link rel="stylesheet" media="print" href="p-impressao.css" />
   ```
 ---
 ## Exemplo de uso de tipo de mídia (cont.)
 
-- Dentro de um mesmo arquivo
+- Dentro de um mesmo arquivo:
   ```css
   #artigo-principal {
     background-color: #ccc;
@@ -125,12 +125,23 @@
   div#logo {
     background-image: url('img/logo.png');
   }
+  /* 2dppx = 2 dots per pixel unit */
   @media screen and (min-resolution: 2dppx) {
     div#logo {
       background-image: url('img/logo2x.png');
     }
   }
   ```
+
+---
+## _Retina display_ (da Apple)
+
+![](../../images/ipad-retina-display-comparison.png)
+
+---
+## _Retina display_ (da Apple)
+
+![](../../images/ipad-retina-zoom.jpg)
 
 ---
 ## Simulação de _**retina display**_
@@ -142,7 +153,7 @@
 
 <img src="../../images/mario-star-double.png" style="width: 100px">
 <img src="../../images/mario-star.png" style="width: 100px">
-  
+
 ---
 # _Responsive Design_
 
@@ -193,17 +204,17 @@
 div.produto {  display: inline-block; }
 
 @media (min-width:801) and (max-width: 1024px) {
-  /* 4 produtos por linha */
+  /* tela grande: 4 produtos por linha */
   div.produto {  width: 25%;  }
 }
 
 @media (min-width:481px) and (max-width: 800px) {
-  /* 3 produtos por linha */
+  /* tela média: 3 produtos por linha */
   div.produto {  width: 33.333%;  }
 }
 
 @media (max-width: 480px) {
-  /* 2 produtos por linha */
+  /* tela pequena: 2 produtos por linha */
   div.produto {  width: 50%;  }
 }
 ```
@@ -211,7 +222,56 @@ div.produto {  display: inline-block; }
 ---
 ## Exemplo vivo
 
-<iframe width="100%" height="450" src="http://jsfiddle.net/fegemo/Lw7prv0u/2/embedded/result,css,html/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="450" src="http://jsfiddle.net/fegemo/Lw7prv0u/5/embedded/result,css,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+---
+# _Frameworks_ CSS
+
+---
+## _Frameworks_ CSS
+
+- Existem bases de código para estilização "básicas" de páginas Web
+  disponíveis
+- A idéia é: para fazer uma prototipação rápida, não levar muito tempo se
+  preocupando com escrever código CSS para tornar o produto bem apresentável
+- Dois _frameworks_ mais famosos:
+  - [(Twitter) Bootstrap](http)
+  - [Zurb Foundation](http)
+- Na prática, você vai incluir um arquivo CSS na sua página
+  ```html
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="meus-estilos.css">
+  ```
+
+---
+## Bootstrap
+
+![](../../images/bootstrap.png)
+
+---
+## Bootstrap (cont.)
+
+- Foi criado por funcionários do Twitter
+- Usa **Less** para gerar CSS, mas também há um _port_ para Sass
+- É bastante _"jQuery-friendly"_, possuindo _plugins_ para coisas comuns
+  - Painéis modais
+  - Abas
+  - Carrossel, etc.
+
+---
+## Zurb Foundation
+
+- Criado e mantido pela [Zurb](http://zurb.com/), uma empresa de criação na Web
+- Escrito em **Sass**
+- Também é _"jQuery-friendly"_, assim como Bootstrap
+- Usa a filosofia _mobile-first_
+- Incentiva a boa prática de não se utilizar "classes de apresentação"
+  (`.row`, `.column` etc.s)
+
+---
+## Zurb Foundation (cont.)
+
+![](../../images/foundation.png)
 
 ---
 # Pré-processadores
@@ -418,60 +478,6 @@ div.produto {  display: inline-block; }
 - Interpolação
 - Condicionais (if/else)
 - Arquivos parciais, etc.
-
----
-# _Frameworks_ CSS
-
----
-## _Frameworks_ CSS
-
-- Existem bases de código para estilização "básicas" de páginas Web
-  disponíveis
-- A idéia é: para fazer uma prototipação rápida, não levar muito tempo se
-  preocupando com escrever código CSS para tornar o produto bem apresentável
-- Dois _frameworks_ mais famosos:
-  - [(Twitter) Bootstrap](http)
-  - [Zurb Foundation](http)
-- Na prática, você vai incluir um arquivo CSS na sua página
-  ```html
-  <link rel="stylesheet" href="bootstrap.css">
-  <link rel="stylesheet" href="meus-estilos.css">
-  ```
-  
----
-## Bootstrap
-
-![](../../images/bootstrap.png)
-
----
-## Bootstrap (cont.)
-
-- Foi criado por funcionários do Twitter
-- Usa **Less** para gerar CSS, mas também há um _port_ para Sass
-- É bastante _"jQuery-friendly"_, possuindo _plugins_ para coisas comuns
-  - Painéis modais
-  - Abas
-  - Carrossel, etc.
-
----
-## Zurb Foundation
-
-- Criado e mantido pela [Zurb](http://zurb.com/), uma empresa de criação na Web
-- Escrito em **Sass**
-- Também é _"jQuery-friendly"_, assim como Bootstrap
-- Usa a filosofia _mobile-first_
-- Incentiva a boa prática de não se utilizar "classes de apresentação"
-  (`.row`, `.column` etc.s)
-
----
-## Zurb Foundation (cont.)
-
-![](../../images/foundation.png)
-
----
-## Comparação
-
-[![](../../images/good-war-ui.png)](http://henriquecholo.github.io/bootstrap-vs-foundation-talk/#/)
 
 ---
 # Referências
