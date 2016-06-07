@@ -130,7 +130,7 @@ Veiculo.prototype.ligar = function(opcoes) {
 class Veiculo {
   constructor(marca, tipo) {
     this.marca = marca;
-    this.modelo = tipo;
+    this.tipo = tipo;
   }
   ligar(opcoes) {
     //...
@@ -142,7 +142,7 @@ class Veiculo {
 ## Herança de Classes <small>(ES5)</small>
 
 ```js
-function Carro(brand, tipo, modelo) {
+function Carro(marca, tipo, modelo) {
   Veiculo.call(this, marca, tipo);
   this.modelo = modelo;
 }
@@ -203,7 +203,7 @@ class Carro extends Veiculo {
   ```js
   function criaListaHTML() {
     var itens = Array.prototype.slice.call(arguments),
-    return '<li>' + args.join('</li><li>') + '</li>';
+    return '<li>' + itens.join('</li><li>') + '</li>';
   }
   criaListaHTML('Mario', 'Yoshi', 'Toad');
   ```
@@ -410,9 +410,8 @@ Veja na [ECMAScript 6 _compatibility table_](http://kangax.github.io/es5-compat-
 
 ## Alto impacto
 
-- Promises
 - Modules
-- Maps and Sets
+- Promises
 - Generators
 - Annotations
 
@@ -421,6 +420,7 @@ Veja na [ECMAScript 6 _compatibility table_](http://kangax.github.io/es5-compat-
 
 ## Não tão impactantes
 
+- Maps and Sets
 - Computed Property Names
 - Iterators and for-of
 - Symbols
