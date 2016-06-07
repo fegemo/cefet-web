@@ -286,6 +286,20 @@ $bubble-tip-size = 8px
     &.bubble-author-{i}
       color author-color
 
+for num in (2..5)
+  .layout-split-{num}
+    flex-direction row
+    display flex
+    justify-content center
+    align-items stretch
+    height 100%
+    width 100%
+    & > section
+      width 100%  * (1/num)
+      flex-grow 1
+      text-align center
+
+
 
 @require book
 
