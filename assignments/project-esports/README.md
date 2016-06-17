@@ -139,7 +139,7 @@ O projeto será entregue em duas etapas, a saber:
   - Entregar: código fonte final e _link_ para sistema publicado em
     servidor gratuito
   - Data: final do semestre (vide Moodle)
-    - [Apresentação oral e demonstração](#apresentacao)
+    - [Apresentação oral e demonstração](#apresentação)
   - Pontuação: 25 pontos (+extras)
 
 ## Apresentação
@@ -153,6 +153,7 @@ Devem ser entregues via Moodle:
 
 **A apresentação** do trabalho deve ter, no máximo, 10 minutos e seguir este **roteiro**:
 
+1. "Capa" com o nome do seu aplicativo e o grupo
 1. Mostrar um diagrama com a arquitetura geral, contendo elementos como (1 min):
   - banco(s) de dados usados
   - como o banco de dados foi acessado (Mongoose? _driver do Mongo_?
