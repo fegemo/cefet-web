@@ -8,7 +8,7 @@ inscrever os participantes em campeonatos, sortear as partidas e
 registrar os resultados.
 
 Você acordou um dia extremamente empolgado e decidiu unir essa demanda
-dos jogadores de e-sports aos seus conhecimentos _web_, que adquiriu em um
+dos jogadores de _e-sports_ aos seus conhecimentos _web_, que adquiriu em um
 curso por correspondência, para criar um sistemão para gerenciar campeonatos.
 
 Reunindo um grupo de amigos jogadores de Dota/LoL, foi possível reunir o
@@ -139,7 +139,31 @@ O projeto será entregue em duas etapas, a saber:
   - Entregar: código fonte final e _link_ para sistema publicado em
     servidor gratuito
   - Data: final do semestre (vide Moodle)
+    - [Apresentação oral e demonstração](#apresentacao)
   - Pontuação: 25 pontos (+extras)
+
+## Apresentação
+
+Devem ser entregues via Moodle:
+
+- Link para o repositório com o código fonte da aplicação
+- Link para o servidor onde a aplicação está hospedada
+- Link para a apresentação de slides, se optar por ter uma
+- Lista de itens opcionais implementados
+
+**A apresentação** do trabalho deve ter, no máximo, 10 minutos e seguir este **roteiro**:
+
+1. Mostrar um diagrama com a arquitetura geral, contendo elementos como (1 min):
+  - banco(s) de dados usados
+  - como o banco de dados foi acessado (Mongoose? _driver do Mongo_?
+    _web service_?)
+  - tecnologias de _back-end_ usadas
+  - tecnologias de _front-end_ usadas
+1. Mostrar o arquivo `package.json` e comentar sobre os pacotes NPM usados (2 min)
+1. Demonstrar a aplicação usando o servidor de hospedagem (7 min):
+  - mostrar todos os itens obrigatórios implementados
+  - mostrar os opcionais
+1. Mostrar a lista de itens opcionais implementados
 
 ## Critérios de avaliação
 
