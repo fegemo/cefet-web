@@ -20057,8 +20057,6 @@ bespoke.from('article', [
       slide.setAttribute('data-bespoke-backdrop', value);
     },
     scripts: function(slide, url) {
-      console.log('tried to load: ' + url);
-      debugger;
       var placeToPutScripts = document.body;
       url = !Array.isArray(url) ? [url] : url;
 
