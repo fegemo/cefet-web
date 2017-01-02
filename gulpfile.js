@@ -1,6 +1,5 @@
 var fs = require('fs'),
   gulp = require('gulp'),
-  connect = require('gulp-connect'),
   gutil = require('gulp-util'),
   plumber = require('gulp-plumber'),
   del = require('del'),
@@ -12,8 +11,9 @@ var fs = require('fs'),
   autoprefixer = require('gulp-autoprefixer'),
   csso = require('gulp-csso'),
   changed = require('gulp-changed'),
-  sourcemaps = require('gulp-sourcemaps'),
   glob = require('glob'),
+  sourcemaps = require('gulp-sourcemaps'),
+  connect = require('gulp-connect'),            // Blacklisted, but whatever
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
   browserify = require('browserify'),
@@ -21,26 +21,21 @@ var fs = require('fs'),
   ghpages = require('gh-pages'),
   path = require('path'),
   merge = require('merge-stream'),
-  isDist = process.argv.indexOf('serve') === -1;
+  opn = require('opn'),
+  isDist = process.argv.indexOf('dev') === -1;
+
 
 gulp.task('js', function() {
   return browserify({
       entries: 'scripts/main.js',
-      debug: true
+      debug: !isDist
     })
     .bundle()
-    .on('error', function(err) {
-      gutil.log(gutil.colors.red('Browserify bundle error: ') + err);
-      this.emit('end');
-    })
     .pipe(source('build.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(isDist ? uglify() : through())
-      .on('error', function(err) {
-        gutil.log(gutil.colors.red('Uglify error: ') + err.message);
-        this.emit('end');
-    })
+      .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist/build'))
     .pipe(connect.reload());
@@ -89,7 +84,12 @@ gulp.task('js-classes', function(done) {
 
 gulp.task('html', function() {
   return gulp.src('html/index.html')
-    .pipe(preprocess({context: { NODE_ENV: isDist ? 'production' : 'development', DEBUG: true}}))
+    .pipe(preprocess({
+      context: {
+        NODE_ENV: isDist ? 'production' : 'development',
+        DEBUG: true
+      }
+    }))
     .pipe(isDist ? through() : plumber())
     .pipe(replace('{path-to-root}', '.'))
     .pipe(gulp.dest('dist'))
@@ -121,7 +121,7 @@ gulp.task('css', function() {
     .pipe(changed('dist/build'))
     .pipe(isDist ? through() : plumber())
     .pipe(stylus({
-      // Allow CSS to be imported from node_modules and bower_components
+      // allows CSS to be imported from node_modules
       'include css': true,
       'paths': ['./node_modules']
     }))
@@ -201,10 +201,18 @@ gulp.task('favicon', function() {
     .pipe(connect.reload());
 });
 
+gulp.task('manifest', function() {
+  var destination = 'dist/favicon';
+  return gulp.src('favicon/manifest.json')
+    .pipe(changed(destination))
+    .pipe(replace('{path-to-root}', '../..'))
+    .pipe(gulp.dest(destination))
+    .pipe(connect.reload());
+});
+
 gulp.task('clean', function() {
   return del('dist');
 });
-
 
 function getFolders(cwd, dir) {
   var targetDirectory = path.join(cwd, dir);
@@ -224,28 +232,17 @@ gulp.task('build', ['js', 'js-classes',
   'fonts',
   'videos',
   'attachments',
-  'favicon'], function() {
+  'favicon',
+  'manifest'], function() {
   var folders = getFolders('.', 'classes').concat(getFolders('.', 'assignments')),
       tasks = folders.map(function(folder) {
         var t = [];
         t.push(gulp.src(['html/index.html'])
-          .pipe(replace('{path-to-root}', '../../.'))
+          .pipe(replace('{path-to-root}', '../..'))
           .pipe(gulp.dest(path.join('dist', folder))));
         return merge(t);
       });
   return merge(tasks);
-});
-
-gulp.task('deploy', [], function(done) {
-  ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
-});
-
-gulp.task('connect', ['build'], function() {
-  connect.server({
-    root: ['dist'],
-    livereload: true,
-    port: 8081
-  });
 });
 
 gulp.task('watch', function() {
@@ -258,5 +255,17 @@ gulp.task('watch', function() {
   gulp.watch('images/**/*', ['images']);
 });
 
-gulp.task('default', ['build']);
-gulp.task('serve', ['connect', 'watch']);
+gulp.task('dev', ['watch', 'build'], function(done) {
+  const port = 8081;
+  connect.server({
+    root: ['dist'],
+    port: port,
+    livereload: true
+  });
+
+  opn(`http://localhost:${port}`, done);
+});
+
+gulp.task('deploy', function(done) {
+  ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
+});
