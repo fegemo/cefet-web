@@ -27,10 +27,8 @@
   background-color: #6495ed;
   border: 2px solid #286ce6;
   color: #0e3479;
-  -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%;
-  -webkit-transform: rotate3d(0, 0, 1, -30deg);
-          transform: rotate3d(0, 0, 1, -30deg);
+  transform-origin: 100% 100%;
+  transform: rotate3d(0, 0, 1, -30deg);
   border-radius: 75px 75px 0 75px;
 }
 .spec-class:nth-child(2) {
@@ -43,10 +41,8 @@
   background-color: #9932cc;
   border: 2px solid #7a28a3;
   color: #3d1452;
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-  -webkit-transform: rotate3d(0, 0, 1, 30deg);
-          transform: rotate3d(0, 0, 1, 30deg);
+  transform-origin: 0 100%;
+  transform: rotate3d(0, 0, 1, 30deg);
   border-radius: 75px 75px 75px 0;
 }
 .spec-class .spec-output {

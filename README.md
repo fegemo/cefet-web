@@ -7,8 +7,6 @@
 ---
 # Aulas (página 1)
 
-testando workflow
-
 - [História da Web](classes/intro/) (25/02/2016)
 - [HTML 1 - Linguagem](classes/html1/) (01/03/2016)
 - [HTML 2 - Imagens e Plantas Carnívoras (Prática)](classes/html2/) (03/03/2016)
