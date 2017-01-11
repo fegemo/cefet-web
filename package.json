@@ -21,7 +21,7 @@
     "bespoke-forms": "^1.0.0",
     "bespoke-hash": "^1.0.2",
     "bespoke-keys": "^1.1.0",
-    "bespoke-meta-markdown": "1.0.0",
+    "bespoke-markdownit": "^1.0.0",
     "bespoke-progress": "^1.0.0",
     "bespoke-qrcode": "^1.0.0",
     "bespoke-scale": "^1.0.1",
@@ -30,9 +30,14 @@
     "bespoke-theme-fancy": "^0.6.0",
     "bespoke-touch": "^1.0.0",
     "cheet.js": "^0.3.3",
-    "specificity": "^0.3.0"
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-anchor": "^2.6.0",
+    "markdown-it-container": "^2.0.0",
+    "markdown-it-decorate": "^1.2.2",
+    "markdown-it-deflist": "^2.0.1",
+    "specificity": "^0.1.4"
   },
-  "devDependencies": {
+    "devDependencies": {
     "browserify": "^13.1.1",
     "del": "^2.2.2",
     "gh-pages": "^0.12.0",
@@ -58,5 +63,6 @@
   },
   "engines": {
     "node": ">=7.3.0"
-  }
+  },
+  "license": "MIT"
 }
