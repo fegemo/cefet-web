@@ -282,11 +282,11 @@ var callMetadata = function(deck, callbacks) {
     var metadata = slideMetadata[slideIndex];
     Object.keys(metadata).forEach(function(metadataFunctionName) {
       if (metadataFunctionName in callbacks) {
-        var metadataParams = Array.isArray(metadata[metadataFunctionName]) ?
-          metadata[metadataFunctionName].slice() :
-          [metadata[metadataFunctionName]];
-        metadataParams.unshift(deck.slides[parseInt(slideIndex)]);
-        callbacks[metadataFunctionName].apply(deck, metadataParams);
+        callbacks[metadataFunctionName].call(
+          deck,
+          deck.slides[parseInt(slideIndex)],
+          metadata[metadataFunctionName]
+        );
       }
     });
   });
