@@ -9,148 +9,77 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   overflow-x: auto;
   padding: 0.5em;
   background: #23241f;
-  -webkit-text-size-adjust: none;
 }
 
 .hljs,
 .hljs-tag,
-.css .hljs-rule,
-.css .hljs-value,
-.aspectj .hljs-function,
-.css .hljs-function
-.hljs-preprocessor,
-.hljs-pragma {
+.hljs-subst {
   color: #f8f8f2;
 }
 
-.hljs-strongemphasis,
 .hljs-strong,
 .hljs-emphasis {
   color: #a8a8a2;
 }
 
 .hljs-bullet,
-.hljs-blockquote,
-.hljs-horizontal_rule,
+.hljs-quote,
 .hljs-number,
 .hljs-regexp,
-.alias .hljs-keyword,
 .hljs-literal,
-.hljs-hexcolor {
+.hljs-link {
   color: #ae81ff;
 }
 
-.hljs-tag .hljs-value,
 .hljs-code,
 .hljs-title,
-.css .hljs-class,
-.hljs-class .hljs-title:last-child {
+.hljs-section,
+.hljs-selector-class {
   color: #a6e22e;
 }
 
-.hljs-link_url {
-  font-size: 80%;
-}
-
-.hljs-strong,
-.hljs-strongemphasis {
+.hljs-strong {
   font-weight: bold;
 }
 
-.hljs-emphasis,
-.hljs-strongemphasis,
-.hljs-class .hljs-title:last-child,
-.hljs-typename {
+.hljs-emphasis {
   font-style: italic;
 }
 
 .hljs-keyword,
-.ruby .hljs-class .hljs-keyword:first-child,
-.ruby .hljs-function .hljs-keyword,
-.hljs-function,
-.hljs-change,
-.hljs-winutils,
-.hljs-flow,
-.nginx .hljs-title,
-.tex .hljs-special,
-.hljs-header,
-.hljs-attribute,
-.hljs-symbol,
-.hljs-symbol .hljs-string,
-.hljs-tag .hljs-title,
-.hljs-value,
-.alias .hljs-keyword:first-child,
-.css .hljs-tag,
-.css .unit,
-.css .hljs-important {
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
   color: #f92672;
 }
 
-.hljs-function .hljs-keyword,
-.hljs-class .hljs-keyword:first-child,
-.hljs-aspect .hljs-keyword:first-child,
-.hljs-constant,
-.hljs-typename,
-.hljs-name,
-.css .hljs-attribute {
+.hljs-symbol,
+.hljs-attribute {
   color: #66d9ef;
 }
 
-.hljs-variable,
 .hljs-params,
-.hljs-class .hljs-title,
-.hljs-aspect .hljs-title {
+.hljs-class .hljs-title {
   color: #f8f8f2;
 }
 
 .hljs-string,
-.css .hljs-id,
-.hljs-subst,
 .hljs-type,
-.ruby .hljs-class .hljs-parent,
 .hljs-built_in,
-.django .hljs-template_tag,
-.django .hljs-variable,
-.smalltalk .hljs-class,
-.django .hljs-filter .hljs-argument,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
 .hljs-addition,
-.hljs-stream,
-.hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
-.tex .hljs-command,
-.hljs-prompt,
-.hljs-link_label,
-.hljs-link_url {
+.hljs-variable,
+.hljs-template-variable {
   color: #e6db74;
 }
 
 .hljs-comment,
-.hljs-annotation,
-.hljs-decorator,
-.hljs-pi,
-.hljs-doctype,
 .hljs-deletion,
-.hljs-shebang,
-.apache .hljs-sqbracket,
-.tex .hljs-formula {
+.hljs-meta {
   color: #75715e;
-}
-
-.coffeescript .javascript,
-.javascript .xml,
-.tex .hljs-formula,
-.xml .javascript,
-.xml .vbscript,
-.xml .css,
-.xml .hljs-cdata,
-.xml .php,
-.php .xml {
-  opacity: 0.5;
 }
 
 /* fonts for browser icons (used with permission from IcoMoon.io) */
@@ -362,29 +291,38 @@ body {
 body {
   background-color: #ffd5d5;
 }
-.bespoke-slide img.full-width {
+img.full-width {
   width: 100%;
 }
-.bespoke-slide img.large-width {
+img.large-width {
   width: 600px;
 }
-.bespoke-slide img.medium-width {
+img.medium-width {
   width: 400px;
 }
-.bespoke-slide img.small-width {
+img.small-width {
   width: 200px;
 }
-.bespoke-slide img.full-height {
+img.full-height {
   height: 100%;
 }
-.bespoke-slide img.large-height {
+img.huge-height {
+  height: 600px;
+}
+img.large-height {
   height: 400px;
 }
-.bespoke-slide img.medium-height {
+img.medium-height {
   height: 300px;
 }
-.bespoke-slide img.small-height {
+img.small-height {
   height: 200px;
+}
+img.block {
+  display: block;
+}
+.center-aligned {
+  text-align: center;
 }
 del {
   color: #808080;
@@ -431,6 +369,36 @@ th {
 th {
   color: #fff;
   background-color: #333;
+}
+blockquote {
+  position: relative;
+  margin: 0.25em 0;
+  padding: 0.25em 40px;
+  background: #f5f5f5;
+  box-shadow: 4px 4px 4px #c0c0c0;
+  line-height: 1.45;
+  font-size: 18px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #383838;
+}
+blockquote::before {
+  content: "\201C";
+  display: block;
+  position: absolute;
+  left: -0.25em;
+  top: -0.25em;
+  font-size: 80px;
+  color: #7a7a7a;
+}
+blockquote cite {
+  display: block;
+  margin-top: 5px;
+  font-size: 75%;
+  color: #999;
+}
+blockquote cite::before {
+  content: "\2014 \2009";
 }
 .horizontal-list {
   list-style: none;
@@ -576,15 +544,45 @@ kbd:hover {
   background-color: rgba(215,215,250,0.5);
 }
 .portrait,
-.portrait img {
+.portrait img,
+.floating-portrait-container * {
   display: inline-block;
   width: 100px;
   height: 100px;
   border-radius: 50px;
 }
 .portrait figcaption,
-.portrait img figcaption {
+.portrait img figcaption,
+.floating-portrait-container * figcaption {
   background-color: transparent;
+}
+.floating-portrait-container {
+  position: relative;
+}
+.floating-portrait-container * {
+  margin: 0;
+  animation: floating 2s ease-in-out 0s infinite alternate;
+}
+.floating-portrait-container::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  left: 0;
+  right: 0;
+  bottom: -20%;
+  background: radial-gradient(ellipse closest-side, rgba(21,21,21,0.25) 0%, rgba(255,255,255,0) 100%);
+  z-index: -1;
+  animation: floated-element-shadow 2s ease-in-out 0s infinite alternate;
+}
+.flips {
+  transition: transform 600ms ease-out;
+}
+.flips * {
+  margin: 0;
+}
+.flips:hover {
+  transform: rotateY(720deg);
 }
 .list-horizontal {
   list-style-type: none;
@@ -1189,6 +1187,16 @@ pre code span {
   word-wrap: break-word;
   word-break: break-all;
 }
+.figure-slides {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+.figure-step {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 input.switch:empty {
   display: block;
   margin-left: -999px;
@@ -1253,6 +1261,14 @@ img[alt$="right"] {
 }
 img[alt$="left"] {
   float: left;
+}
+.push-right {
+  float: right;
+  margin-left: 20px;
+}
+.push-left {
+  float: left;
+  margin-right: 20px;
 }
 .blastoff.bespoke-backdrop-active {
   background-image: url("../images/icanhaz-blastoff.gif");
@@ -1378,6 +1394,22 @@ img[alt$="left"] {
   }
   to {
     right: 40px;
+  }
+}
+@keyframes floating {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-25%);
+  }
+}
+@keyframes floated-element-shadow {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0.5);
   }
 }
 @keyframes dashes {
