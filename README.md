@@ -1,10 +1,33 @@
-# Programação Web
-*Professor:* Flávio Coutinho
+<!-- {"layout": "title"} -->
+# **Programação** Web
 
-<img class="page-author-picture" src="images/flavio-avatar.jpg">
+![](images/flavio-avatar.jpg) <!-- {.page-author-picture} -->
+
+## Plano de Ensino<br>por **Flávio Coutinho** e **Daniel Hasan**
 
 
 ---
+<!-- {"layout": "section-header"} -->
+# Plano de Ensino
+
+## Sumário do conteúdo
+
+[Slides](#slides)
+  ~ Conteúdo das aulas em _slides_
+
+[Ementa](#ementa)
+  ~ Objetivo e a descrição da matéria
+
+[Bibliografia](#bibliografia)
+  ~ Livros e materiais básicos e complementares
+
+[Avaliação](#avaliacao)
+  ~ O formato e os itens de distribuição dos pontos
+  
+<!-- {dl:.content} -->
+
+---
+<!-- {"slideHash": "slides"} -->
 # Aulas (página 1)
 
 - [História da Web](classes/intro/) (25/02/2016)
@@ -43,85 +66,103 @@
 - [CSS 5 - Animações e _Edukids Animals_ (Prática)](classes/css5/) (02/06/2015)
 - [Javascript 7 - EcmaScript 6](classes/js7/) (07/06/2016)
 
-<!--
-
+---
 # Aulas (página 4)
 
 - [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/) (18/06/2015)
--->
 
 ---
+<!--
+{
+  "slideHash": "ementa",
+  "layout": "section-header"
+}
+-->
 # Ementa
 
----
 ## Objetivos
 
 1. Criar páginas **HTML com uso de CSS e Javascript**
 1. Desenvolver **sistemas web dinâmicos** com banco de dados e Node.js
 1. Fazer trabalhos práticos legais
-1. Tornar-se um ninja Javascript
+1. Tornar-se um **ninja** Javascript
 
-
----
-# Bibliografia Básica
+<!-- {ol:.content} -->
 
 ---
+<!--
+{
+  "slideHash": "bibliografia",
+  "layout": "section-header"
+}
+-->
+# Bibliografia
+
+## Os textos e materiais que vamos usar
+
+Veja a bibliografia básica e a complementar.
+
+<!-- {p:.content} -->
+---
+<!-- { "styles": ["styles/classes/books.min.css"] } -->
 ## **Livro texto** da parte 1
 
-<figure class="book">
-  <ul class="hardcover_front" class="no-bullet">
-    <li class="no-bullet"><img src="images/book-head-first-html-css.jpg" width="100%" height="100%"></li>
-    <li class="no-bullet"></li>
-  </ul>
-  <ul class="page no-bullet">
-    <li class="no-bullet"></li>
-    <li class="no-bullet"><a class="book-btn" href="http://headfirstlabs.com/books/hfhtml/" target="blank">Sobre</a></li>
-    <li class="no-bullet"></li>
-    <li class="no-bullet"></li>
-    <li class="no-bullet"></li>
-  </ul>
-  <ul class="hardcover_back no-bullet">
-    <li class="no-bullet"></li>
-    <li class="no-bullet"></li>
-  </ul>
-  <ul class="book_spine no-bullet">
-    <li class="no-bullet"></li>
-    <li class="no-bullet"></li>
-  </ul>
-</figure>  
+::: figure .book
+- ![](images/book-head-first-html-css.jpg) <!-- {.full-width.full-height} -->
+- .
+<!-- {ul:.hardcover_front} -->
+- .
+- [Sobre](http://headfirstlabs.com/books/hfhtml/) <!-- {a:.book-btn target="_blank"} -->
+- .
+- .
+- .
+<!-- {ul:.page} -->
+- .
+- .
+<!-- {ul:.hardcover_back} -->
+- .
+- .
+<!-- {ul:.book_spine} -->
+:::
 
-- **Título**	Head First HTML and CSS, Second Edition
-- **Autores**	Elisabeth Robson, ~~Gordon~~ Eric Freeman
-- **Editora** O'Reilly Media, 2012
+**Título**
+	 ~ Head First HTML and CSS, Second Edition
+
+**Autores**
+	 ~ Elisabeth Robson, ~~Gordon~~ Eric Freeman
+
+**Editora**
+   ~ O'Reilly Media, 2012
 
 ---
 ## **Livro texto** da parte 2
 
-<figure class="book">
-  <ul class="hardcover_front" class="no-bullet">
-    <li class="no-bullet"><img src="images/book-nodejs-in-action.jpg" width="100%" height="100%"></li>
-    <li class="no-bullet"></li>
-  </ul>
-  <ul class="page no-bullet">
-    <li class="no-bullet"></li>
-    <li class="no-bullet"><a class="book-btn" href="https://www.manning.com/books/node-js-in-action" target="blank">Sobre</a></li>
-    <li class="no-bullet"></li>
-    <li class="no-bullet"></li>
-    <li class="no-bullet"></li>
-  </ul>
-  <ul class="hardcover_back no-bullet">
-    <li class="no-bullet"></li>
-    <li class="no-bullet"></li>
-  </ul>
-  <ul class="book_spine no-bullet">
-    <li class="no-bullet"></li>
-    <li class="no-bullet"></li>
-  </ul>
-</figure>  
+::: figure .book
+- ![](images/book-nodejs-in-action.jpg) <!-- {.full-width.full-height} -->
+- .
+<!-- {ul:.hardcover_front} -->
+- .
+- [Sobre](https://www.manning.com/books/node-js-in-action) <!-- {a:.book-btn target="_blank"} -->
+- .
+- .
+- .
+<!-- {ul:.page} -->
+- .
+- .
+<!-- {ul:.hardcover_back} -->
+- .
+- .
+<!-- {ul:.book_spine} -->
+:::
 
-- **Título**	Node.js in Action, First Edition
-- **Autores**	Mike Cantelon, Marc Harter, T.J. Holowaychuk, Nathan Rajlich
-- **Editora** Manning
+**Título**
+  ~ Node.js in Action, First Edition
+
+**Autores**
+  ~ Mike Cantelon, Marc Harter, T.J. Holowaychuk, Nathan Rajlich
+
+**Editora**
+  ~ Manning
 
 ---
 # Bibliografia Complementar
@@ -134,7 +175,7 @@
   <div class="book-left book-light"></div>
 </div>
 
-- [Online, gratuito](http://diveintohtml5.com.br/)
+- [Online](http://diveintohtml5.com.br/), gratuito
 
 ---
 ## JavaScript: The Good Parts
@@ -161,13 +202,23 @@
 - **Editora** O'Reilly Media, 2011
 
 ---
-# Distribuição de Pontos
+<!--
+{
+  "slideHash": "avaliacao",
+  "layout": "section-header"
+}
+-->
+# Avaliação
+
+## Esta é a distribuição de pontos por bimestre
 
 - ~10 Atividades práticas: **20** pontos
 - Questionários marotos: **10** pontos
 - 1 Prova Final: **15** pontos
 - 1 Seminário: **15** pontos
 - Projeto Prático: **15** pontos
+
+<!-- {ul:.content} -->
 
 ---
 # Prova (15 pontos)
