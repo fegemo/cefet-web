@@ -40,7 +40,7 @@ var canIUse = (function () {
     //  Customise HTML here
     var TMPL_TITLE = '<h2>{title}</h2>', // feature title {title}
         TMPL_STATUS = '<p class="status">{status}</p>', // feature status (W3C Recommendation) {status}
-        TMPL_DESCRIPTION = '<p>Suportado à partir de:</p>', // description to user
+        TMPL_DESCRIPTION = '<p>Suportado a partir de:</p>', // description to user
         TMPL_DESKTOP_TITLE = '', // desktop header
         TMPL_MOBILE_TITLE = '', // mobile header
         TMPL_SUPPORT_WRAPPER = '<ul class="agents">{items}</ul>', // support wrapper {items}
@@ -339,8 +339,6 @@ var canIUse = (function () {
     };
 }());
 
-function canIUseDataLoaded(data) {
+window.canIUseDataLoaded = function canIUseDataLoaded(data) {
     canIUse.dataLoaded(data);
-}
-
-module.exports = {canIUseDataLoaded: canIUseDataLoaded};
+};

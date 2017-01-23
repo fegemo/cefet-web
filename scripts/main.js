@@ -1,7 +1,5 @@
-// Require Node modules in the browser thanks to Browserify: http://browserify.org
-
 var bespoke = require('bespoke'),
-    fancy = require('bespoke-theme-fancy'),
+    beachday = require('bespoke-theme-beachday'),
     keys = require('bespoke-keys'),
     touch = require('bespoke-touch'),
     bullets = require('bespoke-bullets'),
@@ -16,20 +14,14 @@ var bespoke = require('bespoke'),
     markdownItAbbr = require('markdown-it-abbr'),
     markdownItContainer = require('markdown-it-container'),
     markdownItDecorate = require('markdown-it-decorate'),
-    // markdown = require('bespoke-meta-markdown'),
     forms = require('bespoke-forms'),
     backdrop = require('bespoke-backdrop'),
-    qrcode = require('bespoke-qrcode'),
     easter = require('./easter'),
-    tutorial = require('./tutorial'),
-    caniuseWidget = require('./caniuse');
+    tutorial = require('./tutorial');
 
 // Bespoke.js
 bespoke.from('article', [
   markdown({
-    alert: function(message, index) {
-      alert(message + ' from slide no ' + index);
-    },
     backdrop: function(slide, value) {
       slide.setAttribute('data-bespoke-backdrop', value);
     },
@@ -68,6 +60,12 @@ bespoke.from('article', [
       var s = document.createElement('style');
       s.innerHTML = styleString;
       document.head.appendChild(s);
+    },
+    slideHash: function(slide, value) {
+      slide.setAttribute('data-bespoke-hash', value);
+    },
+    layout: function(slide, value) {
+      slide.classList.add('layout-' + value);
     }
   }, [
     [
@@ -110,26 +108,21 @@ bespoke.from('article', [
     markdownItAbbr,
     markdownItDecorate
   ]),
-  fancy(),
+  beachday({ insertFonts: false }),
   keys(),
   touch(),
   overview({ insertStyles: false }),
   bullets('.bullet'),
-  // bullets('li:not(.bullet-old), .bullet, dt:not(.bullet-old), dd:not(.bullet-old)'),
-  // scale(),
+  scale('transform'),
+  progress(), // progress must be after scale
   hash(),
-  progress(),
   state(),
   forms(),
   backdrop(),
-  qrcode(),
   tutorial(document.getElementsByClassName('tutorial')[0])
 ]);
 
 easter();
-
-// Can I Use widget
-window.canIUseDataLoaded = caniuseWidget.canIUseDataLoaded;
 
 // Used to load gmaps api async (it requires a callback to be passed)
 window.noop = function() {};

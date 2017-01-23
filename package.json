@@ -24,10 +24,10 @@
     "bespoke-markdownit": "^1.0.0",
     "bespoke-progress": "^1.0.0",
     "bespoke-qrcode": "^1.0.0",
-    "bespoke-scale": "^1.0.1",
+    "bespoke-scale": "fegemo/bespoke-scale",
     "bespoke-simple-overview": "^1.0.0",
     "bespoke-state": "^1.0.0",
-    "bespoke-theme-fancy": "^0.6.0",
+    "bespoke-theme-beachday": "^1.0.0",
     "bespoke-touch": "^1.0.0",
     "cheet.js": "^0.3.3",
     "markdown-it-abbr": "^1.0.4",
@@ -35,10 +35,10 @@
     "markdown-it-container": "^2.0.0",
     "markdown-it-decorate": "^1.2.2",
     "markdown-it-deflist": "^2.0.1",
-    "specificity": "^0.1.4"
+    "specificity": "^0.3.0"
   },
-    "devDependencies": {
-    "browserify": "^13.1.1",
+  "devDependencies": {
+    "browserify": "^13.3.0",
     "del": "^2.2.2",
     "gh-pages": "^0.12.0",
     "glob": "^7.1.1",
@@ -51,7 +51,7 @@
     "gulp-preprocess": "^2.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
-    "gulp-sourcemaps": "^1.9.1",
+    "gulp-sourcemaps": "^2.4.0",
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.8",
