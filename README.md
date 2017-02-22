@@ -29,12 +29,11 @@
 # Aulas
 
 - [História da Web](classes/intro/)
-- [HTML 1](classes/html1/)
-  - Funcionamento da Web, Estrutura básica do HTML, Tags e Introdução a CSS
-- [HTML 2 - Imagens e Plantas Carnívoras (Prática)](classes/html2/)
+- [HTML 1 - Funcionamento da Web, Estrutura da HTML e CSS](classes/html1/)
+- [HTML 2 - Imagens, Tabelas e Plantas Carnívoras (Prática)](classes/html2/)
+- [HTML 3 - Multimídia](classes/html3/)
 
 <!--
-- [HTML 3 - Multimídia](classes/html3/)
 - [CSS 1 - Seletores e Ninjas (Prática)](classes/css1/)
 - [CSS 2 - Especificidade](classes/css2/)
 - [HTML 4 - Box Model e Unicórnios (Prática)](classes/html4/)
@@ -204,27 +203,34 @@ Veja a bibliografia básica e a complementar.
 -->
 # Avaliação
 
-## Esta é a distribuição de pontos por bimestre
+## Esta é a distribuição de pontos no semestre
 
-- ~10 Atividades práticas: **20** pontos
+- ~10 Atividades práticas: **30** pontos
 - Questionários marotos: **10** pontos
 - 1 Prova Final: **15** pontos
 - 1 Seminário: **15** pontos
-- Projeto Prático: **15** pontos
+- Trabalhos Práticos:
+  1. TP0: **3** pontos
+  1. TP1: **12** pontos
+  1. TP2: **15** pontos
 
 <!-- {ul:.content} -->
 
 ---
 # Prova (15 pontos)
 
-- Prova (15 pontos) - data: <abbr title="To be defined">TBD</abbr> (ao final)
-- Exame especial (100 pontos) - data: <abbr title="To be defined">TBD</abbr>
+- Prova final (15 pontos) - data: TBD (ao final)
+
+*[TBD]: to be defined*
 
 ---
-# Trabalhos (55 pontos)
+# Trabalhos (30 pontos)
 
-- [TP0: Git][tp0] (3 pontos, data: 01/03/2015 10:40)
+- [TP0: Git][tp0] (3 pontos, data: 02/02/2017 10:40)
+- TP1: (12 pontos, data: TBD)
 - Seminário: APIs HTML5  (15 pontos, data: TBD)
-- Projeto: (40 pontos em 2 entregas, data TBD)
+- TP2: (15 pontos, data: TBD)
+
+*[TBD]: to be defined*
 
 [tp0]: assignments/tp0
