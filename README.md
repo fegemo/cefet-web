@@ -1,9 +1,7 @@
 <!-- {"layout": "title"} -->
 # **Programação** Web
 
-![](images/flavio-avatar.jpg) <!-- {.page-author-picture} -->
-
-## Plano de Ensino<br>por **Flávio Coutinho** e **Daniel Hasan**
+## Plano de Ensino<br>por **Flávio Coutinho**
 
 
 ---
@@ -23,7 +21,7 @@
 
 [Avaliação](#avaliacao)
   ~ O formato e os itens de distribuição dos pontos
-  
+
 <!-- {dl:.content} -->
 
 ---
