@@ -1,9 +1,7 @@
 <!-- {"layout": "title"} -->
 # **Programação** Web
 
-![](images/flavio-avatar.jpg) <!-- {.page-author-picture} -->
-
-## Plano de Ensino<br>por **Flávio Coutinho** e **Daniel Hasan**
+## Plano de Ensino<br>por **Flávio Coutinho**
 
 
 ---
@@ -27,12 +25,10 @@
 <!-- {dl:.content} -->
 
 ---
-<!-- {"slideHash": "slides", "layout": "regular"} -->
-# Aulas
+<!-- {"slideHash": "slides"} -->
+# Aulas (página 1)
 
 - [História da Web](classes/intro/) (25/02/2016)
-
-<!--
 - [HTML 1 - Linguagem](classes/html1/) (01/03/2016)
 - [HTML 2 - Imagens e Plantas Carnívoras (Prática)](classes/html2/) (03/03/2016)
 - [HTML 3 - Multimídia](classes/html3/) (08/03/2016)
@@ -41,7 +37,7 @@
 - [HTML 4 - Box Model e Unicórnios (Prática)](classes/html4/) (20/03/2016)
 - [Javascript 1 - Linguagem](classes/js1/) (22/03/2016)
 
-
+---
 # Aulas (página 2)
 
 - [CSS 3 - _Layout_](classes/css3/) (29/03/2016)
@@ -53,7 +49,7 @@
 - Palestra do ~~Profissional da Indústria~~ Pedro Colen: Git (19/04/2016)
 - [HTML 5 - Formulários e Monstros (Prática)](classes/html5/) (26/04/2016)
 
-
+---
 # Aulas (página 3)
 
 - [Node.js 1 - Servidores Web](classes/ssn1/) (03/05/2016)
@@ -68,12 +64,10 @@
 - [CSS 5 - Animações e _Edukids Animals_ (Prática)](classes/css5/) (02/06/2015)
 - [Javascript 7 - EcmaScript 6](classes/js7/) (07/06/2016)
 
-
+---
 # Aulas (página 4)
 
 - [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/) (18/06/2015)
-
--->
 
 ---
 <!--
@@ -214,34 +208,27 @@ Veja a bibliografia básica e a complementar.
 -->
 # Avaliação
 
-## Esta é a distribuição de pontos no semestre
+## Esta é a distribuição de pontos por bimestre
 
-- ~10 Atividades práticas: **30** pontos
+- ~10 Atividades práticas: **20** pontos
 - Questionários marotos: **10** pontos
 - 1 Prova Final: **15** pontos
 - 1 Seminário: **15** pontos
-- Trabalhos Práticos:
-  1. TP0: **3** pontos
-  1. TP1: **12** pontos
-  1. TP2: **15** pontos
+- Projeto Prático: **15** pontos
 
 <!-- {ul:.content} -->
 
 ---
 # Prova (15 pontos)
 
-- Prova final (15 pontos) - data: TBD (ao final)
-
-*[TBD]: to be defined*
+- Prova (15 pontos) - data: <abbr title="To be defined">TBD</abbr> (ao final)
+- Exame especial (100 pontos) - data: <abbr title="To be defined">TBD</abbr>
 
 ---
-# Trabalhos (30 pontos)
+# Trabalhos (55 pontos)
 
-- [TP0: Git][tp0] (3 pontos, data: 02/02/2017 10:40)
-- TP1: (12 pontos, data: TBD)
+- [TP0: Git][tp0] (3 pontos, data: 01/03/2015 10:40)
 - Seminário: APIs HTML5  (15 pontos, data: TBD)
-- TP2: (15 pontos, data: TBD)
-
-*[TBD]: to be defined*
+- Projeto: (40 pontos em 2 entregas, data TBD)
 
 [tp0]: assignments/tp0
