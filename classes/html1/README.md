@@ -1,15 +1,19 @@
+<!-- {"layout": "title"} -->
 # HTML
+## HTML, seus ingredientes (_tags_) e<br>temperando com CSS
 
 ---
-## Na última aula...
+<!-- {"layout": "regular"} -->
+# Na última aula...
 
 - Conversamos sobre a história da Internet e da Web
-- Vimos as proezas de Tim (Berners-Lee), o coração valente, ao criar
-  ![Foto de Tim Berners-Lee](../../images/tim-berners-lee.jpg) <!-- {.portrait.push-right} -->
-  - Seu primeiro protocolo (http)
-  - Seu primeiro formato de arquivo (html)
-  - Seu primeiro servidor http (CERN httpd)
-  - Sua primeiro navegador (WorldWideWeb)
+- ![Foto de Tim Berners-Lee](../../images/tim-berners-lee.jpg) <!-- {.portrait.push-right} --> Vimos as proezas de Tim (Berners-Lee), o coração valente, ao criar:
+  - O protocolo http
+  - A linguagem HTML
+  - Um servidor web (CERN httpd)
+  - O primeiro navegador (WorldWideWeb)
+  - ~~A linguagem CSS~~
+  - ~~A linguagem JavaScript~~
 
 ---
 # Hoje vamos falar sobre
@@ -20,22 +24,31 @@
 1. Um pouco de estilo `css`
 
 ---
+<!-- {"layout": "section-header"} -->
 # Funcionamento da Web
 
+- Uma **conversa** entre o servidor e o navegador
+  - Navegador envia **requisições**
+  - Servidor recebe-as e envia **respostas**
+
+<!-- {ul^1:.content} -->
+
 ---
-## Servidores Web e Navegadores
+## **Servidores** Web e **Navegadores**
 
 ![Como servidores web se comunicam com navegadores](../../images/how-web-works.png)
 
 ---
-## O que um **servidor web** faz?
+# O que um **servidor web** faz?
 
 ![Um servidor web atendendo a requisições de arquivos html de um navegador](../../images/web-servers.png)
 
-- Ele fica escutando, em determinada porta (geralmente 80), requisições de
-  arquivo realizadas por navegadores
+Ele **fica escutando**, em determinadas **portas** (geralmente 80 e 443),
+**requisições de** "arquivo" (na verdade, **recursos**) **realizadas por
+navegadores**
 
 ---
+<!-- {"layout": "regular"} -->
 ## O que um **servidor web** faz (cont.)?
 
 - Vários tipos de requisições
@@ -45,6 +58,7 @@
 - Envia resposta com o recurso solicitado de volta ao navegador
 
 ---
+<!-- {"layout": "regular"} -->
 ## O que um **navegador** faz?
 
 ![Um navegador recebendo uma resposta html e mostrando na tela](../../images/web-browser.png)
@@ -53,6 +67,7 @@
   **recurso** ao servidor
 
 ---
+<!-- {"layout": "regular"} -->
 ## O que um **navegador** faz (cont.)?
 
 - URL: Unique **Resource** Locator
@@ -63,8 +78,26 @@
   - Por exemplo, os navegadores não conseguem exibir um arquivo .zip
 
 ---
+<!-- {"layout": "regular"} -->
+# Simulando um navegador
+
+- A ferramenta `curl` é um **cliente web** (_aka_ _user-agent_), assim
+  como é um navegador, porém, em linha de comando
+  - Como o navegador trabalha:
+    1. **Solicita a página** das ovelhas: `curl -v https://fegemo.github.io/cefet-web-ovelhas/racas-raras.html`
+      - Então, **começa a fazer o _parsing_** do arquivo HTML
+    1. Encontra a referência e **solicita o arquivo CSS**: `curl -v https://fegemo.github.io/cefet-web-ovelhas/estilos.css`
+    1. Solicita **o ícone**... depois, **cada imagem**...
+    1. Solicita os **dois arquivos JavaScript**... fim.
+
+---
+[![](../../images/request-response-waterfall.png)](https://fegemo.github.io/cefet-web-ovelhas/racas-raras.html)
+
+---
+<!-- {"layout": "section-header"} -->
 # Estrutura Básica do **HTML**
 
+-
 ---
 ![Exemplo de um arquivo html](../../images/exemplo-html.png)
 
@@ -74,7 +107,8 @@
 - Demonstração: criando uma página no "blocão"
 
 ---
-## Estrutura
+<!-- {"layout": "regular"} -->
+# Estrutura
 
 - Um punhado de **tags** no texto
   - As _tags_ fazem a marcação da estrutura do texto
@@ -122,7 +156,15 @@
 ## Exemplo de tag: &lt;p&gt;...&lt;p&gt; (cont.)
 
 - Resultado: um bloco de texto com quebras de linha onde foram necessárias.
-  <iframe width="100%" height="300" src="http://jsfiddle.net/fegemo/62afu86f/embedded/result,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<p style="font-family: serif; font-size: 100%; padding: 1em; background: #333; color: white; border-radius: 0.25em; width: 50%">
+  "Um dos maiores problemas encontrados em viajar no tempo não é
+  vir a se tornar acidentalmente seu próprio pai ou mãe. Não há
+  nenhum problema em tornar-se seu próprio pai ou mãe com que
+  uma família de mente aberta e bem ajustada não possa lidar."
+</p>
+
+- [Exemplo no jsfiddle](http://jsfiddle.net/fegemo/62afu86f/)
 
 ---
 ## Anatomia de uma _tag_
@@ -193,17 +235,24 @@
 ---
 ## Como o navegador decide **como vai exibir** as _tags_ html?
 
-- Estilos padrão
-  - Cor: preto
-  - Fundo de tela: branco
-  - Fonte: Times New Roman
+- Usando seus estilos padrão
+  - Cor: preta
+  - Fundo de tela: branca
+  - Fonte: Times New Roman, ou alguma fonte _serif_
 - Cada navegador pode ter um estilo padrão diferente
 - É possível e altamente recomendável **criar estilos próprios**
 - Vamos conhecer agora uma segunda linguagem: CSS
 
 ---
+<!-- {"layout": "section-header"} -->
 # Um pouco de estilo
 ## Conhecendo CSS - Cascading Stylesheets
+
+- Definindo estilo
+- Algumas regras e propriedades CSS
+- O atalho para `padding`
+
+<!-- {ul:.content} -->
 
 ---
 ## Definindo o estilo
@@ -282,7 +331,7 @@ body {
     - `padding-bottom:`
     - `padding-left:`
   - Se usarmos a propriedade de atalho, definimos valores para as propriedades
-    originais na ordem acima (cima, direita, baixo, esquerda)
+    originais **na ordem** acima (**cima, direita, baixo, esquerda**)
 
 ---
 ## Mais sobre atalhos

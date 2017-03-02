@@ -25,49 +25,45 @@
 <!-- {dl:.content} -->
 
 ---
-<!-- {"slideHash": "slides"} -->
-# Aulas (página 1)
+<!-- {"slideHash": "slides", "layout": "regular"} -->
+# Aulas
 
-- [História da Web](classes/intro/) (25/02/2016)
-- [HTML 1 - Linguagem](classes/html1/) (01/03/2016)
-- [HTML 2 - Imagens e Plantas Carnívoras (Prática)](classes/html2/) (03/03/2016)
-- [HTML 3 - Multimídia](classes/html3/) (08/03/2016)
-- [CSS 1 - Seletores e Ninjas (Prática)](classes/css1/) (10/03/2016)
-- [CSS 2 - Especificidade](classes/css2/) (15/03/2016)
-- [HTML 4 - Box Model e Unicórnios (Prática)](classes/html4/) (20/03/2016)
-- [Javascript 1 - Linguagem](classes/js1/) (22/03/2016)
+- [História da Web](classes/intro/)
+- [HTML 1](classes/html1/)
+  - Funcionamento da Web, Estrutura básica do HTML, Tags e Introdução a CSS
+- [HTML 2 - Imagens e Plantas Carnívoras (Prática)](classes/html2/)
 
----
+<!--
+- [HTML 3 - Multimídia](classes/html3/)
+- [CSS 1 - Seletores e Ninjas (Prática)](classes/css1/)
+- [CSS 2 - Especificidade](classes/css2/)
+- [HTML 4 - Box Model e Unicórnios (Prática)](classes/html4/)
+- [Javascript 1 - Linguagem](classes/js1/)
+
 # Aulas (página 2)
 
-- [CSS 3 - _Layout_](classes/css3/) (29/03/2016)
-- [CSS 4 - _Layout_ e o Coral 55 (Prática)](classes/css4/) (31/03/2016)
-- [Javascript 5 - APIs do HTML5](classes/js5/) (05/05/2016)
-- [Javascript 2 - DOM, Eventos e RPG (Prática)](classes/js2/) (07/04/2016)
-- [Javascript 3 - Padrões de Projeto](classes/js3/) (12/04/2016)
-- [Javascript 4 - JSON e AJAX (Prática)](classes/js4/) (14/05/2016)
-- Palestra do ~~Profissional da Indústria~~ Pedro Colen: Git (19/04/2016)
-- [HTML 5 - Formulários e Monstros (Prática)](classes/html5/) (26/04/2016)
+- [CSS 3 - _Layout_](classes/css3/)
+- [CSS 4 - _Layout_ e o Coral 55 (Prática)](classes/css4/)
+- [Javascript 5 - APIs do HTML5](classes/js5/)
+- [Javascript 2 - DOM, Eventos e RPG (Prática)](classes/js2/)
+- [Javascript 3 - Padrões de Projeto](classes/js3/)
+- [Javascript 4 - JSON e AJAX (Prática)](classes/js4/)
+- [HTML 5 - Formulários e Monstros (Prática)](classes/html5/)
+- [Node.js 1 - Servidores Web](classes/ssn1/)
+- [Node.js 2 - NPM, arquivos e _learnyounode_ (Prática)](classes/ssn2/)
 
----
 # Aulas (página 3)
 
-- [Node.js 1 - Servidores Web](classes/ssn1/) (03/05/2016)
-- [Node.js 2 - NPM, arquivos e _learnyounode_ (Prática)](classes/ssn2/)
-  (05/05/2016)
-- [Node.js 3 - Express](classes/ssn3/) (10/05/2016)
-- [Node.js 4 - HTML Dinâmico e o Geiser (Prática)](classes/ssn4/) (12/05/2016)
-- [Node.js 5 - Sessão e Biscoitos](classes/ssn5/) (17/05/2016)
-- [Node.js 6 - Bancos de Dados e Zumbis (Prática)](classes/ssn6/) (19/05/2016)
-- [Node.js 7 - REST APIs](classes/ssn7/) (24/05/2016)
-- [CSS 6 - _Responsive Design_](classes/css6/) (31/05/2016)
-- [CSS 5 - Animações e _Edukids Animals_ (Prática)](classes/css5/) (02/06/2015)
-- [Javascript 7 - EcmaScript 6](classes/js7/) (07/06/2016)
-
----
-# Aulas (página 4)
-
-- [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/) (18/06/2015)
+- [Node.js 3 - Express](classes/ssn3/)
+- [Node.js 4 - HTML Dinâmico e o Geiser (Prática)](classes/ssn4/)
+- [Node.js 5 - Sessão e Biscoitos](classes/ssn5/)
+- [Node.js 6 - Bancos de Dados e Zumbis (Prática)](classes/ssn6/)
+- [Node.js 7 - REST APIs](classes/ssn7/)
+- [CSS 6 - _Responsive Design_](classes/css6/)
+- [CSS 5 - Animações e _Edukids Animals_ (Prática)](classes/css5/)
+- [Javascript 7 - EcmaScript 6](classes/js7/)
+- [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/)
+-->
 
 ---
 <!--
