@@ -14,6 +14,7 @@ var bespoke = require('bespoke'),
     markdownItAbbr = require('markdown-it-abbr'),
     markdownItContainer = require('markdown-it-container'),
     markdownItDecorate = require('markdown-it-decorate'),
+    markdownItEmoji = require('markdown-it-emoji'),
     forms = require('bespoke-forms'),
     backdrop = require('bespoke-backdrop'),
     easter = require('./easter'),
@@ -106,7 +107,8 @@ bespoke.from('article', [
     markdownItAnchor,
     markdownItDefList,
     markdownItAbbr,
-    markdownItDecorate
+    markdownItDecorate,
+    markdownItEmoji
   ]),
   beachday({ insertFonts: false }),
   keys(),

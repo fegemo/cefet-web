@@ -31,10 +31,10 @@
 - [História da Web](classes/intro/)
 - [HTML 1 - Funcionamento da Web, Estrutura da HTML e CSS](classes/html1/)
 - [HTML 2 - Imagens, Tabelas e Plantas Carnívoras (Prática)](classes/html2/)
-- [HTML 3 - Multimídia](classes/html3/)
+- [HTML 3 - Ferramentas, Multimídia e a Cabeça (_i.e._, `head`)](classes/html3/)
+- [CSS 1 - Seletores e Ninjas (Prática)](classes/css1/)
 
 <!--
-- [CSS 1 - Seletores e Ninjas (Prática)](classes/css1/)
 - [CSS 2 - Especificidade](classes/css2/)
 - [HTML 4 - Box Model e Unicórnios (Prática)](classes/html4/)
 - [Javascript 1 - Linguagem](classes/js1/)

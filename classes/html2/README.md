@@ -1,11 +1,13 @@
+<!-- {"layout": "title"} -->
 # HTML - Parte 2
+## Imagens, Tabelas e Plantas Carnívoras
 
 ---
 # Hoje vamos
 
 - Aprender sobre plantas carnívoras \o/
-- Praticar `html`: imagens, hiperlinks, tabelas, citações, ênfase, destaque etc.
-- Praticar `css`: _color_, _margin_, _text-align_ etc.
+- Praticar HTML: imagens, hiperlinks, tabelas, citações, ênfase, destaque etc.
+- Praticar CSS: _color_, _margin_, _text-align_ etc.
 
 ---
 # Atividade de Hoje
@@ -16,7 +18,7 @@ documento solto em um antigo livro do seu tio e, depois de lê-lo, decidiu
 uma **pequena loja de sementes** dessas plantas e deseja divulgá-la em uma
 página web.
 
-![Planta carnívora do jogo Mario Bros](../../images/piranha-mario.png) <!-- {.portrait} -->
+![Planta carnívora do jogo Mario Bros](../../images/piranha-mario.png)
 
 ---
 ## Passos para o exercício
@@ -25,7 +27,7 @@ página web.
 1. **Criar um _fork_** do repositório do professor em [`https://github.com/fegemo/cefet-web-piranha-plant`](https://github.com/fegemo/cefet-web-piranha-plant)
   e **cloná-lo para sua área de trabalho**
 1. Fazer o exercício e fazer _commits_ e _push_ no seu repositório
-  - O arquivo `REAMDE.md` do repositório contém as instruções do exercício
+   - O arquivo `README.md` do repositório contém as instruções do exercício
 1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
 
 ---
