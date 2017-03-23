@@ -1,4 +1,6 @@
-﻿# CSS - Parte 2
+<!-- {"layout": "title"} -->
+# CSS - Parte 2
+## Especificidade, propriedades mil, cores e gradientes e Web Fonts
 
 ---
 # Roteiro de hoje
@@ -13,34 +15,62 @@
 1. Projeto: Entrega 1
 
 ---
+<!-- {"layout": "section-header"} -->
 # Especificidade de seletores
+## Aplicando regras
+
+- Mais de uma regra definindo a mesma propriedade
+- Regras de especificidade
+- Especificator Tabajara(tm)
+
+<!-- {ul:.content} -->
 
 ---
 ## Motivação
 
-- Dadas mais de uma regra `CSS` para um elemento, qual prevalece?
+- Dadas <u>mais de uma regra `CSS` definindo a mesma propriedade</u> para
+  um elemento, qual prevalece?
   - Como determinar qual a cor do elemento?
     ```html
     <style>
-      .destaque { color: red; }
-      #titulo   { color: green; }
-      h1        { color: blue; }
+      h4 { color: black; }
+      h4 { color: white; }      
     </style>
 
-    <h1 id="titulo" class="destaque">Ford Prefect</h1>
+    <h4>Arthur Dent</h4> <!-- qual a cor de Arthur Dent? -->
     ```
+
 ---
+## Mais Difícil...
+
+```html
+<style>
+  .destaque { color: red; }
+  #titulo   { color: green; }
+  h4        { color: blue; }
+</style>
+
+<h4 id="titulo" class="destaque">Ford Prefect</h4>
+```
+- E agora??
+- Os **3 seletores <u>se aplicam</u>** ao elemento! <!-- {ul:.bulleted} -->
+  - Mas com **prioridades diferentes**
+  - (↑) mais específico o seletor da regra → (↑) maior sua prioridade
+    - Neste caso, <h4 style="display: inline; color: green;">Ford Prefect (`green`)</h4>
+
+---
+<!-- {"layout": "regular"} -->
 ## Regras gerais de especificidade
 
-Regra 1
+Regra 1 <!-- {dl:.bulleted} -->
   ~ Cada seletor tem uma **pontuação de especificidade**
 
 Regra 2
-  ~ Se dois seletores selecionam o mesmo elemento, mas com pontuações 
+  ~ Se dois seletores selecionam o mesmo elemento, mas com pontuações
     diferentes, ganha aquele com pontuação maior
 
 Regra 3
-  ~ Se dois seletores selecionam o mesmo elemento e têm a mesma 
+  ~ Se dois seletores selecionam o mesmo elemento e têm a mesma
     pontuação, ganha o que foi declarado por último
 
 Regra 4
@@ -50,9 +80,10 @@ Regra 5
   ~ ID &gt;&gt; classe &gt;&gt; atributo &gt;&gt; tag
 
 ---
+<!-- {"layout": "regular"} -->
 ## Cálculo da **pontuação de especificidade**
 
-- [Recomendação na W3C sobre _CSS3 Selectors_](http://www.w3.org/TR/css3-selectors/#specificity)
+- [Especificação na W3C sobre _CSS3 Selectors_](http://www.w3.org/TR/css3-selectors/#specificity)
 - Algoritmo
   1. Contar o número de IDs no seletor (variável `a`)
   1. Contar o número de classes, atributos e pseudo-classes no seletor (`b`)
@@ -127,6 +158,17 @@ p strong em { }           /* 003 */
 </article>
 
 ---
+<!-- {"layout": "section-header"} -->
+# Propriedades diversas
+## Estilizando fundos, bordas e definindo cores
+
+- Propriedades `background-*`
+- Propriedades `border-*`
+- Definindo cores e gradientes
+- Propriedades `text-*`
+- Propriedades `font-*`
+
+---
 <!--
 {
   "slideHash": "propriedades-background"
@@ -138,10 +180,15 @@ p strong em { }           /* 003 */
 ## **background**
 
 - Usada para definir o preechimento do fundo de uma caixa (_box model_)
-- A propriedade `background ` é um atalho para
-  - `background-clip, background-color, background-image, background-origin,
-    background-position, background-repeat, background-size` e
-    `background-attachment.`
+- A propriedade `background ` é um atalho para:
+  - `background-clip`
+  - `background-color`
+  - `background-image`
+  - `background-origin`
+  - `background-position`
+  - `background-repeat`
+  - `background-size` e
+  - `background-attachment.` <!-- {ul:.multi-column-list-2} -->
 
 ---
 ## **`background-color`**
@@ -256,7 +303,7 @@ p strong em { }           /* 003 */
 ![](../../images/border-color.png)
 
 ---
-## Especificando **propriedades para cada lado**
+## Especificando **propriedades <u>para cada lado</u>**
 
 ![](../../images/border-sides.png)
 
@@ -266,7 +313,9 @@ p strong em { }           /* 003 */
 ![](../../images/border-radius.png)
 
 ---
-# Cores e gradientes
+<!-- {"embeddedStyles": ".color-text { color: #afaf03; } .gradient-text { background: linear-gradient(to right, #1bff00, #44b2d8, #b934d0); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}" } -->
+# <span class="color-text">Cores</span> e <span class="gradient-text">Gradientes</span>
+
 
 ---
 ## Cor
@@ -289,7 +338,7 @@ p strong em { }           /* 003 */
   hsl(60, 100%,50%)
   rgba(255,0,0,0.1)         /* 10% opaque red */  
   hsla(240,100%,50%,0.05)   /* 5% opaque blue */
-  rebeccapurple             /* !!! CSS4 */
+  rebeccapurple
   ```
   <div style="font-size: 1.5em; color: #663399; font-family: Calligraffitti, cursive">Rebecca Purple</div>
 
@@ -299,7 +348,7 @@ p strong em { }           /* 003 */
 - Assim como `color`,
   [`gradient`](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient) é
   um tipo de dados em CSS
-  - **Herda de 
+  - **Herda de
     [`image`](https://developer.mozilla.org/en-US/docs/Web/CSS/image)**,
     não de `color`
     - Ou seja, `linear-gradient` é um **valor válido para `background-image`**,
@@ -308,7 +357,7 @@ p strong em { }           /* 003 */
   ```css
   linear-gradient( 45deg, blue, red );
   linear-gradient( to left top, blue, red);
-  linear-gradient( 90deg, blue, white 20%, red ); /* exemplo */
+  linear-gradient( 90deg, blue, white 20%, red ); /* exemplo abaixo */
   ```
   <div style="background-image: linear-gradient(90deg, blue, white 20%, red)">
     Conteúdo
@@ -337,10 +386,10 @@ p strong em { }           /* 003 */
 ---
 ## [text-align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
 
-- Alinha o texto (e conteúdo) à esquerda, à direita ou justificado
+- Alinha o texto (e conteúdo) à esquerda, à direita, centralizado ou justificado
   ```css
   p {
-    text-align: justify;      /* left, right, justify */
+    text-align: justify;      /* left, right, center, justify */
   }
   ```
 
@@ -353,9 +402,9 @@ p strong em { }           /* 003 */
     text-overflow: ellipsis;  /* clip */
   }
   ```
-- Exemplo
-  - `clip`: <div style="white-space: nowrap; width: 134px; overflow: hidden">Este texto foi</div>
-  - `ellispsis`: <div style="white-space: nowrap; width: 134px; overflow: hidden; text-overflow: ellipsis">Este texto foi</div>
+- Exemplo <!-- {ul:.bulleted} -->
+  - `text-overflow: clip`: <div style="white-space: nowrap; width: 134px; overflow: hidden">Este texto foi</div>
+  - `text-overflow: ellipsis`: <div style="white-space: nowrap; width: 134px; overflow: hidden; text-overflow: ellipsis">Este texto foi</div>
 
 ---
 ## [text-transform](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)
@@ -367,14 +416,14 @@ p strong em { }           /* 003 */
                                     lowercase */
   }
   ```
-  - Exemplo: uma palavra
-    - Usando **`uppercase`**: 
+  - Exemplo: uma palavra  <!-- {ul:.bulleted} -->
+    - Usando **`uppercase`**:
       <span style="text-transform: uppercase">uma palavra</span>
   - Exemplo: kiwi. maracujá. uva. pêssego
-    - Usando **`capitalize`**: 
+    - Usando **`capitalize`**:
       <span style="text-transform: capitalize">kiwi. maracujá. uva. pêssego</span>
   - Exemplo: NÃO GRITE COM CAPSLOCK!
-    - Usando **`lowercase`**: 
+    - Usando **`lowercase`**:
       <span style="text-transform: lowercase">NÃO GRITE COM CAPSLOCK!</span>
 
 ---
@@ -392,7 +441,7 @@ p strong em { }           /* 003 */
 
 - ![Várias famílias de fontes](../../images/font-families.png) <!-- {.push-right} -->
   Altera a tipografia do texto para a fonte especificada
-  
+
   ```css
   body {
     font-family: Verdana, Arial, sans-serif;
@@ -439,15 +488,23 @@ p strong em { }           /* 003 */
   }
   ```
 
----
+<!--
 ## Outras
 
 - `font-kerning`
 - `font-stretch`
-- `font-variant`
+- `font-variant` -->
 
 ---
+<!-- {"layout": "section-header"} -->
 # Web Fonts
+## Usando fontes que não estão instaladas
+
+- Formatos de fonte
+- Hospedando a fonte localmente
+- Usando fontes na Web (e.g., Google Fonts)
+
+<!-- {ul:.content} -->
 
 ---
 ## Web Fonts
@@ -471,7 +528,7 @@ p strong em { }           /* 003 */
      ```css
      @font-face {
        font-family: "Emblema One";
-       src: url("fonts/EmblemaOne-Regular.woff"), 
+       src: url("fonts/EmblemaOne-Regular.woff"),
            url("fonts/EmblemaOne-Regular.ttf");
      }
      ```
