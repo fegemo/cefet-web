@@ -1,6 +1,6 @@
 <!-- {"layout": "title"} -->
 # HTML - Parte 4
-## Unicórnios, Div/Span, Box Model e Float
+## Div/Span, Box Model, Float e os Unicórnios
 
 ---
 # Roteiro

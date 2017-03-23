@@ -378,7 +378,7 @@ p strong em { }           /* 003 */
   }
   ```
 - <span style="text-decoration: underline">underline</span>,
-  <span style="text-decoration: overline">underline</span>,
+  <span style="text-decoration: overline">overline</span>,
   <span style="text-decoration: line-through">line-through</span>
 - Uma combinação dos valores pode ser usada também:<br>
   <span style="text-decoration: underline overline line-through">underline overline line-through</span>
