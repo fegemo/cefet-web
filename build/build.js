@@ -29259,7 +29259,7 @@ bespoke.from('article', [
   keys(),
   touch(),
   overview({ insertStyles: false }),
-  bullets('.bullet, .bulleted  li, .bulleted dd'),
+  bullets('.bullet, .bulleted li, .bulleted dd'),
   scale('transform'),
   progress(), // progress must be after scale
   hash(),
