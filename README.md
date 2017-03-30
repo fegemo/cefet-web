@@ -35,19 +35,20 @@
 - [CSS 1 - Seletores e Ninjas (Prática)](classes/css1/)
 - [CSS 2 - Especificidade, propriedades mil, Web Fonts](classes/css2/)
 - [HTML 4 - Div/Span, Box Model, Float e Unicórnios (Prática)](classes/html4/)
+- [CSS 3 - _Layout_](classes/css3/)
 
-<!--
-- [Javascript 1 - Linguagem](classes/js1/)
+---
 
 # Aulas (página 2)
 
-- [CSS 3 - _Layout_](classes/css3/)
 - [CSS 4 - _Layout_ e o Coral 55 (Prática)](classes/css4/)
-- [Javascript 5 - APIs do HTML5](classes/js5/)
+
+<!--
+- [Javascript 1 - Linguagem](classes/js1/)
 - [Javascript 2 - DOM, Eventos e RPG (Prática)](classes/js2/)
-- [Javascript 3 - Padrões de Projeto](classes/js3/)
-- [Javascript 4 - JSON e AJAX (Prática)](classes/js4/)
 - [HTML 5 - Formulários e Monstros (Prática)](classes/html5/)
+- [Javascript 5 - APIs do HTML5](classes/js5/)
+- [Javascript 4 - JSON e AJAX (Prática)](classes/js4/)
 - [Node.js 1 - Servidores Web](classes/ssn1/)
 - [Node.js 2 - NPM, arquivos e _learnyounode_ (Prática)](classes/ssn2/)
 
@@ -55,12 +56,14 @@
 
 - [Node.js 3 - Express](classes/ssn3/)
 - [Node.js 4 - HTML Dinâmico e o Geiser (Prática)](classes/ssn4/)
+- [Javascript 3 - Padrões de Projeto](classes/js3/)
 - [Node.js 5 - Sessão e Biscoitos](classes/ssn5/)
 - [Node.js 6 - Bancos de Dados e Zumbis (Prática)](classes/ssn6/)
-- [Node.js 7 - REST APIs](classes/ssn7/)
-- [CSS 6 - _Responsive Design_](classes/css6/)
+- Mongo DB
 - [CSS 5 - Animações e _Edukids Animals_ (Prática)](classes/css5/)
+- [CSS 6 - _Responsive Design_](classes/css6/)
 - [Javascript 7 - EcmaScript 6](classes/js7/)
+- [Node.js 7 - REST APIs](classes/ssn7/)
 - [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/)
 -->
 

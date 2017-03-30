@@ -1,24 +1,32 @@
+<!-- {"layout": "title"} -->
 # CSS - Parte 3
+## Divitite, Visibilidade e _Layouts_
 
 ---
-## Na última aula (cont.)
+## Na última aula (1/3)
 
-- Podemos precisar agrupar alguns elementos logicamente semelhantes ou por
-  questões de estilização
-- Podemos usar os elementos `div` (`block`) e `span` (`inline`) para criar
-  grupos
+- Podemos precisar **agrupar elementos** <u>logicamente semelhantes</u> ou por
+  <u>questões de estilização</u>
+- Podemos usar os elementos `<div>...</div>` (_block_) e `<span>...</span>`
+  (_inline_):
   ```html
-  <div>
+  <div id="cabecalho-da-pagina">
     <h1>Título</h1>
     <h2>Subtítulo</h2>
   </div>
   ```
+  ```html
+  <p class="artista-musica">
+    <span>MC Hammer</span>: <span>Can't Touch This</span>
+  </p>
+  ```
 
 ---
-# Na última aula...
+# Na última aula... (2/3)
 
-- Aprendemos sobre o **_box model_**
-  - Todo elemento de conteúdo (dentor do `body`) é representado por uma caixa
+- ![](../../images/box-model.gif) <!-- {.push-right} -->
+  Aprendemos sobre o **_box model_**
+  - Todo elemento de conteúdo (dentro do `body`) é representado por uma caixa
   - Podemos especificar, para a caixa:
     - O espaço do conteúdo (`width`, `height`)
     - Um espaço de preenchimento (`padding`)
@@ -29,9 +37,10 @@
   - É possível alterar o significado de `width` e `height` usando `box-sizing`
 
 ---
-## Na última aula (cont.)
+# Na última aula (3/3)
 
-- Aprendemos que os elementos podem flutuar
+- ![](../../images/float-p3.png) <!-- {.push-right} -->
+  Aprendemos que os elementos podem flutuar
   ```css
   img#principal {
     float: left; /* right, none */
@@ -40,10 +49,11 @@
   - Elementos flutuantes alteram o fluxo dos elementos posteriores
     - `blocks` fingem que os flutuantes não estão ali
     - `inlines` adequam sua forma aos flutuantes
-- [Questionário Maroto](https://moodle.cefetmg.br/mod/quiz/view.php?id=18171)
+
+<!-- - [Questionário Maroto](https://moodle.cefetmg.br/mod/quiz/view.php?id=18171) -->
 
 ---
-# Roteiro de hoje
+# Hoje veremos...
 
 1. Divitite - doença e cura com **_tags_ semânticas**
 1. A propriedade **display**
@@ -59,7 +69,7 @@
 
 - Sintomas
   - Um acúmulo grande de elementos `div` e `span` aninhados
-- Muitas páginas Web usam `div`/`span` como, por exemplo:
+- Muitas páginas Web usam `div`/`span` da seguinte forma:
   ```html
   <div id="header">...</div>
   <div id="footer">...</div>
@@ -69,30 +79,33 @@
   ```
 
 ---
-![](../../images/divitities.png)
+<!-- {"backdrop": "divitite"} -->
+
 
 ---
 ## A cura da Divitite: **_tags_ semânticas**
 
-- O Dr. html5 propôs elementos idênticos às `divs`/`spans`, mas que possuem
-  sentido para o navegador. Por exemplo:
+- O Dr. html5 propôs elementos idênticos às `divs`/`spans`, mas que **possuem
+  sentido para o navegador**. Por exemplo:
   ```html
-  <header></header>
-  <footer></footer>
-  <article></article>
-  <time></time>
-  <nav></nav>
+  <header></header>   <!-- em vez de <div id="header"></div> -->
+  <footer></footer>   <!-- em vez de <div id="footer"></div> -->
+  <article></article> <!-- em vez de <div id="article"></div> -->
+  <time></time>       <!-- em vez de <span id="time"></span> -->
+  <nav></nav>         <!-- em vez de <div id="navigation"></div> -->
   ```
 
 ---
 ## Elementos semânticos (1/3)
 
-- [`<header></header>`](http://www.w3.org/TR/html-markup/header.html) `(block)`
+- [`<main></main>`](http://www.w3.org/wiki/HTML/Elements/main) `(block)`
+  - Conteúdo principal da página
+- [`<header></header>`](http://www.w3.org/wiki/HTML/Elements/header) `(block)`
   - Cabeçalho da página ou de seções (`section`) ou artigos (`article`)
-- [`<footer></footer>`](http://www.w3.org/TR/html-markup/footer.html) `(block)`
+- [`<footer></footer>`](http://www.w3.org/wiki/HTML/Elements/footer) `(block)`
   - Análogo ao `header`, porém recomendado para que contenha informação típica
     de um rodapé de página
-- [`<article></article>`](http://www.w3.org/TR/html-markup/article.html)
+- [`<article></article>`](http://www.w3.org/wiki/HTML/Elements/article)
   `(block)`
   - Um componente "completo" (ou auto-contido) da página
     - Em um blog, seria um _post_
@@ -101,10 +114,10 @@
 ---
 ## Elementos semânticos (2/3)
 
-- [`<section></section>`](http://www.w3.org/TR/html-markup/section.html)
+- [`<section></section>`](http://www.w3.org/wiki/HTML/Elements/sectionhtml)
   `(block)`
   - Uma seção lógica da página, tipicamente contendo um título
-- [`<nav></nav>`](http://www.w3.org/TR/html-markup/nav.html) `(block)`
+- [`<nav></nav>`](http://www.w3.org/wiki/HTML/Elements/nav) `(block)`
   - Uma seção da página que contenha _links_ de navegação
   - Exemplos:
     - O menu principal da página
@@ -116,28 +129,28 @@
 ---
 ## Elementos semânticos (3/3)
 
-- [`<aside></aside>`](http://www.w3.org/TR/html-markup/aside.html) `(block)`
+- [`<aside></aside>`](http://www.w3.org/wiki/HTML/Elements/aside) `(block)`
   - Uma seção de conteúdo periférico na página
   - Exemplos:
     - Barras laterais
     - _Widgets_ periféricos
     - Conteúdo à parte do principal
-- [`<time></time>`](http://www.w3.org/TR/html-markup/time.html) `(inline)`
+- [`<time></time>`](http://www.w3.org/wiki/HTML/Elements/time) `(inline)`
   - Representa uma data e/ou horário
-- [`<mark></mark>`](http://www.w3.org/TR/html-markup/mark.html) `(inline)`
+- [`<mark></mark>`](http://www.w3.org/wiki/HTML/Elements/mark) `(inline)`
   - Representa uma marcação no texto
     (tipo <mark style="background-color: yellow">caneta marcadora</mark>)
 
 ---
 ## Elementos semânticos **pré-html5**
 
-- [`<address></address>`](http://www.w3.org/TR/html-markup/address.html)
-- [`<abbr title=""></abbr>`](http://www.w3.org/TR/html-markup/abbr.html)
-- [`<blockquote></blockquote>`](http://www.w3.org/TR/html-markup/blockquote.html),
-  [`<q></q>`](http://www.w3.org/TR/html-markup/q.html)
-- [`<cite></cite>`](http://www.w3.org/TR/html-markup/cite.html)
-- [`<code></code>`](http://www.w3.org/TR/html-markup/code.html)
-- [`<kbd></kbd>`](http://www.w3.org/TR/html-markup/kbd.html)
+- [`<address></address>`](http://www.w3.org/wiki/HTML/Elements/address)
+- [`<abbr title=""></abbr>`](http://www.w3.org/wiki/HTML/Elements/abbr)
+- [`<blockquote></blockquote>`](http://www.w3.org/wiki/HTML/Elements/blockquote),
+  [`<q></q>`](http://www.w3.org/wiki/HTML/Elements/q)
+- [`<cite></cite>`](http://www.w3.org/wiki/HTML/Elements/cite)
+- [`<code></code>`](http://www.w3.org/wiki/HTML/Elements/code)
+- [`<kbd></kbd>`](http://www.w3.org/wiki/HTML/Elements/kbd)
 - E outros...
 
 ---
@@ -153,8 +166,8 @@
   - `inline`, similarmente, para `inline`
   - `inline-block`, similar a `block`, porém sem quebra de linha
   - `none`, sem renderização
-- Ao todo, são 25 valores, dos quais apenas 15 são suportados pelos principais
-  navegadores (Outubro/2014)
+- Ao todo, são ~25 valores, dos quais apenas 15 são suportados pelos principais
+  navegadores
 
 ---
 ## A propriedade **display** (cont.)
@@ -165,7 +178,7 @@
   span { display: block; }
   ```
 
-  - Mas é claro que você não vai fazer isso... :)
+  - Mas é claro que você não vai fazer isso... ;)
 - Para **remover um elemento do fluxo e não renderizá-lo** de forma alguma:
   ```css
   a[href*="xxx"] { display: none; }
@@ -174,18 +187,20 @@
 ---
 ## Display: **inline-block**
 
-- Une a capacidade de se definir dimensões de `block` e a possibilidade de ter
-  um fluxo lateral (sem quebra de linha), como `inline`
-- Exemplo:
+- Une a **capacidade de se <u>definir dimensões</u> de `block`** e a
+  possibilidade de **ter um <u>fluxo lateral</u>** (sem quebra de linha), como
+  `inline`. Exemplo:
   ```html
   <div class="passo">1<br>Instalar</div>
   <div class="passo">2<br>Aprender</div>
   <div class="passo">3<br>Programar</div>
   ```
   ```css
-  .passo { display: inline-block;
-           width: 150px;
-           height: 100px; /* ... */ }
+  .passo {
+    display: inline-block;
+    width: 150px;
+    height: 100px; /* ... */
+  }
   ```
 
 ---
@@ -205,13 +220,13 @@
 - <div class="caniuse" data-feature="css-table" style="float: right;"></div>
 
   Alguns valores são para a criação de _layouts_ em formato de tabelas:
-  - `table`, `table-cell`, `table-column`, `table-column-group`, 
-    `table-footer-group`, `table-header-group`, `table-row`, 
+  - `table`, `table-cell`, `table-column`, `table-column-group`,
+    `table-footer-group`, `table-header-group`, `table-row`,
     `table-row-group`, `inline-table`
 - [Exemplos de uso](http://colintoh.com/blog/display-table-anti-hero)
 
 ---
-## Display: **flex**
+## Display: **flex** ![](../../images/logo-css.svg) <!-- {style="height: 1em;"} -->
 
 - Um novo tipo de fluxo de "caixa flexível" que facilita _layouts_ fluidos
   - Propriedades:
@@ -257,7 +272,14 @@
   [Flexbox Froggy](http://flexboxfroggy.com/)
 
 ---
+<!-- {"layout": "section-header"} -->
 # Alterando a visibilidade
+## Fazendo elementos aparecerem ou sumirem
+
+- Com `display: none`
+- Com `visibility: hidden`
+
+<!-- {ul:.content} -->
 
 ---
 ## Usando **display**
@@ -288,7 +310,7 @@
 ## Visibilidade **+ JavaScript**
 
 - Um comportamento bastante comum é o de alterar a visibilidade
-  (`display` ou `visibility`) de um elemento de acordo com a interação do
+  (`display` ou **`visibility`**) de um elemento de acordo com a interação do
   usuário:
   ```css
   .oculto { visibility: hidden; }
@@ -302,6 +324,26 @@
   <button onclick="javascript: document.getElementById('visibilidade-javascript').classList.toggle('oculto');">Alterna vibilidade do título</button>
   <style>
     .oculto { visibility: hidden; }
+  </style>
+
+---
+## _Display_ **+ JavaScript**
+
+- Um comportamento bastante comum é o de alterar a visibilidade
+  (**`display`** ou `visibility`) de um elemento de acordo com a interação do
+  usuário:
+  ```css
+  .removido { display: none; }
+  ```
+  ```js
+  var button = document.getElementById('botao-alterna');
+  button.addEventListener(function() {
+    document.getElementById('titulo').classList.toggle('removido');
+  });
+  ```
+  <button onclick="javascript: document.getElementById('display-javascript').classList.toggle('removido');">Alterna display do título</button>
+  <style>
+    .removido { display: none; }
   </style>
 
 ---
@@ -359,8 +401,8 @@
 - Os _pseudo-elements_ mais comuns:
   - `::selection` - seleção de texto
   - `::placeholder` - descrição de `input`
-  - **`::after` - conteúdo "pós-conteúdo"**
   - **`::before` - conteúdo "pré-conteúdo"**
+  - **`::after` - conteúdo "pós-conteúdo"**
   - `::first-letter` - primeira letra
 - [Lista com todos](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
   na MDN
@@ -373,12 +415,11 @@
   .novidade::before {
     content: "Novidade!";
     display: inline-block;
-    background: orange;
-    /* ... */
+    background: orange; /* ... */    
   }
   ```
   - Resultado:
-    <iframe width="100%" height="120" src="//jsfiddle.net/fegemo/76wdcLao/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+    <iframe width="100%" height="120" src="//jsfiddle.net/fegemo/76wdcLao/embedded/html,result,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
 # Layout e posicionamento
@@ -386,17 +427,17 @@
 ---
 ## Layout e posicionamento
 
-- Além do fluxo normal visto na última aula, também podemos dar
-  **fluxos alternativos** aos elementos
+- Além do fluxo normal (_i.e._, **fluxo estático**) visto na última aula,
+  também podemos dar **fluxos alternativos** aos elementos
   - Propriedades envolvidas:
-    - ```css
-      position: static; /* relative, absolute, fixed */
-      top: 0px;         /* uma dimensão */
-      right: 0px;       /* uma dimensão */
-      bottom: 0px;      /* uma dimensão */
-      left: 0px;        /* uma dimensão */
-      z-index: 1;       /* um inteiro */
-      ```
+    ```css
+    position: static; /* relative, absolute, fixed */
+    top: 0px;         /* uma dimensão */
+    right: 0px;       /* uma dimensão */
+    bottom: 0px;      /* uma dimensão */
+    left: 0px;        /* uma dimensão */
+    z-index: 1;       /* um inteiro */
+    ```
 
 ---
 ## **top, right, bottom e left**
