@@ -232,4 +232,4 @@ Veja a bibliografia básica e a complementar.
 *[TBD]: to be defined*
 
 [tp0]: assignments/tp0
-[projetct]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-selfservice/README.md
+[project]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-selfservice/README.md
