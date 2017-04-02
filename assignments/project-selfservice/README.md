@@ -82,16 +82,19 @@ a saber:
 O projeto será entregue em três etapas, a saber:
 
 1. Entrega 0:
-  - Entregar: [descrição de elevador](https://en.wikipedia.org/wiki/Elevator_pitch) (e [matriz SWOT][swot], se for produto inovador)
-  - Data: daqui 2 aulas
+   - Entregar: [descrição de elevador](https://en.wikipedia.org/wiki/Elevator_pitch) (e [matriz SWOT][swot], se for produto inovador)
+   - Data: daqui 2 aulas
+   - Valor: 5 pontos
 1. Primeira entrega: _front-end_
-  - Entregar: Páginas navegáveis, usando dados _hard-coded_
-  - Data: daqui ~3 semanas (vide Moodle)
+   - Entregar: Páginas navegáveis, usando dados _hard-coded_
+   - Data: daqui ~3 semanas (vide Moodle)
+   - Valor: 12 pontos
 1. Segunda entrega: _back-end_ + _front-end_
-  - Entregar: código fonte final e _link_ para sistema publicado em
-    servidor gratuito
-  - Data: final do semestre (vide Moodle)
-    - [Apresentação oral e demonstração](#apresentação)
+   - Entregar: código fonte final e _link_ para sistema publicado em
+     servidor gratuito
+   - Data: final do semestre (vide Moodle)
+     - [Apresentação oral e demonstração](#apresentação)
+   - Valor: 20 pontos
 
 
 ## Apresentação
@@ -107,15 +110,15 @@ Devem ser entregues via Moodle:
 
 1. "Capa" com o nome do seu aplicativo e o grupo
 1. Mostrar um diagrama com a arquitetura geral, contendo elementos como (1 min):
-  - banco(s) de dados usados
-  - como o banco de dados foi acessado (Mongoose? _driver do Mongo_?
+   - banco(s) de dados usados
+   - como o banco de dados foi acessado (Mongoose? _driver do Mongo_?
     _web service_?)
-  - tecnologias de _back-end_ usadas
-  - tecnologias de _front-end_ usadas
+   - tecnologias de _back-end_ usadas
+   - tecnologias de _front-end_ usadas
 1. Mostrar o arquivo `package.json` e comentar sobre os pacotes NPM usados (2 min)
 1. Demonstrar a aplicação usando o servidor de hospedagem (7 min):
-  - mostrar todos os itens obrigatórios implementados
-  - mostrar os opcionais
+   - mostrar todos os itens obrigatórios implementados
+   - mostrar os opcionais
 1. Mostrar a lista de itens opcionais implementados
 
 
@@ -143,11 +146,8 @@ também receberão nota 0.
 ## O que faz perder nota
 
 Alguns descuidos podem fazer com que sua nota fique muito abaixo do esperado:
+
 - Cópia de trabalho de outrem: nota 0
-- Ausência de qualquer item obrigatório da entrega
-- Ausência de itens da especificação obrigatória
-- Baixa legibilidade do código
-- Baixa qualidade da implementação
 - Atraso na entrega. Cada dia de atraso reduz o valor máximo de nota da
  maneira abaixo. Considere `x` como dias de atraso e `y` a penalidade
  percentual na nota:
@@ -157,6 +157,7 @@ Alguns descuidos podem fazer com que sua nota fique muito abaixo do esperado:
  - E após 5 dias de atraso, o trabalho vale 0
  - _Seeing is believing_: https://www.google.com.br/search?q=y%3D(2%5E(x-2)%2F0.16)%2Cy%3D100
 
+Obs: no caso da última entrega (com apresentação), não é permitido entregar depois do dia da apresentação.
 
 ## O que deve ser **entregue**
 
