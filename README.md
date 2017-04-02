@@ -208,32 +208,28 @@ Veja a bibliografia básica e a complementar.
 
 ## Esta é a distribuição de pontos no semestre
 
-- ~10 Atividades práticas: **30** pontos
-- Questionários marotos: **10** pontos
-- 1 Prova Final: **15** pontos
-- 1 Seminário: **15** pontos
+- ~10 Atividades práticas: **40** pontos
+- 1 Seminário: **20** pontos
 - Trabalhos Práticos:
   1. TP0: **3** pontos
-  1. TP1: **12** pontos
-  1. TP2: **15** pontos
+  1. Projeto:
+     - Entrega 0: **5** pontos
+     - Entrega 1: **12** pontos
+     - Entrega 2: **20** pontos
 
 <!-- {ul:.content} -->
 
 ---
-# Prova (15 pontos)
-
-- Prova final (15 pontos) - data: TBD (ao final)
-
-*[TBD]: to be defined*
-
----
-# Trabalhos (30 pontos)
+# Trabalhos (60 pontos)
 
 - [TP0: Git][tp0] (3 pontos, data: 02/02/2017 10:40)
-- TP1: (12 pontos, data: TBD)
-- Seminário: APIs HTML5  (15 pontos, data: TBD)
-- TP2: (15 pontos, data: TBD)
+- [Projeto: _Self-service_][project] (37 pontos)
+  - Entrega 0: (5 pontos, data: 06/04/2017)
+  - Entrega 1: (12 pontos, data: 25/04/2017)
+  - Entrega 2: (20 pontos, data: TBD - final do semestre)
+- Seminário: APIs HTML5  (20 pontos, data: TBD - meio do semestre)
 
 *[TBD]: to be defined*
 
 [tp0]: assignments/tp0
+[projetct]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-selfservice/README.md

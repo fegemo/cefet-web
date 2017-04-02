@@ -452,7 +452,7 @@
 - `static`
   - Comportamento padrão. O elemento é **posicionado no fluxo normal (padrão)**.
   - As propriedades `left`, `right`, `top`, `bottom` e `z-index`
-    **são ignoradas**
+    **são <u>ignoradas</u>**
 - `absolute`
   - O elemento **não tem espaço reservado para ele**. Em vez disso, ele fica
     exatamente na posição especificada por `left`, `right`, `top`, `bottom`
