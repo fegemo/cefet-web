@@ -35,17 +35,17 @@
 - [CSS 1 - Seletores e Ninjas (Prática)](classes/css1/)
 - [CSS 2 - Especificidade, propriedades mil, Web Fonts](classes/css2/)
 - [HTML 4 - Div/Span, Box Model, Float e Unicórnios (Prática)](classes/html4/)
-- [CSS 3 - _Layout_](classes/css3/)
+- [CSS 3 - Divitite e as _tags_ semânticas, visibilidade e _Layout_](classes/css3/)
 
 ---
 
 # Aulas (página 2)
 
 - [CSS 4 - _Layout_ e o Coral 55 (Prática)](classes/css4/)
-
-<!--
 - [Javascript 1 - Linguagem](classes/js1/)
 - [Javascript 2 - DOM, Eventos e RPG (Prática)](classes/js2/)
+
+<!--
 - [HTML 5 - Formulários e Monstros (Prática)](classes/html5/)
 - [Javascript 5 - APIs do HTML5](classes/js5/)
 - [Javascript 4 - JSON e AJAX (Prática)](classes/js4/)
