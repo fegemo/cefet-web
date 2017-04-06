@@ -134,13 +134,14 @@
     ```
   - classes, etc.
     ```js
-    console.log(botaoAzul.className);   // className equivale a class
-                                        // - não pode 'class' pq é reservado em js
+    console.log(botaoAzul.className); // className equivale a class
+                                      // - não pode 'class' pq é reservado em js
     ```
 
 *[DOM]: Document Object Model*
 
 ---
+<!-- {"backdrop": "old-paper"} -->
 ## Buscando nós na árvore
 
 - Há diversas formas para se recuperar nós específicos da árvore
@@ -157,6 +158,7 @@
   ```
 
 ---
+<!-- {"backdrop": "old-paper"} -->
 ## Buscando nós em uma sub-árvore
 
 - É possível fazer consultas a nós a partir de uma sub-árvore:
@@ -169,6 +171,21 @@
   const navegacaoEl = document.getElementById('menu-principal');
   const iconesEl = navegacao.getElementsByClassName('icone');
   ```
+
+---
+<!-- {"backdrop": "shiny"}-->
+## Buscando nós na árvore ![](../../images/logo-html.svg) <!-- {style="height: 1em;"}-->
+
+- Existem dois comandos melhores para fazer consultas no DOM:
+  ```js
+  let iconesNavegacaoEl = document.querySelectorAll('#menu-principal .icone');
+  let botaoEnviarEl = document.querySelector('#botao-enviar');
+  ```
+  - São melhores porque:
+    - **Interface unificada** de busca
+    - Usa os mesmos **seletores de CSS**
+    - Inspirado na biblioteca **jQuery**
+
 
 ---
 ## Caminhando pela árvore
