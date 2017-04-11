@@ -240,19 +240,19 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 ## Criando elementos dinamicamente
 
 - É possível criar elementos dinamicamente, de duas formas:
-  1. Instanciando elementos e os adicionando à árvore
-    ```js
-    let conteudoEl = document.getElementById('conteudo');
-    let dadoEl = document.createElement('img');
-    dado.src = 'images/d12.png';
-    conteudo.appendChild(dado);
-    ```
+  1. Instanciando elementos e os adicionando à árvore:
+     ```js
+     let conteudoEl = document.getElementById('conteudo');
+     let dadoEl = document.createElement('img');
+     dado.src = 'images/d12.png';
+     conteudo.appendChild(dado);
+     ```
   1. Definindo a propriedade de `innerHTML` de um elemento da árvore para uma
-     string descrevendo uma estrutura `html`
-    ```js
-    let conteudoEl = document.getElementById('conteudo');
-    conteudo.innerHTML = '<img src="images/d12.png">';
-    ```
+     string descrevendo uma estrutura `html`:
+     ```js
+     let conteudoEl = document.getElementById('conteudo');
+     conteudo.innerHTML = '<img src="images/d12.png">';
+     ```
 
 ---
 ## Criando elementos dinamicamente (cont.)
@@ -417,65 +417,50 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 ---
 # Exercícios
 
-- Hoje temos 3 exercícios. Os dois primeiros podem ser feitos em um editor
-  _online_,  como o [jsfiddle](http://jsfiddle.net/) ou [codepen](http://codepen.io/).
-- Você deve "entregá-los" pelo Moodle, postando o _link_ para seus exercícios
-  (sejam eles repositórios no GitHub ou códigos no _jsfiddle_ ou no _codepen_)
+- Hoje temos 2 atividades práticas:
+  1. Exploração Espacial :alien: (obrigatória)
+  1. RPG Dice Rollator _Tabajara_ :game_die: (opcional +50%)
 
 ---
-## Exercício 1
+<!-- {"backdrop": "space"} -->
+---
+## Atividade 1: Exploração Espacial :alien:
 
-- Acesse o [código base no jsfiddle](http://jsfiddle.net/fegemo/umq0bgre/)
-- Você deve criar um código em Javascript para fazer os botões "+" expadirem
-  ou retrairem o texto dos parágrafos, de acordo com o contexto
-  - Uma classe CSS `.expandido` contém as propriedades necessárias para que
-    o parágrafo seja exibido de forma completa.
+- Crie a página da **Exploração Espacial** :alien:
+  - [Repositório no GitHub](https://github.com/fegemo/cefet-web-space)
+    para fazer seu _fork_
+- Há 2 exercícios:
+  1. Você deve criar um código em Javascript para **fazer os botões "+"
+     expadirem ou retrairem o texto dos parágrafos**
+     - Fazer no arquivo `exercicio1.js`
+  1. Criar uma **galeria** mostrando **fotos e imagens** da sonda Philae
+     - Fazer no arquivo `exercicio2.js`
 
 ---
-## Exercício 2
-
-- Crie uma galeria de imagens similar à exibida abaixo.
-
-
-![](../../images/galeria-imagens.jpg)
-
----
-## Exercício 2 (cont.)
-
-- Funcionamento
-  - Botões mostram a próxima imagem ou a anterior
-  - Quando chegar na última imagem, voltar para a primeira
-- Ponto de partida: http://jsfiddle.net/fegemo/bL5b2xnn/
-  - Você deve criar um _fork_ no jsfiddle e entregar o link via Moodle
-- Dikentinhas:
-  - Você pode fazer de pelo menos 2 formas:
-    1. Ter apenas uma `<img>` e trocar o `src` dela para o da imagem corrente
-    1. Ter uma `<img>` para cada imagem exibidas numa linha e transladar de
-       acordo com a imagem corrente
-
----
-## Exercício 3 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span>
+## Atividade 2: <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span>
 
 ![](../../images/tela-dice-rollator.jpg)
 
 ---
-## Exercício 3 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span> (cont.)
+## Atividade 2 - <span style="font-family: monospace">Dice Rollator <span style="font-family: cursive">Tabajara</span></span> (cont.)
 
 - Crie o _Dice Rollator Tabajara_, um sistema de rolagem de dados
-  - [Repositório no GitHub](https://github.com/fegemo/cefet-web-dice-rollator) para fazer seu fork
+  - [Repositório no GitHub](https://github.com/fegemo/cefet-web-dice-rollator)
+    para fazer seu _fork_
+  - Fazer no arquivo `principal.js`
 - Há dados de 4, 6, 8, 10, 12 e 20 lados
 - O usuário escolhe a quantidade de dados que quer jogar, de cada tipo
 - Ao apertar o botão "Rolar", os resultados devem aparecer na parte de baixo da
   página
 
 ---
-## Dicas para o exercício 3
+## Dicas para o Dice Rollator
 
 - Você não precisa fazer nenhuma alteração nos arquivos CSS e HTML, apenas no
-  arquivo JS (principal.js)
+  arquivo JavaScript
 - Para obter um número aleatório entre 0 e 1:
   ```js
-  var resultado = window.Math.random(); // ou Math.random();
+  var resultado = Math.random();
   ```
   - Para obter um número inteiro, de 1 a `maximo`:
     ```js
