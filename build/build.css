@@ -1,6 +1,6 @@
 /*
 
-Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 */
 
@@ -8,78 +8,88 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #23241f;
+  background: #fff;
+  color: black;
 }
 
-.hljs,
-.hljs-tag,
-.hljs-subst {
-  color: #f8f8f2;
+.hljs-comment,
+.hljs-quote {
+  color: #006a00;
 }
 
-.hljs-strong,
-.hljs-emphasis {
-  color: #a8a8a2;
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #aa0d91;
 }
 
-.hljs-bullet,
-.hljs-quote,
-.hljs-number,
+.hljs-name {
+  color: #008;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #660;
+}
+
+.hljs-string {
+  color: #c41a16;
+}
+
 .hljs-regexp,
-.hljs-literal,
 .hljs-link {
-  color: #ae81ff;
+  color: #080;
 }
 
-.hljs-code,
 .hljs-title,
-.hljs-section,
-.hljs-selector-class {
-  color: #a6e22e;
+.hljs-tag,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-number,
+.hljs-meta {
+  color: #1c00cf;
 }
 
+.hljs-section,
+.hljs-class .hljs-title,
+.hljs-type,
+.hljs-attr,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-params {
+  color: #5c2699;
+}
+
+.hljs-attribute,
+.hljs-subst {
+  color: #000;
+}
+
+.hljs-formula {
+  background-color: #eee;
+  font-style: italic;
+}
+
+.hljs-addition {
+  background-color: #baeeba;
+}
+
+.hljs-deletion {
+  background-color: #ffc8bd;
+}
+
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #9b703f;
+}
+
+.hljs-doctag,
 .hljs-strong {
   font-weight: bold;
 }
 
 .hljs-emphasis {
   font-style: italic;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-name,
-.hljs-attr {
-  color: #f92672;
-}
-
-.hljs-symbol,
-.hljs-attribute {
-  color: #66d9ef;
-}
-
-.hljs-params,
-.hljs-class .hljs-title {
-  color: #f8f8f2;
-}
-
-.hljs-string,
-.hljs-type,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-selector-id,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-variable {
-  color: #e6db74;
-}
-
-.hljs-comment,
-.hljs-deletion,
-.hljs-meta {
-  color: #75715e;
 }
 
 html,
@@ -162,6 +172,9 @@ body {
   animation-delay: 2250ms;
   transform: translateY(100%);
 }
+pre.hljs {
+  border: 1px solid #789;
+}
 .blastoff.bespoke-backdrop-active {
   background-image: url("../images/icanhaz-blastoff.gif");
   background-size: cover;
@@ -226,15 +239,29 @@ body {
 .shiny.bespoke-backdrop-active::before {
   content: " ";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
+  top: -75%;
+  left: -75%;
+  right: -75%;
+  bottom: -75%;
   background-image: url("../images/shiny.jpg");
   background-size: contain;
   background-position: 50% 50%;
   opacity: 0.5;
   animation: girando 360s linear 0s infinite;
+}
+.space.bespoke-backdrop {
+  opacity: 0;
+  transform: translate3d(0, 5%, 0);
+  transition: opacity 200ms ease 500ms, transform 200ms ease 500ms;
+}
+.space.bespoke-backdrop-active {
+  background-image: url("../images/cefet-web-space.png");
+  background-size: cover;
+  background-position: 50% 0%;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
+  height: 100%;
 }
 @keyframes girando {
   from {
