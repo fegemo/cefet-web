@@ -1,5 +1,5 @@
+<!-- {"layout": "title"} -->
 # HTML - Parte 5
-
 ## Formulários e Monstros
 
 ---
@@ -18,9 +18,9 @@
 ---
 ## Motivação
 
-- Até agora, vimos que o protocolo `http` usa um modelo de requisição e
-  resposta, em que um navegador (cliente) solicita recursos (e.g., páginas,
-  imagens) para um servidor e o servidor responde com o conteúdo do arquivo
+- Até agora, vimos que o protocolo HTTP usa um **modelo de requisição e
+  resposta**, em que um **navegador (cliente) solicita** recursos (e.g., páginas,
+  imagens) para um servidor e o **servidor responde** com o conteúdo do arquivo
   - Ou seja, aparentemente apenas o servidor pode enviar conteúdo
 - Assim, como fazer se quisermos solicitar informação dos usuários?
   - Isso seria o **cliente enviando (_uploading_) informações para
@@ -29,8 +29,7 @@
 ---
 ## Métodos **http**
 
-- Lembre-se que o `http` é a língua com que um navegador conversa com
-  um servidor
+- Lembre-se: o HTTP é a língua com que um navegador e servidor conversam
 - Sendo assim, o `http` possui vários métodos (também chamados de "verbos") e
   alguns deles **permitem o envio de informações por parte do cliente**
   - O método que vimos até agora se chama `GET`
@@ -39,7 +38,7 @@
     GET /en-US/docs/Web/CSS/animation HTTP/1.1
     Host: developer.mozilla.org
     ```
-  - No próximo slide, veja uma requisição GET e resposta do navegador
+  - No próximo slide, veja uma requisição GET e a resposta do servidor
 
 ---
 ![](../../images/metodo-get-navegador.png)
@@ -49,7 +48,7 @@
 
 - Os mais comuns (~97% das requisições na web):
   - **`GET`**: "me vê o ~~documento~~ recurso com esta URL"
-    - Servidor responde enviando o conteúdo do documento + metadados sobre ele
+    - Servidor responde com o conteúdo do documento + metadados sobre ele
   - **`POST`**: "envie estes
     dados para a ~~página~~ recurso com esta URL"
     - Usado para enviar informações do cliente para o servidor
@@ -61,7 +60,7 @@
   - **`HEAD`**: igual ao `GET`, mas o servidor envia apenas os
     metadados
   - **`DELETE`**: "exclua o recurso com esta URL"
-  - **`PATCH`**: "aplique um remendo no recurso desta URL com o que estou enviando"
+  - **`PATCH`**: "faça uma modificação no recurso desta URL com o que estou enviando"
   - **`PUT`**: "atualize o recurso desta URL com o que estou lhe enviando"
   - **`OPTIONS`**: "o recurso com esta URL suporta quais verbos?"
 - Veja [_Where to find HTTP methods examples_](http://stackoverflow.com/questions/765565/where-to-find-http-methods-examples)
@@ -84,7 +83,7 @@
     <label>Seu bairro: <input name="bairro"></label>
     <input type="submit" value="Enviar">
   </form>
-  
+
   - Clique em "Enviar" e perceba que **o navegador navegou para o
     endereço `/enviar.php`**
 
@@ -101,7 +100,7 @@
     método `http`</u> a ser usado para fazer a requisição quando o formulário for
     submetido
   - **`action="..."`** aponta para qual ~~arquivo~~ recurso a
-    requisição `POST` ou `GET`será feita
+    requisição `POST` ou `GET` será feita
   - **`enctype="..."`** descreve como os dados do formulário são
     <u>codificados</u> para serem transmitidos em uma requisição `http`:
       1. `application/x-www-form-urlencoded`, **formato padrão**
@@ -109,20 +108,19 @@
       1. `text/plain`, desencorajado - apenas para _debug_
 
 ---
-## Como funciona o exemplo
+## Como funciona o exemplo (1/2)
 
-- Os dados de um formulário só são **enviados** quando o **botão de submissão
-  é ativado**
+- Os dados de um formulário só são **enviados** quando o **<u>botão de
+  submissão</u> é ativado**
   - `<input type="submit" value="Enviar">`, ou
   - `<button type="submit">Enviar</button>` (a partir do HTML5)
     - `<button>Enviar</button>` também dá, porque `type="submit"` é o padrão
 
 ---
-## Como funciona o exemplo
+## Como funciona o exemplo (2/2)
 
 - Quando ocorre a submissão, o navegador realiza uma requisição `http` usando
-  um método (atributo `method` do `form`) para um endereço
-  (atributo `action` do `form`):
+  um método (atributo `method` do `form`) para um endereço (`action`):
   ```
   POST /enviar.php HTTP/1.1
   Host: fegemo.github.io
@@ -131,17 +129,18 @@
   ```
   - Repare que os dados são enviados como uma _string_ de pares de nome
     e valor concatenados com o sinal &amp;
-  - **!!** Os nomes dos campos ("nome" e "bairro") advêm do atributo
-    `name` dos `input`s (e não do atributo `id`)
+  - **!!** Os **nomes dos campos** ("nome" e "bairro") **advêm do atributo
+    `name`** dos `input`s (e não do atributo `id`). Por exemplo:
+    `<input type="text" name="bairro">`
 
 ---
-## No servidor, como receber os dados?
+## **No servidor**, como receber os dados?
 
 - Cenas dos próximos capítulos... mas:
   - O servidor web pode ser configurado para "escutar" por requisições `POST`,
     além de apenas `GET`
   - Quando chega uma requisição `POST`, ela vêm com um **_payload_ de dados**:
-    - Uma requisição `POST` tem conteúdo (o _payload_), além dos metadados
+    - Uma **requisição `POST` tem conteúdo** (o _payload_), além dos metadados
   - Ao tratar uma requisição `POST` no servidor, você pode usar o _payload_
     para o que quiser, _e.g._:
     - Cadastrar um usuário no banco de dados
@@ -169,23 +168,22 @@
 ---
 ## Rótulos
 
-- Tipicamente atribuímos rótulos (`<label></label>`) aos campos (`input`)
-  - Podemos clicar nos rótulos e o foco será movido para dentro do `input`
-    a ele associado
-  - Há duas formas de associação
+- Tipicamente **atribuímos rótulos (`<label></label>`)** aos campos (`input`)
+  - Clicando nos rótulos, o `input` associado **receberá o foco**
+  - Há duas formas de associação:
     ```html
     <label for="cidade">Cidade: </label><input name="cidade">
     <!-- ...ou... -->
     <label>Cidade: <input name="cidade"></label>
     ```
-    - Resultado:
+    - Resultado (*clique no rótulo*):
       <div><label>Cidade: <input name="cidade"></label></div>
 
 ---
 ## Caixa de texto para **e-mail** ![À partir do html5](../../images/html5-logo-32.png)
 
-- <img src="../../images/form-email-sample.png" style="float: right; margin-left: 20px">
-  Idêntico à caixa de texto, porém o navegador espera um e-mail válido
+- ![](../../images/form-email-sample.png) <!-- {.push-right style="margin-left: .5em"} -->
+  Idêntico à caixa de texto, mas o navegador espera um e-mail válido
 - _Markup_:
   ```html
   <label>Remetente:
@@ -225,13 +223,12 @@
     <input type="checkbox">Inscrever?
   </label></div>
 - Atributos:
-  - `checked`, para deixar marcado
-    ```html
-    <input name="..." type="checkbox" checked>
-    ```
+  ```html
+  <input name="..." type="checkbox" checked> <!-- checked, para deixar marcado -->
+  ```
 
 ---
-## Radio (escolha dentro de um grupo)
+## Radio (*escolha dentro de um grupo*)
 
 - _Markup_:
   ```html
@@ -253,7 +250,7 @@
   mesmo `name`
 
 ---
-## Select (lista de opções)
+## Select (*lista de opções*)
 
 - _Markup_:
   ```html
@@ -431,7 +428,7 @@
   chamada _query string_:
   - Partes de uma URL
     ![](../../images/url-1.png)
-    
+
     - Repare que a _query string_ é a parte que começa com o símbolo de `?`
       (interrogação)
     - Ela é formada por um conjunto de `nome=valor`, separados pelo símbolo
@@ -440,21 +437,20 @@
 ---
 ## Formulário usando **GET**
 
-- _Markup_ usando `GET`:
-  ```html
-  <form action="/enviar.php" method="GET">
+- ```html
+  <form action="/enviar.php" method="GET"> <!-- ⬅️ GET! -->
     <label>Seu nome: <input name="nome"></label><br>
     <label>Seu bairro: <input name="bairro"></label>
     <button>"Enviar"</button>
   </form>
   ```
 - Resultado:
-  <form action="/enviar.php" method="GET">
+  <form action="/enviar.php" method="GET" style="margin: 0;">
     <label>Seu nome: <input name="nome"></label><br>
     <label>Seu bairro: <input name="bairro"></label>
     <button>Enviar</button>
   </form>
-  
+
   - Envie o formulário e repare que, em vez de ir para a página `/enviar.php`,
     fomos para **/enviar.php?nome=XXX&bairro=YYY**
 
