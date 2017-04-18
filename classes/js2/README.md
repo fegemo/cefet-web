@@ -251,7 +251,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
      string descrevendo uma estrutura `html`:
      ```js
      let conteudoEl = document.getElementById('conteudo');
-     conteudo.innerHTML = '<img src="images/d12.png">';
+     conteudoEl.innerHTML = '<img src="images/d12.png">';
      ```
 
 ---
@@ -260,13 +260,13 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 - Além de `no.appendChild(elemento)`, também é possível incluir novos elementos
   na árvore usando:
   ```js
-  no.insertBefore(novoElemento);   // novoElemento vira irmão de no
-  no.replaceChild(novo, antigo);   // novo vira filho de no e
-                                   // exclui o elemento antigo
+  no.insertBefore(novoEl);            // novoEl vira irmão de 'no'
+  no.replaceChild(novoEl, antigoEl);  // novoEl vira filho de 'no' e
+                                      // exclui o elemento antigo
   ```
 - Para remover um elemento da árvore
   ```js
-  no.removeChild(elemento);
+  no.removeChild(paraRemoverEl);
   ```
 
 ---
@@ -460,11 +460,11 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
   arquivo JavaScript
 - Para obter um número aleatório entre 0 e 1:
   ```js
-  var resultado = Math.random();
+  let resultado = Math.random();
   ```
   - Para obter um número inteiro, de 1 a `maximo`:
     ```js
-    var resultado = Math.ceil(Math.random() * maximo);
+    let resultado = Math.ceil(Math.random() * maximo);
     ```
 
 ---
