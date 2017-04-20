@@ -45,11 +45,11 @@
 - [Javascript 1 - Linguagem](classes/js1/)
 - [Javascript 2 - DOM, Eventos, o Espaço e RPG (Prática)](classes/js2/)
 - [HTML 5 - Formulários e Monstros](classes/html5/)
+- [Javascript 5 - APIs do HTML5](classes/js5/)
+- [Javascript 4 - JSON e AJAX (Prática)](classes/js4/)
 
 <!--
 - [HTML 5 - Formulários e Monstros (Prática)](classes/html5/)
-- [Javascript 5 - APIs do HTML5](classes/js5/)
-- [Javascript 4 - JSON e AJAX (Prática)](classes/js4/)
 - [Node.js 1 - Servidores Web](classes/ssn1/)
 - [Node.js 2 - NPM, arquivos e _learnyounode_ (Prática)](classes/ssn2/)
 
