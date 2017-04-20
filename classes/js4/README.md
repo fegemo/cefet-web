@@ -389,9 +389,7 @@
 - Não confunda Jake Weary com jQuery!! :D
 
 ---
-## jQuery
-
-![Logomarca da biblioteca jQuery](../../images/jquery-logo.png) <!-- {.portrait} -->
+![Logomarca da biblioteca jQuery](../../images/jquery-logo.png)
 
 - Criado em 2006 na cidade de Nova York
 - ![Foto do autor da biblioteca jQuery, John Resig](../../images/john-resig.jpg) <!-- {.portrait.push-right} -->

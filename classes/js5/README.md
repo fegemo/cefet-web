@@ -70,18 +70,20 @@
 
 - O objeto `navigator.geolocation` possui três métodos:
   1. Solicita a posição **uma vez**:
-    ```js
-    getCurrentPosition(successCallback, errorCallback, options)
-    ```
+     ```js
+     getCurrentPosition(successCallback, errorCallback, options)
+     ```
   1. Solicita a posição sempre que ela **mudar** ou que o navegador conseguir **um valor mais preciso**:
-    ```js
-    watchPosition(successCallback, errorCallback, options)
-    ```
-  1. **Para** de observar a posição. Usa o valor retornado por `watchPosition` para identificar o "observador":
-    ```js
-    clearWatch(watchId)
-    ```
+     ```js
+     watchPosition(successCallback, errorCallback, options)
+     ```
 
+<!--
+  1. **Para** de observar a posição. Usa o valor retornado por `watchPosition` para identificar o "observador":
+     ```js
+     clearWatch(watchId)
+     ```
+-->
 ---
 ## O argumento da successCallback: **posicao**
 
@@ -100,9 +102,11 @@
 <!-- {"scripts": ["../../scripts/classes/caniuse.min.js"]} -->
 ## Professor, já posso usar **Geolocation**??
 
-<div class="caniuse" data-feature="geolocation"></div>
 
-- Para ter certeza de que pode usar, faça uma verificação:
+
+- <div style="float: right;" class="caniuse" data-feature="geolocation"></div>
+  Para ter certeza de que pode usar, faça uma verificação:
+  
   ```js
   if (navigator.geolocation) {
     // pode usar
@@ -435,7 +439,7 @@ ctx.stroke();
 
 ---
 <!--
-{ 
+{
   "scripts": ["../../scripts/classes/drag-and-drop.min.js"],
   "styles": ["../../styles/classes/drag-and-drop.min.css"]
 }
