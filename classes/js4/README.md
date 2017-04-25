@@ -21,6 +21,7 @@
   o link no Moodle
  -->
 ---
+<!-- {"slideHash": "web-storage"} -->
 # _Web Storage_
 
 ---
@@ -279,6 +280,7 @@
 - [Código seminal](https://jsfiddle.net/fegemo/uj42ynbv/1/) no JSFiddle
  -->
 ---
+<!-- {"slideHash": "ajax"} -->
 # AJAX
 
 *[AJAX]: Asynchronous JavaScript and XML*
