@@ -67,6 +67,9 @@ bespoke.from('article', [
     },
     layout: function(slide, value) {
       slide.classList.add('layout-' + value);
+    },
+    state: function(slide, value) {
+      slide.setAttribute('data-bespoke-state', value);
     }
   }, [
     [
