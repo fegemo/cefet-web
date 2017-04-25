@@ -1,4 +1,6 @@
-# Javascript - Parte 4
+<!-- {"layout": "title"} -->
+# Javascript (parte 4)
+## Web Storage, AJAX, JSON e Star Wars :stars:
 
 ---
 # Roteiro
@@ -8,7 +10,7 @@
 1. JSON
 1. jQuery
 
----
+<!--
 # Exercícios
 
 - Há três exercícios a serem feitos e entregues nesta aula
@@ -17,7 +19,7 @@
 - Eles serão descritos ao longo dos slides de conteúdo
 - Você deve entregá-los como um código do jsfiddle ou do codepen.io e colocar
   o link no Moodle
-
+ -->
 ---
 # _Web Storage_
 
@@ -225,6 +227,7 @@
 - 216 caracteres
 
 ---
+<!-- {"state": "show-active-slide-and-previous"} -->
 ## JSON vs **XML**
 
 *[JSON]: JavaScript Object Notation*
@@ -263,7 +266,7 @@
     console.log(banco.nome);    // Itaú
     ```
 
----
+<!--
 # Exercício 1
 
 1. Crie um formulário referente ao cadastro de uma pessoa com os seguintes
@@ -274,27 +277,14 @@
    cadastrados e os mostre em uma DIV ou nos próprios campos do formulário
    criado
 - [Código seminal](https://jsfiddle.net/fegemo/uj42ynbv/1/) no JSFiddle
-
----
-# Exercício 2
-
-- Os slides do professor mostram um balão com o texto "Use as setas para
-  navegar" após 1s que a apresentação foi carregada. Contudo, isso é muito
-  chato para quem já tem essa informação
-  1. O código desse balão foi disponibilizado em http://jsfiddle.net/fegemo/d4yk0uh9/1/
-  1. Modifique-o de forma que:
-     1. Ele só é exibido **uma vez por sessão**
-     1. Após a **terceira vez** exibido, mesmo fora da sessão, ele não será
-        mostrado novamente
-<!-- Resposta: http://jsfiddle.net/fegemo/d4yk0uh9/29/ -->
-
+ -->
 ---
 # AJAX
 
 *[AJAX]: Asynchronous JavaScript and XML*
 *[XML]: eXtensible Markup Language*
 
-![Foto do personagem Ajax no filme Tróia](../../images/ajax-troy.jpg) <!-- {.portrait} -->
+![Foto do personagem Deadpool enfrentando um limpador multiuso AJAX](../../images/ajax-deadpool.jpg)
 
 ---
 ## Problema
@@ -428,7 +418,6 @@
 - O jQuery possui uma abstração do objeto `XMLHttpRequest` para agilizar a
   realização de requisições AJAX
   - Veja como ficaria o exemplo do botão "curtir" usando jQuery:
-
     ```js
     $.ajax({
       url: '/curtir/3434',
@@ -440,10 +429,10 @@
     ```    
 
 ---
-# Exercício 3
+# Intro nas Estrelas
 
 - Vamos criar um letreiro Star Wars em Javascript e CSS \o/
-- Faça um _fork_ deste _pen_: http://codepen.io/fegemo/pen/PqGjep
+- Faça um _fork_ do repositório: http://github.com/fegemo/cefet-web-starwars
 - Você deve escrever código Javascript para fazer chamadas AJAX para
   uma API pública com informações sobre Star Wars
   - Disponível em https://swapi.co/
@@ -459,9 +448,10 @@
 
 
 ---
-## _Setup_ no Google Chrome (slide oculto :P)
+<!-- {"slideHash": "setup-local-server"} -->
+## Erro ao fazer o AJAX (slide oculto :P)
 
-- O Chrome tem uma política de permissões diferente para quando acessamos uma
+- Os navegadores têm uma política de permissões diferente para quando acessamos uma
 página via o protocolo file:// que proíbe o uso de requisições AJAX, dentre
 outras coisas
 - Para contornar a restrição, precisamos hospedar nosso arquivo em um servidor
