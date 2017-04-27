@@ -49,7 +49,7 @@ em **20 pontos** na matéria~~), deve:
      - O importante é conseguir **pelo menos 100 peças de W$**, até um
        limite de 120 peças
    - ~~A~~O API pode ser ~~apresentada~~apresentado com _slides_, que
-     podem ser criados em ~~HTML/CSS/JS~~JavasCripta **(até +10% PW$)**
+     podem ser criados em ~~HTML/CSS/JS~~JavasCripta **(até +10 PW$)**
      - Veja [bespoke.js][bespoke], [reveal.js][reveal],
        [slides.com][slides.com] etc.
 1. ~~Um código ilustrativo~~Uma ilustração ~~da~~do API que mostre, de
