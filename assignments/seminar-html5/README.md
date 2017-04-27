@@ -94,7 +94,7 @@ comprar informações sobre:
     30)
   - _WebVR API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     120)
-  - _Web Animatinos API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+  - _Web Animations API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     80)
 - Conectividade
   - _Fetch_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 60)
