@@ -32,15 +32,15 @@
 ## Instalando o Node.js
 
 - Há versões binárias e/ou instaladores para sistemas Unix, OSX ou Windows
-  [no site oficial](http://www.nodejs.org) (**recomendado** para hoje)
-- Alternativas:
+  [no site oficial](http://www.nodejs.org) (**recomendado** para hoje).
+  Alternativas:
   - Mac (via brew)
     ```
     $ brew install node
     ```
   - Linux (via apt-get)
-    ```
-    $ sudo apt-get install -y nodejs
+    ```bash
+    $ sudo apt-get install -y nodejs # versao antiga
     ```
   - Windows (via Chocolatey)
     ```
@@ -50,9 +50,7 @@
 ---
 ## Instalando um **gerenciador de versões do Node.js**
 
-- Assim como `ruby` possui o `rvm` ou o `rbenv` para gerenciar múltiplas
-  versões da plataforma instaladas, o Node.js possui algumas alternativas
-  também:
+- A comunidade criou programas gerenciadores de versões do Node.js:
   - Para Linux e OSX: [`nvm`](https://github.com/creationix/nvm)
     ```
     $ nvm install v6.0.0
@@ -86,7 +84,7 @@
 ## Um **pacote**
 
 - É um "programa" Node.js
-- Pode ser privado ou público (padrão)
+- Pode ser privado ou <u>público</u> (padrão)
   - Quando é público, qualquer um pode instalá-lo e ver seu código fonte
 - É **descrito** por um arquivo chamado **`package.json`**:
   ```json
@@ -96,13 +94,13 @@
     "dependencies": {
       "katex": "^0.6.0"
     }
-  } 
+  }
   ```
 
 ---
 ## O **npm** (cont.)
 
-- Para instalar um pacote no diretório atual, usamos o comando:
+- Para **instalar um pacote** no diretório atual, usamos o comando:
   ```bash
   $ npm install <nome-do-pacote>
   ```
@@ -218,9 +216,9 @@
 
 - Faça os exercícios 5 e 6 do _learnyounode_
   - Você vai precisar usar os seguintes módulos da plataforma:
-    1. `fs`, para 
+    1. `fs`, para
        [ler um diretório](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback)
-    1. `path`, para 
+    1. `path`, para
        [recuperar uma extensão](http://nodejs.org/api/path.html#path_path_extname_p)
        à partir de um caminho de arquivo
 

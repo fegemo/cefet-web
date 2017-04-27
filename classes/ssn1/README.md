@@ -5,10 +5,6 @@
 
 1. A vida de um servidor Web
 1. Exemplos de servidores
-  1. Apache
-  1. Tomcat
-  1. IIS
-  1. NginX
 1. Node.js
 1. O problem c10k
 
@@ -34,15 +30,14 @@
 - O código fonte ainda pode ser baixado aqui: http://www.w3.org/Daemon/
   - Escrito em C
   - Mudou de nome para W3C httpd em 1996
-- Tinha suporte para:
-  - Botões de imagem
+- **Novidades da última versão:**
+  - Botões de imagem ![](../../images/new-icon-90s.gif)
     ```html
     <input type="image">
     ```
-  - Formulários
-  - Autenticação
+  - Autenticação em HTTP ![](../../images/new-icon-90s.gif)
   - Scripts executáveis CGI
-  - Configuração via arquivo
+  - Configuração do servidor via arquivo
 
 ---
 ## O computador onde o servidor executava
@@ -52,23 +47,23 @@
 ---
 ## O NCSA HTTPd
 
-- Robert McCool desenvolveu, entre 1993 e 1995 um novo servidor Web, muito
-  parecido com o CERN httpd do Tim
-- Em certo momento, 95% dos sites norte-americanos usavam o NCSA HTTPd
+- **Robert McCool desenvolveu**, entre 1993 e 1995 um **novo servidor Web**,
+  muito parecido com o CERN httpd do Tim
+- Em certo momento, **95% dos sites norte-americanos** usavam o NCSA HTTPd
   - Foi quando Robert resolveu que não queria mais brincar e encerrou seu
-    desenvolvimento
+    desenvolvimento 😱
 - Pouco tempo depois (1995), 8 pessoas começaram a trabalhar em consertar e
   re-alavancar o desenvolvimento do NCSA HTTPd
   - Eles se entitularam o **Apache Group**, em referência à nação nativa da
     américa do norte
-    - Também pode ser "A patchy web server", pelo fato de ter sido criado com
+    - Também pode ser "*A patchy* web server", pelo fato de ter sido criado com
       diversos _patches_ em cima do NCSA HTTPd
 
 ---
 ## Do Apache em diante
 
-- Depois da criação do Apache HTTP Server, ele se tornou o servidor mais
-  utilizado (até hoje!!)
+- Depois da criação do Apache HTTP Server, ele se tornou **o servidor mais
+  utilizado** (<u>até hoje!!</u>)
 - E incentivou outras iniciativas de criação de servidores por empresas e
   outras organizações
   - Microsoft &#8594; IIS
@@ -84,10 +79,12 @@
 - É um programa que **processa requisições HTTP** e alguns outros protocolos
   tipicamente usados em _internets_
   - Pense em um programa que tem _sockets_ escutando na porta 80 (HTTP) e na
-    443 (HTTPS) por conexões que transmitem pacotes que contém pedidos
-    - Os pedidos são requisições HTTP
+    443 (HTTPS)
+    - Quando um cliente estabelece a conexão com o servidor, o cliente envia um
+      pedido, que o servidor precisa entender, depois tomar providências
+      e então responder. Pedidos são requisições HTTP:
       ```http
-      GET cefet-web/classes/ssn1
+      GET /cefet-web/classes/ssn1/index.html
       Host: fegemo.github.io
       ```
 
@@ -98,29 +95,28 @@
   1. Saber falar o protocolo HTTP para atender as requisições
   1. Conhecer o sistema de arquivos do SO para entregar arquivos solicitados
 - O servidor Web **pode**:
-  1. Permitir a geração dinâmica de recursos (e.g., arquivos html)
+  1. Permitir a geração dinâmica de recursos (e.g., de arquivos HTML)
   1. Permitir a recepção de arquivos (formulários que fazem _upload_)
-  1. Entender outros protocolos além de HTTP: FTP, HTTPS, FTPS etc.
+  1. Entender outros protocolos além de HTTP: HTTPS, FTP, SMTP etc.
   1. Gerenciar conexões simultâneas de vários "solicitantes"
 
 ---
 ## Geração dinâmica de recursos
 
-- Queremos poder escrever algo como isto:
+```html
+<ul>
+  <% for (int i = 0; i < produtos.length; i++) { %>
+    <li><%= produtos[i].name %><li>
+  <% } %>
+</ul>
+```
+- Gerando HTML (que o navegador entende):
   ```html
   <ul>
-    <% for (int i=0; i < products.length; i++) { %>
-      <li><%= products[i].name %><li>
-    <% } %>
+    <li>Picolé</li>
+    <li>Sorvete</li>
   </ul>
   ```
-  - Gerando código HTML (que o navegador entende):
-    ```html
-    <ul>
-      <li>Picolé</li>
-      <li>Sorvete</li>
-    </ul>
-    ```
 
 ---
 ## Um servidor Web simplão
@@ -166,7 +162,7 @@
 - Os servidores Web disponíveis hoje em dia tipicamente atendem a todas as
   demandas de um servidor Web listadas anteriormente
 - Eles se **divergem**:
-  1. Na linguagem com que se é permitido gerar páginas html dinamicamente
+  1. Na linguagem com que se é permitido gerar páginas HTML dinamicamente
   1. No suporte a versões mais recentes de protocolos
   1. Nos protocolos "extras" suportados
   1. Na sua arquitetura
@@ -174,7 +170,7 @@
 ---
 ## Apache
 
-- Em primeiro lugar desde 1995 como o mais utilizado
+- **Em primeiro lugar desde 1995** como o mais utilizado
 - Tipicamente (mas não exclusivamente) usado associado à linguagem PHP
 - Fonte do sucesso:
   1. Projeto altamente modularizado e configurável
@@ -188,6 +184,7 @@
 
 - Código de um arquivo `index.php`
   ```php
+  <!DOCTYPE html>
   <html>
     <head>
       <title>PHP Teste</title>
@@ -201,7 +198,9 @@
 ---
 ## Arquitetura do Apache
 
-![Arquitetura do Apache](../../images/arquitetura-apache.png) <!-- {.medium-height} -->
+![Arquitetura do Apache](../../images/arquitetura-apache.png)
+
+<!-- {style="height: 300px"} -->
 
 - Os módulos são ativados/desativados e configurados por meio de arquivos de
   configuração
@@ -246,23 +245,23 @@
     1. alto desempenho
     1. baixo uso de memória
   - Executa em sistemas baseados no Unix
-  - Muito usado para fazer _load balacing_
+  - Muito usado para fazer _load balancing_
 
 ---
 # ![Node.js](../../images/nodejs-logo.png)
 
 ---
 ## Node.js
-    
+
 - Não é um servidor web (OMG!!!)
 - ::: figure .floating-portrait-container.push-right
   ![Ryan Dahl](../../images/ryan-dahl.jpg) <!-- {img.portrait} -->
   :::
   **Ryan Dahl**, seu criador, teve o seguinte raciocínio:
-  1. Gosto de Javascript e gostaria de poder usar a linguagem fora dos
+  1. Gosto de JavaScript e gostaria de poder usar a linguagem fora dos
      navegadores
   1. Hmm, o pessoal da Google fez um ótimo serviço ao criar a máquina virtual
-     que executa Javascript no Google Chrome: a V8
+     que executa JavaScript no Google Chrome: a V8
   1. Já sei: vou separar essa V8 do navegador e criar um ambiente para que
      programas JS possam acessar o sistema de arquivos **_y otras cositas más_**
 
@@ -367,7 +366,7 @@
     );
     ```
   - Enquanto a operação do `SELECT` está sendo feita, <u>o programa continua
-    executando</u>
+    executando</u> as próximas instruções
 
 ---
 ## _Single threaded_ e _event driven_
@@ -388,8 +387,7 @@
   ```js
   var stream = fs.createReadStream('./arquivao-gigante.json');
   stream.on('data', function (chunk) {
-    // chamada de vez em quando, sempre que foi possível
-    // ler mais um pouco (um chunk) do arquivo
+    // chamada de vez em quando, quando foi lido mais um pouco (um chunk) do arquivo
     console.log(chunk);
   });
   stream.on('end', function () {
@@ -399,7 +397,7 @@
   ```
 
 ---
-# O **_c10k problem_**
+# O **c10k problem**
 
 ---
 ## _c10k_ ([referência](http://www.kegel.com/c10k.html))
