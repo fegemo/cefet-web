@@ -4,7 +4,7 @@
 > -- _Sir_ Fegemo
 
 Era uma vez um reino encantado chamado **Weblot** :european_castle:.
-Lá viviam bravos cavaleiras e cavaleiros :crossed_flags:, magos tinhosos
+Lá viviam bravas cavaleiras e cavaleiros :crossed_flags:, magos tinhosos
 :sparkles:, um rei com sua espada :crown: e menestréis fanfarrões :beers:.
 
 [lenda-do-heroi]: https://soundcloud.com/fegemo/tema-de-a-lenda-do-heroi
