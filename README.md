@@ -206,9 +206,9 @@ Veja a bibliografia básica e a complementar.
 -->
 # Avaliação
 
-## Esta é a distribuição de pontos no semestre
+## Distribuição de pontos
 
-- ~10 Atividades práticas: **40** pontos
+- ~10 Práticas: **40** pontos
 - 1 Seminário: **20** pontos
 - Trabalhos Práticos:
   1. TP0: **3** pontos
@@ -217,7 +217,7 @@ Veja a bibliografia básica e a complementar.
      - Entrega 1: **12** pontos
      - Entrega 2: **20** pontos
 
-<!-- {ul:.content} -->
+<!-- {ul^1:.content} -->
 
 ---
 # Trabalhos (60 pontos)
@@ -227,9 +227,10 @@ Veja a bibliografia básica e a complementar.
   - Entrega 0: (5 pontos, data: 06/04/2017)
   - Entrega 1: (12 pontos, data: 25/04/2017)
   - Entrega 2: (20 pontos, data: TBD - final do semestre)
-- Seminário: APIs HTML5  (20 pontos, data: TBD - meio do semestre)
+- [Seminário: APIs HTML5][seminar] (20 pontos, data: 23/05/2017)
 
 *[TBD]: to be defined*
 
 [tp0]: assignments/tp0
 [project]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-selfservice/README.md
+[seminar]: https://github.com/fegemo/cefet-web/tree/master/assignments/seminar-html5/README.md
