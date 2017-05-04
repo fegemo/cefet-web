@@ -28,23 +28,24 @@
   ```
 
 ---
-## Um servidor web útil
+## Um servidor web útil (arquivos **baseados na URL**)
 
-- Alterado, este servidor retorna arquivos **baseados na URL**:
-  ```js
-  var http = require('http'), fs = require('fs'), u = require('url');
-  var server = http.createServer(function (req, res) {
-    var caminho = __dirname + u.parse(req.url).path,
-        stream = fs.createReadStream(caminho);
-    stream.on('error', function() {
-      res.writeHead(404); res.end('Not Found');
-    });
-    stream.on('open', function() {
-      res.writeHead(200, { 'content-type': 'text/plain' });
-      stream.pipe(res);
-    });
-  }).listen(8080);
-  ```
+```js
+let http = require('http'), fs = require('fs'), url = require('url');
+let server = http.createServer(function (req, res) {
+  let caminho = __dirname + url.parse(req.url).path,
+      stream = fs.createReadStream(caminho);
+
+  stream.on('error', function() {
+    res.writeHead(404); res.end('Not Found');
+  });
+
+  stream.on('open', function() {
+    res.writeHead(200, { 'content-type': 'text/plain' });
+    stream.pipe(res);
+  });
+}).listen(8080);
+```
 
 ---
 ## Problema: _MIME types_
@@ -96,7 +97,7 @@
 
 - (1) Incluindo o módulo `mime`:
   ```js
-  var http = require('http'),
+  let http = require('http'),
       fs = require('fs'),
       url = require('url'),
 
@@ -117,13 +118,14 @@
       'content-type': mime.lookup(caminho)
     });
     stream.pipe(res);
+
     console.log('Serviu o arquivo: ' + caminho);
   });
   /* ... */
   ```
 
 ---
-## O que ainda está faltando
+## O que ainda **está faltando**
 
 - Nosso servidor web ainda precisa de algumas coisas:
   1. Controlar _cache_ de arquivos já solicitados
@@ -161,16 +163,16 @@
 ## Servidor _"hello world"_ com Express
 
 ```js
-var express = require('express');
-var app = express();
+let express = require('express');
+let app = express();
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+let server = app.listen(3000, function () {
+  let host = server.address().address;
+  let port = server.address().port;
   console.log('Listening at http://%s:%s', host, port);
 });
 ```
@@ -179,14 +181,14 @@ var server = app.listen(3000, function () {
 ## Servidor de arquivos estáticos com Express
 
 ```js
-var express = require('express'),
+let express = require('express'),
     app = express();
 
 // suponhamos que "/public" é uma pasta com
 // nossos arquivos estáticos
 app.use(express.static(__dirname + '/public'));
 
-var server = app.listen(3000, function () {
+let server = app.listen(3000, function () {
   console.log('Escutando em: http://localhost:3000');
 });
 ```
@@ -197,8 +199,7 @@ var server = app.listen(3000, function () {
 
 - O _express_ facilita a **especificação da ação** a ser tomada **dependendo
   da URL solicitada**
-  - Uma rota é definida por um verbo HTTP (`GET`, `POST` etc.) e um caminho de uma
-    URL
+  - Uma rota é definida por um verbo HTTP (`GET`, `POST` etc.) e uma URL
   - A cada rota é associada uma _callback_:
     ```js
     // GET /
@@ -218,7 +219,9 @@ var server = app.listen(3000, function () {
   ```js
   // HEAD /user/122   (verificar se usuário id=122 existe)
   app.head('/user/:ident', function(request, response) {
-    if (tabelaDeUsuarios[request.params.ident]) {
+    // request.params contém os parâmetros da rota
+    let usuario = tabelaDeUsuarios[request.params.ident];
+    if (usuario !== null) {
       response.status(200).end();
     } else {
       response.status(404).end();
@@ -237,7 +240,7 @@ var server = app.listen(3000, function () {
   oferecendo 19 opções, e.g.:
   1. `ejs` (`.ejs`, era o [formato original do Express](https://github.com/tj/ejs))
   1. `handlebars` (`.hbs`, [site oficial](http://handlebarsjs.com/))
-  1. `jade` (`.jade`, [site oficial](http://jade-lang.com/))
+  1. `pug` (`.pug`, [site oficial](http://pugjs.org/))
   1. `dust` (`.dust`, feito pelo [LinkedIn](http://akdubya.github.io/dustjs/))
 
 ---
@@ -313,13 +316,13 @@ var server = app.listen(3000, function () {
   ```
 
 ---
-## Gerando HTML dinamicamente com **jade**
+## Gerando HTML dinamicamente com **pug**
 
 - (1) Configurando o Express:
   ```js
-  app.set('view engine', 'jade');
+  app.set('view engine', 'pug');
   ```
-- (2) Criando arquivos no formato `.jade`:
+- (2) Criando arquivos no formato `.pug`:
   ```jade
   ul
     each user in users

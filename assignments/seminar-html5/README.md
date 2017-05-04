@@ -4,7 +4,7 @@
 > -- _Sir_ Fegemo
 
 Era uma vez um reino encantado chamado **Weblot** :european_castle:.
-Lá viviam bravos cavaleiras e cavaleiros :crossed_flags:, magos tinhosos
+Lá viviam bravas cavaleiras e cavaleiros :crossed_flags:, magos tinhosos
 :sparkles:, um rei com sua espada :crown: e menestréis fanfarrões :beers:.
 
 [lenda-do-heroi]: https://soundcloud.com/fegemo/tema-de-a-lenda-do-heroi
@@ -49,7 +49,7 @@ em **20 pontos** na matéria~~), deve:
      - O importante é conseguir **pelo menos 100 peças de W$**, até um
        limite de 120 peças
    - ~~A~~O API pode ser ~~apresentada~~apresentado com _slides_, que
-     podem ser criados em ~~HTML/CSS/JS~~JavasCripta **(até +10% PW$)**
+     podem ser criados em ~~HTML/CSS/JS~~JavasCripta **(até +10 PW$)**
      - Veja [bespoke.js][bespoke], [reveal.js][reveal],
        [slides.com][slides.com] etc.
 1. ~~Um código ilustrativo~~Uma ilustração ~~da~~do API que mostre, de
@@ -94,7 +94,7 @@ comprar informações sobre:
     30)
   - _WebVR API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     120)
-  - _Web Animatinos API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+  - _Web Animations API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     80)
 - Conectividade
   - _Fetch_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 60)
