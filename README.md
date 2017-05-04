@@ -49,13 +49,13 @@
 - [Javascript 4 - JSON e AJAX (Prática)](classes/js4/)
 - [Node.js 1 - Servidores Web](classes/ssn1/)
 - [Node.js 2 - NPM, arquivos e _learnyounode_ (Prática)](classes/ssn2/)
+- [Node.js 3 - Express](classes/ssn3/)
+- [Node.js 4 - HTML Dinâmico e o Geiser (Prática)](classes/ssn4/)
 
 <!--
 
 # Aulas (página 3)
 
-- [Node.js 3 - Express](classes/ssn3/)
-- [Node.js 4 - HTML Dinâmico e o Geiser (Prática)](classes/ssn4/)
 - [Javascript 3 - Padrões de Projeto](classes/js3/)
 - [Node.js 5 - Sessão e Biscoitos](classes/ssn5/)
 - [Node.js 6 - Bancos de Dados e Zumbis (Prática)](classes/ssn6/)

@@ -58,8 +58,7 @@
   ```
   $ npm init
   ```
-  - O `npm` lhe fará algumas perguntas e você deve respondê-las. Ao final,
-    você terá algo como:
+  - O `npm` fará algumas perguntas. Ao final, você terá algo como:
     ```json
     {
       "name": "Geiser",
@@ -88,7 +87,7 @@
   ```
 
 ---
-# Parte 1 - configuração e servidor estático
+# Parte 1 - servidor estático
 
 
 - ![Estrutura de pastas do projeto](../../images/geiser-diretorios.png) <!-- {.push-right} -->
@@ -103,7 +102,7 @@
 
 
 ---
-## Parte 1 - configuração e servidor estático (cont.)
+## Parte 1 - configuração e servidor estático
 
 - Modifique o arquivo `server/app.js` para ativar um servidor estático
   - O servidor deve servir os arquivos da pasta `client/`
@@ -119,7 +118,7 @@
         - E entrando em http://localhost:PORTA/index.exemplo.html
 
 ---
-## Parte 1 - configuração e servidor estático (cont.)
+## Parte 1 - configuração e servidor estático
 
 ![](../../images/geiser-app1.png)
 
@@ -128,8 +127,8 @@
 
 - A página inicial deve mostrar uma lista de todos os jogadores que temos no
   "banco de dados" (arquivo `data/jogadores.json`)
-- Vamos precisar de um _templating engine_ para gerar html dinamicamente. Você
-  pode usar [qualquer um suportado pelo Express](https://www.npmjs.org/package/consolidate).
+- Vamos precisar de um **_templating engine_ para gerar html dinamicamente**.
+  Você pode usar [qualquer um suportado pelo Express](https://www.npmjs.org/package/consolidate).
   Nesta apresentação estamos usando `.hbs`
   1. Instalar o _templating engine_ escolhido via `npm`
      ```
@@ -180,7 +179,7 @@
     para iterar no _array players_
 
 ---
-# Parte 3 - página de detalhes do jogador
+# Parte 3 - detalhes do jogador
 
 - Assim como para a página inicial, você deve criar, também, uma rota para a
   página de detalhes do jogador
@@ -202,19 +201,19 @@
 
 <!-- {.full-width} -->
 <!-- {a:target="pic2"} -->
-  
+
 ---
 [![](../../images/geiser-jogos2.png)](../../images/geiser-jogos2.png)
 
 <!-- {.full-width} -->
 <!-- {a:target="pic3"} -->
-  
+
 ---
 [![](../../images/geiser-jogos2-json.png)](../../images/geiser-jogos2-json.png)
 
 <!-- {.huge-height} -->
 <!-- {a:target="pic4"} -->
-  
+
 ---
 ## Parte 3 - página de detalhes do jogador (cont.)
 
