@@ -36,12 +36,12 @@
 - [CSS 2 - Especificidade, propriedades mil, Web Fonts](classes/css2/)
 - [HTML 4 - Div/Span, Box Model, Float e Unicórnios (Prática)](classes/html4/)
 - [CSS 3 - Divitite e as _tags_ semânticas, visibilidade e _Layout_](classes/css3/)
+- [CSS 4 - _Layout_ e o Coral 55 (Prática)](classes/css4/)
 
 ---
 
 # Aulas (página 2)
 
-- [CSS 4 - _Layout_ e o Coral 55 (Prática)](classes/css4/)
 - [Javascript 1 - Linguagem](classes/js1/)
 - [Javascript 2 - DOM, Eventos, o Espaço e RPG (Prática)](classes/js2/)
 - [HTML 5 - Formulários e Monstros (Prática)](classes/html5/)
@@ -52,17 +52,21 @@
 - [Node.js 3 - Express](classes/ssn3/)
 - [Node.js 4 - HTML Dinâmico e o Geiser (Prática)](classes/ssn4/)
 
-<!--
+---
 
 # Aulas (página 3)
 
-- [Javascript 3 - Padrões de Projeto](classes/js3/)
 - [Node.js 5 - Sessão e Biscoitos](classes/ssn5/)
 - [Node.js 6 - Bancos de Dados e Zumbis (Prática)](classes/ssn6/)
-- Mongo DB
+- [Mongo DB](https://fegemo.github.io/cefet-nosql/classes/mongodb-nodejs/)
+
+
+<!--
+- [Javascript 3 - Padrões de Projeto](classes/js3/)
 - [CSS 5 - Animações e _Edukids Animals_ (Prática)](classes/css5/)
 - [CSS 6 - _Responsive Design_](classes/css6/)
 - [Javascript 7 - EcmaScript 6](classes/js7/)
+
 - [Node.js 7 - REST APIs](classes/ssn7/)
 - [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/)
 -->
@@ -226,7 +230,9 @@ Veja a bibliografia básica e a complementar.
 - [Projeto: _Self-service_][project] (37 pontos)
   - Entrega 0: (5 pontos, data: 06/04/2017)
   - Entrega 1: (12 pontos, data: 25/04/2017)
-  - Entrega 2: (20 pontos, data: TBD - final do semestre)
+  - Entrega 2: (20 pontos)
+    - Código pronto e publicado (data: 18/06/2017)
+    - Apresentação (data: 20/06/2017 em sala)
 - [Seminário: APIs HTML5][seminar] (20 pontos, data: 23/05/2017)
 
 *[TBD]: to be defined*
