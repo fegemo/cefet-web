@@ -226,7 +226,9 @@ Veja a bibliografia básica e a complementar.
 - [Projeto: _Self-service_][project] (37 pontos)
   - Entrega 0: (5 pontos, data: 06/04/2017)
   - Entrega 1: (12 pontos, data: 25/04/2017)
-  - Entrega 2: (20 pontos, data: TBD - final do semestre)
+  - Entrega 2: (20 pontos)
+    - Código pronto e publicado (data: 18/06/2017)
+    - Apresentação (data: 20/06/2017 em sala)
 - [Seminário: APIs HTML5][seminar] (20 pontos, data: 23/05/2017)
 
 *[TBD]: to be defined*
