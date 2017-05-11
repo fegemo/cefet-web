@@ -95,7 +95,7 @@
    ```http
    HTTP/1.1 200 OK
    Content-type: text/html
-   <strong>Set-Cookie: lang=english</strong>
+   Set-Cookie: lang=english <---
 
    (conteúdo da página)
    ```
@@ -112,7 +112,7 @@
   ```http
   GET /promotions.html HTTP/1.1
   Host: www.ispeakmanymanylanguages.com
-  <strong>Cookie: lang=english</strong>
+  Cookie: lang=english <---
   Accept: */*
   ```
   - Todas as páginas subsequentes serão mostradas em inglês, porque em toda
@@ -123,7 +123,7 @@
 ## Exemplo de uso de _cookie_ (4/5)
 
 - (4) Usuário altera a língua para `"portuguese"`. A forma como nosso servidor
-  de exemplo possibilita isso é através de uma **requisção** GET para
+  de exemplo possibilita isso é por meio de uma **requisção** GET para
   `/changeLanguage?l=portuguese`:
   ```http
   GET /changeLanguage?l=portuguese HTTP/1.1
@@ -140,7 +140,7 @@
   ```http
   HTTP/1.1 200 OK
   Content-type: text/html
-  <strong>Set-Cookie: lang=portuguese</strong>
+  Set-Cookie: lang=portuguese <---
 
   (conteúdo da página em Português)
   ```
@@ -182,7 +182,7 @@
   ```http
   HTTP/1.0 200 OK
   Content-type: text/html
-  Set-Cookie: lang=portuguese<strong>; Expires=Wed, 01-Jan-2020 00:00:00 GMT</strong>
+  Set-Cookie: lang=portuguese; Expires=Wed, 01-Jan-2020 00:00:00 GMT
 
   (conteúdo da página)
   ```
@@ -193,19 +193,18 @@
 ---
 ## Definindo _cookies_ no Express.js (1/2)
 
-- Como vimos, o servidor deve apenas inserir um cabeçalho `Set-Cookie` para
-  instruir o navegador a criar um _cookie_. No Express.js:
+- O servidor insere um `Set-Cookie` para instruir o navegador a cria-lo:
   ```js
   app.get('/changeLanguage', function(req, res) {
     // pega parâmetro com nome "lang" da querystring
-    var desiredLang = req.params.lang;
+    let desiredLang = req.params.lang;
     // inclui o cabeçalho Set-Cookie "lang=%%%;Expires=Wed..."
-    res.cookie('lang', desiredLang, { expires: 'Wed...' });
-    // redireciona para a rota index
-    res.redirect('index',);
+    res.cookie('lang', desiredLang, { expires: 'Wed...' }); // <--- Set-Cookie
+    // redireciona para a rota do index
+    res.redirect('index');
   });
-  app.get('/', function(req, res) { // usa cookie ou 'english'
-    res.render('index', {lang: req.cookies.lang || 'english'});
+  app.get('/', function(req, res) { // usa cookie ou 'english' (padrão)
+    res.render('index', { lang: req.cookies.lang || 'english' });
   });
   ```
 
@@ -247,6 +246,7 @@
     utiliza para recuperar as informações da sessão do cliente
 
 ---
+<!-- {"layout": "regular"} -->
 ## Como sessões são estabelecidas
 
 1. O navegador faz requisição inicial ao servidor
@@ -262,12 +262,11 @@
 ---
 ## Sessões no Express.js (1/2)
 
-- Assim como com _cookies_, é necessário dizer ao Express.js que queremos usar
-  sessões
+- Assim como com _cookies_, vamos dizer ao Express.js para usar sessões
   - Para isso, incluímos o [_middleware_ de sessões](https://github.com/expressjs/session):
     ```js
-    var app = require('express')();
-    var session = require('express-session');
+    let app = require('express')();
+    let session = require('express-session');
     app.use(session({
       secret: 'octocats and octodogs'
     }));
@@ -288,8 +287,7 @@
     if (req.session.views) {  // contador de vis. nesta sessão
       req.session.views++;
       res.setHeader('Content-Type', 'text/html');
-      res.write('<p>views: ' + req.session.views + '</p>');
-      res.end();
+      res.end('<p>views: ' + req.session.views + '</p>');
     } else {
       req.session.views = 1;
       res.end('welcome to the session demo. refresh!');
