@@ -281,11 +281,10 @@ abbr[title] {
   border-bottom: initial;
 }
 a:link {
-  text-decoration: underline;
   color: #4caf50;
 }
-a:hover {
-  text-decoration: none;
+a:visited {
+  color: #9575cd;
 }
 .show-active-slide-and-previous .bespoke-before-1 {
   transform: translate3d(-30%, 0, -250px) rotateY(10deg);
