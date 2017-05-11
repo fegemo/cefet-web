@@ -12,8 +12,8 @@ opção para cada pergunta a seguir:
 
 - (até 150g) Opção de ~~carne~~ relevância:
   1. (100g) Relevância para:
-    - a comunidade do CEFET ou
-    - a sociedade em geral
+     - a comunidade do CEFET ou
+     - a sociedade em geral
   1. (100g) Inovação (criação de um produto)
      - Se esta for a escolha, você deve entregar uma [matriz SWOT][swot]
 - (até 250g) Opção de ~~acompanhamento~~ característica de engajamento:
