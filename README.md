@@ -42,22 +42,22 @@
 
 # Aulas (página 2)
 
-- [Javascript 1 - Linguagem](classes/js1/)
-- [Javascript 2 - DOM, Eventos, o Espaço e RPG (Prática)](classes/js2/)
-- [HTML 5 - Formulários e Monstros (Prática)](classes/html5/)
-- [Javascript 5 - APIs do HTML5](classes/js5/)
-- [Javascript 4 - JSON e AJAX (Prática)](classes/js4/)
-- [Node.js 1 - Servidores Web](classes/ssn1/)
-- [Node.js 2 - NPM, arquivos e _learnyounode_ (Prática)](classes/ssn2/)
-- [Node.js 3 - Express](classes/ssn3/)
-- [Node.js 4 - HTML Dinâmico e o Geiser (Prática)](classes/ssn4/)
+- [Javascript 1](classes/js1/) - Linguagem
+- [Javascript 2](classes/js2/) - DOM, Eventos, o Espaço e RPG (Prática)
+- [HTML 5](classes/html5/) - Formulários e Monstros (Prática)
+- [Javascript 5](classes/js5/) - APIs do HTML5
+- [Javascript 4](classes/js4/) - JSON e AJAX (Prática)
+- [Node.js 1](classes/ssn1/) - Servidores Web
+- [Node.js 2](classes/ssn2/) - NPM, arquivos e _learnyounode_ (Prática)
+- [Node.js 3](classes/ssn3/) - Express.js
+- [Node.js 4](classes/ssn4/) - HTML Dinâmico e o Geiser (Prática)
 
 ---
 
 # Aulas (página 3)
 
-- [Node.js 5 - Sessão e Biscoitos](classes/ssn5/)
-- [Node.js 6 - Bancos de Dados e Zumbis (Prática)](classes/ssn6/)
+- [Node.js 5](classes/ssn5/) - Sessão e Biscoitos :cookie:
+- [Node.js 6](classes/ssn6/) - Bancos de Dados e Zumbis (Prática)
 - [Mongo DB](https://fegemo.github.io/cefet-nosql/classes/mongodb-nodejs/)
 
 

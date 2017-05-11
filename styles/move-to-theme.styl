@@ -9,19 +9,59 @@ strong.alternate-color
 abbr[title]
   border-bottom initial
 
+
+$link-color =  #4CAF50
+$link-color-visited =  #9575cd
+    
+/*
+color-changer(color, name)
+  @keyframes color-changer-{name}
+    from
+      color color
+    to
+      color darken(color, 30%)
+
+color-changer($link-color, links)
+
+@keyframes border-bar
+  from
+    transform translateX(-75%)
+  to
+    transform translateX(75%)
+
+
+.bespoke-slide
+  a:link
+    color $link-color
+    position relative
+    overflow-x hidden
+    display inline-block
+    vertical-align middle
+    &::after
+      content ' '
+      display block
+      position absolute
+      bottom 0.25em
+      left -75%
+      right -75%
+      height 0.083333em   // ~2px em uma fonte de 24px
+      opacity 0.25
+      // para ter o "risco duplo", faz um gradiente assim:
+      // cor cor cor cor transp transp cor cor cor cor
+      background-image linear-gradient(to right, currentColor 40%, transparent 40%, transparent 60%, currentColor 60%)
+      animation border-bar 2s infinite forwards
+
+  a:visited
+    color $link-color-visited
+    &::after
+      background white
+*/
+
 a:link
-  text-decoration underline
-  color #4CAF50
-  // animation color-swift(@color) 1s linear 0s infinite alternate
+  color $link-color
 
-a:hover
-  text-decoration none
-
-// color-swift
-//   @keyframes color-swift(c)
-//     from { color c }
-//     to   { darken(c, 40%) }
-
+a:visited
+  color $link-color-visited
 
 
 .show-active-slide-and-previous
