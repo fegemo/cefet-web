@@ -59,12 +59,12 @@
 - [Node.js 5](classes/ssn5/) - Sessão e Biscoitos :cookie:
 - [Node.js 6](classes/ssn6/) - Bancos de Dados e Zumbis (Prática)
 - [Mongo DB](https://fegemo.github.io/cefet-nosql/classes/mongodb-nodejs/)
+- [CSS 5](classes/css5/) - Animações e _Edukids Animals_ (Prática)
+- [CSS 6](classes/css6/) - _Responsive Design_
 
 
 <!--
 - [Javascript 3 - Padrões de Projeto](classes/js3/)
-- [CSS 5 - Animações e _Edukids Animals_ (Prática)](classes/css5/)
-- [CSS 6 - _Responsive Design_](classes/css6/)
 - [Javascript 7 - EcmaScript 6](classes/js7/)
 
 - [Node.js 7 - REST APIs](classes/ssn7/)

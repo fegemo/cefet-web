@@ -486,10 +486,10 @@ a.combinando:hover {
   left: 0;
   right: 0;
   z-index: -1;
-  -webkit-animation: terra-ao-longo-do-dia 20s linear 4s 1 normal forwards;
-  -moz-animation: terra-ao-longo-do-dia 20s linear 4s 1 normal forwards;
-  -ms-animation: terra-ao-longo-do-dia 20s linear 4s 1 normal forwards;
-  animation: terra-ao-longo-do-dia 20s linear 4s 1 normal forwards;
+  -webkit-animation: terra-ao-longo-do-dia 20s linear 4s infinite normal forwards;
+  -moz-animation: terra-ao-longo-do-dia 20s linear 4s infinite normal forwards;
+  -ms-animation: terra-ao-longo-do-dia 20s linear 4s infinite normal forwards;
+  animation: terra-ao-longo-do-dia 20s linear 4s infinite normal forwards;
 }</style>
 
 - ```css
