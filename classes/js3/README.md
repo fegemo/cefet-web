@@ -1,25 +1,26 @@
+<!-- {"layout": "title"} -->
 # Javascript - Parte 3
+## Funcionamento e Padrões de Projeto
 
 ---
 # Roteiro
 
 1. Criando objetos
-1. Funções Construtoras (ou classes)
+1. Funções construtoras
 1. Herança
    - Pseudo-clássica
+   - Com classes
 1. Padrões de projeto
-   - `this`, `that` 
+   - `this`, `that`
    - _`new` enforcer_
-   - _single-`var`_
-   - _Revealing Module_
    - IIFE
 
 *[IIFE]: Immediately Invoked Function Expression*
 
 ---
-## Java (ou C#) _vs_ Javascript
+## Java (ou C#) _vs_ JavaScript
 
-| Java              | Javascript        |
+| Java              | JavaScript        |
 |-------------------|-------------------|
 | Fortemente tipada | Fracamente tipada |
 | Estática          | Dinâmica          |
@@ -34,15 +35,15 @@
 ---
 ## Instanciação de Objetos
 
-- Como visto anteriormente, Javascript possui um tipo de dados complexo `Object`
+- Como visto, JavaScript possui 01 tipo de dados complexo `Object`
 - Podemos instanciar objetos de duas formas:
-  1. Literal
+  1. Forma **literal**:
      ```js
-     var carro = {};
+     let carro = {};
      ```
-  1. Operador `new`
+  1. Operador `new`:
      ```js
-     var carro = new Object();
+     let carro = new Object();
      ```
 
 ---
@@ -50,7 +51,7 @@
 
 - Um objeto é simplesmente um _container_ de propriedades (nome: valor)
   ```js
-  var carro = {
+  let carro = {
     cor: 'vermelho',
     codigoCor: '#ff0000',
     fabricante: {
@@ -64,18 +65,18 @@
 ## Acesso a propriedades
 
 - Para acessar propriedades de objetos, também há duas formas:
-  1. Via `.`
+  1. Via **notação `.`**:
      ```js
      console.log(carro.cor);    // vermelho
      ```
-  1. Via indexação
+  1. Via **indexação** (como em um _array_):
      ```js
      console.log(carro['cor']); // vermelho
      ```
      - Em termos de LP, temos **reflexão** de graça :)
 - Acesso a propriedades inexistentes retorna `undefined`:
   ```js
-  console.log(carro.potencia);  // undefined
+  console.log(carro.potencia);  // undefined (prop. potencia não existe)
   ```
 
 ---
@@ -83,17 +84,16 @@
 
 - O operador  `||` pode ser usado para a definição de valores padrão:
   ```js
-  var potencia = carro.potencia || 1000;
+  let potencia = carro.potencia || 1000;
   ```
-- Tentativa de acesso de propriedades de um valor `undefined` lançará um erro:
+- Tentativa de acesso de propriedades de um valor `undefined` dá erro:
   ```js
-  console.log(carro.potencia);            // undefined
-  console.log(carro.acessorios.volante);  // lança "TypeError"
+  console.log(carro.potencia);                          // undefined
+  console.log(carro.acessorios.volante);                // lança "TypeError"
   ```
-- O erro pode ser prevenido usando-se o operador &&:
+- O erro pode ser prevenido usando-se o operador `&&`:
   ```js
-  console.log(carro.acessorios && carro.acessorios.volante);
-  // undefined
+  console.log(carro.acessorios && carro.acessorios.volante);  // undefined
   ```
 
 ---
@@ -102,12 +102,12 @@
 - Para alterar o valor de uma propriedade já existente, usamos o operador
   de atribuição (`=`)
   ```js
-  carro.cor = 'verde';
+  carro.cor = 'verde';      // carro.cor era 'vermelho'
   ```
 - Para **criar uma nova propriedade**, usamos o operador de atribuição
   **da mesma forma**:
   ```js
-  carro.peso = 900;
+  carro.peso = 900;         // carro.peso não existia, mas agora é 900
   ```
 
 ---
@@ -115,12 +115,12 @@
 
 - Objetos são "transportados" por referência e nunca copiados
   ```js
-  var outroCarro = carro;
+  let outroCarro = carro;
   outroCarro.cor = 'prata';
   console.log(carro.cor);       // prata
   ```
   ```js
-  var a = {}, b = {}, c = {};
+  let a = {}, b = {}, c = {};
   console.log(a == b);          // false
   console.log(b == c);          // false
   console.log(a == c);          // false
@@ -129,16 +129,16 @@
 ---
 ## Construção de objetos por **construtor**
 
-- Mas existe uma terceira forma, em que podemos criar e inicializar o objeto.
+- Existe uma terceira forma, em que podemos criar e inicializar o objeto.
   Nessa forma, criamos uma **função construtora** que vai instanciar e
   inicializar objetos:
   ```js
   function Moto(modelo, dono) {
-    this.modelo = modelo;     // Lembre que 'this' dentro de um
-    this.dono = dono;         // objeto aponta para ele mesmo
+    this.modelo = modelo;         // Lembre que 'this' dentro de um
+    this.dono = dono;             // objeto aponta para ele mesmo
   }
-  var moto1 = new Moto('Kawasaki', 'Ninja Jiraya');
-  var moto2 = new Moto('Harley Davidson', 'Lula Molusco');
+  let moto1 = new Moto('Kawasaki', 'Ninja Jiraya');
+  let moto2 = new Moto('Harley Davidson', 'Lula Molusco');
   ```
 
 ---
@@ -172,14 +172,14 @@
       return this.modelo + ' do(a) ' + this.dono;
     };
   }
-  var motoca = new Moto('Honda Biz', 'Rubinho');
+  let motoca = new Moto('Honda Biz', 'Rubinho');
   console.log(motoca.toString());     // Honda Biz do Rubinho
   ```
 
 ---
 ## Exemplo: Lista de contatos
 
-- Considere um código para inicializar uma lista de contatos da seguinte forma:
+- Considere um código para inicializar uma lista de contatos assim:
   ```js
   function Contato(nome, email) {
     this.nome = nome;
@@ -197,7 +197,7 @@
 
 - (continuando o código...)
   ```js
-  var lista = [
+  const lista = [
     new Contato('huguinho', 'hugo@gmail.com'),
     new Contato('zezinho', 'jose@gmail.com'),
     new Contato('luizinho', 'luiz@gmail.com')
@@ -218,8 +218,8 @@
 ---
 ## Exemplo: Lista de contatos (cont.)
 
-- De fato, é possível definir um **método a nível da classe** usando-se uma
-  propriedade chamada `prototype`
+- De fato, é possível definir um **método a nível da classe** usando uma
+  propriedade chamada `prototype`:
   ```js
   function ContatoV2(nome, email) {
     this.nome = nome;
@@ -228,6 +228,7 @@
   ContatoV2.prototype.linkParaMensagem = function() {
     return 'mailto:' + this.email;
   };
+  // lembre-se: função é um objeto, logo, pode ter propriedades
   ```
 
 ---
@@ -246,7 +247,7 @@
   - Podemos visualizar isso ao criarmos um objeto vazio e verificar que ele já
     tem algumas propriedades:
     ```js
-    var novo = {};
+    let novo = {};
     console.log(novo.toString());     // [object Object]
     ```
     - Isso acontece porque todo objeto que instanciamos na forma literal
@@ -262,7 +263,7 @@
 ## Métodos de classe (estáticos)
 
 - É possível definir um método (propriedades em geral) que pertence à classe e
-  não tem acesso aos dados das instâncias (similar ao método estático de Java)
+  não tem acesso aos dados das instâncias (similar ao método estático de Java):
   ```js
   ContatoV2.ordenarContatos = function() { /* ... */ };
   ```
@@ -294,128 +295,145 @@
 ## Prototype
 
 - Sendo objetos, as funções também possuem uma propriedade `prototype` que
-  aponta para um objeto "global" `Function.prototype`
+  aponta para um objeto "global", o `Function.prototype`
 
 ---
 ## Invocação de funções (como função)
 
 - Há 4 formas distintas para se invocar uma função
-  1. Como uma função
-  1. Como um método
-  1. Como um construtor
-  1. Com `apply` ou `call`
+  1. Como uma função: `iniciaControlesVideo()`
+  1. Como um método: `video.play()`
+  1. Como um construtor `new VideoPlayer()`
+  1. Com `apply` ou `call`: `iniciaControlesVideo.call(null)`
 - Informação **insanamente** importante:
   - O objeto para onde `this` aponta varia em cada uma das 4 formas
 
 ---
-## Invocação de funções (como **função**)
+## (1) Invocação de funções (como **função**)
 
-1. Como uma **função** propriamente dita
-  - Quando a função não está associada a um objeto
-    ```js
-    function soma(a, b) {
-      return a + b;
-    }
-    soma(40, 2);      // invocação. Retorna 42
-    var s = soma;
-    s(21, 21);        // invocação. Retorna 42
-    ```
-    - O valor de `this` é **sempre** definido para o objeto global `window`
-      - Isto foi um erro de projeto da linguagem
+1. Como uma **função** propriamente dita, ou uma **subrotina**:
+   - Quando a função não está associada a um objeto
+     ```js
+     function soma(a, b) {
+       return a + b;
+     }
+     soma(40, 2);      // invocação. Retorna 42
+     let s = soma;
+     s(21, 21);        // invocação. Retorna 42
+     ```
+     - O valor de `this` é **sempre** definido para o objeto global `window`
+       - Isto foi um erro de projeto da linguagem :worried:
 
 ---
-## Invocação de funções (como **método**)
+## (2) Invocação de funções (como **método**)
 
-1. Como um **método**
-  - Quando a função é uma propriedade de um objeto
-    ```js
-    var contador = {
-      valor: 0,
-      incrementa: function(qtde) {
-        this.valor += (typeof qtde === 'number' ? qtde : 1);
-      }
-    }
-    contador.incrementa();    // invocação
-    contador.incrementa(10);  // invocação
-    ```
-    - O valor de `this` aponta para a instância do objeto dono do método
-      invocado
+2. Como um **método** (função que pertence a um objeto):
+   - Quando a função é uma propriedade de um objeto
+     ```js
+     let contador = {
+       valor: 0,
+       incrementa: function(qtde) {
+         this.valor += qtde ? qtde : 1;
+       }
+     }
+     contador.incrementa();    // contador.valor = 1
+     contador.incrementa(10);  // contador.value = 11
+     ```
+     - `this` aponta para a instância do objeto dono do método invocado
 
 ---
 ## Invocação de funções (como **método** vs **função**)
 
 - Uma consequência do erro de projeto mencionado:
   ```js
-  var calculadora = {
+  let calculadora = {
     valor: 1,
-    multiplica: function(fator) {     // invocação de método
-      var soma = function(parcela) {  // invocação de função
-        this.valor += parcela;  // `this` aponta para `window`
+    multiplica: function(fator) {           // invocação de método
+      const soma = function(parcela) {      // invocação de função
+        this.valor += parcela;              // `this` aponta para `window`
       }
-      var v = this.valor;
-      for (; fator !== 1; fator--) { soma(v); }
+      let incremento = this.valor;
+      for (; fator !== 1; fator--) { soma(incremento); }
     }
   };
-  calculadora.multiplica(5);          // 1 x 5
-  console.log(calculadora.valor);     // imprime 1. Por quê?
+  calculadora.multiplica(5);          // 1 x 5; mas calculadora.valor = 1. Pq?
   ```
 
 ---
-## Invocação de funções (como **método** vs **função** cont.)
+## Invocação de funções (**método** vs **função** cont.)
 
 - O que aconteceu no exemplo anterior:
   - O valor de `this` dentro de `calculadora.multiplica` aponta para a
     instância do objeto calculadora, como esperado
   - Porém, dentro de `soma`, `this` passa a apontar para `window`, que não tem
     uma variável `valor`
-- Mas não desanime: dá pra consertar!
+- Mas não desanime: dá pra consertar! E de duas formas:
+  1. Padrão de projeto: `this, that`
+  1. ES2015: _arrow functions_
 
 ---
-## Padrão de projeto: **this**, **that**
+## (a) Padrão de projeto: **this**, **that**
 
 - Para resolver o problema, podemos salvar a referência de `this` que aponta
   para a instância da calculadora e usá-la em `soma`:
   ```js
-  var calculadora = {
+  let calculadora = {
     valor: 1,
     multiplica: function(fator) {
-      var that = this;
-      var soma = function(parcela) {
-        that.valor += parcela;  // that aponta para a instância
+      let that = this, incremento = this.valor;
+      let soma = function(parcela) {
+        that.valor += parcela;  // that aponta para a instância da calculadora
       }
-      var v = this.valor;
-      for (; fator !== 1; fator--) { soma(v); }
+      for (; fator !== 1; fator--) { soma(incremento); }
     }
   };
   ```
 
 ---
-## Invocação de funções (como **construtor**)
+## (b) ES2015: _arrow functions_
 
-- Quando uma função é invocada, **precedida pelo operador `new`**, dizemos que
-  a função é um **construtor**:
+- No ES2015 foram propostas as _arrow functions_, que mantêm o valor de `this`
+  do contexto externo, dentro da função:
   ```js
-  function Contato(nome) {
-    this.nome = nome;
-  }
-  var presidente = new Contato('Seu Adamastor');  // construt.
+  let calculadora = {
+    valor: 1,
+    multiplica: function(fator) {
+      let soma = (parcela) => {         // omite o "function" e tem o =>
+        this.valor += parcela;          // mantém o valor de this que estava do
+      }                                 //   lado de fora
+      let incremento = this.valor;
+      for (; fator !== 1; fator--) { soma(incremento); }
+    }
+  };
   ```
-  - Por causa do **operador `new`, três coisas acontecem**:
-    1. Um **objeto "em branco"** é criado e seu **`prototype` é o mesmo do
-      da função**
-    1. O valor de **`this`** dentro da função **aponta para o novo objeto**
-    1. Se não houver `return`, **`this` é retornado** automaticamente
+
+---
+## (3) Invocação de funções (como **construtor**)
+
+3. Quando uma função é invocada, **precedida pelo operador `new`**, dizemos que
+   a função é um **construtor**:
+   ```js
+   function Contato(nome) {
+     this.nome = nome;
+   }
+   let presidente = new Contato('Seu Adamastor');  // construtor
+   ```
+   - Por causa do **operador `new`, três coisas acontecem**:
+     1. Um **objeto "em branco"** é criado e seu **`prototype` é o mesmo do
+       da função**
+     1. O valor de **`this`** dentro da função **aponta para o novo objeto**
+     1. Se não houver `return`, **`this` é retornado** automaticamente
 
 ---
 ## _Caveat_ da invocação por **construtor**
 
-- Se uma função construtora é invocada sem o operador `new`, _shit will happen_
+- Se uma função construtora é invocada sem o `new`, _shit will happen_
   - Veja por quê:
     ```js
     function Contato(nome) {
       this.nome = nome;
     }
-    var presidente = Contato('Seu Custódio');   // invoc. função
+    let presidente = Contato('Seu Custódio');   // invoc. função
     ```
     - Ao final do código acima, temos que:
       1. `window.nome === "Seu Custódio"`
@@ -448,103 +466,28 @@
     function ola(nome, profissao) {
       return 'Me chamo ' + nome + ' e sou ' + profissao;
     }
-    ola('Joao', 'Storm Trooper');               // inv. função
-    ola.apply(null, ['Alexandre', 'Rebelde']);  // apply
-    ola.call(null, 'Astolfo', 'Sith');          // call
+    ola('Joao', 'Storm Trooper');             // invocação como função (subrotina)
+    ola.apply(null, ['Alex', 'Rebelde']);     // apply: argumentos em um vetor
+    ola.call(null, 'Astolfo', 'Sith');        // call: argumentos separados por ,
     ```
 
 ---
 ## Uso interessante de **apply** ou **call**
 
 - [_Monkey-patching_](http://en.wikipedia.org/wiki/Monkey_patch): incluir um
-  comportamento a uma função já existente sem prejudicar seu funcionamento
-  - Código de um site:
+  comportamento a uma função existente sem prejudicar seu funcionamento
     ```js
-    var carrinho = {
-       adicionarProduto(idProduto, qtde, preco) { /* ... */ }
+    // Código legítimo de um site:
+    let carrinho = {
+       adicionarProduto: function(idProduto, qtde, preco) { /* ... */ }
     };
-    ```
-  - Código do malvado programador javascript no console:
-    ```js
-    var original = carrinho.adicionarProduto;
+
+    // Código do malvado programador JavaScript *no console*:
+    let original = carrinho.adicionarProduto;
     carrinho.adicionarProduto = function(id, qtde, preco) {
       original.call(carrinho, id, qtde, 0.05);    // U.U
     }
     ```
-
----
-## Escopo de variáveis
-
-- Javascript tem apenas escopo de função - não há escopo de bloco
-  - Ou seja, uma variável definida, e.g., dentro de um `if` é visível
-    completamente dentro da função que contempla esse `if`:
-    ```js
-    function acabouMinhaCriatividade(n) {
-      if (true) {
-        var resultado = 'rá!';
-      }
-      console.log(resultado); // 'rá!'
-    }
-    ```
-
----
-## Escopo - funcionamento
-
-- Quais são os valores de `a`, `b` e `c` após `bar()`?
-  ```js
-  var foo = function () {
-    var a = 3, b = 5;
-    var bar = function () {
-      var b = 7, c = 11;
-      a += b + c;
-    };
-    bar();
-  };
-  ```
-- [Marotex: Escopos](https://moodle.cefetmg.br/mod/quiz/view.php?id=18345)
-
-<!--
-- Resposta:
-  ```js
-  a = 21;  b = 5; c = undefined;
-  ```
--->
-
----
-# Padrões de Projeto
----
-## PdP: **single var** (1/2)
-
-- Como só existe escopo de função, optamos por deixar isso claro e declarar
-  todas as variáveis usadas dentro da função logo em seu início
-  ```js
-  function fib(n) {
-    var valor1 = 0; var valor2 = 1; var aux;
-    while(n-- != 0) {
-      aux = valor1;
-      valor1 = valor2;
-      valor2 += aux;
-    }
-    return valor1;
-  }
-  ```
-
----
-## PdP: **single var** (2/2)
-
-- Melhor ainda, como todos os `var` estão no topo da função, podemos
-  economizar uns _bytes_ e usar apenas um `var`
-  ```js
-  function fib(n) {
-    var valor1 = 0,     // single-var!
-        valor2 = 1,
-        aux;
-    while(n-- != 0) {
-      aux = valor1;  valor1 = valor2;  valor2 += aux;
-    }
-    return valor1;
-  }
-  ```
 
 ---
 # Herança
@@ -553,39 +496,100 @@
 ## Forma **pseudo-clássica**
 
 ```js
-var Mamifero = function(nome) {
+let Mamifero = function(nome) {
   this.nome = nome;
 };
 
-Mamifero.prototype.diz = function (  ) {
+Mamifero.prototype.diz = function() {
   return this.fala || '';
 };
 ```
 ```js
-var mamiferoGenerico = new Mamifero('mamifero');
-mamiferoGenerico.diz();     // ''
+let mamiferoGenerico = new Mamifero('mamifero');
+mamiferoGenerico.diz();     // retorna ''
 ```
 
 ---
 ## Forma **pseudo-clássica** (cont.)
 
 ```js
-var Gato = function(nome) {
+let Gato = function(nome) {
   this.nome = nome;
   this.fala = 'Miau';
 }
 Gato.prototype = new Mamifero();
 ```
 ```js
-var gato = new Gato('Tom');
-gato.diz();                 // 'Miau'
+let gato = new Gato('Tom');
+gato.diz();                 // retorna 'Miau'
 ```
 
 ---
-## Outras formas (vide Crockford, 2005)
+<!-- {"layout": "2-column-content"} -->
+# Classes em <small>(ES5)</small> vs **<small>(ES2015)</small>**
 
-- Herança "prototípica"
-- Herença funcional
+```js
+function Veiculo(marca, tipo) {
+  this.marca = marca;
+  this.tipo = tipo;
+}
+
+Veiculo.prototype
+  .ligar = function(opcoes) {
+  //...  
+};
+new Veiculo('Ford', 'Ka');
+```
+```js
+class Veiculo {
+  constructor(marca, tipo) {
+    this.marca = marca;
+    this.tipo = tipo;
+  }
+  ligar(opcoes) {
+    //...
+  }
+}
+new Veiculo('Ford', 'Ka');
+```
+
+---
+## Herança de Classes <small>(ES5)</small>
+
+```js
+function Carro(marca, tipo, modelo) {
+  Veiculo.call(this, marca, tipo);
+  this.modelo = modelo;
+}
+
+Carro.prototype = Object.create(Veiculo.prototype);
+Carro.prototype.ligar = function(opcoes) {
+  Veiculo.prototype.ligar.call(this, opcoes);
+  // fazer coisas específicas de um carro
+}
+```
+
+---
+## Herança de Classes <small>(**ES2015**)</small>
+
+```js
+class Carro extends Veiculo {
+  ligar(opcoes) {
+    super.ligar(opcoes);
+  }
+}
+```
+
+---
+## Classes em ES6
+
+- Prós
+  - Classes tornam mais **fácil para novatos começarem** a usar JavaScript
+  - Ter um **mecanismo de herança com suporte da linguagem**
+  - Sintaxe **clara e expressiva**
+  - Previne que o programador esqueça do `new` ao usar uma função construtora
+- Contras
+  - Não há controle de privacidade (`private`, `protected`) ainda
 
 ---
 # Escopo
@@ -593,25 +597,27 @@ gato.diz();                 // 'Miau'
 ---
 ## Problema de escopo em Javascript
 
-- Sabemos que apenas funções delimitam escopo
-- Tudo o que é criado fora de uma função é associado ao objeto `window` (!!!)
+- Variáveis criadas com `var` possuem escopo de função
+- Aquelas criadas fora de uma função são associadas ao objeto `window` (!!!)
   ```html
   <script>
     var umBoizinho = 'verde';
     console.log(window.umBoizinho);   // verde
   </script>
   ```
-- Isso causa uma grande **poluição do escopo (_namespace_) global**
+- Isso causa uma grande **poluição do escopo global**
 
 ---
 ## Resolvendo a poluição
 
-- Podemos criar funções com o único objetivo de não poluir o _namespace_ global
+- Podemos criar funções com o único objetivo de não sujar o escopo global
 - Vamos colocar o código dentro de uma função e executá-la imediatamente
-  - Este é o padrão de projeto <abbr title="Immediately Invoked Function Expression">IIFE</abbr>
+  - Este é o padrão de projeto IIFE: **Immediately Invoked Function Expression**
+
+*[IIFE]: Immediately Invoked Function Expression*
 
 ---
-## Padrão de Projeto: _Immediately Invoked Function Expression_
+## Padrão de Projeto: IIFE
 
 - Tentativa 1:
   ```html
@@ -623,10 +629,12 @@ gato.diz();                 // 'Miau'
     a();
   </script>
   ```
-  - Problema: poluímos com `a`
+  - Problema: já melhorou, mas ainda poluímos com `a`
+
+*[IIFE]: Immediately Invoked Function Expression*
 
 ---
-## Padrão de Projeto: _Immediately Invoked Function Expression_ (cont.)
+## Padrão de Projeto: IIFE (cont.)
 
 - Tentativa 2, certeira:
   ```html
@@ -637,6 +645,9 @@ gato.diz();                 // 'Miau'
   })();
   </script>
   ```
+
+
+*[IIFE]: Immediately Invoked Function Expression*
 
 ---
 # Referências
