@@ -29,14 +29,14 @@
 # Aulas
 
 - [História da Web](classes/intro/)
-- [HTML 1 - Funcionamento da Web, Estrutura da HTML e CSS](classes/html1/)
-- [HTML 2 - Imagens, Tabelas e Plantas Carnívoras (Prática)](classes/html2/)
-- [HTML 3 - Ferramentas, Multimídia e a Cabeça (_i.e._, `head`)](classes/html3/)
-- [CSS 1 - Seletores e Ninjas (Prática)](classes/css1/)
-- [CSS 2 - Especificidade, propriedades mil, Web Fonts](classes/css2/)
-- [HTML 4 - Div/Span, Box Model, Float e Unicórnios (Prática)](classes/html4/)
-- [CSS 3 - Divitite e as _tags_ semânticas, visibilidade e _Layout_](classes/css3/)
-- [CSS 4 - _Layout_ e o Coral 55 (Prática)](classes/css4/)
+- [HTML 1](classes/html1/) - Funcionamento da Web, Estrutura da HTML e CSS
+- [HTML 2](classes/html2/) - Imagens, Tabelas e Plantas Carnívoras (Prática)
+- [HTML 3](classes/html3/) - Ferramentas, Multimídia e a Cabeça (_i.e._, `head`)
+- [CSS 1](classes/css1/) - Seletores e Ninjas (Prática)
+- [CSS 2](classes/css2/) - Especificidade, propriedades mil, Web Fonts
+- [HTML 4](classes/html4/) - Div/Span, Box Model, Float e Unicórnios (Prática)
+- [CSS 3](classes/css3/) - Divitite e as _tags_ semânticas, visibilidade e _Layout_
+- [CSS 4](classes/css4/) - _Layout_ e o Coral 55 (Prática)
 
 ---
 
@@ -61,11 +61,11 @@
 - [Mongo DB](https://fegemo.github.io/cefet-nosql/classes/mongodb-nodejs/)
 - [CSS 5](classes/css5/) - Animações e _Edukids Animals_ (Prática)
 - [CSS 6](classes/css6/) - _Responsive Design_
+- [Javascript 3](classes/js3/) - Padrões de Projeto
+- [Javascript 7](classes/js7/) - EcmaScript 2015/2016
 
 
 <!--
-- [Javascript 3 - Padrões de Projeto](classes/js3/)
-- [Javascript 7 - EcmaScript 6](classes/js7/)
 
 - [Node.js 7 - REST APIs](classes/ssn7/)
 - [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/)

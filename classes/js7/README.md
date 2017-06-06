@@ -1,22 +1,24 @@
-# Javascript parte 7 - ES6
+<!-- {"layout": "title"} -->
+# Javascript parte 7
+## ECMAScript 2015+
 
 ---
 ## Agenda
 
 - Breve histórico do JavaScript
 - Novas funcionalidades
-  - Escopo
-  - Classes
   - Parâmetros _default_
-  - ...
-- Executando ES6 hoje
+  - Operadores _rest_ e _spread_
+  - _Destructuring_
+  - _String templates_
+- Executando novas funcionalidades hoje
 
 ---
 # Breve histórico
 
 1995
   ~ Brendan Eich criou JS para o Netscape
-  
+
 1996, Agosto
   ~ Micro$oft criou o JScript no IE e no IIS 3.0
 
@@ -36,7 +38,16 @@
   ~ ECMAScript 5.1
 
 2014
-  ~ ECMAScript 6
+  ~ ~~ECMAScript 6~~
+
+2015
+  ~ ECMAScript 2015
+
+2016
+  ~ ECMAScript 2016
+
+2017
+  ~ ECMAScript 2017
 
 ---
 <!--
@@ -53,7 +64,7 @@
 - Parâmetros _default_
 - _Destructuring_
 - Operadores _Rest_ e _Spread_
-- _Fat arrow_
+- _Arrow functions_
 - _Maps_ e _Sets_
 - _Quasi-literals_
 - _Generators_
@@ -61,140 +72,6 @@
 - Promessas
 
 <!-- {ul:data-state="itemcloud"} -->
-
----
-## Escopo **de bloco**
-
-![](../../images/three-little-pigs.jpg) <!-- {style="height: 450px"} -->
-
----
-## **var**, <small>o irmão mais velho</small>
-
-- Declara variáveis no escopo de função (ES5)
-  ```js
-  var nome = 'Eu sou o mais velho';
-
-  function quemEhVoce() {
-     window.alert('Quem é você: ' + nome);
-     var nome = 'não sei';
-  }
-
-  quemEhVoce();
-  ```
-  - _Quiz of the day_: quemEhVoce()?
-
----
-## **var**, <small>o irmão mais velho</small> (cont.)
-
-- Resposta:
-  - `undefined` <small>([no jsfiddle](http://jsfiddle.net/R2C2v/) para os _non-believers_)</small>
-    - <span>Por quê? </span>
-      - <span>Por causa do **_hoisting_**!</span>
-- _Hoisting_: todas as declarações de variáveis e funções (mas não o seu corpo)
-  "içam" para o topo do escopo (início da função)
-  - No exemplo:
-    ```js
-    function quemEhVoce() {
-      var nome;     // nome passa a ser 'undefined' aqui
-      window.alert('...');
-      nome = 'não sei';
-    }
-    ```
-
----
-## **let** e **const**, <small>os gêmeos</small>
-
-```js
-const COMIDA_DIARIA = 800; // gramas
-
-function alimentarVara(porquinhos) {
-  for (let i = 0; i < porquinhos.length; i++) {
-    porquinhos[i].alimentar(COMIDA_DIARIA);
-  }
-
-  console.log('i: ' + i);
-  // ReferenceError: i is not defined
-  COMIDA_DIARIA = 400;
-  // TypeError: Assignment to constant variable
-}
-```
-
-- Leia mais: [`let`][let] e [`const`][const] na MDN
-
-[let]: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/let
-[const]: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/const
-
----
-## Classes em <small>(ES5)</small>
-
-```js
-function Veiculo(marca, tipo) {
-  this.marca = marca;
-  this.tipo = tipo;
-}
-
-Veiculo.prototype.ligar = function(opcoes) {
-  //...  
-};
-
-```
-
----
-## Classes em <small>(**ES6**)</small>
-
-```js
-class Veiculo {
-  constructor(marca, tipo) {
-    this.marca = marca;
-    this.tipo = tipo;
-  }
-  ligar(opcoes) {
-    //...
-  }
-}
-```
-
----
-## Herança de Classes <small>(ES5)</small>
-
-```js
-function Carro(marca, tipo, modelo) {
-  Veiculo.call(this, marca, tipo);
-  this.modelo = modelo;
-}
-
-Carro.prototype = Object.create(Veiculo.prototype);
-Carro.prototype.ligar = function(opcoes) {
-  Veiculo.prototype.ligar.call(this, opcoes);
-  // fazer coisas específicas de um carro
-}
-```
-
----
-## Herança de Classes <small>(**ES6**)</small>
-
-```js
-class Carro extends Veiculo {
-  ligar(opcoes) {
-    super.ligar(opcoes);
-  }
-}
-```
-
-- es6fiddle:
- - [Car and vehicle](http://www.es6fiddle.net/hukmpu6l/)
- - [Item Cloud RevealJS plugin](http://www.es6fiddle.net/hukn6opl/)
-
----
-## Classes em ES6
-
-- Prós
-  - Classes tornam mais **fácil para novatos começarem** a usar JavaScript
-  - Ter um **mecanismo de herança com suporte da linguagem**
-  - Sintaxe **clara e expressiva**
-  - Previne que o programador esqueça do `new` ao usar uma função construtora
-- Contras
-  - Não há controle de privacidade (`private`, `protected`) ainda
 
 ---
 # **Valores Padrão** para Argumentos
@@ -265,23 +142,23 @@ class Carro extends Veiculo {
 
 - Decapitando um _array_:
   ```js
-  var [head, ...tail] = [1, 2, 3, 4];
-  console.log(tail);  // imprime [2, 3, 4]
+  let [head, ...tail] = [1, 2, 3, 4];
+  console.log(tail);                    // imprime [2, 3, 4]
   ```
   - Usa **destructuring** E o operador **spread**
 - Trocando o valor de 2 variáveis sem usar uma terceira:
   ```js
-  var a = 1;
-  var b = 3;
+  let a = 1;
+  let b = 3;
 
-  [a, b] = [b, a];  // a=3, b=1
+  [a, b] = [b, a];                      // a=3, b=1
   ```
 
 ---
 ## Destructuring <small>um objeto</small>
 
 ```js
-var musica = {
+let musica = {
   titulo: 'The Scarecrow',
   artista: 'Avantasia',
   album: {
@@ -397,21 +274,22 @@ Veja mais em: [A critical review of ES6 quasi-literals](http://www.nczonline.net
 
 
 ---
-# Usando ES6 hoje
+# Usando novos recursos hoje
 
 ---
 ## _Can I Use_ caniuse.com?
 
-- Ainda hoje, nenhum navegador suporta todas as funcionalidades do es6
+- Ainda hoje, nenhum navegador suporta todas as funcionalidades do ES6
 - Existe uma tabela curada que mostra a compatibilidade por _feature_:
   ![](../../images/es6-compatibility-table.jpg) <!-- {.small-height.block} -->
 
-Veja na [ECMAScript 6 _compatibility table_](http://kangax.github.io/es5-compat-table/es6/) do Kangax
+- Veja na [ECMAScript 6 _compatibility table_](http://kangax.github.io/es5-compat-table/es6/) do Kangax
+- Veja na [ECMAScript 2016+ _compatibility table_](http://kangax.github.io/es5-compat-table/es2016plus/) do Kangax
 
 ---
-## Usando ES6 hoje
+## Usando novos recursos hoje
 
-- Podemos usar um **_transpiler_** para transformar ES6 em ES5!!
+- Podemos usar um **_transpiler_** para transformar ES6+ em ES5!!
 - O mais usado hoje em dia é o [babel](https://babeljs.io/), que bastante
   agilmente implementa os _specs_ ES6
   ![](../../images/babel-logo.svg) <!-- {.small-height.block} -->
@@ -424,10 +302,11 @@ Veja na [ECMAScript 6 _compatibility table_](http://kangax.github.io/es5-compat-
 
 ## Alto impacto
 
-- Modules
+- ES Modules
 - Promises
 - Generators
 - Annotations
+- Async/await
 
 ---
 # Funcionalidades não cobertas
@@ -436,10 +315,8 @@ Veja na [ECMAScript 6 _compatibility table_](http://kangax.github.io/es5-compat-
 
 - Maps and Sets
 - Computed Property Names
-- Iterators and for-of
 - Symbols
 - Object Initializer Shorthand
-- Array Comprehension
 
 ---
 # Aprenda mais
