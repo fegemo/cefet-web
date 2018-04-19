@@ -212,31 +212,29 @@ Veja a bibliografia básica e a complementar.
 
 ## Distribuição de pontos
 
-- ~10 Práticas: **40** pontos
+- ~10 Práticas: **32** pontos
 - 1 Seminário: **20** pontos
 - Trabalhos Práticos:
   1. TP0: **3** pontos
   1. Projeto:
-     - Entrega 0: **5** pontos
-     - Entrega 1: **12** pontos
-     - Entrega 2: **20** pontos
+     - Entrega 1: **20** pontos
+     - Entrega 2: **25** pontos
 
 <!-- {ul^1:.content} -->
 
 ---
 # Trabalhos (60 pontos)
 
-- [TP0: Git][tp0] (3 pontos, data: 02/02/2017 10:40)
-- [Projeto: _Self-service_][project] (37 pontos)
-  - Entrega 0: (5 pontos, data: 06/04/2017)
-  - Entrega 1: (12 pontos, data: 25/04/2017)
-  - Entrega 2: (20 pontos)
-    - Código pronto e publicado (data: 18/06/2017)
-    - Apresentação (data: 20/06/2017 em sala)
-- [Seminário: APIs HTML5][seminar] (20 pontos, data: 23/05/2017)
+- [TP0: Git][tp0] (3 pontos)
+- [Projeto][project] (45 pontos)
+  - Entrega 1: (20 pontos, data: 26/04/2018)
+  - Entrega 2: (25 pontos)
+    - Código pronto e publicado (data: TBD)
+    - Apresentação (data: TBD, em sala)
+- [Seminário: APIs HTML5][seminar] (20 pontos, data: TBD)
 
 *[TBD]: to be defined*
 
 [tp0]: assignments/tp0
-[project]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-selfservice/README.md
+[project]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-craftfoliogotchi/README.md
 [seminar]: https://github.com/fegemo/cefet-web/tree/master/assignments/seminar-html5/README.md
