@@ -260,9 +260,9 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 - Além de `no.appendChild(elemento)`, também é possível incluir novos elementos
   na árvore usando:
   ```js
-  no.insertBefore(novoEl);            // novoEl vira irmão de 'no'
-  no.replaceChild(novoEl, antigoEl);  // novoEl vira filho de 'no' e
-                                      // exclui o elemento antigo
+  no.insertBefore(novoEl, antesDeQuem); // novoEl vira irmão de antesDeQuem
+  no.replaceChild(novoEl, antigoEl);    // novoEl vira filho de 'no' e
+                                        // exclui o elemento antigo
   ```
 - Para remover um elemento da árvore
   ```js
