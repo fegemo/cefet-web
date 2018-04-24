@@ -145,6 +145,7 @@ h3.caniuse-title {
   content: "\e000";
 }
 .caniuse .agents li.icon-ie:before,
+.caniuse .agents li.icon-edge:before,
 .caniuse .agents li.icon-windows:before {
   content: "\e001";
   /* alternate windows icon: content: "\e007" */
