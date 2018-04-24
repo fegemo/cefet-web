@@ -14,24 +14,40 @@
   1. Canvas
   1. Drag'n'drop
   1. History
-  1. E muito mais
+1. Seminário: as aventuras de Agáte-Êmi Éli, o Quinto
 
 ---
+<!-- {"layout": "section-header"} -->
 # APIs do HTML5
 
+## Acessando recursos via JavaScript
+
+- Introdução
+- Geolocation API
+  - Integrando com Google Maps
+- Canvas API (2D)
+- Drag and Drop API
+- History API
+<!-- {ul^1:.content} -->
+
 ---
+<!-- {"layout": "regular"} -->
 ## APIs do HTML5
 
-- O HTML5 trouxe (e continua trazendo) muitas funcionalidades para sites e aplicações web
-  - Uma das ideias do HTML5 era de ser uma plataforma capaz de **acessar os recursos de _hardware_**
-    da mesma forma como um aplicativo nativo podia fazer
-- Apesar de serem funcionalidades do HTML, a maior parte delas é acessível de forma programática, o
-  que faz com que precisemos **recorrer a Javascript para utilizá-las**
+- O HTML5 trouxe (e continua trazendo) muitas funcionalidades para sites
+  e aplicações web
+  - Uma das ideias do HTML5 era de ser uma plataforma capaz de
+    **acessar os recursos de _hardware_** da mesma forma como um
+    aplicativo nativo podia fazer
+- Apesar de serem funcionalidades do HTML, a maior parte delas é
+  acessível de forma programática, ou seja, **via Javascript**
 
 ---
-# Geolocation API
+<!-- {"layout": "regular"} -->
+# Geolocation API :earth_americas:
 
-- Possibilita uma página a solicitar ao _user agent_ (navegador) que descubra a **geolocalização do usuário**
+- Possibilita uma página a solicitar ao _user agent_ (navegador) que descubra
+  a **geolocalização do usuário**
 - Casos de uso:
   1. Localização em um mapa
   1. Pesquisa de locais próximos ao usuário
@@ -39,6 +55,7 @@
 - Como o navegador consegue a localização?
 
 ---
+<!-- {"layout": "regular"} -->
 ## Como o navegador consegue a localização?
 
 - Cada navegador dispõe de suas ferramentas. Algumas delas são:
@@ -50,22 +67,25 @@
   - Não, mas é possível saber **a precisão do resultado**
 
 ---
-## Geolocation API
+<!-- {"layout": "regular"} -->
+## Geolocation API - como usar?
 
-- Como usar:
-  ```js
-  navigator.geolocation.getCurrentPosition(rastrear);
+```js
+navigator.geolocation.getCurrentPosition(rastrear);
 
-  function rastrear(posicao) {
-    var msg = 'Eu sei aonde você está!!\n\n';
-    msg += 'lat: ' + posicao.coords.latitude + ', ';
-    msg += 'long: ' + posicao.coords.longitude;
-    window.alert(msg);
-  }
-  ```
+function rastrear(posicao) {
+  let msg = 'Eu sei aonde você está!!\n\n';
+  msg += 'lat: ' + posicao.coords.latitude + ', ';
+  msg += 'long: ' + posicao.coords.longitude;
+  window.alert(msg);
+}
+```
 <button onclick="javascript:function rastrear(posicao){console.dir(posicao); var msg='Eu sei aonde você está!!\n\n';msg+='lat: '+posicao.coords.latitude+', ';msg+='long: '+posicao.coords.longitude;window.alert(msg);} navigator.geolocation.getCurrentPosition(rastrear); this.innerText='Mwahaha...';">Rastrear</button>
+- Observação: hoje em dia, o navegador só da acesso a essa API se a página
+  tiver sido carregada em **HTTPs** (e não em **HTTP**)
 
 ---
+<!-- {"layout": "regular"} -->
 ## **Métodos** da Geolocation API ([MDN](https://developer.mozilla.org/pt-BR/docs/Using_geolocation))
 
 - O objeto `navigator.geolocation` possui três métodos:
@@ -102,11 +122,9 @@
 <!-- {"scripts": ["../../scripts/classes/caniuse.min.js"]} -->
 ## Professor, já posso usar **Geolocation**??
 
-
-
 - <div style="float: right;" class="caniuse" data-feature="geolocation"></div>
   Para ter certeza de que pode usar, faça uma verificação:
-  
+
   ```js
   if (navigator.geolocation) {
     // pode usar
