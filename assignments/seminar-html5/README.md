@@ -79,14 +79,14 @@ comprar informações sobre:
   - _WebGL_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _Web Audio API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _Web MIDI API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
-  - _Pointer Lock API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 60)
+  - _Pointer Lock API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
   - _Fullscreen API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _Accessible Rich Internet Applications_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 120)
   - _Speech Synthesis API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
-    70)
+    60)
   - _Speech Recognition API_ (valor:
-    <abbr title="Peças de Webdollars">PW$</abbr> 70)
+    <abbr title="Peças de Webdollars">PW$</abbr> 50)
   - _Presentation API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _getUserMedia and Streams API_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 70)
@@ -97,13 +97,13 @@ comprar informações sobre:
   - _Web Animations API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     80)
 - Conectividade
-  - _Fetch_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 60)
+  - _Fetch_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
   - _WebSockets_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
-  - _WebRTC_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _WebRTC_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 80)
   - _Online/offline status_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 20)
-  - _Beacon API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
-  - _Push API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 80)
+  - _Beacon API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 20)
+  - _Push API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
   - _Web Bluetooth_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 80)
 - Armazenamento e _Offline_
   - _Web App Manifest_ (valor:
