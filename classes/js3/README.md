@@ -6,8 +6,7 @@
 # Roteiro
 
 1. Criando objetos
-   - Funções construtoras
-   - Classes
+1. Funções construtoras
 1. Herança
    - Pseudo-clássica
    - Com classes
@@ -40,7 +39,7 @@
 - Podemos instanciar objetos de duas formas:
   1. Forma **literal**:
      ```js
-     let carro = {};  // mais comum, mais expressivo
+     let carro = {};
      ```
   1. Operador `new`:
      ```js
@@ -58,9 +57,6 @@
     fabricante: {
       nome: 'Fiat',
       origem: 'Itália'
-    },
-    ligar: function() {
-      // liga o carro
     }
   };
   ```
@@ -125,9 +121,9 @@
   ```
   ```js
   let a = {}, b = {}, c = {};
-  console.log(a === b);          // false
-  console.log(b === c);          // false
-  console.log(a === c);          // false
+  console.log(a == b);          // false
+  console.log(b == c);          // false
+  console.log(a == c);          // false
   ```
 
 ---
@@ -152,7 +148,7 @@
   - Porém ela usa a referência `this` para definir propriedades de um
     objeto novinho que está sendo criado
   - Tipicamente, **o nome de toda função construtora começa com letra
-    maiúscula** (apenas uma convenção). _E.g._:
+    maiúscula** (convenção). _E.g._:
     ```js
     function Leguminosa(nome, calorias) {   // legal!
       // this.nome = nome
@@ -167,8 +163,8 @@
 ## Construção de objetos por **construtor** (cont.)
 
 - Se, além de propriedades de dados (`modelo`, `dono` etc.), colocarmos também
-  alguns métodos, podemos falar que temos algo semelhante a uma
-  **classe** das linguagens OO "tradicionais":
+  alguns métodos, podemos falar que temos algo muito semelhante a uma
+  **classe** das linguagens OO "tradicionais"
   ```js
   function Moto(modelo, dono) {
     /* ... */
@@ -214,7 +210,7 @@
 - Se pudéssemos examinar a memória alocada, veríamos:
 
   ![](../../images/objetos-memoria.png)
-  - Repare que o código fonte do método é repetido a cada instância
+  - Repare que o código do método é repetido a cada instância
     - Podemos melhorar isso, se tivermos como definir **o método
       `linkParaMensagem` a nível da classe**, ao invés de fazê-lo
       na instância
@@ -261,28 +257,17 @@
 ---
 ## O **Prototype** (cont.)
 
-- ![](../../images/prototype-chain.png) <!-- {.push-right} -->
-  Quando **acessamos uma propriedade** de um objeto, o motor JS **procura
-  no próprio**
-- Se não encontrar, ele continua procurando na **`prototype` _chain_**
-- Isso é feito até chegar no último objeto e, então, o motor diz que essa
-  propriedade está `undefined`. Por exemplo:
-  ```js
-  let nome = { first: 'Paul', last: 'Irish' };
-  nome.first;       // achou no próprio objeto
-  nome.toString();  // achou em Object.prototype
-  nome.middle;      // não achou, undefined
-  ```
+![](../../images/prototype-chain.png)
 
 ---
 ## Métodos de classe (estáticos)
 
-- É possível definir um método que pertence à classe e não tem acesso aos
-  dados das instâncias (similar a um **método estático** de Java):
+- É possível definir um método (propriedades em geral) que pertence à classe e
+  não tem acesso aos dados das instâncias (similar ao método estático de Java):
   ```js
-  ContatoV2.ordenarContatos = function(listaDeContatos) { /* ... */ };
+  ContatoV2.ordenarContatos = function() { /* ... */ };
   ```
-  - É diferente do **método (de instância) a nível de classe**:
+  - É diferente do **método a nível de classe**
     ```js
     ContatoV2.prototype.linkParaMensagem = function() { };
     ```
@@ -307,10 +292,14 @@
     1. Corpo
 
 ---
-## Invocação de funções (como função)
+## Prototype
 
 - Sendo objetos, as funções também possuem uma propriedade `prototype` que
-  aponta para um objeto "global" e único, o **`Function.prototype`**
+  aponta para um objeto "global", o `Function.prototype`
+
+---
+## Invocação de funções (como função)
+
 - Há 4 formas distintas para se invocar uma função
   1. Como uma função: `iniciaControlesVideo()`
   1. Como um método: `video.play()`
@@ -466,7 +455,7 @@
   - Simplão!
 
 ---
-## (4) ~~Invocação de funções (com **apply ou call**)~~
+## Invocação de funções (com **apply ou call**)
 
 - `Function.prototype` tem dois métodos chamados `apply` e `call`
   - Ou seja, toda função tem acesso a eles
@@ -483,7 +472,7 @@
     ```
 
 ---
-## ~~Uso interessante de **apply** ou **call**~~
+## Uso interessante de **apply** ou **call**
 
 - [_Monkey-patching_](http://en.wikipedia.org/wiki/Monkey_patch): incluir um
   comportamento a uma função existente sem prejudicar seu funcionamento
@@ -544,13 +533,11 @@ function Veiculo(marca, tipo) {
   this.marca = marca;
   this.tipo = tipo;
 }
-Veiculo.prototype.ligar =
-  function(opcoes) {
-  // método de instância
+
+Veiculo.prototype
+  .ligar = function(opcoes) {
+  //...  
 };
-Veiculo.ordenar = function (v) {
-  // método estático
-}
 new Veiculo('Ford', 'Ka');
 ```
 ```js
@@ -562,15 +549,12 @@ class Veiculo {
   ligar(opcoes) {
     //...
   }
-  static ordenar(veiculos) {
-  }
 }
 new Veiculo('Ford', 'Ka');
 ```
 
 ---
-<!-- {"layout": "2-column-content"} -->
-# Herança em <small>(ES5)</small> vs **<small>(ES2015)</small>**
+## Herança de Classes <small>(ES5)</small>
 
 ```js
 function Carro(marca, tipo, modelo) {
@@ -578,16 +562,15 @@ function Carro(marca, tipo, modelo) {
   this.modelo = modelo;
 }
 
-Carro.prototype = new Veiculo();
-Carro.prototype.ligar =
-  function(opcoes) {
-    // chamando o "super.ligar"...
-    Veiculo.prototype.ligar
-      .call(this, opcoes);
-    // fazer coisas específicas
-    // de um carro...
+Carro.prototype = Object.create(Veiculo.prototype);
+Carro.prototype.ligar = function(opcoes) {
+  Veiculo.prototype.ligar.call(this, opcoes);
+  // fazer coisas específicas de um carro
 }
 ```
+
+---
+## Herança de Classes <small>(**ES2015**)</small>
 
 ```js
 class Carro extends Veiculo {
