@@ -10,10 +10,10 @@
 # Roteiro
 
 1. APIs do HTML5
-  1. Geolocation
-  1. Canvas
-  1. Drag'n'drop
-  1. History
+   1. Geolocation
+   1. Canvas
+   1. Drag'n'drop
+   1. History
 1. Seminário: as aventuras de Agáte-Êmi Éli, o Quinto
 
 ---
