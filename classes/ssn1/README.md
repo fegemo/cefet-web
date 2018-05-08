@@ -1,4 +1,6 @@
-# Server Side - Parte 1
+<!-- {"layout": "title"} -->
+# Servidores Web
+## O que são, como vivem, onde habitam
 
 ---
 # Roteiro
@@ -9,22 +11,32 @@
 1. O problem c10k
 
 ---
-# A vida de um servidor Web
+<!-- {"layout": "section-header"} -->
+# Introdução
+## A vida de um servidor Web
+
+- Breve história
+- Resonsabilidades
+- Exemplos e tipos diferentes
+
+<!-- {ul:.content} -->
 
 ---
+<!-- {"layout": "regular"} -->
 ## Todos os caminhos levam a **Tim**
 
-::: figure .floating-portrait-container.push-right
-![Foto de Tim Berners-Lee](../../images/tim-berners-lee.jpg) <!-- {.portrait} -->
-:::
 
-- Tim Berners-Lee desenvolveu as 4 tecnologias básicas da Web
+- ::: figure .floating-portrait-container.push-right
+  ![Foto de Tim Berners-Lee](../../images/tim-berners-lee.jpg) <!-- {.portrait} -->
+  :::
+  Tim Berners-Lee desenvolveu as 4 tecnologias básicas da Web
   1. O formato HTML
   1. Um navegador que renderizava HTML e solicitava arquivos
   1. **Um servidor que entregava arquivos sob solicitação**
   1. O protocolo HTTP para navegador e servidor conversarem
 
 ---
+<!-- {"layout": "regular"} -->
 ## O primeiro servidor web: **CERN httpd**
 
 - O código fonte ainda pode ser baixado aqui: http://www.w3.org/Daemon/
@@ -40,11 +52,13 @@
   - Configuração do servidor via arquivo
 
 ---
+<!-- {"layout": "regular"} -->
 ## O computador onde o servidor executava
 
 <a title="Coolcaesar at the English language Wikipedia [GFDL (www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3AFirst_Web_Server.jpg"><img style="width:600px" alt="Computador do primeiro servidor web" src="../../images/computador-tim.jpg"/></a>
 
 ---
+<!-- {"layout": "regular"} -->
 ## O NCSA HTTPd
 
 - **Robert McCool desenvolveu**, entre 1993 e 1995 um **novo servidor Web**,
@@ -54,12 +68,13 @@
     desenvolvimento 😱
 - Pouco tempo depois (1995), 8 pessoas começaram a trabalhar em consertar e
   re-alavancar o desenvolvimento do NCSA HTTPd
-  - Eles se entitularam o **Apache Group**, em referência à nação nativa da
+  - Eles se entitularam o **Apache Group**, em referência à população nativa da
     américa do norte
     - Também pode ser "*A patchy* web server", pelo fato de ter sido criado com
       diversos _patches_ em cima do NCSA HTTPd
 
 ---
+<!-- {"layout": "regular"} -->
 ## Do Apache em diante
 
 - Depois da criação do Apache HTTP Server, ele se tornou **o servidor mais
@@ -68,34 +83,38 @@
   outras organizações
   - Microsoft &#8594; IIS
   - ~~Jakarta~~ ~~Sun~~ ASF &#8594; Tomcat
-  - NginX
+  - Russos &#8594; NginX
+  - MonkeyServer (Unix-like)
+  - Lighthttpd (Unix-like e Windows)
 
 ---
+<!-- {"layout": "regular"} -->
 ## O que faz um servidor Web?
 
-- "Servidor Web" refere-se ambiguamente ao sistema de _hardware_ e _software_
+- "Servidor Web" refere-se ambiguamente ao _hardware_ e ao _software_
   cujo objetivo é **servir recursos Web**
   - Em nossas aulas, estamos nos referindo **apenas ao _software_**
 - É um programa que **processa requisições HTTP** e alguns outros protocolos
   tipicamente usados em _internets_
-  - Pense em um programa que tem _sockets_ escutando na porta 80 (HTTP) e na
-    443 (HTTPS)
-    - Quando um cliente estabelece a conexão com o servidor, o cliente envia um
-      pedido, que o servidor precisa entender, depois tomar providências
-      e então responder. Pedidos são requisições HTTP:
+  - A grosso modo, é um programa que tem _sockets_ escutando na porta 80
+    (HTTP) e na 443 (HTTPS)
+    - Quando um cliente estabelece a conexão com o servidor, o cliente faz um
+      pedido (requisição HTTP), que o servidor precisa entender, tomar
+      providências e então responder
       ```http
       GET /cefet-web/classes/ssn1/index.html
       Host: fegemo.github.io
       ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## O que faz um servidor Web? (cont.)
 
 - O servidor Web **precisa**:
   1. Saber falar o protocolo HTTP para atender as requisições
   1. Conhecer o sistema de arquivos do SO para entregar arquivos solicitados
 - O servidor Web **pode**:
-  1. Permitir a geração dinâmica de recursos (e.g., de arquivos HTML)
+  1. Permitir a :star: **geração dinâmica** de recursos (e.g., de arquivos HTML)
   1. Permitir a recepção de arquivos (formulários que fazem _upload_)
   1. Entender outros protocolos além de HTTP: HTTPS, FTP, SMTP etc.
   1. Gerenciar conexões simultâneas de vários "solicitantes"
@@ -103,35 +122,36 @@
 ---
 ## Geração dinâmica de recursos
 
-```html
-<ul>
-  <% for (int i = 0; i < produtos.length; i++) { %>
-    <li><%= produtos[i].name %><li>
-  <% } %>
-</ul>
-```
+- Exemplo de sintaxe (linguagem fictícia):
+  ```html
+  <ul>
+    <% for (int i = 0; i < produtos.length; i++) { %>
+      <li><%= produtos[i].name %><li>
+    <% } %>
+  </ul>
+  ```
 - Gerando HTML (que o navegador entende):
   ```html
   <ul>
     <li>Picolé</li>
-    <li>Sorvete</li>
-  </ul>
+    <li>Sorvete</li> ...
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Um servidor Web simplão
 
-- Supondo que você tem Python 2.x instalado e esteja num diretório com alguns
+- ![](../../images/py-server-folder.png) <!-- {.push-right} -->
+  Supondo que você tem Python 2.x instalado e esteja num diretório com alguns
   arquivos de páginas web:
   ```bash
   $ python -m SimpleHTTPServer
   ```
   - Com isso, temos um servidor Web funcional, servindo os arquivos do
     diretório atual
-- ![](../../images/py-server-folder.png) <!-- {.push-right} -->
-  Exemplo:
 
 ---
+<!-- {"layout": "regular"} -->
 ## Um servidor Web simplão (cont.)
 
 ![](../../images/py-server-terminal.png)
@@ -154,9 +174,7 @@
          1. TUX no Linux
 
 ---
-# Alguns Servidores Web
-
----
+<!-- {"layout": "section-header"} -->
 ## Alguns Servidores Web
 
 - Os servidores Web disponíveis hoje em dia tipicamente atendem a todas as
@@ -168,7 +186,8 @@
   1. Na sua arquitetura
 
 ---
-## Apache
+<!-- {"layout": "regular"} -->
+# Apache
 
 - **Em primeiro lugar desde 1995** como o mais utilizado
 - Tipicamente (mas não exclusivamente) usado associado à linguagem PHP
@@ -180,6 +199,7 @@
   1. Multi-plataforma
 
 ---
+<!-- {"layout": "regular"} -->
 ## Um **hello world** em PHP + Apache
 
 - Código de um arquivo `index.php`
@@ -196,13 +216,11 @@
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Arquitetura do Apache
 
-![Arquitetura do Apache](../../images/arquitetura-apache.png)
-
-<!-- {style="height: 300px"} -->
-
-- Os módulos são ativados/desativados e configurados por meio de arquivos de
+- ![Arquitetura do Apache](../../images/arquitetura-apache.png) <!-- {style=" float:right;"} -->
+  Os módulos são ativados/desativados e configurados por meio de arquivos de
   configuração
   - No arquivo `httpd.conf`
 
