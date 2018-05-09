@@ -129,6 +129,34 @@ $title-animation-easing = cubic-bezier(0, 0, 0.7, 1.58)
 pre.hljs
   border 1px solid lightslategray
 
+.compact-code pre,
+.compact-code ~ pre
+  line-height 1em
+.compact-code-more pre,
+.compact-code-more ~ pre
+  line-height 1em
+  font-size 75%
+
+.badge
+  display inline-block
+  background-color white
+  border-radius 4px
+  border 1px solid #333
+  color #666
+  font-size 75%
+  line-height 1em
+  padding 0.1em 0.2em
+  color forestgreen
+  border-color currentColor
+
+  &.type1
+    color teal
+
+  &.type2
+    color cornflowerblue
+  
+
+
 @require backdrops
 @require move-to-theme
 @require tutorial

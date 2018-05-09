@@ -1,4 +1,8 @@
-# Server Side - Parte 2
+<!-- {"layout": "title"} -->
+# Introdução ao Node.js
+## Exercícios para criar um servidor web DIY
+
+*[DIY]: Do it yourself*
 
 ---
 # Roteiro
@@ -6,15 +10,26 @@
 1. Instalando o Node.js
 1. O npm
 1. Fazendo um _workshop_: **learnyounode**
-1. Exercícios 1 a 4
-1. Módulos
-1. Exercícios 5 e 6
-1. Exercícios 10 e 11
+   1. Exercícios 1 a 4
+   1. Módulos no Node.js
+   1. Exercícios 5 e 6
+   1. Exercícios 10 e 11
 
 ---
+<!-- {"layout": "section-header"} -->
 # Instalando o Node.js
+## Dandos os primeiros passos
+
+1. Verificando se já possui
+1. Formas de instalação
+   - Instalador no site oficial
+   - Gerenciadores de programas do SO
+   - Gerenciadores de versões :star2:
+
+<!-- {ol:.content} -->
 
 ---
+<!-- {"layout": "regular"} -->
 ## Verificando se já está instalado
 
 - Para verificar se o Node.js já está instalado,
@@ -24,23 +39,24 @@
   ```
   - E o terminal deve mostrar a versão que está instalada, _e.g._:
     ```
-    $ v5.10.1
+    $ v8.0.0
     ```
   - ...ou uma mensagem de erro, caso não esteja
 
 ---
+<!-- {"layout": "regular"} -->
 ## Instalando o Node.js
 
-- Há versões binárias e/ou instaladores para sistemas Unix, OSX ou Windows
-  [no site oficial](http://www.nodejs.org) (**recomendado** para hoje).
-  Alternativas:
-  - Mac (via brew)
+- Há instaladores para sistemas Linux, OSX ou Windows
+  [no site oficial](http://www.nodejs.org) (👈 **recomendado** para hoje,
+  caso necessário). Ou então:
+  - Linux (Debian-based - via apt-get)  <!-- {ul:.compact-code-more} -->
+    ```bash
+    $ sudo apt-get install -y nodejs # versao antiguita
+    ```
+  - OSX (via brew)
     ```
     $ brew install node
-    ```
-  - Linux (via apt-get)
-    ```bash
-    $ sudo apt-get install -y nodejs # versao antiga
     ```
   - Windows (via Chocolatey)
     ```
@@ -48,45 +64,61 @@
     ```
 
 ---
-## Instalando um **gerenciador de versões do Node.js**
+<!-- {"layout": "regular"} -->
+## Via **gerenciador de versões do Node.js** :star2:
 
-- A comunidade criou programas gerenciadores de versões do Node.js:
-  - Para Linux e OSX: [`nvm`](https://github.com/creationix/nvm)
+- A comunidade fez programas gerenciadores de versões do Node.js:
+  - Para Linux e OSX: **nvm** (👉[instale aqui](https://github.com/creationix/nvm))
     ```
-    $ nvm install v6.0.0
+    $ nvm install v10.1.0
     ```
-  - Para Windows: [`nodist`](https://github.com/marcelklehr/nodist)
+  - Para Windows: **nodist** ([instale aqui](https://github.com/marcelklehr/nodist))
     ```
-    $ nodist v6.0.0
+    $ nodist v10.1.0
     ```
-- **Recomendo** este tipo de instalação para seu computador de trabalho
+- **Recomendo** este tipo de instalação para o seu próprio computador
   - Fica bem fácil estar sempre com a versão mais recente
+  - É possível ter mais de uma versão instalada
 
 ---
+<!-- {"layout": "section-header"} -->
 # O **npm**
+## Node Package Manager?
+
+- O que ganhamos ao instalar?
+  1. `node`
+  1. `npm`
+- Um pacote Node.js
+- Instalando pacotes
+
+<!-- {ul:.content} -->
 
 ---
+<!-- {"layout": "regular"} -->
 ## O **npm**
 
 - Ao instalar o Node.js, dois programas são instalados:
-  1. O `node`, propriamente dito;
+  1. O `node`, executador de arquivos JavaScript;
   1. E o `npm`
-- O `npm` (_Node Packaged Modules_) é um gerenciador de pacotes _à la
-  `rubygems`_ (ruby) ou `NuGet` (.NET) ou `easy_install` + python `eggs`
-  (python) etc.
+- O `npm` (_Node Packaged Modules_?) é um **<u>gerenciador de pacotes</u>** tipo
+  Ruby Gems (ruby), `NuGet` (.NET), `pip` (python), `maven`/`gradle` (Java)
   - A idéia do `npm` é:
-    1. Possibilitar a reutilização de programas (**pacotes**)
-    1. Gerenciar as dependências do seu projeto
-    1. Tornar seus programas/utilitários disponíveis para a comunidade
+    1. Reutilizar **programas JavaScript** (👈 <u>pacotes</u>)
+    1. Gerenciar as dependências do seu projeto Node.js
+    1. Tornar seus programas/utilitários (_i.e._, pacotes) disponíveis
+       para a comunidade
   - Mas o que é um pacote?!
 
 ---
-## Um **pacote**
+<!-- {"layout": "regular"} -->
+## O que é um **pacote**?
 
 - É um "programa" Node.js
 - Pode ser privado ou <u>público</u> (padrão)
-  - Quando é público, qualquer um pode instalá-lo e ver seu código fonte
-- É **descrito** por um arquivo chamado **`package.json`**:
+  - Quando é público, qualquer um pode instalá-lo e ver seu código fonte,
+    caso ele esteja no GitHub, por exemplo
+- Uma pasta em seu computador é considerada um pacote se ela possui <u>um
+  arquivo chamado</u> **`package.json`**: <!-- {li:.compact-code} -->
   ```json
   {
     "name": "bespoke-math",
@@ -98,32 +130,44 @@
   ```
 
 ---
-## O **npm** (cont.)
+<!-- {"layout": "regular"} -->
+## **Instalando pacotes** com o npm
 
-- Para **instalar um pacote** no diretório atual, usamos o comando:
+- Para **instalar um pacote no <u>diretório atual</u>**, usamos:
   ```bash
   $ npm install <nome-do-pacote>
   ```
-- Se quisermos instalar um pacote de forma global (acessível de qualquer
-  lugar, como um programa executável):
+- Se quisermos **instalar um pacote de <u>forma global</u>** (acessível de
+  qualquer lugar, como um programa executável):
   ```bash
   $ npm install -g <nome>
   ```
+  - Ou então `npm install --global <nome>`
 
 ---
-# Fazendo um _workshop_: **learnyounode**
+<!-- {"layout": "section-header"} -->
+# learnyounode
+## _Workshop_ de Node.js
+
+- O _workshop_ **learnyounode**
+- Exercícios 1 a 4
+- Módulos em Node.js
+- Exercícios 5 e 6, 10 e 11
+
+<!-- {ul:.content} -->
 
 ---
+<!-- {"layout": "regular"} -->
 ## _Workshop_: **learnyounode**
 
 - O [nodeschool.io](http://nodeschool.io) é uma comunidade de desenvolvedores
   que se dedicam ao ensino de tecnologias relacionadas a Node.js
   - Eles criam "programas _workshoppers_", que são mini-cursos,
-    auto-explicativos, cujo objetivo é auxiliar o aprendizado dessas
+    auto-explicativos, cujo objetivo é iniciar o aprendizado dessas
     tecnologias por meio de exercícios práticos
 
-
 ---
+<!-- {"layout": "regular"} -->
 ## _Workshop_: **learnyounode**
 
 - Um dos _workshops_ ensina alguns conceitos acerca do Node.js: o
@@ -132,27 +176,29 @@
   ![](../../images/learnyounode.png)
 
 ---
+<!-- {"layout": "regular"} -->
 ## Instalando o _learnyounode_ pelo npm
 
-- Para instalar o _learnyounode_, usaremos a instalação global do `npm`:
+- Para **instalar** o _learnyounode_, faremos **de forma global** com o `npm`:
   ```
   $ npm install -g learnyounode
   ```
-- Uma vez instalado dessa forma, ele é feito visível em qualquer parte.
-  - Abra um terminal e execute-o
+  - Isso porque o `learnyounode` é um programa em linha de comando e queremos
+    poder executá-lo a partir de qualquer pasta <!-- {li:style="font-size:75%;opacity:0.8"} -->
+- Instalando dessa forma, ele fica visível de qualquer lugar.
+  - Abra um terminal e execute-o:
     ```
     $ learnyounode
     ```
+    - **Siga os próximos slides** para saber que exercícios fazer
 
 ---
-# Exercícios 1 a 4
-
----
+<!-- {"layout": "regular"} -->
 ## Exercícios 1 a 4
 
-- Faça os 4 primeiros exercícios do _learnyounode_ seguindo as instruções (em
-  inglês). Lembre-se:
-  - Para executar um programa:
+- Faça os 4 primeiros exercícios do _learnyounode_ seguindo as instruções.
+  Lembre-se:
+  - **Para executar um programa**:
     ```
     $ node programa1.js
     ```
@@ -161,34 +207,38 @@
   ```
   $ learnyounode verify programa1.js
   ```
+  - Depois do 4º exercício, **siga para o próximo slide** 👉
 
 ---
-## Módulos
+<!-- {"layout": "regular"} -->
+## Dividindo um programa em **Módulos**
 
-- Para fazer o exercício 6 do _learnyounode_, você precisará dividir sua lógica
+- Para fazer o exercício 6, você precisará dividir o programa
   em 2 arquivos (o enunciado pede isso)
-- Dentro dos navegadores, os arquivos Javascript são incluídos por meio do
+- Dentro dos navegadores, os arquivos JavaScript são incluídos por meio do
   arquivo HTML e as _tags_ `script`
-  - No Node.js, existe uma função global chamada `require` que possibilita a
-    inclusão de um arquivo no contexto de outro
+  - No Node.js, existe uma **função global chamada `require`** que possibilita a
+    <u>inclusão de um arquivo</u> no contexto de outro
 
 ---
+<!-- {"layout": "regular"} -->
 ## Exemplo de módulos
 
 - Incluindo um módulo **da plataforma** do Node.js:
   ```js
-  var fs = require('fs');             // módulo file system
-  var arqs = fs.readdirSync('.');     // diretório atual
+  const fs = require('fs');                 // importa o módulo 'file system'
+  const arquivos = fs.readdirSync('.');     // diretório atual
   ```
   - Inclui o módulo _file system_, que é um objeto Javascript como [descrito
     na documentação do módulo](http://nodejs.org/api/fs.html)
 
 ---
+<!-- {"layout": "regular"} -->
 ## Exemplo de módulos (cont.)
 
 - Incluindo um módulo **de sua autoria**:
   ```js
-  var matematica = require('./matematica'); // .js opcional
+  const matematica = require('./matematica');   // .js é opcional
   console.log(matematica.constantes.PI());
   ```
   - Inclui o módulo local com nome `matematica.js`, que é um objeto definido
@@ -196,6 +246,7 @@
     - Veja como definir esse objeto, no próximo slide
 
 ---
+<!-- {"layout": "regular"} -->
 ## Criando um módulo
 
 - Para que um módulo possa ser usado via `require`, você deve atribuir
@@ -212,6 +263,7 @@
     ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Exercícios 5 e 6
 
 - Faça os exercícios 5 e 6 do _learnyounode_
@@ -223,6 +275,7 @@
        à partir de um caminho de arquivo
 
 ---
+<!-- {"layout": "regular"} -->
 ## Exercícios 10 e 11
 
 - Faça os exercícios 10 e 11 do _learnyounode_
