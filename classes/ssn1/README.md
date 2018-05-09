@@ -120,9 +120,10 @@
   1. Gerenciar conexões simultâneas de vários "solicitantes"
 
 ---
+<!-- {"layout": "regular"} -->
 ## Geração dinâmica de recursos
 
-- Exemplo de sintaxe (linguagem fictícia):
+- Exemplo de sintaxe (linguagem fictícia): <!-- {ul:.compact-code} -->
   ```html
   <ul>
     <% for (int i = 0; i < produtos.length; i++) { %>
@@ -154,8 +155,8 @@
 <!-- {"layout": "regular"} -->
 ## Um servidor Web simplão (cont.)
 
-![](../../images/py-server-terminal.png)
-![](../../images/py-server-browser.png)
+![](../../images/py-server-terminal.png) <!-- {style="max-height: 120px"} -->
+![](../../images/py-server-browser.png) <!-- {style="max-height: 620px"} -->
 
 <!-- {p:.center-aligned} -->
 
@@ -174,7 +175,7 @@
          1. TUX no Linux
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "regular"} -->
 ## Alguns Servidores Web
 
 - Os servidores Web disponíveis hoje em dia tipicamente atendem a todas as
@@ -186,8 +187,22 @@
   1. Na sua arquitetura
 
 ---
-<!-- {"layout": "regular"} -->
+<!-- {"layout": "section-header"} -->
 # Apache
+## "Apache HTTP Server"
+
+- Características
+- Hello world
+- Arquitetura
+  - Visão geral
+  - Módulos
+- Outros servidores web comuns
+
+<!-- {ul^1:.content} -->
+
+---
+<!-- {"layout": "regular"} -->
+## Apache
 
 - **Em primeiro lugar desde 1995** como o mais utilizado
 - Tipicamente (mas não exclusivamente) usado associado à linguagem PHP
@@ -203,7 +218,7 @@
 ## Um **hello world** em PHP + Apache
 
 - Código de um arquivo `index.php`
-  ```php
+  ```html
   <!DOCTYPE html>
   <html>
     <head>
@@ -216,30 +231,217 @@
   ```
 
 ---
-<!-- {"layout": "regular"} -->
+<!-- {"layout": "regular", "embeddedStyles": ".apache-conf pre { max-height: 300px; overflow-y: scroll; }"} -->
 ## Arquitetura do Apache
 
-- ![Arquitetura do Apache](../../images/arquitetura-apache.png) <!-- {style=" float:right;"} -->
-  Os módulos são ativados/desativados e configurados por meio de arquivos de
-  configuração
-  - No arquivo `httpd.conf`
+- Os módulos são ativados e configurados por meio de arquivos de
+  configuração, no <code>httpd.conf</code>:
+  ![Arquitetura do Apache](../../images/arquitetura-apache.png) <!-- {style="margin-top: calc(2em + 3px); max-width:420px; float:right;"} -->
+  <!-- {ul:.compact-code-more.apache-conf} -->
+  ```apache
+  Listen 80
+  ServerRoot /usr/local/apache2
+  DocumentRoot /usr/local/webroot
+
+  ServerName localhost:80
+  ServerAdmin admin@localhost
+
+  ServerSignature On
+  ServerTokens Full
+
+  DefaultType text/plain
+  AddDefaultCharset ISO-8859-1
+
+  UseCanonicalName Off
+
+  HostnameLookups Off
+
+  ErrorLog logs/error_log
+  LogLevel warn
+
+  PidFile logs/httpd.pid
+
+  Timeout 300
+
+  KeepAlive On
+  MaxKeepAliveRequests 100
+  KeepAliveTimeout 15
+
+  User nobody
+  Group nobody
+
+  <IfModule prefork.c>
+    MaxClients 150
+    StartServers 5
+    MinSpareServers 5
+    MaxSpareServers 10
+    MaxRequestsPerChild 0
+  </IfModule>
+
+  <IfModule worker.c>
+    StartServers 2
+    MaxClients 150
+    MinSpareThreads 25
+    MaxSpareThreads 75
+    ThreadsPerChild 25
+    MaxRequestsPerChild 0
+  </IfModule>
+
+
+  LoadModule access_module modules/mod_access.so
+  LoadModule deflate_module modules/mod_deflate.so
+  LoadModule log_config_module modules/mod_log_config.so
+  LoadModule headers_module modules/mod_headers.so
+  LoadModule setenvif_module modules/mod_setenvif.so
+  <IfDefine SSL>
+    LoadModule ssl_module modules/mod_ssl.so
+  </IfDefine>
+  LoadModule mime_module modules/mod_mime.so
+  LoadModule status_module modules/mod_status.so
+  LoadModule info_module modules/mod_info.so
+  LoadModule dir_module modules/mod_dir.so
+  LoadModule php4_module modules/libphp4.so
+
+
+  <Location />
+    <IfModule mod_deflate.c>
+      AddOutputFilterByType DEFLATE text/html text/plain text/css
+      <IfModule mod_headers.c>
+        Header append Vary User-Agent
+      </IfModule>
+    </IfModule>
+  </Location>
+
+
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+    order allow,deny
+    deny from all
+  </Directory>
+
+
+  <Directory "/usr/local/webroot">
+    order allow,deny
+    allow from all
+  </Directory>
+
+
+  <IfModule mod_log_config.c>
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"" combined
+    CustomLog logs/access_log combined
+    <IfModule mod_deflate.c>
+      DeflateFilterNote Input instream
+      DeflateFilterNote Output outstream
+      DeflateFilterNote Ratio ratio
+      LogFormat '"%r" %{outstream}n/%{instream}n (%{ratio}n%%)' deflate
+      CustomLog logs/deflate_log deflate
+    </IfModule>
+  </IfModule>
+
+  <IfModule mod_dir.c>
+    DirectoryIndex index.html index.php
+  </IfModule>
+
+  <IfModule mod_mime.c>
+    TypesConfig conf/mime.types
+    AddType application/x-tar .tgz
+    AddType application/x-rar-compressed .rar
+    <IfModule sapi_apache2.c>
+      AddType application/x-httpd-php .php
+      AddType application/x-httpd-php-source .phps
+    </IfModule>
+  </IfModule>
+
+  <IfModule mod_setenvif.c>
+    BrowserMatch "Mozilla/2" nokeepalive
+    BrowserMatch "MSIE 4\.0b2;" nokeepalive downgrade-1.0 force-response-1.0
+    BrowserMatch "RealPlayer 4\.0" force-response-1.0
+    BrowserMatch "Java/1\.0" force-response-1.0
+    BrowserMatch "JDK/1\.0" force-response-1.0
+    BrowserMatch "Microsoft Data Access Internet Publishing Provider" redirect-carefully
+    BrowserMatch "^WebDrive" redirect-carefully
+    BrowserMatch "^WebDAVFS/1.[012]" redirect-carefully
+    BrowserMatch "^gnome-vfs" redirect-carefully
+    <IfModule mod_deflate.c>
+      BrowserMatch ^Mozilla/4 gzip-only-text/html
+      BrowserMatch ^Mozilla/4\.0[678] no-gzip
+      BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    </IfModule>
+  </IfModule>
+
+  <IfModule mod_status.c>
+    ExtendedStatus On
+    <Location /server-status>
+      SetHandler server-status
+      Order deny,allow
+      Deny from all
+      Allow from 127.0.0.1
+    </Location>
+  </IfModule>
+
+  <IfModule mod_info.c>
+    <Location /server-info>
+      SetHandler server-info
+      Order deny,allow
+      Deny from all
+      Allow from 127.0.0.1
+    </Location>
+  </IfModule>
+
+  <IfModule mod_ssl.c>
+    Include conf/ssl.conf
+  </IfModule>
+  ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Alguns módulos do Apache
 
-- `mod_auth`
-  - Gerencia o uso de acesso HTTP autenticado
-- `mod_rewrite`
-  - Gerencia um componente de reescrita de URLs
-    - Usado para configurar _proxies_
-- `mod_gzip`
-  - Comprime as respostas HTML antes de enviá-las
-- `mod_php`
-  - Gerencia o uso do interpretador PHP para gerar páginas dinamicamente
-- `mod_rails`
-  - Gerencia o uso do interpretador Ruby para gerar páginas dinamicamente
+:star2: `mod_php`
+  ~ Uso do interpretador **PHP** para gerar páginas dinamicamente
+  <span class="badge type2">unnoficial</span>
+
+`mod_rails`
+  ~ Uso do interpretador **Ruby** (_on Rails_) para gerar páginas dinamicamente
+  <span class="badge type2">unnoficial</span>
+
+`mod_wsgi`
+  ~ Uso do interpretador **Python** para gerar páginas dinamicamente
+  <span class="badge type2">unnoficial</span>
+
+`mod_passenger`
+  ~ Uso de **Ruby, Python ou Node.js** para gerar páginas dinamicamente
+  <span class="badge type2">unnoficial</span>
+
+`mod_auth`
+  ~ Gerencia o uso de acesso **HTTP autenticado**
 
 ---
+<!-- {"layout": "regular"} -->
+## Mais alguns módulos...
+
+
+:star2: `mod_deflate`
+  ~ **Comprime o _payload_** das respostas antes de enviá-las
+
+`mod_http2`
+  ~ Suporte ao formato **HTTP/2**
+
+`mod_rewrite`
+  ~ Componente de **reescrita de URLs** (para _reverse proxies_)
+
+`mod_session`
+  ~ Possibilita criar "**sessões** de usuário" (manter estado durante a navegação)
+
+`mod_ratelimit`
+  ~ Permite definir **limites de banda** para "cada site hospedado"
+
+:star2: `mod_mime`
+  ~ Determina o **MIME type** de um arquivo baseado em sua extensão
+
+---
+<!-- {"layout": "regular"} -->
 ## Outros servidores
 
 - **IIS**
@@ -254,6 +456,7 @@
   - Possibilita a utilização de linguagens da plataforma
 
 ---
+<!-- {"layout": "regular"} -->
 ## Outros servidores
 
 - **NginX** (_Engine X_)
@@ -264,11 +467,24 @@
     1. baixo uso de memória
   - Executa em sistemas baseados no Unix
   - Muito usado para fazer _load balancing_
+- Foi criado para ser um **servidor de arquivos estáticos**
+  - Mas suporta programas CGI
+    - Logo, podemos colocar PHP, Python, Ruby, Node.js etc.
 
 ---
-# ![Node.js](../../images/nodejs-logo.png)
+<!-- {"layout": "section-header"} -->
+# ![Node.js](../../images/nodejs-logo.png) <!-- {style="max-width: 50%"} -->
+## Um executador de JavaScript
+
+- Historinha
+- O que é, e o que não é
+- Hello world
+- Criando um servidor web (DIY)
+
+<!-- {ul:.content} -->
 
 ---
+<!-- {"layout": "regular"} -->
 ## Node.js
 
 - Não é um servidor web (OMG!!!)
@@ -284,19 +500,22 @@
      programas JS possam acessar o sistema de arquivos **_y otras cositas más_**
 
 ---
+<!-- {"layout": "regular"} -->
 ## Node.js (cont.)
 
-- É uma plataforma para se desenvolver **aplicações usando Javascript fora do
+- É uma plataforma para se desenvolver **aplicações usando JavaScript fora do
   navegador**
 - Características:
-  1. Escrito em C/C++ e Javascript
-  1. Executa código Javascript de forma leve e rápida
+  1. Escrito em C/C++ e JavaScript
+  1. Executa JavaScript de forma leve (pouca memória) e rápida
   1. Arquitetura de **_thread_ única** e **orientada a eventos**
   1. E/S não-blocante (**_non-blocking I/O_**)
-- É  uma ferramenta que serve bem para aplicações DIRTy (_data-intensive
-  real-time applications_)
+- Não é uma bala de prata!!
+  - É  uma ferramenta que serve bem para aplicações DIRTy (_data-intensive
+    real-time applications_)
 
 ---
+<!-- {"layout": "regular"} -->
 ## _Y otras cositas más_
 
 1. Uso de fluxos de dados (_streams_)
@@ -305,21 +524,24 @@
 1. Métodos para carregamento de arquivos
 1. Criação muito simples de _sockets_ TCP ou UDP
 1. [etc. etc. etc.](http://nodejs.org/api/)
+   ![](../../images/node-js-docs.png) <!-- {style="max-width: 100%;"} -->
 
 ---
+<!-- {"layout": "regular"} -->
 ## _Hello World_ em Node.js
 
-- Instale o Node.js
-- Crie um arquivo, `hello.js`, contendo:
-  ```js
-  console.log('woot woot');
-  ```
-- Execute seu arquivo no terminal:
-  ```bash
-  $ node hello.js
-  ```
+1. Instale o Node.js
+1. Crie um arquivo, `hello.js`, contendo:
+   ```js
+   console.log('woot woot');
+   ```
+1. Execute seu arquivo no terminal:
+   ```bash
+   $ node hello.js
+   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Mas onde está "servidor web" nisso?
 
 - A arquitetura do Node.js (_event-driven_ + _non-blocking I/O_), somados às
@@ -328,35 +550,46 @@
 - Vamos criar um servidor Web no próximo slide
 
 ---
+<!-- {"layout": "regular"} -->
 ## Servidor Web em Node.js
 
-- Arquivo `servidor-simplao.js`:
+- Arquivo `servidor-simplao.js`: <!-- {ul:.compact-code} -->
   ```js
-  var http = require('http');   // módulo "http", super útil
+  const http = require('http');   // módulo "http", super útil
   http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('conteudo do arquivo html');
+    res.write('conteudo do arquivo html');
+    res.end();
   }).listen(1337, '127.0.0.1');
   console.log('Server running at http://127.0.0.1:1337/');
   ```
-- Para rodar:
+- Para executar:
   ```
   $ node servidor-simplao.js
   $ Server running at http://127.0.0.1:1337/
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Como ler um arquivo em Node.js
 
-- Arquivo `lendoArquivo.js`
+- Arquivo `lendo-um-arquivo.js`: <!-- {ul:.compact-code} -->
   ```js
-  var fs = require('fs');     // fs é o módulo "file system"
-  fs.readFile('./pessoas.json', function(erro, dados) {
-    console.log(dados);
-  })
+  // fs é o módulo "file system"
+  const fs = require('fs');
+
+  // leitura assíncrona (não-blocante): 👍
+  fs.readFile('./pessoas.json', function(erro, pessoas) {
+    console.log(pessoas);
+  });
+
+  // também existe IO síncrona (blocante): 👎
+  const produtos = fs.readFileSync('./produtos.json');
+  console.log(produtos)
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## _Non-blocking I/O_
 
 - Operações de E/S são caras, devido ao custo de acesso a memórias mais lentas
@@ -372,21 +605,24 @@
       operação de E/S termine
 
 ---
+<!-- {"layout": "regular"} -->
 ## _Non-blocking I/O_ (cont.)
 
 - Em <u>Node.js</u>  , escreveríamos:
     ```js
-    c.query('SELECT * FROM myVeryBigTable',
-      function(err, results, fields) {
-        console.log(fields);
-        c.end();
-      }
-    );
+    const mysql = require('mysql');   // módulo de driver do mysql
+    const connection = mysql.createConnection(/*...*/);
+    connection.connect();
+    connection.query('SELECT * FROM myVeryBigTable', (err, results, fields) => {
+      console.log(fields);
+    });
+    connection.end();
     ```
-  - Enquanto a operação do `SELECT` está sendo feita, <u>o programa continua
-    executando</u> as próximas instruções
+  - Enquanto o `SELECT` está sendo feito, <u>o programa continua
+    executando</u> as próximas instruções, imediatamente prosseguindo
 
 ---
+<!-- {"layout": "regular"} -->
 ## _Single threaded_ e _event driven_
 
 - O <u>Apache</u> cria uma <u>nova _thread_</u> para atender <u>cada requisição</u>
@@ -397,27 +633,38 @@
   - Assista à [apresentação de Philip Roberts sobre o Event Loop](http://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html)
 
 ---
+<!-- {"layout": "regular"} -->
 ## Fluxos de dados (_streams_)
 
 - Fluxos são como _arrays_, mas em vez de distribuir os dados no espaço, os
-  distribui no tempo (:O)
-- Exemplo:
+  distribui no tempo :O. Por exemplo: <!-- {ul:.compact-code} -->
   ```js
-  var stream = fs.createReadStream('./arquivao-gigante.json');
-  stream.on('data', function (chunk) {
-    // chamada de vez em quando, quando foi lido mais um pouco (um chunk) do arquivo
+  const fs = require('fs');
+  const stream = fs.createReadStream('./arquivao-gigante.txt');
+
+  stream.on('data', (chunk) => {
+    // chamada de vez em quando, quando foi lido mais um pouco do arquivo
+    console.log(`Recebi ${chunk.length} bytes`);
     console.log(chunk);
   });
-  stream.on('end', function () {
-    // esta callback é chamada quando o arquivo foi todo lido
-    console.log('finished');
+
+  stream.on('end', () => {  // chamada quando o fluxo terminou
+    console.log('Acabei!!');
   });
   ```
 
 ---
+<!-- {"layout": "section-header"} -->
 # O **c10k problem**
+## _Concurrently handling 10k requests_
+
+- O problema objetivo
+- Comparação entre servidores web
+
+<!-- {ul:.content} -->
 
 ---
+<!-- {"layout": "regular"} -->
 ## _c10k_ ([referência](http://www.kegel.com/c10k.html))
 
 - É um problema de otimização de _sockets_ de rede
@@ -431,6 +678,7 @@
   - Será que algum consegue??
 
 ---
+<!-- {"layout": "regular"} -->
 ## Testando servidores Web com o _c10k_
 
 - Existe uma ferramenta de _benchmarking_ de servidores Web da ASF que vem
@@ -438,9 +686,11 @@
   ```
   $ ab -r -n 100000 -c 1000 <url>
   ```
-- Um teste entre Apache e Node.js: http://zgadzaj.com/benchmarking-nodejs-basic-performance-tests-against-apache-php
+- Um teste entre Apache e Node.js (2010): http://zgadzaj.com/benchmarking-nodejs-basic-performance-tests-against-apache-php
+- Outro teste, Apache+PHP e Node.js (2018): http://www.hostingadvice.com/blog/comparing-node-js-vs-php-performance/
 
 ---
+<!-- {"layout": "regular"} -->
 ## Para ler com calma
 
 - [O segredo para 10 **milhões** de conexões simultâneas](http://highscalability.com/blog/2013/5/13/the-secret-to-10-million-concurrent-connections-the-kernel-i.html), no highscalability.com

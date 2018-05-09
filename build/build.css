@@ -175,6 +175,33 @@ body {
 pre.hljs {
   border: 1px solid #789;
 }
+.compact-code pre,
+.compact-code ~ pre {
+  line-height: 1em;
+}
+.compact-code-more pre,
+.compact-code-more ~ pre {
+  line-height: 1em;
+  font-size: 75%;
+}
+.badge {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #333;
+  color: #666;
+  font-size: 75%;
+  line-height: 1em;
+  padding: 0.1em 0.2em;
+  color: #228b22;
+  border-color: currentColor;
+}
+.badge.type1 {
+  color: #008080;
+}
+.badge.type2 {
+  color: #6495ed;
+}
 .blastoff.bespoke-backdrop-active {
   background-image: url("../images/icanhaz-blastoff.gif");
   background-size: cover;
