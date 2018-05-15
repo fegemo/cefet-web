@@ -92,24 +92,6 @@ funcionalidades equivalem ao valor de 70% da nota do trabalho (TP1). Para
 conseguir mais pontos, o grupo pode escolher um subconjunto de funcionalidades
 extras para implementar, limitado a uma nota percentual total de 120%:
 
-<!--
-- Second life (craftfoliogotchi)
-  - 01 tipo de usuário (cadastro, login)
-  - sem conceito de amigo?
-  - cada usuário é dono de 01 página, que representa o seu espaço dentro do mundo
-  - todo mundo possui um chão, que pode ser plano
-  - o usuário deve possuir um personagem que ele pode controlar com o teclado
-    - o personagem deve andar e pular, com interação via teclado ou mouse
-    - o personagem pode ter uma animação (opcional)
-  - o usuário pode personalizar o seu mundo com _widgets_:
-    - cor ou imagem de fundo
-    - "textura" do chão
-    - galeria com textos/linsks/vídeos com o portfolio da pessoa
-    - plaquinhas pregadas no chão com texto em modal
-    - caixas de texto posicionáveis/redimensionáveis (opcional)
-    - escolha do personagem dentre uma lista (opcional)
-    - escolha de partes do personagem (opcional)
-  - -->
 - **Relativos à aparência**:
   - (8%) fazer todas as **páginas _responsive_**
   - (1%) colocar um **_favicon_** bacaninha :star:
@@ -197,182 +179,113 @@ extras para implementar, limitado a uma nota percentual total de 120%:
 [spine]: http://pt.esotericsoftware.com/
 [dragonbones]: http://dragonbones.com/en/index.html
 
+### Hospedando o TP1
+
+Você pode usar o serviço [Github Pages][gh-pages] (se estiver usando o GitHub)
+para hospedar seus arquivos. Senão, pode procurar algum serviço de
+hospedagem gratuito.
+
+[gh-pages]: https://pages.github.com/
+
 
 ## Trabalho Prático 2: _back-end_ (integrado ao _front-end_)
 
-_Sendo redigido..._
+Na segunda parte do projeto, o grupo deve criar um _back-end_ para a
+aplicação e integra-lo ao _front-end_. A tecnologia utilizada deve ser a
+mesma vista em sala de aula (Node.js + Express), podendo variar o
+_framework_ web - por exemplo, Node.js + Hapi, Node.js + Sails, Meteor. Se
+estiver em dúvidas quanto a poder usar uma tecnologia ou não, consulte
+o professor.
 
+O sistema (_back_ + _front_) deve permitir o cadastro de usuários. Uma
+página de um usuário pode ser visualizada por qualquer usuário, mas a edição
+deve ser permitida apenas para o usuário dono. Logo, é necessário que o usuário
+faça login e que algumas funcionalides (eg, edição, movimentar o avatar)
+sejam possíveis apenas em alguns casos (dono do mundo visualizando-o).
 
-<!-- - Extras
-  - (3%) **envio de emails** para o usuário quando ele cadastra e em outras
-    oportunidades importantes
-  - (12%) um usuário vê o personagem do outro em tempo real, graças ao uso de :star:
-    WebSockets
- -->
+Cada mundo tem uma URL única (eg, `/world/87497`) para que uma pessoa possa
+mostrá-lo para outras. Se um usuário que está logado acessa o mundo de outra
+pessoa, o avatar do visitante deve ser exibido, além do avatar do dono
+do mundo. O visitante logado pode controlar seu avatar, no mundo visitado.
 
-<!-- Como um religioso consumidor de jogos digitais multijogador _online_
-competitivos, você se cansou de usar planilhinhas eletrônicas para
-inscrever os participantes em campeonatos, sortear as partidas e
-registrar os resultados.
+A informação de todos os mundos deve ser persistida em um banco de dados
+(eg, mysql, mongodb) de forma que seja possível reconstruir o mundo com
+todas suas _widgets_ configuradas, além do avatar.
 
-Você acordou um dia extremamente empolgado e decidiu unir essa demanda
-dos jogadores de _e-sports_ aos seus conhecimentos _web_, que adquiriu em um
-curso por correspondência, para criar um sistemão para gerenciar campeonatos.
+Quando um usuário logado altera alguma coisa em seu mundo (exceto pela posição)
+do avatar, uma requisição AJAX deve ser enviada para o _back-end_ persistir
+essa alteração.
 
-Reunindo um grupo de amigos jogadores de Dota/LoL, foi possível reunir o
-seguinte conjunto de requisitos mínimos:
+A implementação dessas funcionalidades vale 70% da nota do TP2. Para
+conseguir mais pontos, o grupo pode implementar alguns itens opcionais:
 
-1. **Usuários** organizadores de campeonatos podem se registrar e logar
-  - Pede-se ao menos os campos "nome de usuário" e "senha"/"confirmação"
-1. Cada usuário pode criar um ou mais **campeonatos**
-  - Campeonatos são criados com um nome e um conjunto de nomes de participantes
-  - Campeonatos possuem partidas e funcionam como "mata-mata"
-  - Apenas o usuário criador do campeonato pode alterá-lo
-  - Qualquer usuário, mesmo sem estar logado, pode acessar um campeonato mas
-    não pode editá-lo
-1. As **partidas** são sorteadas aleatoriamente quando o campeonato é criado
-  - Com as partidas montadas, passa a ser possível registrar a pontuação
-    dos times
-  - Quando uma partida tem sua pontuação registrada, o campeonato evolui:
-    perdedores são eliminados e vencedores passam a integrar as partidas
-    da fase seguinte
-1. Campeonatos podem ser criados com número de participantes igual a
-    uma potência de 2. Por exemplo:
+- :star2: (12%) **upload de arquivos** para possibilitar o usuário enviar
+  suas próprias imagens (pelo menos), músicas etc.
+  - Deve ser criada uma página para que o usuário logado faça upload
+    de arquivos, e mostre todos os arquivos que ele já enviou
+    - (+2%) **enviar via AJAX** mostrando o progresso, em vez de
+      uma requisição síncrona (envio de formulário tradicional)
+  - As _widgets_ que envolvem imagens, músicas, vídeos devem ser
+    alteradas para possibilitar o uso dos arquivos do usuário
+- :star2: (12%) um usuário vê os **personagens dos outros em tempo real**
+  (_e.g._, posição x,y) graças ao uso de :star: WebSockets
+- (5%) **envio de emails** para o usuário quando ele cadastra e em outras
+  oportunidades importantes (e.g, o mundo dele recebeu 10/100/1000 visitas)
+- (4%) **Contador de visualizações**: toda "visualização única" a uma página
+  deve ser registrada e exibida em algum cantinho da página
+  - (+8%) Criar uma **máquina de estados no _back-end_** (persistida no banco)
+    que representa a situação do avatar (tipo Tamagotchi)
+    - O avatar começa "sadio", mas deve ter "fome", que vai sendo
+      saciada a cada visita
+      - Se a fome fica alta por muito tempo, ele fica "doente"
+      - Se "doente" por muito tempo, "morto"
+    - Toda vez que algum usuário entrar em uma página, o _back-end_ deve
+      consultar o estado do avatar dono do mundo da página visitada e
+      atualizar o estado (digamos, verificar quando foi a última visita a ela,
+      "adicionar fome" relativa ao tempo que se passou e "saciar um pouquinho a fome" - referente a esta visita)
+    - (+8%) Em vez de fazer o processamento de "adicionar fome" a cada visita,
+      fazer isso de maneira agendada, em um **serviço que deve ser agendado**
+      no sistema operacional (no Linux, um _cron job_)
+- (6%) Usar um serviço de **autenticação de terceiros** como Google, Facebook,
+  Twitter, Github etc.
+- (7% ou 10%) Acesso aos dados do servidor exclusivamente por meio de um
+  _web service_ usando **arquitetura RESTful** ou **arquitetura GraphQL**
+  - Observação: requer um tipo de autenticação diferente (eg, JWT)
 
-| Participantes | Níveis de Partida | Qtde de Jogos |
-|:-------------:|:-----------------:|:-------------:|
-| 2             | 1                 | 1             |
-| 4             | 2                 | 3             |
-| 8             | 3                 | 7             |
-| ...           | ...               | ...           |
-| `n`           | `log_2(n)`        | `n - 1`       |
+### Entrega
 
-O sistema deve ter pelo menos algumas páginas listadas a seguir:
-- **Inicial**, contendo:
-  - descrição do sistema,
-  - botão para registrar/logar,
-  - imagem(ns) de eventos de e-sports,
-  - logomarca,
-  - lista com uma visão resumida dos 3 campeonatos mais recentes,
-- De **registro/login** de usuário, com:
-  - fluxo de sucesso (registro/login),
-  - fluxos alternativos de senha incorreta e usuário inexistente,
-  - redirecionamento para a lista de campeonatos do usuário,
-- **Lista de campeonatos** do usuário, mostrando:
-  - forma resumida dos campeonatos do usuário (nome, # de participantes,
-    % concluído, vencedor, se houver)
-  - botão para criar um novo campeonato.
-- **Novo campeonato**, com:
-  - campos com as propriedades do novo campeonato.
-- **Um campeonato**, mostrando:
-  - todos os participantes (pode ser uma lista),
-  - todas as partidas (pode ser uma tabela com colunas: "time 1", "time 2",
-    "fase", "pontuação time 1", "pontuação time 2"),
-  - as pontuações das partidas, caso já tenham ocorrido,
-  - o estado do campeonato (e.g., uma barra com a porcentagem de conclusão
-    das partidas),
-  - caso seja um campeonato do usuário logado, formas para editá-lo.
-- Página de **erro do servidor** (erros com códigos 4xx e 5xx)
-  - uma mensagem bem humorada de desculpa.
+O projeto final deve ser disponibilizado publicamente em algum serviço de
+hospedagem gratuito e apresentado em sala de aula em data combinada
+no cronograma (Moodle).
 
-Além dos requisitos funcionais descritos, os seguintes requisitos
-não-funcionais também fazem parte da especificação:
-
-1. Bom tempo de resposta com o **uso de AJAX** para pelo menos 1 chamada a dados
-  do banco
-1. Persistência em **banco de dados**
-1. **_Layout_ e _design_ agradáveis** - não precisa ser profissional, mas
-  também não pode ter carinha de site da década de 90
-  - Você deve ser o autor dos estilos usados no site - não é permitido
-    o reaproveitamento de estilos de outros sites como temas, _templates_ etc.
-1. A tecnologia de _back-end_ usada deve ser a mesma vista na matéria
-1. Alguma funcionalidade do HTML5 deve ser implementada, e ela deve ser a mesma
-  funcionalidade escolhida apra o seminário
-
-## Funcionalidades Opcionais
-
-O que foi descrito anteriormente do trabalho equivale a uma pontuação de 70%.
-Para chegar a 100% (ou a mais e ganhar uns pontinhos extras, até o limite de
-120%), você deve implementar também um conjunto de outras funcionalidades,
-a saber:
-
-- Página do campeonato com **partidas no "formato de chaves"** no estilo
-  copa do mundo **(até 8%)**. Ideias:
-  - Posicionar elementos das partidas com `position: relative/absolute;`
-  - Usar uma biblioteca para desenhos como `d3.js`, `raphael.js` etc.
-    ![Partidas distribuídas na página com o formato de chaves](images/formato-chaves.png)
-- Atribuir **imagens aos participantes** dos campeonatos (_e.g._, as logos
-  dos times) **(6%)**
-- Usar um **_favicon_** **(3%)**
-- Fazer as **páginas "responsivas"** **(até 5%)**
-- **Animações e/ou transições** CSS **(até 4%)**
-- **Remover a restrição** de número de participantes igual a uma
-  potência de 2 **(7%)**
-- Desenvolver no formato de **_Single Page Application_** usando **(até 12%)**
-  algo como:
-  - [Angular](http://angularjs.org/),
-  - [React](https://facebook.github.io/react/),
-  - [Backbone](http://backbone.org),
-  - [Knockout](http://knockoutjs.com/), etc.
-- Usar um **preprocessador CSS** **(até 5%)**
-- Usar **_sprites_ CSS** para imagens pequenas **(até 4%)**
-- Usar um serviço de **autenticação de terceiros** como Google, Facebook,
-  Twitter, Github etc. **(até 8%)**
-- Usar um **_task runner_** como Gulp, GruntJS, Broccoli etc. para:
-  - "Minificar" os arquivos JS **(até 3%)**
-  - "Minificar" os arquivos CSS **(até 3%)**
-  - Reduzir tamanho de imagens **(até 3%)**
-  - Outras coisas
-- Usar um **carregador de módulos Javascript** AMD (RequireJS, YUI3),
-  CommonJS (Browserify) ou ES6 **(até 8%)**
-- Acesso aos dados do servidor exclusivamente por meio de um _web service_
-  usando **arquitetura RESTful** **(até 7%)**
-
-Você pode usar bibliotecas/_frameworks_ Javascript e CSS. Contudo, para usar as
-listadas abaixo, você precisa pagar uns pontinhos:
-
-- **jQuery** (-8%)
-  - Plugin jQuery de terceiros (-2% cada)
-- **Bootstrap/Foundation/Materialize** (e similares) (-8%) -->
-<!--
-## Entregas
-
-O projeto será entregue em duas etapas, a saber:
-
-1. Primeira entrega: _front-end_
-  - Entregar: Páginas navegáveis, usando dados _mocked_
-  - Data: daqui 16 dias (vide Moodle)
-  - Pontuação: 15 pontos
-1. Segunda entrega: _back-end_ + _front-end_
-  - Entregar: código fonte final e _link_ para sistema publicado em
-    servidor gratuito
-  - Data: final do semestre (vide Moodle)
-    - [Apresentação oral e demonstração](#apresentação)
-  - Pontuação: 25 pontos (+extras)
-
-## Apresentação
-
-Devem ser entregues via Moodle:
-
+Em termos de artefatos, devem ser entregues via Moodle:
 - Link para o repositório com o código fonte da aplicação
 - Link para o servidor onde a aplicação está hospedada
-- Link para a apresentação de slides, se optar por ter uma
-- Lista de itens opcionais implementados
+- Link para (ou upload da) apresentação de slides
+- Lista de itens opcionais implementados (ou um formulário a ser preenchido,
+  caso o professor o envie)
 
-**A apresentação** do trabalho deve ter, no máximo, 10 minutos e seguir este **roteiro**:
+**A apresentação** do trabalho deve ter, no máximo, 7 minutos e seguir este **roteiro**:
 
-1. "Capa" com o nome do seu aplicativo e o grupo
-1. Mostrar um diagrama com a arquitetura geral, contendo elementos como (1 min):
+1. "Capa" com o nome do seu aplicativo e o grupo [1 slide]
+1. Demonstrar a aplicação usando o servidor de hospedagem (4 min)
+1. Mostrar a arquitetura geral, contendo elementos como (3 min) [máx. 3 slides]
   - banco(s) de dados usados
   - como o banco de dados foi acessado (Mongoose? _driver do Mongo_?
     _web service_?)
   - tecnologias de _back-end_ usadas
   - tecnologias de _front-end_ usadas
-1. Mostrar o arquivo `package.json` e comentar sobre os pacotes NPM usados (2 min)
-1. Demonstrar a aplicação usando o servidor de hospedagem (7 min):
-  - mostrar todos os itens obrigatórios implementados
-  - mostrar os opcionais
-1. Mostrar a lista de itens opcionais implementados -->
+  - mostrar `package.json` e comentar sobre os pacotes NPM usados
+
+#### Hospedagem do TP2
+
+Você deve usar um serviço de hospedagem gratuito para aplicações Node.js.
+Abaixo, uma lista desses serviços que possuem um plano gratuito:
+
+- [Heroku](https://www.heroku.com/) (Java, Grails, Node, Ruby)
+- [Appfog](https://www.appfog.com/) (Java, Grails, Node, Ruby)
+- [cloudno.de](http://cloudno.de/) (Node)
+- Outros...
 
 ## Critérios de avaliação
 
@@ -384,37 +297,6 @@ O código do serviço Web será avaliado, dentre outros fatores, segundo:
 1. **Boas práticas de programação** tanto no cliente quanto no servidor
 1. Utilização de **HTML5 e CSS3 válidos** e de compatibilidade entre os
    principais navegadores
-
-## O que deve ser **entregue**
-
-O trabalho deve ser entregue via GitHub ou BitBucket. Não se esqueça de fazer
-vários e pequenos _commits_, que é uma importante boa prática em `git` e
-também é interessante para demonstrar seu progresso. Todos os integrantes
-do grupo devem participar (vou procurar a carinha de cada um nos _commits_ :).
-
-Além do código do seu serviço Web, seu repositório deve conter também
-um arquivo README.md em sua pasta raiz que descreva brevemente o que ele é
-e contenha a lista de itens extras as quais está pleiteando.
-
-Ao final do seu trabalho (do TP1 e do TP2), você deve submeter pelo Moodle
-o link do seu repositório e o link do seu site hospedado.
-
-### No TP1
-
-Você pode usar o serviço [Github Pages][gh-pages] (se estiver usando o GitHub)
-para hospedar seus arquivos. Senão, pode procurar algum serviço de
-hospedagem gratuito.
-
-[gh-pages]: https://pages.github.com/
-
-### No TP2
-
-Você deve usar um serviço de hospedagem gratuito para aplicações Node.js.
-Abaixo, uma lista desses serviços que possuem um plano gratuito:
-
-- [Heroku](https://www.heroku.com/) (Java, Grails, Node, Ruby)
-- [Appfog](https://www.appfog.com/) (Java, Grails, Node, Ruby)
-- [cloudno.de](http://cloudno.de/) (Node)
 
 
 ## Instruções gerais
@@ -432,10 +314,4 @@ Alguns descuidos podem fazer com que sua nota fique muito abaixo do esperado:
 - Ausência de itens da especificação obrigatória
 - Baixa legibilidade do código
 - Baixa qualidade da implementação
-- Atraso na entrega. Cada dia de atraso reduz o valor máximo de nota da
-  maneira abaixo. Considere `x` como dias de atraso e `y` a
-  [penalidade percentual na nota][https://www.google.com.br/search?q=y%3D(2%5E(x-2)%2F0.16)%2Cy%3D100]:
-
- ![Fórmula de penalidade por atraso](../../images/penalidade-por-atraso.png)
- - Isso implica que 1 ou 2 dias de atraso são pouco penalizados
- - E após 5 dias de atraso, o trabalho vale 0
+- **O trabalho não pode ser entregue em atraso**
