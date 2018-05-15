@@ -1,25 +1,38 @@
-# Server Side - Parte 3
+<!-- {"layout": "title"} -->
+# Node.js e Express
+## Criando um servidor web em JavaScript
 
 ---
 # Roteiro
 
-1. Continuando nosso servidor web <abbr title="Do it yourself">DIY</abbr>
+1. Continuando nosso servidor web DIY
 1. O _framework_ Express.js
 1. Geração dinâmica de HTML
 
----
-# Continuando nosso servidor web
+*[DIY]: Do it yourself*
 
 ---
+<!-- {"layout": "section-header"} -->
+# Construindo um servidor web DIY
+## Continuando nosso servidor web
+
+- Retorna sempre o mesmo arquivo
+- Servindo arquivo baseado em URL
+- Definindo o tipo MIME
+
+*[MIME]: Multipurpose Internet Mail Extensions*
+
+---
+<!-- {"layout": "regular"} -->
 ## Um servidor web não muito útil
 
 - Na última aula, criamos um servidor Web que retornava sempre o mesmo arquivo
   para quaisquer requisições
   ```js
-  var http = require('http'),
-      fs = require('fs');
+  const http = require('http'),
+    fs = require('fs');
 
-  var server = http.createServer(function (req, res) {
+  const server = http.createServer(function (req, res) {
     res.writeHead(200, { 'content-type': 'text/plain' });
     fs.createReadStream(process.argv[3]).pipe(res);
   })
@@ -28,42 +41,62 @@
   ```
 
 ---
-## Um servidor web útil (arquivos **baseados na URL**)
+<!-- {"layout": "regular"} -->
+## Um servidor web útil (**baseado na URL**)
+
+<!-- {section:.compact-code} -->
 
 ```js
-let http = require('http'), fs = require('fs'), url = require('url');
-let server = http.createServer(function (req, res) {
-  let caminho = __dirname + url.parse(req.url).path,
-      stream = fs.createReadStream(caminho);
+const http = require('http');         // módulo http (nativo)
+const fs = require('fs');             // módulo fs (nativo)
+const url = require('url');           // módulo url (nativo)
+const porta = 8080;
 
-  stream.on('error', function() {
-    res.writeHead(404); res.end('Not Found');
+const server = http.createServer((req, res) => {
+  // __dirname: caminho absoluto até a pasta DESTE ARQUIVO
+  const caminhoSolicitado = __dirname + url.parse(req.url).path;
+
+  // por exemplo, para localhost:8080/estilos.css, caminhoSolicitado é o
+  // endereço desse arquivo no file system
+  const streamArquivo = fs.createReadStream(caminhoSolicitado);
+
+  streamArquivo.on('error', function() {
+    res.writeHead(404);
+    res.end('Not Found');
   });
 
-  stream.on('open', function() {
-    res.writeHead(200, { 'content-type': 'text/plain' });
-    stream.pipe(res);
+  streamArquivo.on('open', function() {
+    res.writeHead(200, {
+      'content-type': 'text/plain'
+    });
+    streamArquivo.pipe(res);
   });
-}).listen(8080);
+});
+
+server.listen(porta);
+
+console.log(`Escutando na porta ${porta}`);
 ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Problema: _MIME types_
 
 - O protocolo HTTP define um cabeçalho chamado _Content-Type_, que deve conter
-  o tipo <abbr title="Multipurpose Internet Mail Extensions">MIME</abbr> do
-  arquivo: texto, HTML, imagem, CSS etc.
-  - Exemplos:
-    1. `text/plain`
-    1. `text/html`
-    1. `image/png`
-    1. `video/webm`
-    1. `application/json`
+  o tipo MIME do arquivo: texto, HTML, imagem, CSS etc. Exemplos:
+  1. `text/plain`
+  1. `text/html`
+  1. `image/png`
+  1. `video/webm`
+  1. `application/json`
 - Como saber qual _MIME type_ enviar?
-  - Tipicamente usamos **a extensão do arquivo**
-  - E uma tabela que mapeie extensões para _MIME types_
+  - Tipicamente, usamos **a extensão do arquivo**...
+  - e uma tabela que mapeie extensões para _MIME types_
+
+*[MIME]: Multipurpose Internet Mail Extensions*
 
 ---
+<!-- {"layout": "regular"} -->
 ## Servindo os arquivos, com _MIME types_
 
 - Existem [mais de 1.500 _MIME types_](http://www.iana.org/assignments/media-types/media-types.xhtml)
@@ -74,10 +107,12 @@ let server = http.createServer(function (req, res) {
   ```
   - Ou então pesquise no [site do npm](https://www.npmjs.com/search?q=mime)
     - Resultado: um pacote chamado `mime`, com a descrição _"A comprehensive
-      library for mime-type mapping"_
+      library for mime-type mapping"_ 🤔
       - [Repositório](https://github.com/broofa/node-mime) no GitHub
         com documentação
+
 ---
+<!-- {"layout": "regular"} -->
 ## Usando o pacote **mime**
 
 - Primeiro, vamos instalar **localmente** o pacote `mime`. No diretório
@@ -93,38 +128,41 @@ let server = http.createServer(function (req, res) {
      _MIME type_
 
 ---
+<!-- {"layout": "regular"} -->
 ## Usando o pacote **mime** (cont.)
 
 - (1) Incluindo o módulo `mime`:
   ```js
-  let http = require('http'),
-      fs = require('fs'),
-      url = require('url'),
-
-      // incluído e atribuido à variável "mime"
-      mime = require('mime');
+  const http = require('http');
+  const fs = require('fs');
+  const url = require('url');
+  // incluído e atribuido à variável "mime"
+  const mime = require('mime');
 
   /* ... */
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Usando o pacote **mime** (cont.)
 
 - (2) Invocando o método que retorna o tipo _MIME_ dado um nome de arquivo:
+  <!-- {li.compact-code} -->
   ```js
   /* ... */
-  stream.on('open', function() {
+  streamArquivo.on('open', function() {
     res.writeHead(200, {
-      'content-type': mime.lookup(caminho)
+      'content-type': mime.lookup(caminhoSolicitado)
     });
     stream.pipe(res);
 
-    console.log('Serviu o arquivo: ' + caminho);
+    console.log('Serviu o arquivo: ' + caminhoSolicitado);
   });
   /* ... */
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## O que ainda **está faltando**
 
 - Nosso servidor web ainda precisa de algumas coisas:
@@ -138,9 +176,21 @@ let server = http.createServer(function (req, res) {
 - Novamente, vejamos se não estamos reinventando a roda =)
 
 ---
+<!-- {"layout": "section-header"} -->
 # Express
+## Um _framework_ web para Node.js
+
+- Descrição
+- Instruções de uso
+- _Hello world_
+- Servindo arquivos estáticos
+- Definindo rotas
+- Geração dinâmica de HTML
+
+<!-- {ul:.content} -->
 
 ---
+<!-- {"layout": "regular"} -->
 ## ![Logo do Express](../../images/expressjs.png)
 
 - Se entitulam um _web framework_ para Node.js:
@@ -148,79 +198,80 @@ let server = http.createServer(function (req, res) {
   1. Não opinativo (_unopinionated_)
   1. Minimalista
 - Site oficial: [http://expressjs.com/](http://expressjs.com/)
+- Instalando:
+  ```bash
+  $ npm install express --save
+  ```
+  - Página [Getting started](http://expressjs.com/en/starter/installing.html)
 
 ---
-## Instalação
-
-- Via `npm`, é claro =)
-  ```
-  $ npm install express
-  ```
-  - Isso vai criar a pasta `node_modules` no diretório atual e fazer _download_
-    dos arquivos do express para `node_modules/express`
-
----
+<!-- {"layout": "regular"} -->
 ## Servidor _"hello world"_ com Express
 
 ```js
-let express = require('express');
-let app = express();
+const express = require('express');
+const app = express();
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-let server = app.listen(3000, function () {
-  let host = server.address().address;
-  let port = server.address().port;
-  console.log('Listening at http://%s:%s', host, port);
+const server = app.listen(3000, () => {
+  const host = server.address().address;
+  const port = server.address().port;
+
+  console.log(`Listening at http://${host}:${port}`);
 });
 ```
 
 ---
+<!-- {"layout": "tall-figure-left"} -->
 ## Servidor de arquivos estáticos com Express
 
+![](../../images/diretorio-express-exemplo.png)
+
 ```js
-let express = require('express'),
-    app = express();
+const express = require('express');
+const app = express();
 
 // suponhamos que "/public" é uma pasta com
 // nossos arquivos estáticos
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(`${__dirname}/public`));
 
-let server = app.listen(3000, function () {
+const server = app.listen(3000, () => {
   console.log('Escutando em: http://localhost:3000');
 });
 ```
-  ![](../../images/diretorio-express-exemplo.png)
 
 ---
+<!-- {"layout": "regular"} -->
 ## Especificando rotas
 
 - O _express_ facilita a **especificação da ação** a ser tomada **dependendo
   da URL solicitada**
-  - Uma rota é definida por um verbo HTTP (`GET`, `POST` etc.) e uma URL
-  - A cada rota é associada uma _callback_:
+  - Uma rota é um verbo HTTP (`GET`, `POST` etc.) e uma URL
+  - A cada rota é associada uma _callback_: <!-- {li:.compact-code} -->
     ```js
-    // GET /
-    app.get('/', function(request, response) {
-      response.render('index');
+    // GET / (página inicial)
+    app.get('/', (request, response) => {
+      response.render('index');     // desenha a view 'index'
     });
     // POST /contato
-    app.post('/contato', function(request, response) {
+    app.post('/contato', (request, response) => {
       // envia um email usando os dados enviados
     });
     ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Especificando rotas (cont.)
 
 - Mais alguns exemplos de rotas:
   ```js
   // HEAD /user/122   (verificar se usuário id=122 existe)
-  app.head('/user/:ident', function(request, response) {
+  app.head('/user/:ident', (request, response) => {
     // request.params contém os parâmetros da rota
-    let usuario = tabelaDeUsuarios[request.params.ident];
+    const usuario = tabelaDeUsuarios[request.params.ident];
     if (usuario !== null) {
       response.status(200).end();
     } else {
@@ -231,6 +282,7 @@ let server = app.listen(3000, function () {
 - Veja mais no [guia oficial sobre rotas](http://expressjs.com/starter/basic-routing.html)
 
 ---
+<!-- {"layout": "regular"} -->
 ## Gerando HTML dinamicamente
 
 - Queremos poder gerar HTML dinamicamente. Para isso, precisamos de uma
@@ -244,6 +296,7 @@ let server = app.listen(3000, function () {
   1. `dust` (`.dust`, feito pelo [LinkedIn](http://akdubya.github.io/dustjs/))
 
 ---
+<!-- {"layout": "regular"} -->
 ## Gerando HTML dinamicamente com **ejs**
 
 - Usamos `ejs` (ou qualquer outro **_templating engine_**) em 3 passos:
@@ -256,13 +309,14 @@ let server = app.listen(3000, function () {
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Gerando HTML dinamicamente com **ejs** (cont.)
 
 - (2) Escrevemos arquivos no formato `.ejs` em vez de `.html`. Trecho de um
-  arquivo, e.g., `equipe.ejs`:
+  arquivo, e.g., `equipe.ejs`: <!-- {li:.compact-code} -->
   ```html
   <ul>
-    <% for (var i=0; i < users.length; i++) { %>
+    <% for (let i = 0; i < users.length; i++) { %>
       <li><img src="<%= users[i].foto %>"><%= users[i].nome %></li>
     <% } %>
   </ul>
@@ -274,17 +328,19 @@ let server = app.listen(3000, function () {
     ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Gerando HTML dinamicamente com **ejs** (cont.)
 
 - (3) Ao definirmos os _handlers_ das nossas rotas, chamamos `response.render`
   e passamos o nome do arquivo da _view_ que deve ser usado (sem a extensão):
   ```js
   app.get('/equipe', function(request, response) {
-    response.render('equipe');
+    response.render('equipe');      // vai pegar arquivos_ejs/equipe.ejs
   });
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Gerando HTML dinamicamente com **ejs** (cont.)
 
 - (3) É possível (e muito comum) disponibilizar dados para a _view_ e podemos
@@ -300,6 +356,7 @@ let server = app.listen(3000, function () {
 - Mais informações sobre [_templating engines_](http://expressjs.com/guide/using-template-engines.html) no Express
 
 ---
+<!-- {"layout": "regular"} -->
 ## Gerando HTML dinamicamente com **handlebars**
 
 - (1) Configurando o Express:
@@ -316,6 +373,7 @@ let server = app.listen(3000, function () {
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Gerando HTML dinamicamente com **pug**
 
 - (1) Configurando o Express:
@@ -330,6 +388,7 @@ let server = app.listen(3000, function () {
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Gerando HTML dinamicamente com **dust**
 
 - (1) Configurando o Express:
