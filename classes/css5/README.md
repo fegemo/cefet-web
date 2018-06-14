@@ -57,30 +57,28 @@ mini-sobrinho, ensiná-lo como falar o nome de alguns animais.
    - Apenas o nome do animal aparece escrito e seu sobrinho ainda não sabe ler
 1. O arquivo javascript `jogo.js` controla o jogo. Ele tem um temporizador que
    fica **adicionando e removendo classes dos elementos** dos animais
-   - `agitado`, quando o animal está com fome
-   - `alimentado`, quando o animal acabou de comer
-   - `perturbado`, quando um animal sossegado é perturbado
-   - `instinto-selvagem`, quando um animal com fome não é alimentado a tempo
+   - `com-fome`, quando o animal está com fome
+   - `satisfeito`, quando o animal acabou de comer
+   - `com-raiva`, quando um animal sossegado é perturbado
+   - `atacando`, quando um animal com fome não é alimentado a tempo
 
 ---
-## Pede-se: fazer os **3 exercícios** abaixo
+## Pede-se: fazer os **2 exercícios** abaixo
 
 1. Criar uma **transição para quando o mouse estiver em cima dos botões**
    _play/stop_ (para que o elemento se revele lentamente)
 1. Você deve implementar uma **metáfora visual** para cada um dos 4 estados dos
    animais. Algumas sugestões:
-   - `agitado`, animal piscando (opacidade variando)
-   - `alimentado`, uma borda verde no animal e o animal fica girando de alegria
-   - `perturbado`, animal vai crescendo, ou fica pulsando
-   - `instinto-selvagem`, animal dá um salto e cresce, com uma borda vermelha
-1. Criar uma **imagem _sprite_**   com as imagens dos ícones de "começar/parar" o jogo
-   de forma a fazer com que a página carregue mais rápido
+   - `com-fome`, animal piscando (opacidade variando)
+   - `satisfeito`, uma borda verde no animal e o animal fica girando de alegria
+   - `com-raiva`, animal vai crescendo, ou fica pulsando
+   - `atacando`, animal dá um salto e cresce, com uma borda vermelha
 
 ---
 ## Entrega do exercício
 
 1. O jogo já está funcionando 85% e você pode acessar [seu repositório no
-   GitHub](https://github.com/fegemo/cefet-web-edukids)
+   GitHub](https://github.com/fegemo/cefet-front-end-edukids)
 1. Crie um _fork_ do repositório e trabalhe em cima dele
 1. Terminar o jogo (slide anterior) e dar **_commit_ e _push_**
 1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
