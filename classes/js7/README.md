@@ -11,6 +11,9 @@
   - Operadores _rest_ e _spread_
   - _Destructuring_
   - _String templates_
+  - Promessas
+  - Async/await
+  - Módulos
 - Executando novas funcionalidades hoje
 
 ---
@@ -53,7 +56,8 @@
 <!--
 {
   "scripts": ["../../scripts/classes/item-cloud.min.js"],
-  "styles": ["../../styles/classes/item-cloud.min.css"]
+  "styles": ["../../styles/classes/item-cloud.min.css"],
+  "layout": "regular"
 }
 -->
 
@@ -65,7 +69,6 @@
 - _Destructuring_
 - Operadores _Rest_ e _Spread_
 - _Arrow functions_
-- _Maps_ e _Sets_
 - _Quasi-literals_
 - _Generators_
 - Módulos
@@ -74,9 +77,10 @@
 <!-- {ul:data-state="itemcloud"} -->
 
 ---
+<!-- {"layout": "regular"} -->
 # **Valores Padrão** para Argumentos
 
-- Como fazemos em ES5:
+- Como fazemos em ES5:  <!-- {ul:.compact-code-more} -->
   ```js
   function contarEstoria(lang, year) {
     return (lang || 'C') + ' foi criada em ' + (year || 1972);
@@ -90,12 +94,13 @@
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 # <small>Operadores</small> **Rest** e Spread
 
-- Como podemos criar uma lista HTML, dado um array de Strings?
+- Como podemos criar uma lista HTML, dado um array de Strings?  <!-- {ul:.compact-code-more} -->
   ```js
   function criaListaHTML() {
-    var itens = Array.prototype.slice.call(arguments),
+    const itens = Array.prototype.slice.call(arguments),
     return '<li>' + itens.join('</li><li>') + '</li>';
   }
   criaListaHTML('Mario', 'Yoshi', 'Toad');
@@ -108,54 +113,43 @@
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 # <small>Operadores</small> Rest e **Spread**
 
-- Como instanciar um objeto data a partir de 3 inputs (day, month, year)?
+- Como instanciar um objeto data a partir de 3 inputs (day, month, year)?  <!-- {ul:.compact-code-more} -->
   ```js
-  var day = getDateDay(),
+  const day = getDateDay(),
       month = getDateMonth(),
       year = getDateYear();
-  var d = new Date(year, month, day);
+  const d = new Date(year, month, day);
   ```
 - Em ES6, podemos usar o **operador spread**:
   ```js
-  var dateFields = getDateFieldsValues(),
+  const dateFields = getDateFieldsValues(),
       d = new Date(...dateFields);
   ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## <small>Operadores</small> Rest e Spread
 
 - O operador **rest** transforma um parâmetro em um _array_ de valores
 - O operador **spead** transforma um "_array_ de valores" em
   "valores separados por vírgula"
   ```js
-  var pets = ['rat', 'dragon', 'bee'];
+  const pets = ['rat', 'dragon', 'bee'];
 
   console.log(pets[0], pets[1], pets[2])  // rat dragon bee
   console.log(...pets);                   // rat dragon bee
   ```
-  - Executar no [es6fiddle](http://www.es6fiddle.net/huktq4ed/)
 
 ---
-# Destructuring
+<!-- {"layout": "2-column-content", "embeddedStyles": "#yay + pre {max-height:76%;}"} -->
+# Destructuring <small>um objeto</small>
 
-- Decapitando um _array_:
-  ```js
-  let [head, ...tail] = [1, 2, 3, 4];
-  console.log(tail);                    // imprime [2, 3, 4]
-  ```
-  - Usa **destructuring** E o operador **spread**
-- Trocando o valor de 2 variáveis sem usar uma terceira:
-  ```js
-  let a = 1;
-  let b = 3;
-
-  [a, b] = [b, a];                      // a=3, b=1
-  ```
-
----
-## Destructuring <small>um objeto</small>
+- Às vezes queremos que uma função tenha 1+ valores de retorno
+- Ou então um função que espera um objeto que possua um certo formato
+<!-- {ul:id="yay"} -->
 
 ```js
 let musica = {
@@ -190,17 +184,35 @@ Ano: 2006
 ```
 
 ---
+<!-- {"layout": "regular"} -->
+## Destructuring _arrays_
+
+- Decapitando um _array_: <!-- {ul:.compact-code} -->
+  ```js
+  const [head, ...tail] = [1, 2, 3, 4];
+  console.log(tail);                    // imprime [2, 3, 4]
+  ```
+  - Usa **destructuring** + o operador **spread**
+- Trocando o valor de 2 variáveis sem usar uma terceira:
+  ```js
+  let a = 1;
+  let b = 3;
+
+  [a, b] = [b, a];                      // a=3, b=1
+  ```
+
+---
 ## String templates <small>(quasi-literals)</small>
 
 - Você já viu isto?
   ```js
-  var tom = Math.random() * 155 + 100;
-  var cor = 'rgb('+ tom  +', ' + tom + ', ' + tom + ')';
+  const tom = Math.random() * 155 + 100;
+  const cor = 'rgb('+ tom  +', ' + tom + ', ' + tom + ')';
   ```
 - Há uma forma melhor:
   ```js
-  var tom = Math.random() * 155 + 100;
-  var cor = `rgb(${tom}, ${tom}, ${tom})`;
+  const tom = Math.random() * 155 + 100;
+  const cor = `rgb(${tom}, ${tom}, ${tom})`;
   ```
 - Isto se chama _**string interpolation**_
 
@@ -236,7 +248,7 @@ Ano: 2006
   <section style="background: darkseagreen;">
     <h3>Em <strong>ES6</strong>:</h3>
     <pre style="text-align: left;">
-      <code class="hljs">var poema =
+      <code class="hljs">const poema =
   `Cavei, cavei, cavei
    Isto não é um poema
    Mas é profundo.`;</code>
@@ -267,11 +279,106 @@ Veja mais em: [A critical review of ES6 quasi-literals](http://www.nczonline.net
   - Facilita a criação de DSLs
 - Contras
   - As variáveis interpoladas devem estar no mesmo escopo
-  ```js
-  var msg = `Hello, ${place}`;    // dá erro
-  ```
+    ```js
+    const msg = `Hello, ${place}`;    // dá erro
+    ```
   - Não é possível externalizar (e.g., para outro arquivo) as strings
 
+
+---
+<!-- {"layout": "regular"} -->
+# Promessas
+
+Problema
+  ~ quando precisamos realizar várias chamadas assíncronas, podemos
+    ter um **_callback hell_**: várias _callbacks_ aninhadas
+    - Dificulta a leitura e escrita do código
+    - Suscetível a erros do programador
+    - Tratar erros deve ser feito por _callback_, dificultando
+      a legibilidade/manutenibilidade do código
+
+Solução
+  ~ uso de promessas
+
+---
+<!-- {"layout": "regular"} -->
+## _Callback Hell_
+
+- Imprimir (4) todas as "pessoas" (3) da mesma espécie do (2) primeiro
+  residente do (1) planeta Naboo (planeta `id=8`)
+
+```js
+sendAjax('https://swapi.co/api/planets/8', result => { // Planet Naboo
+  sendAjax(result.residents[0], result => { // R2-D2
+    sendAjax(result.species, result => { // Droid
+      // pega todas as "pessoas" dessa espécie
+      for (let person of result.people) {
+        sendAjax(person, result => {
+          // C-3PO, R2-D2, R5-D4, IG-88, BB8
+          console.log(result.name);
+        });
+      }
+    });
+  });
+});
+```
+
+---
+<!-- {"layout": "regular"} -->
+## Solução com **Promises**
+
+- Imprimir (4) todas as "pessoas" (3) da mesma espécie do (2) primeiro
+  residente do (1) planeta Naboo (planeta `id=8`)
+
+```js
+sendAjax('https://swapi.co/api/planets/8')        // Naboo
+  .then(result => sendAjax(result.residents[0]))  // R2-D2
+  .then(result => sendAjax(result.species))       // Droid
+  .then(result => Promise.all(result.people.map(person => sendAjax(person))))
+  .then(result => console.log(result.name)) // C-3PO, R2-D2, R5-D4, IG-88, BB8
+  .catch(result => console.error(`Errored: ${result}`));
+```
+
+- A API Fetch ![Logo do HTML5](../../images/html5-logo-32.png) substitui
+  a XMLHttpRequest, **usando promessas** <!-- {img:style="height: 1em;"} --> <!-- {ul:style="margin-top: 0"} -->
+
+---
+<!-- {"layout": "regular"} -->
+## Definição de **Promise**
+
+- Uma **promise** é um objeto "_thenable_", _i.e._, podemos invocar `.then`,
+  passando uma função que só será chamada quando a promessa for cumprida
+  (com êxito ou falha)
+  - `.then(callbackSuccess, callbackError)` pode receber 2 funções
+  - ...ou podemos usar `.catch` para tratar o erro de uma "_promise chain_"
+    de forma genérica
+- É possível criar objetos do tipo `Promise` de forma que nós definimos
+  quando elas estão resolvidas (com sucesso ou falha)
+  - Próximo slide
+
+---
+<!-- {"layout": "regular"} -->
+## Criando uma **Promise** (exemplo)
+
+- Exemplo: mostrar uma notícia apenas quando o texto e as informações
+  dos jornalistas foram buscados: <!-- {ul:.compact-code-more} -->
+
+  ```js
+  // criando a promessa
+  const dadosDaNoticiaProntos = new Promise((resolve, rejeita) => {
+    fetch('https://noticias.com/politica/ultima-noticia')
+      .then(resposta => resposta.json())
+      .then(noticia =>
+        fetch(`https://jornalista.com/${noticia.jornalista}`).
+          .then(jornalista => ({ noticia, jornalista }))
+      )
+      .then(dadosNoticiaEJornalista => resolve(dadosNoticiaEJornalista))
+      .catch(rejeita);
+  });
+
+  // usando a promessa:
+  dadosDaNoticiaProntos.then(mostraNaPagina, mostraErro);
+  ```
 
 ---
 # Usando novos recursos hoje
@@ -300,23 +407,9 @@ Veja mais em: [A critical review of ES6 quasi-literals](http://www.nczonline.net
 ---
 # Funcionalidades não cobertas
 
-## Alto impacto
-
 - ES Modules
-- Promises
 - Generators
-- Annotations
 - Async/await
-
----
-# Funcionalidades não cobertas
-
-## Não tão impactantes
-
-- Maps and Sets
-- Computed Property Names
-- Symbols
-- Object Initializer Shorthand
 
 ---
 # Aprenda mais
@@ -331,6 +424,5 @@ Veja mais em: [A critical review of ES6 quasi-literals](http://www.nczonline.net
 ## Aprenda mais ainda
 
 1. [ES6 Modules](http://www.infoq.com/news/2013/08/es6-modules)
-1. [ES6 Fiddle](http://www.es6fiddle.net/)
 1. [A Critical Review of quasi-literals](http://www.nczonline.net/blog/2012/08/01/a-critical-review-of-ecmascript-6-quasi-literals/)
 1. [Destructuring Assignment in ECMAScript 6](http://fitzgeraldnick.com/weblog/50/)
