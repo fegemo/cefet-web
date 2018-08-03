@@ -1,43 +1,39 @@
-# Trabalho Prático 0
+<!-- {"layout": "title"} -->
+# Trabalho Prático **0**
 
-Conhecendo o Git
+## Conhecendo o ![Logomarca do Git](../../images/git-logo.png) <!-- {style="height:1em;"} -->
 
-![Logomarca do Git](../../images/git-logo.png)
+_Data de entrega e valor em pontos vide Moodle/Sistema Acadêmico_
 
-
-_Data de entrega e valor em pontos vide plano de ensino_
 ---
+<!-- {"layout": "regular"} -->
 # O que é?
 
-**Git** é um sistema de controle de versão e de **gerenciamento de código fonte**
-(tipo CVS, SVN, SourceSafe, TFS etc.) descentralizado (ou distribuído).
+**Git** é um sistema de controle de versão (SCV) e de **gerenciamento de
+código fonte** (assim como CVS, SVN, SourceSafe, TFS etc.)
+que é descentralizado (ou distribuído).
 
 Ele foi originalmente proposto e criado por Linus Torvalds para possibilitar
 que várias pessoas pudessem **eficientemente** trabalhar no Kernel do Linux
 ao mesmo tempo.
 
+*[SCV]: Sistema de Controle de Versão*
+
 ---
+<!-- {"backdrop": "linus"} -->
 ![Foto do Linus Torvalds](../../images/linus-torvalds.jpg)
 
 _Fonte: foto ~~do filme Harry Potter e o Cálice de Fogo~~ de Linus Torvalds_
+<!-- {em:style="background-color: #fffa; padding: 0.15em 0.25em; border-radius: 5px"} -->
+<!-- {s:style="color: #666"} -->
 
 ---
-# Ok, professor, mas não era Web?
-
----
+<!-- {"backdrop": "git-trends"} -->
 ## Por que **Git**?
 
-![Foto mostrando as pesquisas dos termos Git, SVN e CVS no Google ao longo dos anos](../../images/git-trends.jpg)
-<!-- {.small-width.centered} -->
-
-Fonte: [Google Trends](http://www.google.com/trends/explore#q=%2Fm%2F05vqwg%2C%20%2Fm%2F012ct9%2C%20%2Fm%2F09d6g&cmpt=q)
-
 ---
-![Foto mostrando as pesquisas dos termos Git, SVN e CVS no Google ao longo dos anos](../../images/git-trends.jpg)
-<!-- {.contain} -->
+## Além disso,
 
----
-Além disso,
 - Toda **empresa/organização precisa** gerenciar código
 - O Git é uma opção de _SCM_ **muito usada em empresas** e em **projetos de
   código aberto**
@@ -47,68 +43,64 @@ Além disso,
 
   _Descrição: Octocat, mascote do GitHub.com_ <!-- {em:.push-right} -->
 
+*[SCV]: Sistema de Controle de Versão*
 
 ---
-# Beleza, vamos fazer isso aí!!
-
----
+<!-- {"layout": "regular"} -->
 # O Trabalho
 
 1. Aprender a usar o Git
-   1. Fazer o curso gratuito sobre Git [no Code School](https://www.codeschool.com/courses/try-git)
+   1. Fazer o curso gratuito sobre Git [no Codecademy](https://www.codecademy.com/learn/learn-git)
+      - É necessário fazer apenas as **4 "aulas interativas" gratuitas**
    1. Instalar o Git no seu computador (sugiro usar em linha de comando)
 1. Registrar-se no [GitHub](https://github.com/)
 1. Criar um **repositório público** (gratuito) no GitHub com o nome
-   `"web-tp0"` e descrição `"TP0 do curso de Programação Web do CEFET/MG"`
+   `"tp0"` e descrição `"TP0 sobre Git do DECOM, CEFET/MG"`
 1. Clonar o repositório criado no GitHub **para o seu computador**
    ```bash
-   $ git clone https://github.com/SEU_USUARIO/web-tp0.git
+   $ git clone https://github.com/SEU_USUARIO/tp0.git
    ```
 
 ---
+<!-- {"layout": "regular"} -->
 
-5. Criar um arquivo com o nome `README.md`, no seu computador, na pasta raiz do
-   repositório, com o conteúdo:  
+5. Tirar uma screenshot do seu perfil do Codecademy mostrando suas medalhas
+   e salvá-la na pasta raiz do repositório com o nome `perfil.png`
+5. Criar um arquivo com o nome `README.md`, no seu computador, na mesma pasta,
+   com o conteúdo:
 
-   ```html
-   <img src="http://fegemo.github.io/cefet-web/images/medalha.png">
+   ```markdown
+   ![Screenshot do meu perfil no Codecademy](perfil.png)
 
-   Link para minha medalha de conclusão do curso TryGit:
-   <a href="https://www.codeschool.com/users/SEU_ID/badges/121">
-     medalha
-   </a>
+   Link para meu perfil mostrando a conclusão do curso de Git:
+   [perfil](https://www.codecademy.com/users/fegemo/achievements)
    ```
 
-   Apenas troque `SEU_ID` pelo número correspondente ao seu usuário no
-   site Code School.
+   Apenas troque `SEU_USUARIO` pelo correspondente ao seu usuário no
+   site Codecademy.
 
 ---
-6. Adicionar o arquivo `README.md` ao repositório
+<!-- {"layout": "regular"} -->
+
+7. Adicionar os arquivos ao repositório:
    ```bash
-   $ git add README.md
+   $ git add README.md perfil.png
    ```
-6. Marcar essa inclusão do arquivo na "história" do repositório (_commit_)
+7. Marcar essa inclusão do arquivo na "história" do repositório (_commit_)
    ```bash
-   $ git commit -m "Adiciona o arquivo README.md com a medalha"
+   $ git commit -m "Adiciona comprovante de conclusão do curso de Git"
    ```
-6. Enviar o repositório para o servidor de origem - no caso, estamos hospedando
+7. Enviar o _commit_ para o servidor remoto - no caso, estamos hospedando
    no GitHub
    ```bash
    $ git push -u origin master
    ```
 
 ---
-9. **Enviar o link do repositório** (https://github.com/SEU_USUARIO/web-tp0) para o
-   professor **via Moodle** da disciplina.
+<!-- {"layout": "regular"} -->
 
-   Caso o Moodle da disciplina ainda não exista, favor enviar por email para
-   `coutinho@decom.cefetmg.br` com assunto `"web-tp0 SEU NOME COMPLETO"` e o link
-   para o repositório no corpo do e-mail.
 
-   Por exemplo:
-   ```bash
-   to: coutinho@decom.cefetmg.br
-   subject: web-tp0 Flávio Roberto dos Santos Coutinho
-   body:
-   https://www.github.com/fegemo/web-tp0.git
-   ```
+- ![](../../images/tp0-professor.png) <!-- {.push-right style="height: 50vh"} -->
+  **Enviar o link do repositório** (https://github.com/SEU_USUARIO/tp0) para o
+  professor via Moodle/Sistema acadêmico da disciplina.
+  - Carinha do repositório do professor: https://github.com/fegemo/tp0
