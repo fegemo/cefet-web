@@ -290,6 +290,34 @@ pre.hljs {
   width: 100%;
   height: 100%;
 }
+.linus.bespoke-backdrop {
+  opacity: 0;
+  transform: translate3d(0, 5%, 0);
+  transition: opacity 200ms ease 500ms, transform 200ms ease 500ms;
+}
+.linus.bespoke-backdrop-active {
+  background-image: url("../images/linus-torvalds.jpg");
+  background-size: 10%;
+  background-repeat: repeat;
+  opacity: 0.75;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
+  height: 100%;
+}
+.git-trends.bespoke-backdrop {
+  opacity: 0;
+  transform: translate3d(0, 5%, 0);
+  transition: opacity 200ms ease 500ms, transform 200ms ease 500ms;
+}
+.git-trends.bespoke-backdrop-active {
+  background-image: url("../images/git-trends.png");
+  background-size: cover;
+  background-position: 50% 0%;
+  opacity: 0.75;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
+  height: 100%;
+}
 @keyframes girando {
   from {
     transform: rotateZ(0);
