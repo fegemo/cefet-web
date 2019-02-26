@@ -212,26 +212,24 @@ Veja a bibliografia básica e a complementar.
 
 ## Distribuição de pontos
 
-- ~10 Práticas: **32** pontos
-- 1 Seminário: **20** pontos
+- ~10 Práticas: **20** pontos
+- Seminário: **18** pontos
 - Trabalhos Práticos:
-  1. TP0: **3** pontos
+  1. TP0: **2** pontos
   1. Projeto:
-     - Entrega 1: **20** pontos
-     - Entrega 2: **25** pontos
+     - Entrega 1: **15** pontos
+     - Entrega 2: **45** pontos
 
 <!-- {ul^1:.content} -->
 
 ---
 # Trabalhos (60 pontos)
 
-- [TP0: Git][tp0] (3 pontos)
-- [Projeto][project] (45 pontos)
-  - Entrega 1: (20 pontos, data: 26/04/2018)
-  - Entrega 2: (25 pontos)
-    - Código pronto e publicado (data: TBD)
-    - Apresentação (data: TBD, em sala)
-- [Seminário: APIs HTML5][seminar] (20 pontos, data: TBD)
+- [TP0: Git][tp0] (2 pontos)
+- [Projeto][project] (60 pontos)
+  - Entrega 1: (15 pontos)
+  - Entrega 2: (45 pontos)
+- [Seminário: APIs HTML5][seminar] (18 pontos)
 
 *[TBD]: to be defined*
 
