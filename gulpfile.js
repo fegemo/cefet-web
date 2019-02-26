@@ -4,7 +4,7 @@ var fs = require('fs'),
   plumber = require('gulp-plumber'),
   del = require('del'),
   rename = require('gulp-rename'),
-  uglify = require('gulp-uglify'),
+  terser = require('gulp-terser'),
   stylus = require('gulp-stylus'),
   replace = require('gulp-replace'),
   preprocess = require('gulp-preprocess'),
@@ -34,7 +34,7 @@ gulp.task('js', function() {
     .pipe(source('build.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(isDist ? uglify() : through())
+      .pipe(isDist ? terser() : through())
       .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist/build'))
@@ -65,9 +65,9 @@ gulp.task('js-classes', function(done) {
       }))
       .pipe(buffer())
       .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(isDist ? uglify() : through())
+        .pipe(isDist ? terser() : through())
         .on('error', function(err) {
-          gutil.log(gutil.colors.red('Uglify error: ') + err.message);
+          gutil.log(gutil.colors.red('Terser error: ') + err.message);
           this.emit('end');
       })
       .pipe(sourcemaps.write('./'))
