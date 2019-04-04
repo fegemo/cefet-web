@@ -38,6 +38,7 @@ O sistema deve conter, pelo menos, as seguintes páginas:
 1. Página de **cadastro/login** (pode ser a mesma, ou podem ser duas diferentes)
    - Essa página deve explicar brevemente o sistema de forma a "vender" a ideia
      para potenciais usuários
+     - Faça a página bonita, chamativa e bem comunicativa (será avaliado)
    - Nesta entrega (_front-end_ apenas), os botões logar/cadastrar devem
      apenas redirecionar o usuário para a página do mundo virtual
 1. Página do **mundo virtual do usuário**
@@ -95,7 +96,6 @@ extras para implementar, limitado a uma nota percentual total de 120%:
 - **Relativos à aparência**:
   - (8%) fazer todas as **páginas _responsive_**
   - (1%) colocar um **_favicon_** bacaninha :star:
-  - (2%)
 - **Relativos ao uso de ferramentas**:
   - (0%) usar um **framework CSS** como Bootstrap ou MaterializeCSS
   - (3%) usar um **préprocessador CSS** como Sass, Less, Stylus ou o :star:
