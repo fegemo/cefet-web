@@ -146,15 +146,15 @@ function rastrear(posicao) {
 ## O código para mostrar o mapa
 
 ```js
-var map;
+let map;
 function showMap(position) {
-  var coords = position.coords;
-  var mapOptions = {
+  const coords = position.coords;
+  const mapOptions = {
     zoom: 12,
     center: { lat: coords.latitude, lng: coords.longitude },
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  var mapDiv = document.getElementById('gmaps-example');
+  const mapDiv = document.getElementById('gmaps-example');
   map = new google.maps.Map(mapDiv, mapOptions);
 }
 ```
@@ -163,17 +163,17 @@ function showMap(position) {
 ## O código que invoca **showMap**
 
 ```js
-window.onload = function() {
+window.addEventListener('load', function() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showMap);
   }
-}
+});
 ```
 
 ---
 <!--
   {
-    "scripts": "https://maps.googleapis.com/maps/api/js?API_KEY=AIzaSyCSdP45elEaQN0CIIWpAfMq6XIRGhcICM4&callback=noop",
+    "scripts": "//maps.googleapis.com/maps/api/js?key=AIzaSyCoa41QMixd7p37uoiL5Vvly1iv9d3IxOs",
     "embeddedStyles": ".gmap { border: 1px solid silver; width: 100%; height: 300px; }"
   }
 -->
@@ -190,13 +190,13 @@ window.onload = function() {
 
 ```js
 function addMarker(map, latlong, title, content) {
-  var markerOptions = {
+  const markerOptions = {
     position: latlong,
     map: map,
     title: title,
     clickable: true
   };
-  var marker = new google.maps.Marker(markerOptions);
+  new google.maps.Marker(markerOptions);
 }
 ```
 
@@ -246,7 +246,7 @@ function addMarker(map, latlong, title, content) {
 - Solicitando o contexto gráfico e desenhando dois retângulos
   ```js
   function desenhaRetangulos() {
-    var ctx = document.getElementById('tela').getContext('2d');
+    const ctx = document.getElementById('tela').getContext('2d');
     ctx.fillStyle = 'rgb(200,0,0)';
     ctx.fillRect (10, 10, 55, 50);
     ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
@@ -296,7 +296,7 @@ function addMarker(map, latlong, title, content) {
 
 ```js
 function desenhaRetanguloFurado() {
-  var ctx = document.getElementById('tela').getContext('2d');
+  const ctx = document.getElementById('tela').getContext('2d');
   ctx.fillRect(25,25,100,100);
   ctx.clearRect(45,45,60,60);
   ctx.strokeRect(50,50,50,50);
@@ -539,9 +539,9 @@ ctx.stroke();
 - Por fim, os elementos arrastáveis devem implementar o evento `dragstart` e
   declarar o conteúdo que será "arrastado":
   ```js
-  var draggables = document.getElementsByClassName('monstrinho');
-  for (var i in draggables) {
-    draggables[i].addEventListener('dragstart', function(e) {
+  const draggables = document.getElementsByClassName('monstrinho');
+  for (var draggableEl of draggables) {
+    draggableEl.addEventListener('dragstart', function(e) {
       e.dataTransfer.effectAllowed = 'move';
 
       // "arrasta" o id do elemento
@@ -640,6 +640,9 @@ ctx.stroke();
 - WebGL (Canvas 3D)
 - Offline Web Apps
 - Apresentação: [I Read All the W3C Specs](http://sandersk.github.io/reading-w3c/)
+
+---
+<iframe src="https://fegemo.github.io/cefet-web-weblot/" width="1066" height="600" frameborder="0"></iframe>
 
 ---
 # Referências

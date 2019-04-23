@@ -29,18 +29,6 @@
   ```
 
 ---
-## Momento interativo
-
-- Vamos testar essas funções do objeto `window`
-  1. Abra as ferramentas de desenvolvedor do seu navegador (<kbd>F12</kbd>
-     ou <kbd>Ctrl+Shift+I</kbd>)
-  1. Na aba console, digite `window`, depois ponto ("`.`") e veja a
-     quantidade de propriedades do objeto
-  1. Execute o comando para abrir uma janela com [a página do pudim](http://pudim.com.br)
-     - Se a nova janela não abrir, provavelmente ela foi bloqueada pelo
-       navegador ;)
-
----
 ## O objeto global: **window** (cont.)
 
 - Mais algumas utilidades de **window**
@@ -111,16 +99,18 @@
 - O objeto `document` dá acesso ao **Document Object Model**, ou DOM
 - O DOM é uma representação da estrutura dos elementos html na forma de
   árvore
-  <img src="../../images/dom-tree.png" style="float:right;width:50%;display:block;">
-  <pre style="float:right;width:50%;margin:0;"><code class="hljs lang-html">&lt;!DOCTYPE html&gt;
-  &lt;html&gt;
-    &lt;head&gt;
-      &lt;title&gt;HTML&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-      &lt;!-- Add your content here --&gt;
-    &lt;/body&gt;
-  &lt;/html&gt;</code></pre>
+  1. ```html
+     <!DOCTYPE html>
+     <html>
+       <head>
+         <title>HTML</title>
+       </head>
+       <body>
+         <!-- Add your content here -->
+       </body>
+     </html>
+     ```
+   1. ![](../../images/dom-tree.png) <!-- {ol:.layout-split-2 style="justify-content: space-around; list-style-type: none"}-->
 
 ---
 ## DOM
@@ -193,7 +183,7 @@
 - É possível fazer um caminhamento pela árvore toda ou começando a partir de
   um nó específico
   - Por exemplo: você pode querer visitar todos os nós para excluir textos
-    proibidos ('XXX', 'Aécio', 'Dilma', 'calor')
+    proibidos ('Bolossauro', 'Bolsonauro', 'Biroliro')
 - Se for necessário percorrer a árvore, pode-se usar **apontadores para filhos,
   pais e irmãos de cada nó**
   ```js
@@ -231,13 +221,20 @@ function imprimeNomeDaTag(no) {
   console.log(no.tagName);
 }
 
+function substitui(no) {
+  // se for um nó de texto da árvore, substitui seu textContent
+  if (no.nodeType === Node.TEXT_NODE) {
+    no.textContent = no.textContent.replace(/antigo/g, 'novo');
+  }
+}
+
 // chama o algoritmo de caminhamento com a função de visita
 // imprimindo o nome da tag corrente
 caminhaNoDOM(document.body, imprimeNomeDaTag);
 ```
 
 ---
-## Criando elementos dinamicamente
+## Criando elementos HTML dinamicamente
 
 - É possível criar elementos dinamicamente, de duas formas:
   1. Instanciando elementos e os adicionando à árvore:
