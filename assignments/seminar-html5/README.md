@@ -50,16 +50,20 @@ em **20 pontos** na matéria~~), deve:
        limite de 120 peças
    - ~~A~~O API pode ser ~~apresentada~~apresentado com _slides_, que
      podem ser criados em ~~HTML/CSS/JS~~JavasCripta **(até +10 PW$)**
-     - Veja [bespoke.js][bespoke], [reveal.js][reveal],
+     - Veja [reveal.js][reveal], [bespoke.js][bespoke], [impress][impress]
        [slides.com][slides.com] etc.
 1. ~~Um código ilustrativo~~Uma ilustração ~~da~~do API que mostre, de
-   forma simples e preferencialmente burlesca, como ~~ela funciona~~foi
+   forma simples e burlesca (ver [significado de burlesco][burlesco], como ~~ela funciona~~foi
    a atrapalhada do bárbaro
    - Deve haver 1 para cada API ~~escolhida~~escolhido
+   - Use tudo o que você aprendeu de HTML e CSS para fazer um exemplo bonitão!!
+   - Seja divertido! Histórias engraçadas vendem bem melhor do que as chatas
 
 [bespoke]: http://markdalgleish.com/projects/bespoke.js/
 [reveal]: http://lab.hakim.se/reveal-js/
+[impress]: https://impress.js.org/
 [slides.com]: https://slides.com/
+[burlesco]: https://www.google.com.br/search?safe=off&hl=pt-BR&ei=FTe_XLOaBoyp5OUPz4uKmAU&q=burlesco+significado&oq=burlesco+significado&gs_l=psy-ab.3..0l2j0i22i30l8.5578.6891..7051...0.0..0.130.1395.0j12......0....1..gws-wiz.......0i71j0i203j0i10i203j0i22i10i30.4rf7PQvSAI4
 
 Dentre os feitos de HTML5, _Sir_ Fegemo já ouviu falar e está disposto a
 comprar informações sobre:
@@ -76,18 +80,18 @@ comprar informações sobre:
     30)
 - Multimídia e Gráficos
   - _Canvas API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
-  - _WebGL_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _WebGL_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 110)
   - _Web Audio API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _Web MIDI API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _Pointer Lock API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
   - _Fullscreen API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _Accessible Rich Internet Applications_ (valor:
-    <abbr title="Peças de Webdollars">PW$</abbr> 120)
+    <abbr title="Peças de Webdollars">PW$</abbr> 110)
   - _Speech Synthesis API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     60)
   - _Speech Recognition API_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 50)
-  - _Presentation API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _Presentation API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 60)
   - _getUserMedia and Streams API_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 70)
   - _Page Visibility API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
@@ -95,9 +99,9 @@ comprar informações sobre:
   - _WebVR API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     120)
   - _Web Animations API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
-    80)
+    70)
 - Conectividade
-  - _Fetch_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
+  - _Fetch_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _WebSockets_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _WebRTC_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 80)
   - _Online/offline status_ (valor:
@@ -111,7 +115,7 @@ comprar informações sobre:
   - _Service Workers_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _File API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
-    50)
+    40)
   - _IndexedDB_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
 - Desempenho e Segurança
   - _Navigation Timing API_ (valor:
@@ -173,3 +177,8 @@ também receberão nota 0.
 O grupo será avaliado conforme a qualidade da apresentação e do código com
 exemplo de uso da(s) API(s), e também pela abrangência de conteúdo no seminário
 e contemplada no código fonte.
+
+Também vale pontos fazer um exemplo bonito, usando várias coisas que vimos
+em sala de aula, além de divertido.
+
+

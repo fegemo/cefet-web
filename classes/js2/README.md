@@ -239,15 +239,15 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 - É possível criar elementos dinamicamente, de duas formas:
   1. Instanciando elementos e os adicionando à árvore:
      ```js
-     let conteudoEl = document.getElementById('conteudo');
+     let conteudoEl = document.querySelector('#conteudo');
      let dadoEl = document.createElement('img');
-     dado.src = 'images/d12.png';
-     conteudo.appendChild(dado);
+     dadoEl.src = 'images/d12.png';
+     conteudoEl.appendChild(dadoEl);
      ```
   1. Definindo a propriedade de `innerHTML` de um elemento da árvore para uma
      string descrevendo uma estrutura `html`:
      ```js
-     let conteudoEl = document.getElementById('conteudo');
+     let conteudoEl = document.querySelector('#conteudo');
      conteudoEl.innerHTML = '<img src="images/d12.png">';
      ```
 
@@ -279,7 +279,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
     'port': 'Página de Contato',
     'ingl': 'Contact Us'
   }
-  const linkContatoEl = document.getElementById('link-contato');
+  const linkContatoEl = document.querySelector('#link-contato');
   linkContatoEl.title = texto[lingua];
   ```
 
@@ -303,7 +303,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 
 - Repare a mudança das propriedades **CSS para JS**:
   ```js
-  botao.style.backgroundColor = '#ccc';
+  botaoEl.style.backgroundColor = '#ccc';
   ```
 - CSS &#8594; Javascript
   - `background-color` &#8594; `backgroundColor`
