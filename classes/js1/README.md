@@ -223,7 +223,7 @@
   - Uma mesma variável pode ter tipos diferentes em momentos diferentes
     ```js
     let nota = 10;            // nota é númerico
-    let nota = 'Dó';          // agora virou string
+    nota = 'Dó';              // agora virou string
     ```
     - Isso é uma boa prática?
 
@@ -244,7 +244,7 @@
   ```js
   let nota = 10;
   console.log(typeof nota);   // imprime number
-  let nota = 'Dó';
+  nota = 'Dó';
   console.log(typeof nota);   // imprime string
   ```
 
@@ -389,7 +389,7 @@
 
 - Forma usando operador `new` (menos legal¹ :thumbsdown:):
   ```js
-  var jogador = new Object();
+  const jogador = new Object();
   jogador.pontos = 1420;
   jogador['vidas'] = 2;       // é possível usar a notação obj['prop'] também
   ```
@@ -457,7 +457,7 @@ let voo = {
   ```
 - Arrays possuem métodos, [vários](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array):
   ```js
-  var frutas = [];
+  const frutas = [];
   frutas.push('kiwi', 'maçã', 'banana');
   console.log(frutas.length); // 3
   ```
@@ -603,7 +603,7 @@ let voo = {
   media(1);         // 1
   media(5, 15);     // 10
   function media() {
-    for (var i = 0, acum = 0; i !== arguments.length; i++) {
+    for (let i = 0, acum = 0; i !== arguments.length; i++) {
       acum += arguments[i];
     }
     return acum / arguments.length;
