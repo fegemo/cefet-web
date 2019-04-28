@@ -11,24 +11,10 @@
 1. Herança
    - Pseudo-clássica
    - Com classes
-1. Padrões de projeto
-   - `this`, `that`
-   - _`new` enforcer_
+1. Escopo
    - IIFE
 
 *[IIFE]: Immediately Invoked Function Expression*
-
----
-## Java (ou C#) _vs_ JavaScript
-
-| Java              | JavaScript        |
-|-------------------|-------------------|
-| Fortemente tipada | Fracamente tipada |
-| Estática          | Dinâmica          |
-| Clássica          | Prototípica       |
-| Classes           | Funções           |
-| Construtores      | Funções           |
-| Métodos           | Funções           |
 
 ---
 # Criando Objetos
@@ -54,14 +40,14 @@
   ```js
   let carro = {
     cor: 'vermelho',
-    codigoCor: '#ff0000',
     fabricante: {
       nome: 'Fiat',
       origem: 'Itália'
     },
     ligar: function() {
-      // liga o carro
-    }
+      this.injetaCombustivel(); // ...faz outras coisas
+    },
+    /* ... */
   };
   ```
 
@@ -77,7 +63,6 @@
      ```js
      console.log(carro['cor']); // vermelho
      ```
-     - Em termos de LP, temos **reflexão** de graça :)
 - Acesso a propriedades inexistentes retorna `undefined`:
   ```js
   console.log(carro.potencia);  // undefined (prop. potencia não existe)
@@ -131,7 +116,7 @@
   ```
 
 ---
-## Construção de objetos por **construtor**
+## Construção de objetos por **função construtora**
 
 - Existe uma terceira forma, em que podemos criar e inicializar o objeto.
   Nessa forma, criamos uma **função construtora** que vai instanciar e
@@ -159,7 +144,7 @@
       // ...
     }
     function verdura(nome, calorias) {   // funciona, mas evite
-      //...
+      // this....
     }
     ```
 
@@ -213,7 +198,7 @@
 
 - Se pudéssemos examinar a memória alocada, veríamos:
 
-  ![](../../images/objetos-memoria.png)
+  ![](../../images/objetos-memoria.png) <!-- {.centered} -->
   - Repare que o código fonte do método é repetido a cada instância
     - Podemos melhorar isso, se tivermos como definir **o método
       `linkParaMensagem` a nível da classe**, ao invés de fazê-lo
@@ -315,7 +300,7 @@
   1. Como uma função: `iniciaControlesVideo()`
   1. Como um método: `video.play()`
   1. Como um construtor `new VideoPlayer()`
-  1. Com `apply` ou `call`: `iniciaControlesVideo.call(null)`
+  1. ~~Com `apply` ou `call`: `iniciaControlesVideo.call(null)`~~
 - Informação **insanamente** importante:
   - O objeto para onde `this` aponta varia em cada uma das 4 formas
 
@@ -378,30 +363,10 @@
     instância do objeto calculadora, como esperado
   - Porém, dentro de `soma`, `this` passa a apontar para `window`, que não tem
     uma variável `valor`
-- Mas não desanime: dá pra consertar! E de duas formas:
-  1. Padrão de projeto: `this, that`
-  1. ES2015: _arrow functions_
+- Mas não desanime: dá pra consertar usando as **_arrow functions_** (ES2015)
 
 ---
-## (a) Padrão de projeto: **this**, **that**
-
-- Para resolver o problema, podemos salvar a referência de `this` que aponta
-  para a instância da calculadora e usá-la em `soma`:
-  ```js
-  let calculadora = {
-    valor: 1,
-    multiplica: function(fator) {
-      let that = this, incremento = this.valor;
-      let soma = function(parcela) {
-        that.valor += parcela;  // that aponta para a instância da calculadora
-      }
-      for (; fator !== 1; fator--) { soma(incremento); }
-    }
-  };
-  ```
-
----
-## (b) ES2015: _arrow functions_
+## ES2015: _arrow functions_
 
 - No ES2015 foram propostas as _arrow functions_, que mantêm o valor de `this`
   do contexto externo, dentro da função:
@@ -409,11 +374,11 @@
   let calculadora = {
     valor: 1,
     multiplica: function(fator) {
-      let soma = (parcela) => {         // omite o "function" e tem o =>
-        this.valor += parcela;          // mantém o valor de this que estava do
-      }                                 //   lado de fora
-      let incremento = this.valor;
-      for (; fator !== 1; fator--) { soma(incremento); }
+      // soma é uma função seta, que mantém o valor de this do contexto externo
+      let soma = parcela => this.valor += parcela;
+      for (; fator !== 1; fator--) {
+        soma(this.incremento);
+      }
     }
   };
   ```
@@ -450,22 +415,7 @@
       1. `window.nome === "Seu Custódio"`
       1. `presidente === undefined`
 
----
-## Padrão de projeto: **new enforcer**
-
-- Podemos **detectar** se o construtor foi invocado **sem o `new`** e
-  então reinvocar o construtor adequadamente:
-  ```js
-  function Contato(nome) {
-    if (this === window) {
-      return new Contato(nome);
-    }
-    this.nome = nome;
-  }
-  ```
-  - Simplão!
-
----
+<!--
 ## (4) ~~Invocação de funções (com **apply ou call**)~~
 
 - `Function.prototype` tem dois métodos chamados `apply` e `call`
@@ -482,7 +432,7 @@
     ola.call(null, 'Astolfo', 'Sith');        // call: argumentos separados por ,
     ```
 
----
+
 ## ~~Uso interessante de **apply** ou **call**~~
 
 - [_Monkey-patching_](http://en.wikipedia.org/wiki/Monkey_patch): incluir um
@@ -499,7 +449,7 @@
       original.call(carrinho, id, qtde, 0.05);    // U.U
     }
     ```
-
+-->
 ---
 # Herança
 
@@ -598,15 +548,25 @@ class Carro extends Veiculo {
 ```
 
 ---
-## Classes em ES6
+## Classes em ES2019+
 
-- Prós
-  - Classes tornam mais **fácil para novatos começarem** a usar JavaScript
-  - Ter um **mecanismo de herança com suporte da linguagem**
-  - Sintaxe **clara e expressiva**
-  - Previne que o programador esqueça do `new` ao usar uma função construtora
-- Contras
-  - Não há controle de privacidade (`private`, `protected`) ainda
+- Foi introduzida a [proposta "class fields"][class-fields]:
+  ```js
+  class PlayerInput extends Component {
+    static propTypes = {  // membros estáticos da classe
+      id: PropTypes.string.isRequired
+    }
+    state = {             // membros da instância da classe
+      username: ''
+    }
+    #qtdeMovimentos = 0   // membro de instância PRIVADO
+    render() {
+    }
+  }
+  ```
+
+
+[class-fields]: https://github.com/tc39/proposal-class-fields
 
 ---
 # Escopo
@@ -627,9 +587,11 @@ class Carro extends Veiculo {
 ---
 ## Resolvendo a poluição
 
-- Podemos criar funções com o único objetivo de não sujar o escopo global
-- Vamos colocar o código dentro de uma função e executá-la imediatamente
-  - Este é o padrão de projeto IIFE: **Immediately Invoked Function Expression**
+1. Solução até ES5:
+   - Podemos criar funções com o único objetivo de não sujar o escopo global
+   - Vamos colocar o código dentro de uma função e executá-la imediatamente
+     - Este é o padrão de projeto IIFE: **Immediately Invoked Function Expression**
+1. Solução com ES Modules: veremos em outra aula
 
 *[IIFE]: Immediately Invoked Function Expression*
 
