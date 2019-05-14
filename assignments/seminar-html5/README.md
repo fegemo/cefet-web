@@ -68,7 +68,7 @@ em **20 pontos** na matéria~~), deve:
 Dentre os feitos de HTML5, _Sir_ Fegemo já ouviu falar e está disposto a
 comprar informações sobre:
 
-- Acesso a Dispositivo
+- Acesso a recursos do dispositivo
   - _Gamepad API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
   - _Vibration API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
   - _Proximity API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
@@ -78,9 +78,14 @@ comprar informações sobre:
     <abbr title="Peças de Webdollars">PW$</abbr> 50)
   - _Battery Status API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     30)
-- Multimídia e Gráficos
-  - _Canvas API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _Badging API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+    30)
+- Multimídia e gráficos
+  - _Canvas API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
   - _WebGL_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 110)
+  - _WebGPU_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 110)
+  - _WebVR API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+    120)
   - _Web Audio API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _Web MIDI API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _Pointer Lock API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
@@ -96,10 +101,10 @@ comprar informações sobre:
     <abbr title="Peças de Webdollars">PW$</abbr> 70)
   - _Page Visibility API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     30)
-  - _WebVR API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
-    120)
   - _Web Animations API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     70)
+  - _Shape Detection API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
+  - _Wake Lock API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
 - Conectividade
   - _Fetch_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _WebSockets_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
@@ -109,6 +114,7 @@ comprar informações sobre:
   - _Beacon API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 20)
   - _Push API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
   - _Web Bluetooth_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 80)
+  - _Web Share_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
 - Armazenamento e _Offline_
   - _Web App Manifest_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 60)
