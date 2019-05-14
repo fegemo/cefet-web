@@ -335,7 +335,7 @@ const server = app.listen(3000, () => {
   e passamos o nome do arquivo da _view_ que deve ser usado (sem a extensão):
   ```js
   app.get('/equipe', function(request, response) {
-    response.render('equipe');      // vai pegar arquivos_ejs/equipe.ejs
+    response.render('equipe', contexto);      // vai pegar arquivos_ejs/equipe.ejs
   });
   ```
 
@@ -381,7 +381,7 @@ const server = app.listen(3000, () => {
   app.set('view engine', 'pug');
   ```
 - (2) Criando arquivos no formato `.pug`:
-  ```jade
+  ```pug
   ul
     each user in users
       li: img(src=user.foto) #{user.nome}
