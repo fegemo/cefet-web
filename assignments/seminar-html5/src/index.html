@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/medieval-castles/66/5-512.png">
+  </head>
+  </body>
+    <h1> WEBLOT </h1>
+    <img id="imgplaca" src="https://3.bp.blogspot.com/-6PXw1umz6HY/U0mepcHmJsI/AAAAAAAAK6w/0_JZcwJRDa8/s1600/www.png-free.blogspot.com.br+plaquinha+madeira.png">
+    <img id="imgplacanomes" src="images/placanomes.png">
+      <div id="menu">
+        <ul>
+          <li>
+              <button href="#">Conheça o Reino</button><button onclick="locateMe()">Mapa</button>
+          </li>
+          <li><button href="#">Ataques Agáte Êmi-Éli</button><a href="api1.html">APIs do HTML5</a></li>
+        </ul>
+      </div>
+
+      <map id="map"></map>
+  </body>
+  <script src="scripts/localizacao.js"></script>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js', { scope: '/' })
+        .then(function(registration) {
+              console.log('Service Worker Registered');
+        });
+
+      navigator.serviceWorker.ready.then(function(registration) {
+         console.log('Service Worker Ready');
+      });
+    }
+  </script>
+</html>

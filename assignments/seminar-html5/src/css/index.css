@@ -1,0 +1,109 @@
+html,
+body {
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+  margin: 0;
+  padding: 0;
+  background-image: url("http://i.imgur.com/d74M4rO.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+#imgplacanomes{
+  height: 40%;
+  width: auto;
+  top:55%;
+  left: 75%;
+  z-index: 1;
+  position: fixed;
+}
+
+#imgplaca{
+  top: 0;
+  position:fixed;
+  width: 20%;
+  height: 25%;
+  left: 10%;
+}
+h1 {
+  z-index: 1;
+  top: 15%;
+  color: #fff;
+  left: 17%;
+  position:fixed;
+  font-family:'Matura MT Script Capitals', sans-serif;
+}
+
+
+
+/*_________
+Localização
+___________*/
+
+container .localizacao{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#map {
+  height: 300px;
+  width: 400px;
+  top: 15vh;
+  right: 55vh;
+  position:absolute;
+  z-index:2;
+}
+
+
+/*========== MENU =========*/
+#menu {
+  top: 30vh;
+  height: 100px;
+  width: 630px;
+  overflow: hidden;
+  margin: 50px auto;
+  text-align: center;
+  position: fixed;
+  left: 8%;
+}
+
+#menu ul li {
+  float: left;
+  margin: 0 5px;
+  list-style-type: none;
+}
+
+/* Menu Link Styles */
+#menu ul button,
+#menu ul a {
+  display: block;
+  background: #5c0a12;
+  color: #fff;
+  height: 100px;
+  width: 200px;
+  font: lighter 1em/100px 'Open Sans Condensed', Arial, Helvetica, Geneva, sans-serif;
+  text-decoration: none;
+  transition: all .35s ease-in-out;
+}
+
+/* Secondary Link Styles */
+#menu ul button:nth-of-type(even),
+#menu ul a{
+  text-shadow: 0 0 6px #fff;
+  background: #333;
+  color: white;
+}
+
+
+/* Hover Slide */
+#menu ul li:hover :first-child {
+  margin-top: -100px;
+}

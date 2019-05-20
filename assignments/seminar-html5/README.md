@@ -14,9 +14,9 @@ aventureiros pelo reino e era conhecido por cantar belas músicas contando
 suas histórias. Em sua última aventura ele foi para a temida região
 de **“JavasCripta”** :skull:, juntamente com seu grande amigo e lenda
 weblotiana, o bárbaro chamado **“Agáte Êmi-Éli, o Quinto”**
-![Ícone do HTML5](images/icon-html5.png). Lá eles encontraram o mago
+![Ícone do HTML5](src/images/icon-html5.png). Lá eles encontraram o mago
 mais conhecido como **“Cascatas Estilosas, o Terceiro”**
-![Ícone do CSS3](images/icon-css3.png) (por causa de seu cabelo
+![Ícone do CSS3](src/images/icon-css3.png) (por causa de seu cabelo
 em “ondinhas”) e conseguiram o feito épico de erradicar todo o mal
 que assombrava o lugar.
 
@@ -24,7 +24,7 @@ Finda a aventura, chegou a hora de Sir Fegemo contar a prosa vivida com seus
 amiguinhos em forma de música e tocá-la na taverna “<u>O Olho</u>
 do Beholder”. Desta vez, ele decidiu compor um conto para enaltecer as
 peripécias de **“Agáte Êmi-Éli, o Quinto”**
-![Ícone do HTML5](images/icon-html5.png) que, tudo que tem de forte, tem
+![Ícone do HTML5](src/images/icon-html5.png) que, tudo que tem de forte, tem
 de atrapalhado.
 
 O nome da música é **“Os Ataques Potencialmente Irresponsáveis do
@@ -187,4 +187,20 @@ e contemplada no código fonte.
 Também vale pontos fazer um exemplo bonito, usando várias coisas que vimos
 em sala de aula, além de divertido.
 
+# APIs Service Worker Push
 
+## Instruções de Instalação
+
+Após copiar o repositório, deve-se executar as seguintes dependências:
+
+1. Instale os módulos NPM, necessários para construir o projeto:
+
+        npm install
+
+1. Instale gulp:
+
+        npm install gulp -g
+
+1. Execute o servidor
+
+        gulp dev
