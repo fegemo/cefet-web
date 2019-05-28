@@ -215,9 +215,9 @@
   para que um servidor utilize os _cookies_ enviados nas requisições HTTP,
   é necessário usar o _middleware_ [`cookie-parser`](https://github.com/expressjs/cookie-parser):
   ```js
-  var express      = require('express');
-  var cookieParser = require('cookie-parser');
-  var app = express();
+  const express      = require('express');
+  const cookieParser = require('cookie-parser');
+  const app = express();
   app.use(cookieParser());
   ```
   - Ele processará o cabeçalho `Cookie` das requisições e populará

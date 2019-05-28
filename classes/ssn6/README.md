@@ -51,8 +51,8 @@
 ## Primeiros passos
 
 ```js
-var mysql = require('mysql');
-var connection = mysql.createConnection({
+const mysql = require('mysql');
+const connection = mysql.createConnection({
   host: 'localhost',
   user: 'me',
   password: 'secret'
@@ -229,8 +229,8 @@ connection.end();
   **o detalhamento de um zumbi**:
   ```js
   app.get('/zombies/:id', function(req, res) {
-    var id = connection.escape(req.params.id);
-    var query = 'SELECT * FROM zombie WHERE id = ' + id;
+    const id = connection.escape(req.params.id);
+    const query = 'SELECT * FROM zombie WHERE id = ' + id;
     connection.query(query, function(err, result) {
       if (err) { res.send(404, "Zumbi inexistente"); }
       else { res.render('detailOfZombie', { zumbi: result }); }
@@ -244,8 +244,8 @@ connection.end();
 - O método para **excluir um Zumbi**:
   ```js
   app.delete('/zombies/:id', function(req, res) {
-    var id = connection.escape(req.params.id);
-    var query = 'DELETE FROM zombie WHERE id = ' + id;
+    const id = connection.escape(req.params.id);
+    const query = 'DELETE FROM zombie WHERE id = ' + id;
     connection.query(query, function(err, result) {
       if (err)  { res.send(401, 'Zumbi inexistente'); }
       else      { res.redirect('/zombies/'); }
