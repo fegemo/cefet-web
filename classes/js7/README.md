@@ -41,16 +41,14 @@
   ~ ECMAScript 5.1
 
 2014
-  ~ ~~ECMAScript 6~~
+  ~ ECMAScript 6
 
 2015
   ~ ECMAScript 2015
 
 2016
-  ~ ECMAScript 2016
+  ~ ECMAScript 2016+
 
-2017
-  ~ ECMAScript 2017
 
 ---
 <!--
@@ -152,35 +150,33 @@
 <!-- {ul:id="yay"} -->
 
 ```js
-let musica = {
-  titulo: 'The Scarecrow',
-  artista: 'Avantasia',
-  album: {
-    titulo: 'Scarecrow',
-    data: '2006'
-  }
-};
+function desenhaGrafico({size = 'big', coords = { x: 0, y: 0 }, radius = 25} = {}) {
+  console.log(size, coords, radius);
+  // desenha aqui...
+}
 
-function registrarMusicaEscutada(
-  {
-    titulo,
-    artista,
-    album: {
-      data: ano
-    }
-  }) {
+desenhaGrafico({
+  coords: { x: 18, y: 30 },
+  radius: 30
+});
 
-  console.log('Título: ' + titulo);
-  console.log('Artista: ' + artista);
-  console.log('Ano: ' + ano);
-};
 
-registrarMusicaEscutada(musica);
-/*
-Título: The Scarecrow
-Artista: Avantasia
-Ano: 2006
-*/
+
+
+// do jeito old...
+function desenhaGraficoES5(options) {
+  options = options === undefined ? {} : options;
+  var size = options.size === undefined ? 'big' : options.size;
+  var coords = options.coords === undefined ? { x: 0, y: 0 } : options.coords;
+  var radius = options.radius === undefined ? 25 : options.radius;
+  console.log(size, coords, radius);
+  // desenha aqui...
+}
+
+desenhaGraficoES5({
+  cords: { x: 18, y: 30 },
+  radius: 30
+});
 ```
 
 ---
@@ -388,7 +384,7 @@ sendAjax('https://swapi.co/api/planets/8')        // Naboo
 
 - Ainda hoje, nenhum navegador suporta todas as funcionalidades do ES6
 - Existe uma tabela curada que mostra a compatibilidade por _feature_:
-  ![](../../images/es6-compatibility-table.jpg) <!-- {.small-height.block} -->
+  ![](../../images/es2016-compatibility-table.png) <!-- {.block.centered style="height: 240px;"} -->
 
 - Veja na [ECMAScript 6 _compatibility table_](http://kangax.github.io/es5-compat-table/es6/) do Kangax
 - Veja na [ECMAScript 2016+ _compatibility table_](http://kangax.github.io/es5-compat-table/es2016plus/) do Kangax
@@ -399,7 +395,7 @@ sendAjax('https://swapi.co/api/planets/8')        // Naboo
 - Podemos usar um **_transpiler_** para transformar ES6+ em ES5!!
 - O mais usado hoje em dia é o [babel](https://babeljs.io/), que bastante
   agilmente implementa os _specs_ ES6
-  ![](../../images/babel-logo.svg) <!-- {.small-height.block} -->
+  ![](../../images/babel-logo.svg) <!-- {.block.centered style="height: 240px;"} -->
 - Aqui está a
   [lista de funcionalidades](https://babeljs.io/docs/learn-es2015/#ecmascript-6-features)
   suportadas pelo babel
