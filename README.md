@@ -1,13 +1,10 @@
 <!-- {"layout": "title"} -->
 # **Programação** Web
-
 ## Plano de Ensino<br>por **Flávio Coutinho**
-
 
 ---
 <!-- {"layout": "section-header"} -->
 # Plano de Ensino
-
 ## Sumário do conteúdo
 
 [Slides](#slides)
@@ -21,16 +18,15 @@
 
 [Avaliação](#avaliacao)
   ~ O formato e os itens de distribuição dos pontos
-
 <!-- {dl:.content} -->
 
 ---
-<!-- {"slideHash": "slides", "layout": "regular"} -->
-# Aulas
+<!-- {"hash": "slides"} -->
+# Aulas <small>(1/3)</small>
 
 - [História da Web](classes/intro/)
-- [HTML 1](classes/html1/) - Funcionamento da Web, Estrutura da HTML e CSS
-- [HTML 2](classes/html2/) - Imagens, Tabelas e Plantas Carnívoras (Prática)
+- [HTML 1](classes/html1/) - Funcionamento da Web, Estrutura do HTML e CSS
+- [HTML 2](classes/html2/) - Listas, inline/block, Tabelas, Links e Plantas Carnívoras 🦖 (Prática)
 - [HTML 3](classes/html3/) - Ferramentas, Multimídia e a Cabeça (_i.e._, `head`)
 - [CSS 1](classes/css1/) - Seletores e Ninjas (Prática)
 - [CSS 2](classes/css2/) - Especificidade, propriedades mil, Web Fonts
@@ -39,8 +35,7 @@
 - [CSS 4](classes/css4/) - _Layout_ e o Coral 55 (Prática)
 
 ---
-
-# Aulas (página 2)
+# Aulas <small>(2/3)</small>
 
 - [Javascript 1](classes/js1/) - Linguagem
 - [Javascript 2](classes/js2/) - DOM, Eventos, o Espaço e RPG (Prática)
@@ -53,8 +48,7 @@
 - [Node.js 4](classes/ssn4/) - HTML Dinâmico e o Geiser (Prática)
 
 ---
-
-# Aulas (página 3)
+# Aulas <small>(3/3)</small>
 
 - [Node.js 5](classes/ssn5/) - Sessão e Biscoitos :cookie:
 - [Node.js 6](classes/ssn6/) - Bancos de Dados e Zumbis (Prática)
@@ -64,55 +58,36 @@
 - [Javascript 3](classes/js3/) - Padrões de Projeto
 - [Javascript 7](classes/js7/) - EcmaScript 2015/2016
 
-
-<!--
-
-- [Node.js 7 - REST APIs](classes/ssn7/)
-- [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/)
--->
-
 ---
-<!--
-{
-  "slideHash": "ementa",
-  "layout": "section-header"
-}
--->
+<!-- {"hash": "ementa", "layout": "section-header" } -->
 # Ementa
-
 ## Objetivos
 
 1. Criar páginas **HTML com uso de CSS e Javascript**
 1. Desenvolver **sistemas web dinâmicos** com banco de dados e Node.js
 1. Fazer trabalhos práticos legais
 1. Tornar-se um **ninja** Javascript
-
 <!-- {ol:.content} -->
 
 ---
-<!--
-{
-  "slideHash": "bibliografia",
-  "layout": "section-header"
-}
--->
+<!-- {"hash": "bibliografia", "layout": "section-header"} -->
 # Bibliografia
-
 ## Os textos e materiais que vamos usar
 
 Veja a bibliografia básica e a complementar.
 
 <!-- {p:.content} -->
+
 ---
-<!-- { "styles": ["styles/classes/books.min.css"] } -->
+<!-- { "layout": "centered", "styles": ["styles/classes/books.min.css"] } -->
 ## **Livro texto** da parte 1
 
 ::: figure .book
-- ![](images/book-head-first-html-css.jpg) <!-- {.full-width.full-height} -->
+- ![](images/book-use-a-cabeca-html-e-css.jpg) <!-- {.full-width.full-height} -->
 - .
 <!-- {ul:.hardcover_front} -->
 - .
-- [Sobre](http://headfirstlabs.com/books/hfhtml/) <!-- {a:.book-btn target="_blank"} -->
+- [Sobre](https://www.altabooks.com.br/produto/use-a-cabeca-html-e-css/) <!-- {a:.book-btn target="_blank"} -->
 - .
 - .
 - .
@@ -126,15 +101,47 @@ Veja a bibliografia básica e a complementar.
 :::
 
 **Título**
-	 ~ Head First HTML and CSS, Second Edition
+	 ~ Use a Cabeça! HTML e CSS
 
 **Autores**
-	 ~ Elisabeth Robson, ~~Gordon~~ Eric Freeman
+	 ~ Eric Freeman, Elisabeth Robson
 
 **Editora**
-   ~ O'Reilly Media, 2012
+   ~ Alta Books, 2015
 
 ---
+<!-- {"layout": "centered"} -->
+## **Livro texto** sobre JavaScript
+
+::: figure .book
+- ![](images/book-eloquent-js.png) <!-- {.full-width.full-height} -->
+- .
+<!-- {ul:.hardcover_front} -->
+- .
+- [Ler de graça](https://eloquentjavascript.net/) <!-- {a:.book-btn target="_blank"} -->
+- .
+- .
+- .
+<!-- {ul:.page} -->
+- .
+- .
+<!-- {ul:.hardcover_back} -->
+- .
+- .
+<!-- {ul:.book_spine} -->
+:::
+
+**Título**
+  ~ Eloquent JavaScript, Third Edition
+
+**Autores**
+  ~ Marijn Haverbeke
+
+**Editora**
+  ~ No Starch Press, 2018
+
+---
+<!-- {"layout": "centered"} -->
 ## **Livro texto** da parte 2
 
 ::: figure .book
@@ -164,10 +171,13 @@ Veja a bibliografia básica e a complementar.
 **Editora**
   ~ Manning
 
+
 ---
+<!-- {"layout": "main-point", "state": "emphatic"} -->
 # Bibliografia Complementar
 
 ---
+<!-- {"layout": "centered"} -->
 ## Dive into HTML5
 
 <div class="book-cover-container">
@@ -177,61 +187,46 @@ Veja a bibliografia básica e a complementar.
 
 - [Online](http://diveintohtml5.com.br/), gratuito
 
----
-## JavaScript: The Good Parts
-
-<div class="book-cover-container">
-  <img class="book-cover" src="images/book-js-good-parts.png">
-  <div class="book-left book-light"></div>
-</div>
-
-- **Título**	JavaScript, the Good Parts, First Edition
-- **Autor**	Douglas Crockford
-- **Editora** O'Reilly Media, 2008
 
 ---
-## Head First HTML5 Programming
+<!-- {"layout": "centered"} -->
+## Use a Cabeça! Programação JavaScript
 
 <div class="book-cover-container">
-  <img class="book-cover" src="images/book-head-first-html5-programming.jpg">
+  <img class="book-cover" src="images/book-use-a-cabeca-programacao-javascript.png">
   <div class="book-left"></div>
 </div>
 
-- **Título**	Head First HTML5 Programming
-- **Autores**	~~Gordon~~ Eric Freeman, Elisabeth Robson
-- **Editora** O'Reilly Media, 2011
+- **Título** Use a Cabeça! Programação JavaScript
+- **Autores**	Eric Freeman, Elisabeth Robson
+- **Editora** Alta Books, 2016
 
 ---
-<!--
-{
-  "slideHash": "avaliacao",
-  "layout": "section-header"
-}
--->
+<!--{"hash": "avaliacao", "layout": "section-header"} -->
 # Avaliação
-
 ## Distribuição de pontos
 
-- ~10 Práticas: **20** pontos
-- Seminário: **18** pontos
-- Trabalhos Práticos:
-  1. TP0: **2** pontos
-  1. Projeto:
-     - Entrega 1: **15** pontos
-     - Entrega 2: **45** pontos
-
+- ~10 Práticas
+- Seminário
+- Trabalhos Práticos
+  - TP0
+  - Projeto
 <!-- {ul^1:.content} -->
 
 ---
-# Trabalhos (60 pontos)
+<!-- {"layout": "centered-horizontal"} -->
+# Distribuição de pontos
 
-- [TP0: Git][tp0] (2 pontos)
-- [Projeto][project] (60 pontos)
-  - Entrega 1: (15 pontos)
-  - Entrega 2: (45 pontos)
-- [Seminário: APIs HTML5][seminar] (18 pontos)
+- Atividades Práticas (30 pontos)
+- [Seminário: APIs HTML5][seminar] (20 pontos)
+- Trabalhos Práticos
+  - [TP0: Git][tp0] (3 pontos extras)
+  - Projeto (TBD)
+    - Entrega 1: (10 pontos)
+    - Entrega 2: (10 pontos)
+    - Entrega 3: (30 pontos)
 
-*[TBD]: to be defined*
+*[TBD]: to be defined
 
 [tp0]: assignments/tp0
 [project]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-craftfoliogotchi/README.md

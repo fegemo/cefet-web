@@ -3,23 +3,24 @@
 ## História e conceitos básicos
 
 ---
+<!-- {"layout": "centered"} -->
 # Roteiro
 
-1. Web == Internet?
-1. O que é a Web
-1. As proezas de Tim
-1. Minha primeira página web
+1. [Web == Internet?](#web-igual-internet)
+1. [O que é a Web](#o-que-e-a-web)
+1. [As proezas de Tim](#as-proezas-de-tim)
+1. [Minha primeira página web](#minha-primeira-pagina-web)
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "hash": "web-igual-internet"} -->
 # Web == Internet?
 ## A Web é a mesma coisa que a Internet?
 
 - Personagens da história
 - Surgimento da Internet
 - Internet pré-web
-
 <!-- {ul:.content} -->
+
 ---
 <!-- {"layout": "regular"} -->
 # Fatos importantes
@@ -62,8 +63,7 @@ Dúvidas:
   ![](../../images/tim-berners-lee.jpg)
   **Tim Berners-Lee**, "pai" da Web
   :::
-
-<!-- {ul:.multi-column-list-4 style="list-style-type: none;"} -->
+<!-- {ul:.full-width.multi-column-list-4 style="list-style-type: none;"} -->
 
 ---
 <!-- {"layout": "regular"} -->
@@ -83,14 +83,11 @@ _(Charles Herzfeld, diretor da ARPA)_
 
 - _Advanced Research Projects Agency Network_ (ARPANET)
 - Uma das primeiras redes baseadas em trocas de pacotes
-- A primeira rede a utilizar a família de protocolos TCP/IP
+- Eventualmente foi a primeira rede a utilizar a família de protocolos TCP/IP
 
 ---
-<!-- {
-"styles": ["../../styles/classes/bubble-chat.min.css"]
-} -->
-
-22:30 de 29 de outubro de 1969
+<!-- {"styles": ["../../styles/classes/bubble-chat.min.css"]} -->
+### 22:30 de 29 de outubro de 1969
 
 
 <div class="bubble-chat">
@@ -131,6 +128,7 @@ _Fonte: [Estradas e Encruzilhadas da História da Internet (em inglês)][roads-c
 *[SRI]: Stanford Reasearch Institute*
 
 ---
+<!-- {"layout": "centered"} -->
 Em **1969**, a ARPANET era uma conexão **entre 4 universidades apenas**.
 
 ![A configuração da ARPANET em 1969 era de apenas 4 universidades](../../images/arpanet-1969.jpg)
@@ -140,13 +138,14 @@ A partir de 1969 e durante a década de 1970, a ARPANET cresceu e se
 conectou com várias outras grandes redes.
 
 ---
+<!-- {"layout": "main-point", "state": "emphatic"} -->
 Contudo, **a falta de padrão de protocolos** de rede impedia o avanço.
 Além disso, **os protocolos em vigência deixavam a REDE como responsável pela
 confiabilidade**.
 
 ---
 <!-- {"layout": "regular"} -->
-## Linha do Tempo (1/2)
+## Linha do Tempo <small>(1/2)</small>
 
 1969 <!-- {.bullet-old} -->
   ~ Larry Roberts estabelece 1º link da **ARPANET** <!-- {dd:.bullet-old} -->
@@ -174,7 +173,7 @@ confiabilidade**.
 
 ---
 <!-- {"layout": "regular"} -->
-## Linha do Tempo (2/2)
+## Linha do Tempo <small>(2/2)</small>
 
 1988 - 1989
   ~ Surgimento dos primeiros provedores de acesso ao
@@ -207,39 +206,43 @@ confiabilidade**.
 - Gopher (1991)
 
 ---
+<!-- {"layout": "centered"} -->
 ::: figure
 ![Tela do cliente de E-mail ELM](../../images/email-elm.png)
 <figcaption>Cliente de E-mail ELM (1986)</figcaption>
 :::
 
 ---
+<!-- {"layout": "centered"} -->
 ::: figure
 ![Tela do cliente de E-mail Pine](../../images/email-pine.png)
 <figcaption>Cliente de E-mail Pine (1989)</figcaption>
 :::
 
 ---
+<!-- {"layout": "centered"} -->
 ::: figure
 ![Tela do BBS Koala Country](../../images/bbs-koala-country.jpg)
 <figcaption>BBS Koala Country (1989)</figcaption>
 :::
 
 ---
-::: figure . height: calc(90% - 3em)
+<!-- {"layout": "centered"} -->
+::: figure
 <figcaption>Usenet GNUs</figcaption>
 
-![Tela do Usenet GNUs](../../images/usenet-gnus.png)
+![Tela do Usenet GNUs](../../images/usenet-gnus.png) <!-- {style="height: 500px"} -->
 :::
 
 ---
-::: figure . height: calc(90% - 3em)
+<!-- {"layout": "centered"} -->
+::: figure
 <figcaption>Gopher de Jospeh Maistre</figcaption>
 
-![Tela do gopher de Jospeh Maistre](../../images/gopher-jospeh-maistre.png)
+![Tela do gopher de Jospeh Maistre](../../images/gopher-jospeh-maistre.png) <!-- {style="height: 500px"} -->
 :::
 
 ---
-<!-- {"layout": "regular"} -->
 ## A era Pré-web
 
 - O que mais se aproximava de **troca organizada de documentos** era o
@@ -251,17 +254,15 @@ confiabilidade**.
   informação em "formato de teia"
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "hash": "o-que-e-a-web"} -->
 # O que é a Web
 ## Definição e Composição
 
 - Definição de Web
 - Linguagens da Web
-
 <!-- {ul:.content} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## Definição **(~~in~~formal)** de Web
 
 - **World Wide Web**, ou WWW, traduz em "teia mundial"
@@ -282,7 +283,6 @@ confiabilidade**.
 <!-- {dl:.bulleted} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## Definição **(formal)** de Web
 
 Segundo Andrew Tanembaum (autor de vários livros de Computação):
@@ -304,15 +304,15 @@ Segundo Andrew Tanembaum (autor de vários livros de Computação):
 <!-- {dl:.width-40} -->
 
 ---
-<!-- { "layout": "2-column-highlight-and-list" } -->
+<!-- { "layout": "2-column-highlight-and-content" , "hash": "o-que-compoe-web"} -->
 ## O que **compõe** uma página web?
 
-<figure style="height: 80%">
-  <figcaption><a href="https://fegemo.github.io/cefet-web-ovelhas/racas-raras.html"><code>racas-raras.html</code></a></figcaption>
-  <iframe src="https://fegemo.github.io/cefet-web-ovelhas/racas-raras.html" height="90%" width="100%">
-    ![Tela da página sobre raças de ovelhas](../../images/cefet-web-ovelhas.png)
-  </iframe>
-</figure>
+::: figure . height: 90%
+<figcaption><a href="https://fegemo.github.io/cefet-web-ovelhas/racas-raras.html" target="_blank"><code>racas-raras.html</code></a></figcaption>
+<iframe src="https://fegemo.github.io/cefet-web-ovelhas/racas-raras.html" height="90%" width="100%">
+  ![Tela da página sobre raças de ovelhas](../../images/cefet-web-ovelhas.png)
+</iframe>
+:::
 
 - Uma página web é formada por **arquivos**:
   - **01** arquivo no formato HTML (*e.g.*, `racas-raras.html`)
@@ -325,11 +325,7 @@ Segundo Andrew Tanembaum (autor de vários livros de Computação):
 *[CSS]: Cascading Stylesheets*
 
 ---
-<!-- {
-  "layout": "3-column-element-with-titles-expansible",
-  "preventSelection": "code"
-} -->
-
+<!-- {"layout": "3-column-element-with-titles-expansible","preventSelection": "code"} -->
 ## ![Logomarca do HTML](../../images/logo-html.svg) <!-- {.emoji} --> `racas-raras.`**`html`**
 
 ```html
@@ -498,13 +494,13 @@ let ovelha = {
   orientacao: 1,
 
   // define qual animação será tocada
-  defineAnimacao: function(nomeAnimacao) {
+  defineAnimacao(nomeAnimacao) {
     ANIMACOES.forEach((anim) => this.el.classList.remove(anim));
     this.el.classList.add(nomeAnimacao);
   },
 
   // define se a ovelha está olhando para esquerda ou direita
-  defineOrientacao: function(novaOrientacao) {
+  defineOrientacao(novaOrientacao) {
     if (novaOrientacao <= 0) {
       this.el.classList.add('invertido');
     } else {
@@ -519,7 +515,7 @@ let ovelha = {
   x: 20,
   y: 20,
   // sistema de coordenadas começa na direita e embaixo
-  definePosicao: function(x, y) {
+  definePosicao(x, y) {
     this.x = x;
     this.el.style.right = `${x - this.largura/2}px`;
     if (!!y) {
@@ -529,7 +525,7 @@ let ovelha = {
   },
 
   // invocada quando quisermos trocar o estado
-  mudaEstado: function(novoEstado) {    
+  mudaEstado(novoEstado) {    
     switch (novoEstado) {
       case ESTADOS.despencando:
         this.velocidadeY = 0;
@@ -544,19 +540,19 @@ let ovelha = {
     this.tempoNoEstado = 0;
   },
 
-  sorteiaProximoEstado: function() {
+  sorteiaProximoEstado() {
     return ESTADOS[this.estado.proximo[Math.floor(Math.random() * this.estado.proximo.length)]];
   },
 
-  bateuNaTela: function() {
+  bateuNaTela() {
     return (this.x - this.largura/2 < 0 || this.x + this.largura/2 > window.innerWidth);
   },
 
-  saiuDaTela: function() {
+  saiuDaTela() {
     return (this.x + this.largura/2 < 0 || this.x - this.largura/2 > window.innerWidth);
   },
 
-  revolucionaNaTela: function() {
+  revolucionaNaTela() {
     let newX;
     if (this.x - this.largura/2 < 0) {
       newX = this.x + window.innerWidth + this.largura/2;
@@ -566,12 +562,12 @@ let ovelha = {
     this.definePosicao(newX);    
   },
 
-  passouDoChao: function() {
+  passouDoChao() {
     return (this.y - this.altura/2 < 0);
   },
 
   tempoAntes: 0,
-  atualiza: function(tempo) {
+  atualiza(tempo) {
     let delta = tempo - this.tempoAntes;
     this.tempoNoEstado += delta;
 
@@ -686,7 +682,7 @@ ovelha.inicializa();
 
 ---
 <!-- {
-  "layout": "2-column-highlight-and-list",
+  "layout": "2-column-highlight-and-content",
   "embeddedStyles": ".titulo-raras-ovelhas { color: purple; font-family: 'Comic Sans', cursive; font-weight: normal; border-bottom: 2px solid currentColor; }"
 } -->
 ## A página das **Raras Ovelhas** <!-- {.titulo-raras-ovelhas} -->
@@ -705,7 +701,7 @@ ovelha.inicializa();
     ```
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "hash": "as-proezas-de-tim"} -->
 # Como surgiu a Web
 ## O que levou ao seu surgimento
 
@@ -715,11 +711,9 @@ ovelha.inicializa();
   - O navegador
   - O servidor web
   - O protocolo HTTP
-
 <!-- {ul^1:.content} -->
 
 ---
-<!-- { "layout": "regular"} -->
 ## Tim, o Coração Valente
 
 - ::: figure .floating-portrait-container.push-right
@@ -739,10 +733,9 @@ ovelha.inicializa();
 *[CERN]: Conseil Européen pour la Recherche Nucléaire*
 
 ---
-<!-- {"layout": "regular"} -->
-## As 5 Façanhas de Tim
+## As 5 Façanhas de Tim 💓
 
-- Ao final de 1990, Tim (:heart:) havia escrito os **5 componentes básicos
+- Ao final de 1990, Tim havia criado os **5 componentes básicos
   da Web**: <!-- {ul:.bulleted} -->
   1. O _HyperText Markup Language_ (HTML)
   1. O primeiro navegador ou _web browser_ (WorldWideWeb)
@@ -768,7 +761,6 @@ de forma hierárquica**. E quero que eles possam conter imagens, tabelas, títul
 e outras coisas legais.
 
 ---
-<!-- {"layout": "regular"} -->
 ## HyperText Markup Language (HTML)
 
 - É um _formato de arquivo_ (`.html`) em texto simples (*plain-text*) em que
@@ -785,7 +777,6 @@ e outras coisas legais.
       ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## Um **arquivo `html`** completo
 
 - `pagina-singela.html`:
@@ -802,7 +793,7 @@ e outras coisas legais.
   ```
 
 ---
-<!-- {"layout": "regular"} -->
+<!-- {"layout": "centered-horizontal"} -->
 ## **Evolução** do HTML e outras **alternativas**
 
 Versões
@@ -810,7 +801,7 @@ Versões
   ~ 1995: HTML 2.0
   ~ 1997: HTML 3.2
   ~ 1997: HTML 4.0
-  ~ 2008 - 2014: **HTML 5** ![](../../images/seta-o-cara.png) <!-- {.on-line.bouncing-left} -->
+  ~ 2008 - hoje: **HTML 5** ![](../../images/seta-o-cara.png) <!-- {.on-line.bouncing-left} -->
 
 Alternativas
   ~ 2000: XHTML 1.0 ![](../../images/seta-meh.png) <!-- {.on-line.bouncing-left.delay-1} -->
@@ -826,9 +817,9 @@ que seja capaz de renderizar** seu conteúdo e permitir a **navegação** de um
 arquivo html para outro.
 
 ---
+<!-- {"layout": "centered-horizontal"} -->
 ![Foto do navegador WorldWideWeb](../../images/browser-www.jpg)
-<!-- {img.full-width} -->
-<!-- {p:.contain} -->
+<!-- {.slide-contain.centered.block} -->
 
 ---
 <!-- {"layout": "main-point", "state": "emphatic"} -->
@@ -840,7 +831,6 @@ navegador. Mas quero poder acessar **arquivos de qualquer um que se disponha a
 deixar o computador ligado**, em qualquer parte do mundo.
 
 ---
-<!-- {"layout": "regular"} -->
 ## Servidores Web
 
 - É o **programa que executa** em um computador **24/7** e _"conversa" com os
@@ -869,6 +859,7 @@ solicitado não exista? **Em que "língua"** que o servidor web e o navegador v�
 **conversar**?
 
 ---
+<!-- {"embedSVG": "img[src$='.svg']", "styles": ["../../styles/classes/http-diagram.min.css"]} -->
 ## **HTTP**
 
 - É um **protocolo** na camada de aplicação
@@ -876,57 +867,68 @@ solicitado não exista? **Em que "língua"** que o servidor web e o navegador v�
   > entidades se comunicam.
   - É a **"língua falada" pelo navegador e pelo servidor web**
 - Modelo requisição &rarr; resposta
-  ::: figure .figure-slides.no-margin
-  ![](../../images/http-diagram-informal.png) <!-- {.bullet.figure-step.bullet-no-anim} -->
-  ![](../../images/http-diagram-informal-2.png) <!-- {.bullet.figure-step.bullet-no-anim} -->
-  :::
+
+::: figure .http-diagram.flex-align-center.figure-slides.clean.no-margin.invert-colors-dark-mode
+![](../../images/http-diagram-informal.svg) <!-- {.step-1 style="height: 280px"} --> <!-- {p:.bullet.figure-step.bullet-no-anim} -->
+
+![](../../images/http-diagram-informal.svg) <!-- {.step-2 style="height: 280px"} --> <!-- {p:.bullet.figure-step.bullet-no-anim} -->
+
+![](../../images/http-diagram-informal.svg) <!-- {.step-3 style="height: 280px"} --> <!-- {p:.bullet.figure-step.bullet-no-anim} -->
+:::
+
 
 ---
+<!-- {"layout": "2-column-content", "embedSVG": "img[src$='.svg']"} -->
 ### **Navegador requisita** algo e **Servidor responde**
 
-```http
-GET /index.html HTTP/1.1
-Host: www.twitter.com
-```
-![](../../images/http-diagram-informal-2.png) <!-- {.three-quarter-width.centered} --> <!-- {p:.no-margin} -->
-```http
-HTTP/1.1 200 OK
-Date: Mon, 23 May 2005 22:38:34 GMT
-Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux)
-Content-Type: text/html; charset=UTF-8
-Content-Length: 131
+- ![](../../images/http-diagram-informal.svg) <!-- {.full-width.centered.step-3.invert-colors-dark-mode} --> <!-- {ul:.http-diagram.no-bullets.no-padding.bullet} -->
+  Requisição:
+  ```http
+  GET /index.html HTTP/1.1
+  Host: www.twitter.com
+  ```
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Twitter</title>
-</head>
-<body>
-  Olá mundo, este é um tweet.
-</body>
-</html>
-```
+1. Resposta: <!-- {ol:.bullet.no-bullets.no-padding.compact-code} -->
+   ```http
+   HTTP/1.1 200 OK
+   Date: Mon, 23 May 2005 22:38:34 GMT
+   Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux)
+   Content-Type: text/html; charset=UTF-8
+   Content-Length: 131
+
+   <!DOCTYPE html>
+   <html>
+   <head>
+     <title>Twitter</title>
+   </head>
+   <body>
+     Olá mundo, este é um tweet.
+   </body>
+   </html>
+   ```
 
 ---
+<!-- {"layout": "centered"} -->
 ## HTTP
 
 - Versões
   - 1991: v0.9
   - 1996: v1.0
-  - 1997-1999: v1.1
-  - 2014 - 2016: **HTTP/2** ![](../../images/seta-o-cara.png) <!-- {.on-line.bouncing-left} -->
+  - 1997 - 1999: v1.1
+  - 2014 - 2016: HTTP/2
+  - 2017 - atual: HTTP/3
 - Alternativas
   - 2009: SPDY
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "hash": "minha-primeira-pagina-web"} -->
 # Minha Primeira Página Web
 ## Como cria-las, o que elas comem, seu habitat etc.
 
 - Ferramentas necessárias
 - Um arquivo HTML
-
 <!-- {ul:.content} -->
+
 ---
 <!-- {"layout": "tall-figure-right"} -->
 ## Ferramentas Necessárias
@@ -947,6 +949,7 @@ Content-Length: 131
 
 
 ---
+<!-- {"layout": "centered"} -->
 # Referências
 
 - [Antes da Web: A Internet em 1991 (inglês)][before-the-web]
