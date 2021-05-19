@@ -1,8 +1,10 @@
-// Import CSS from "node_modules" and "bower_components"
-// thanks to Stylus' "import css" and "paths" options
-@import 'highlight.js/styles/xcode.css'
-//@import 'highlight.js/styles/monokai-sublime.css'
-// @import 'bespoke-markdownit/node_modules/highlight.js/styles/monokai-sublime.css'
+@import 'highlight.js/styles/atom-one-light.css'
+@media (prefers-color-scheme: dark)
+  @import 'highlight.js/styles/monokai-sublime.css'
+
+:root
+  --link-color #4caf50
+  --link-visited-color #9575cd
 
 // variables
 $page-header-height = 1vw
@@ -61,104 +63,85 @@ body
   transform translate3d(0, $page-header-height, 0)
   transition transform 300ms ease
 
+#presentation
+  transition all 200ms ease-out
 
-// title animation
-$title-animation-duration = 600ms
-$title-animation-delay = 450ms
-$title-animation-easing = cubic-bezier(0, 0, 0.7, 1.58)
 
-.title-part-left
-.title-part-top
-.title-part-right
-.subtitle
-  opacity 0
-  display inline-block
 
-.title-part-left
-  animation appear-from-left $title-animation-duration $title-animation-easing 0s 1 forwards
-  animation-delay $title-animation-delay * 2
-  transform translateX(-2em)
+.bordered
+  border 1px solid rgba(0, 0, 0, .5)
 
-.title-part-top
-  animation appear-from-top $title-animation-duration $title-animation-easing 0s 1 forwards
-  animation-delay $title-animation-delay * 3
-  transform translateY(-1em)
-
-.title-part-right
-  animation appear-from-right $title-animation-duration $title-animation-easing 0s 1 forwards
-  animation-delay $title-animation-delay * 4
-  transform translateX(2em)
-
-.subtitle
-  animation appear-from-bottom $title-animation-duration $title-animation-easing 0s 1 forwards
-  animation-delay $title-animation-delay * 5
-  transform translateY(100%)
-
-@keyframes appear-from-left
-  from
-    transform translateX(-2em)
-    opacity .25
-  to
-    transform translateX(0)
-    opacity 1
-
-@keyframes appear-from-top
-  from
-    transform translateY(-1em)
-    opacity .25
-  to
-    transform translateY(0)
-    opacity 1
-
-@keyframes appear-from-right
-  from
-    transform translateX(2em)
-    opacity .25
-  to
-    transform translateX(0)
-    opacity 1
-
-@keyframes appear-from-bottom
-  from
-    transform translateY(100%)
-    opacity .25
-  to
-    transform translateX(0)
-    opacity 1
-
-pre.hljs
-  border 1px solid lightslategray
-
-.compact-code pre,
-.compact-code ~ pre
-  line-height 1em
-.compact-code-more pre,
-.compact-code-more ~ pre
-  line-height 1em
-  font-size 75%
-
-.badge
-  display inline-block
-  background-color white
+.rounded
   border-radius 4px
-  border 1px solid #333
-  color #666
-  font-size 75%
-  line-height 1em
-  padding 0.1em 0.2em
-  color forestgreen
-  border-color currentColor
 
-  &.type1
-    color teal
+.clearer
+  clear both
 
-  &.type2
-    color cornflowerblue
+
+.tipo-js
+  border 1px solid currentColor
+  padding 0.15em
+  border-radius 5px
+  white-space nowrap
+  background-color #fbfbfb
+
+@media (prefers-color-scheme: dark)
+  .tipo-js
+    background-color #111
   
+.tipo-boolean
+  color cornflowerblue
+  
+.tipo-number 
+  color #ae81ff
+  
+.tipo-string
+  color #948814
+
+.tipo-object
+  color #4d8c21
+
+.dashed
+  border 2px dashed gray
+
+// easter egg
+#easter-egg-panel
+  position absolute
+  right 1vw
+  bottom 4vh
+  color black
+  padding 5px
+  font-size 11px
+  background-color silver
+  border-radius 5px
+  transition opacity 100ms ease-out
+  pointer-events none
+  opacity 0
+  z-index 1
+  font-family monospace
+  font-weight bold
+  &.active
+    opacity 0.25
+  &.success
+    animation vanishing 800ms ease-out 0s 1
+
+.easter-egg-key
+  transition all 100ms ease-out
+  opacity 0
+  transform translate3d(1em, 0, 0)
+  .active &
+    opacity 1
+    transform translate3d(0, 0, 0)
+
+@keyframes vanishing
+  from
+    transform scale(1)
+  to
+    transform scale(2)
+    opacity 0
 
 
 @require backdrops
-@require move-to-theme
 @require tutorial
 @import './caniuse.css';
 
@@ -168,6 +151,3 @@ pre.hljs
     display none
   #presentation-container
     height auto
-  // gambiarra: alguns slides excedem a altura. Por agora, usar overflow:hidden
-  .bespoke-slide
-    overflow-y hidden
