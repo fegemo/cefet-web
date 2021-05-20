@@ -24,11 +24,21 @@
 <!-- {"hash": "slides"} -->
 # Aulas <small>(1/3)</small>
 
-- [História da Web](classes/intro/)
-- [HTML 1](classes/html1/) - Funcionamento da Web, Estrutura do HTML e CSS
-- [HTML 2](classes/html2/) - Listas, inline/block, Tabelas, Links e Plantas Carnívoras 🦖 (Prática)
-- [HTML 3](classes/html3/) - Ferramentas, Multimídia e a Cabeça (_i.e._, `head`)
-- [CSS 1](classes/css1/) - Seletores e Ninjas (Prática)
+[INTRO](classes/intro/) <!-- {dl:.width-10.full-width} -->
+~ História e introdução à programação Web
+
+[HTML1](classes/html1/)
+~ Funcionamento da Web, Estrutura do HTML e CSS
+
+[HTML2](classes/html2/)
+~ Listas, inline/block, Tabelas, Links e Plantas Carnívoras 🦖
+
+[HTML3](classes/html3/)
+~ Ferramentas, Metadados, DIV/SPAN e o Box Model
+
+[CSS 1](classes/css1/)
+~ Seletores e Abelhas 🐝
+
 - [CSS 2](classes/css2/) - Especificidade, propriedades mil, Web Fonts
 - [HTML 4](classes/html4/) - Div/Span, Box Model, Float e Unicórnios (Prática)
 - [CSS 3](classes/css3/) - Divitite e as _tags_ semânticas, visibilidade e _Layout_
