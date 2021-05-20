@@ -144,24 +144,28 @@
     <!-- {ul^1:style="width: 100%;"} -->
 
 ---
-<!-- {"layout": "2-column-content", "slideStyles": {"grid-template-columns": "1fr 1fr"}} -->
+<!-- {"layout": "2-column-content"} -->
 ## Tags de Citação
 
-- Citação “em linha”:
+- Citação "em linha": <!-- {ul:.no-bullets.no-padding} -->
   ```html
-  Romário disse: <q>o Pelé calado é um poeta.</q>
+  Romário disse: <q>o Pelé calado
+  é um poeta.</q>
   ```
   ::: result
   Romário disse: <q>o Pelé calado é um poeta</q>.
   :::
 
-1. Citação “em bloco”:
+1. Citação "em bloco": <!-- {ol:.no-bullets.no-padding} -->
    ```html
-   <blockquote>Tô quebrado, peixe</blockquote> -  Romário
-   negando-se a pagar mais de R$ 3 mil de pensão
+   <blockquote>
+    Tô quebrado, peixe
+   </blockquote> -  Romário negando-se
+   a pagar mais de R$ 3 mil de pensão
    ```
    ::: result
-   <blockquote>Tô quebrado, peixe</blockquote>  - Romário negando-se a pagar mais de R$ 3 mil de pensão
+   <style>.bl-no-before::before { content: ""; display: none; }</style>
+   <blockquote class="bl-no-before" style="margin: initial;padding: initial;background: initial;box-shadow: initial;line-height: initial;font-size: inherit;font-family: inherit;font-style: initial;color: initial;border: initial;">Tô quebrado, peixe</blockquote> - Romário negando-se a pagar mais de R$ 3 mil de pensão
    :::
 
 ---
@@ -542,18 +546,25 @@ página web
 ## Passos para o exercício
 
 1. Instalar o git na máquina, caso ele não esteja instalado
-1. **Criar um _fork_** do repositório do professor em [`https://github.com/fegemo/cefet-web-piranha-plant`](https://github.com/fegemo/cefet-web-piranha-plant)
-  e **cloná-lo para seu computador**
+1. **Criar um _fork_** do repositório e **cloná-lo para seu computador**:
+   - [https://github.com/fegemo/cefet-web-piranha-plant](https://github.com/fegemo/cefet-web-piranha-plant) <!-- {target="_blank"} -->
 1. Fazer o exercício, fazer _commits_ e dar _push_ no seu repositório
    - O arquivo `README.md` do repositório contém o enunciado do exercício
 1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
 
 ---
+<!-- {"layout": "tall-figure-left"} -->
 ## Atividade: Plantas Carnívoras ![Planta carnívora do jogo Mario Bros](../../images/piranha-mario.png) <!-- {.emoji} -->
 
-- DESCREVER AQUI (para motivar o que vem pela frente)
+![](../../images/piranha-plant-inicial.png) <!-- {.bordered.rounded style="width: 300px"} -->
 
-
+- Criar 2 páginas HTML (**`index.html`**, `loja.html`)
+- Usar os elementos HTML corretos
+  - `<h1>`, `<h2>`, `<p>`, `<strong>`, `<em>`, `<blockquote>`, `<q>`, `<a>`, `<img>`, `<ul>`, `<li>`, `<ol>`, `<table>` etc.
+- Estilizar as páginas como pedido
+  - `color`, `font-size`, `margin`, `padding`, `font-family`,
+    `font-style`, `border`, `background-*`, `text-align`, `border-collapse` etc.
+  - Mas como centralizar imagens? <!-- {ul^0:.bulleted} -->
 ---
 <!-- {"hash": "centralizando-imagens"} -->
 ## Centralizando imagens
@@ -585,9 +596,6 @@ página web
   ```html
   <a href="downloads/exemplo.zip">Link interno</a>
   ```
-
-1. ![](../../images/philosoraptor.jpg) <!-- {.portrait.push-left.bullet} --> <!-- {ol:.flex-align-end.no-bullets.no-padding.bullet} -->
-   - Mas como criar um link para **outra página do meu próprio site**? <!-- {ul:.no-bullets.no-padding.bullet} -->
 
 ---
 <!-- {"hash": "links-para-emails-e-telefones"} -->
@@ -760,8 +768,8 @@ A _tag_ de hiperlink possui um atributo `target="..."` que pode ter
 :::
 
 ---
-<!-- {"hash": "imagem-de-fundo"} -->
-# Imagem de fundo
+<!-- {"hash": "imagem-de-fundo", "classes": "compact-code"} -->
+## Imagem de fundo
 
 ```css
 body {
@@ -802,19 +810,10 @@ body {
 - `background-size: contain`: imagem redimensionada para aparecer completamente
 
 ---
-<!-- {"hash": "ocupTags de Citação
-Citação “em linha”:
-
-Romário disse: o Pelé calado é um poeta.
-Romário disse: <q>o Pelé calado é um poeta.</q>
-Citação “em bloco”:
-
-Tô quebrado, peixe - Romário negando-se a pagar mais de R$ 3 mil de pensão
-<blockquote>Tô quebrado, peixe</blockquote> - Romário
-negando-se a pagar mais de R$ 3 mil de pensãoando-toda-altura-navegador"} -->
+<!-- {"hash": "ocupando-toda-altura-navegador"} -->
 ## Ocupando toda a altura do navegador
 
-![](../../images/ocupando-toda-altura-disponivel.png)
+![](../../images/ocupando-toda-altura-disponivel.png) <!-- {p:.centered} -->
 
 ---
 ## Ocupando toda a altura do navegador (cont.)
