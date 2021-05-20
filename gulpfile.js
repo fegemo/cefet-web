@@ -257,4 +257,4 @@ exports.build = series(
   build
 )
 exports.dev = series(exports.build, dev)
-exports.deploy = series(exports.build, deploy)
+exports.deploy = deploy
