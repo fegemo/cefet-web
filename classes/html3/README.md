@@ -3,7 +3,7 @@
 ## Ferramentas, Metadados, DIV/SPAN e o Box Model
 
 ---
-# Na última aula... (1/4)
+# Na última aula... <small>(1/4)</small>
 
 - _Tags_ de importância: `<strong>`, `<em>`, `<mark>`, `<del>` e `<ins>`
 - Listas numeradas (`<ol>`) e não-numeradas (`<ul>`)
@@ -17,27 +17,13 @@
     ```
 
 ---
-# Na última aula... (2/4)
+<!-- {"embedSVG": "img[src$='.svg']", "styles": ["../../styles/classes/css-rule-anatomy.min.css"]} -->
+## Na última aula... <small>(2/4)</small>
 
-- Mais sobre **hiperlinks**:
-  - Link para email:
-    `<a href="mailto:hasan@cefetmg.br">Me mande emails</a>`
-  - O atributo `target` para abrir uma página em outra aba
-    ```html
-    <a href="http://www.pudim.com.br" target="_blank">Site legal</a>
-    ```
 - Alguns elementos são `inline` e outros são `block`
-
-  **`block`**
-  ~ fazem quebra de linha (e.g., `<blockquote>`, `<p>` etc.)
-  
-  **`inline`** <!-- {.alternate-color} -->
-  ~ não fazem quebra de linha (e.g, `<q>`, `<strong>` etc.)
-
----
-<!-- {"embedSVG": "img[src$='.svg']", "embeddedStyles": ".css-rule-anatomy:not(.selector,.declaration.property,.value) .other-rule { opacity: 1 !important; } .css-rule-anatomy.rule .other-rule path { fill: #999 !important; } .css-rule-anatomy.rule .rule,.css-rule-anatomy.selector .selector,.css-rule-anatomy.declaration .declaration,.css-rule-anatomy.property .property,.css-rule-anatomy.value .value { opacity: 1 !important; }"} -->
-# Na última aula... (3/4)
-
+  - **`block`**: fazem quebra de linha (e.g., `<blockquote>`, `<p>` etc.)
+  - **`inline`**: <!-- {.alternate-color} -->
+   não fazem quebra de linha (e.g, `<q>`, `<strong>` etc.)
 - ![Regra e seletor CSS](../../images/css-rule-anatomy.svg) <!-- {.css-rule-anatomy.rule.declaration.selector.push-right style="width: 300px" data-viewbox="56 0 144 120"} -->
   Formato de uma regra **CSS**
   - **Regra**: conjunto de declarações aplicadas em alguém
@@ -47,7 +33,7 @@
   iniciando com **#**
 
 ---
-# Na última aula... (4/4)
+## Na última aula... <small>(3/4)</small>
 
 - Colocação de bordas por meio da propriedade `border`, ou então
   `border-width`, `border-style` e `border-color`
@@ -61,71 +47,31 @@
   }
 
 ---
-# Na última aula... (5/5)
+## Na última aula... <small>(4/4)</small>
 
-- Tabelas são criadas com as tags
+- <!-- {ul:.full-width} -->
+  Tabelas são criadas com as tags
   - **`<table>...</table>`**, para marcar a tabela
   - `<thead>...</thead>`, cabeçalho, contém linhas
   - `<tbody>...</tbody>`, corpo, contém linhas
   - `<tfoot>...</tfoot>`, rodapé, contém linhas
-  - **`<tr>...</tr>`**, linha da tabela
+  - ![Exemplo de tabela exibindo suas tags](../../images/table-tags.svg) <!-- {.push-right.invert-colors-dark-mode width="400" height="174"} -->
+    **`<tr>...</tr>`**, linha da tabela
   - **`<td>...</td>`**, célula de dados
   - `<th>...</th>`, célula do cabeçalho
   - `<caption>...</caption>`, legenda
-- [Referência na Mozilla Developer Network][mdn-table]
+- [Tabelas na MDN][mdn-table]
 
 [mdn-table]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
-
----
-<!-- {"layout": "2-column-content-zigzag"} --
-# Na última aula... (1/3)
-
-- Vimos a **ferramenta do desenvolvedor** do Google Chrome
-  - Usamos para **investigar erros** e **experimentar propriedades**
-
-![Ferramentas de desenvolvedor do Chrome](../../images/chrome-dev-tools.png) <!-- {.push-right.large-width.bordered.rounded} --
-
-![Uma árvore com os elementos HTML](../../images/html-tree-1.png) <!-- {.medium-width.centered.block} --
-
-- Podemos enxergar o HTML da página como uma "árvore" de elementos
-
----
-<!-- {"layout": "tall-figure-right"} --
-# ![Foto de Håkon Wium Lie](../../images/howcome.jpg) <!-- {.portrait.push-right} -- Na última aula... (2/3)
-
-<iframe width="100%" height="300" src="//jsfiddle.net/fegemo/gqgacz36/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0" class="push-right"></iframe>
-
-- CSS foi criada por Håkon Wium Lie em 1994
-- Entendemos o que é **a cascata** no CSS:
-  - Algumas **propriedades são herdadas** dos elementos ancestrais (_e.g._,
-     cor do texto), outras não (_e.g._, a borda)
----
--->
-# Na última aula... (3/3)
-
-- Além de selecionar por _tag_, id ou classe, há diversos **outros seletores**:
-
-descend./filho <!-- {dl:.no-margin} -->
-  ~ `p strong`: todo `<strong>` descendente de `<p>` (filho, neto etc.)
-  ~ `p > strong`: todo `<strong>` filho direto de `<p>`
-
-atributo
-  ~ `img[alt]`: toda `<img>` que tem atributo `alt="..."`
-  ~ `a[href$=".html"]`: todo `<a>` apontando para um `.html` etc.
-
-estado do link
-  ~ `a:link`, `a:visited`, `a:hover`, `a:active`
-
-negação
-  ~ `img:not([alt])`: `<img>` sem o atributo `alt`
 
 ---
 <!-- {"layout": "centered"} -->
 # Hoje veremos
 
-1. [Editores de Texto](#editores-de-texto)
-1. [Metadados](#metadados)
-1. [`div` e `span`](#div-e-span)
+1. [Editores de texto](#editores-de-texto)
+1. [Metadados](#metadados) das páginas
+1. Elementos [Multimídia](#multimidia)
+1. Elementos [DIV e SPAN](#div-e-span)
 1. [O _Box Model_](#o-box-model)
 
 ---
@@ -134,7 +80,7 @@ negação
 ## Ferramentas para edição e melhoria da produtividade
 
 - Editores de texto
-- _Hotkeys_
+- Atalhos e facilidades
 <!-- {ul:.content} -->
 
 ---
@@ -412,6 +358,335 @@ HTML5
 Hoje em dia usamos sempre HTML5 😉 <!-- {.flex-align-center} -->
 
 ---
+<!-- {"layout": "section-header", "hash": "multimidia"} -->
+# Multimídia
+## Elementos não-textuais
+
+- Imagem
+- Vídeo
+- Áudio
+<!-- {ul:.content} -->
+
+---
+## Imagens
+
+- Há três _tags_ relacionadas a imagens:
+  1. **`<img>`**
+  1. `<figure>`
+  1. `<picture>` <!-- {ol:.multi-column-list-3} -->
+- A tag `<img>` (mais tradicional e comum) é um **elemento _void_**
+  - Ou seja, não tem conteúdo nem tag de fechamento
+  - Formato geral:
+    ```html
+    <img src="imagens/nome-do-arquivo.jpg" alt="Descrição bacana">
+    ```
+    - [Referência na Mozilla Developer Network][mdn-img]
+- Mas que **formatos** <!-- {.underline.upon-activation} --> de imagens podem ser usados?
+
+[mdn-img]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
+
+---
+## Imagens: **formato** <small>(1/2)</small>
+
+- Existem vários formatos de imagens suportados por navegadores: <!-- {.bullet} -->
+
+**JPEG** (ou JPG) <!-- {strong:.alternate-color} -->  <!-- {dl:.bulleted} -->
+~ bom para **fotos** tiradas do mundo real, que possuem muita variação de cor. Não possui
+  transparência
+
+**GIF** <!-- {strong:.alternate-color} -->
+~ **transparência** de 1 bit e suporta **animações** de quadros
+~ apenas 256 cores na imagem (muito pouco!!)
+
+**PNG** <!-- {strong:.alternate-color} -->
+~ **transparência** de 8 bits e suporta **mais cores** que GIF
+~ bom formato para imagens com pouca variação de cor
+
+**SVG** <!-- {strong:.alternate-color} -->
+~ imagens **vetoriais** que não perdem qualidade se **ampliadas**
+
+**WebP AVIF APNG**
+~ recentes, veremos mais adiante
+
+*[JPEG]: Joint Photographic Experts Group
+*[GIF]: Graphics Interchange Format
+*[PNG]: Portable Network Graphics
+*[SVG]: Scalable Vector Graphics
+*[WebP]: Web Picture Format
+*[AVIF]: AV1 Image File Format
+*[APNG]: Animated PNG
+
+---
+<!-- {"layout": "2-column-content-zigzag"} -->
+## Transparência: PNG _vs_ GIF
+
+**GIF** <!-- {dl:.width-20} -->
+~ Um pixel é totalmente transparente ou totalmente opaco
+
+::: figure .no-margin
+![Exemplo de transparência usando GIF](../../images/gif-transparency-2.gif) <!-- {p:.center-aligned} -->
+![Exemplo de transparência usando GIF](../../images/gif-transparency.gif)
+:::
+
+**PNG** <!-- {dl:.width-20} -->
+~ Opacidade pode variar entre 0 (transparente) e 255 (opaco), ou
+0% e 100%
+
+::: figure .no-margin
+![Exemplo de transparência usando PNG](../../images/png-transparency-2.png) <!-- {p:.center-aligned} -->
+![Exemplo de transparência usando PNG](../../images/png-transparency.png)
+:::
+
+---
+<!-- {"layout": "2-column-content-zigzag"} -->
+## Imagens **vetoriais** (_e.g._, SVG)
+
+Imagem _bitmap_ (JPG, GIF, PNG) original (pequena) e aumentada
+(fica "estourada")
+
+::: figure .no-margin
+![Exemplo de transparencia usando PNG](../../images/imagem-bitmap.png) <!-- {p:.center-aligned} -->
+![Exemplo de transparencia usando PNG](../../images/imagem-bitmap.png)<!-- {style="width: 100px"} -->
+:::
+
+Imagem **vetorial** (SVG) original (pequena) e aumentada (mantém a qualidade)
+
+::: figure .no-margin
+![Exemplo de transparencia usando PNG](../../images/imagem-vetorial.svg) <!-- {p:.center-aligned} -->
+![Exemplo de transparencia usando PNG](../../images/imagem-vetorial.svg)<!-- { style="width: 100px"} -->
+:::
+
+---
+## Imagens: **formato** (2/2)
+
+**APNG**  <!-- {dl:.width-10.full-width style="margin-bottom: 0.5em"} -->
+~ Semelhante ao formato PNG, mas com suporte a animações
+~ Melhor que PNG e GIF, menos eficiente que AVIF e WebP
+
+**WebP**
+~ Melhor que PNG e JPG, suporte a animação (sem rend. progres.)
+~ ~26% menor que PNG, ~25-35% menor que JPG ([comparações][comparacoes-webp])
+
+**AVIF**
+~ Similar a WebP, mas ainda melhor (~50% menor que JPG)
+~ Sem suporte para renderização progressiva
+
+- <!-- {ul:.layout-split-3.no-padding.no-bullets.no-margin} -->
+  <div class="caniuse push-right" data-feature="apng"></div> 
+- <div class="caniuse push-right" data-feature="webp"></div> 
+- <div class="caniuse push-right" data-feature="avif"></div> 
+
+[comparacoes-webp]: https://developers.google.com/speed/webp/gallery1
+
+*[WebP]: Web Picture Format
+*[AVIF]: AV1 Image File Format
+*[APNG]: Animated PNG
+
+---
+<!-- {"layout": "2-column-content", "slideStyles": {"grid-template-columns": "1fr auto", "grid-template-rows": "auto auto 1fr"}, "hash": "elemento-picture"} -->
+## Elemento `<picture></picture>` <small>(1/2)</small>
+
+```html
+<picture>
+  <source srcset="philosoraptor.avif" type="image/avif">
+  <source srcset="philosoraptor.webp" type="image/webp">
+  <img src="philosoraptor.jpg" class="retrato" alt="...">
+</picture>
+```
+
+::: result
+<picture>
+  <source srcset="../../images/philosoraptor.avif" type="image/avif">
+  <source srcset="../../images/philosoraptor.webp" type="image/webp">
+  <img src="../../images/philosoraptor.jpg" class="portrait"
+            alt="Um raptor filósofo">
+</picture>
+:::
+
+- Um `<picture>` pode conter vários `<source>` e um `<img>` <!-- {ul:.span-columns} -->
+  - Cada `<source>` aponta pra uma imagem
+  - O caminho da primeira "válida" substitui o `src` da `<img>`
+  - Colocamos como `src` da `<img>` uma _fallback_ (carregado em último caso)
+- O atributo `srcset="..."` pode conter mais de um caminho indicado <!-- {.compact-code-more} -->
+  ```html
+  <picture>
+    <source srcset="logo-768.png 768w, logo-128.png 128w">
+    ...
+  ```
+
+---
+<!-- {"layout": "tall-figure-right"} -->
+## Elemento `<picture></picture>` <small>(2/2)</small>
+
+<div class="caniuse" data-feature="picture"></div>
+
+- O elemento `<picture>` tem alguns casos de uso:
+  1. Formatos alternativos de imagem (como vimos)
+  1. Poupar banda e acelerar o carregamento
+  1. Direção de arte: definir a imagem de acordo com o dispositivo
+- Os itens (2) e (3) dependem do uso de _media queries_, que veremos
+  em aula futura
+  - Veja [imagens responsivas][mdn-responsive-images] na MDN
+
+[mdn-responsive-images]: https://developer.mozilla.org/pt-BR/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+
+---
+<!-- {"layout": "2-column-content", "classes": "compact-code"} -->
+## Elemento `<figure></figure>`
+
+- Um elemento à parte do texto (potencialmente com legenda). Ex: <!-- {ul:.span-columns} -->
+  - Um gráfico, diagrama, uma imagem, código com legenda
+- Não é recente: tão antigo quanto `<img>`
+- A legenda pode ser colocada com `<figcaption></figcaption>`
+
+```html
+<figure>
+  <figcaption>Filosofia</figcaption>
+  <img src="philosoraptor.jpg">
+</figure>
+<figure>
+  <p>Cavei cavei cavei<br>
+     Não é um poema<br>
+     Mas é profundo.
+  </p>
+  <figcaption>Ademar</figcaption>
+</figure>
+```
+
+::: result .layout-split-2 justify-content: space-around;
+<figure>
+  <figcaption>Filosofia</figcaption>
+  <img src="../../images/philosoraptor.jpg" style="width: 150px">
+</figure>
+<figure>
+  <p>Cavei cavei cavei<br>
+     Não é um poema<br>
+     Mas é profundo.
+  </p>
+  <figcaption>Ademar</figcaption>
+</figure>
+:::
+
+---
+# Vídeo
+
+- Existem diversos **formatos de arquivo**:
+  - WebM (.webm)
+  - MP4 (.mp4, .m4v)
+  - Ogg (.ogg)
+  - AVI (.avi)
+  - ASF (.asf) <!-- {ul:.multi-column-list-2} -->
+- Nem todo navegador consegue exibir todos os formatos!
+  - Às vezes, devemos disponibilizar mais de um formato do vídeo
+
+---
+## O elemento `<video></video>`
+
+- Para exibir um vídeo, existe um elemento similar ao de imagem:
+  ```html
+  <video src="videos/fendadobiquini.mp4"></video>
+  ```
+- Resultado:
+
+  <video src="../../videos/fendadobiquini.mp4" width="320" height="240" class="push-left" style="margin-right: 2em;"></video>
+  - O `<video>` abre e fecha (_i.e._, `</video>`)
+  - O elemento `<vídeo>` surgiu no HTML5
+  - O que estiver dentro da _tag_ `<video>...</video>` é exibido caso
+    o navegador não consiga exibi-lo
+  - Por padrão, não há controles para o vídeo
+
+---
+## Querida, onde está o controle?
+
+- O atributo `controls` associa um conjunto de controles ao `<video>`
+  ```html
+  <video src="videos/fendadobiquini.mp4" controls></video>
+  ```
+- Resultado:
+
+  <video src="../../videos/fendadobiquini.mp4" width="320" height="240" controls class="push-left" style="margin-right: 2em;"></video>
+  - Repare que `controls` é um atributo que não requer um valor
+    - Isso se chama **atributo booleano**
+
+---
+## Opções (atributos) de **video**
+
+`controls`
+  ~ mostra um conjunto de controles
+
+`autoplay`
+~ começa a executar o vídeo assim que a página carregar
+
+`muted`
+~ tira o som
+
+`preload="..."`
+~ começa a baixar o vídeo assim que a página carrega
+~ `preload="none"`: não pré-carrega
+~ `preload="metadata"`: pré-carrega apenas metadados
+~ `preload="auto"`: pré-carrega todo o vídeo
+
+`loop="x"`
+~ quantas vezes deve ser executado (0 = infinitas)
+
+`poster="http://..."`
+~ imagem mostrada antes do vídeo ser executado
+
+`autopictureinpicture` <!-- {style="font-size: 70%"} -->
+~ coloca em modo PiP quando muda de aba
+
+- Também há os atributos `width="x"` e `height="y"`
+
+*[PiP]: Picture in picture
+
+---
+## Suporte dos navegadores por formato
+
+- Nem todos navegadores suportam **os mesmos formatos de vídeo**
+- Assim, usamos uma outra forma do elemento `<video>`: <!-- {ul:.compact-code} -->
+  ```html
+  <video width="320" height="240" controls>
+    <source src="bob-esponja.mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
+    <source src="bob-esponja.webm" type="video/webm; codecs=vp8,vorbis">
+    <source src="bob-esponja.ogv" type="video/ogg; codecs=theora,vorbis">
+    Seu navegador não suporta o elemento video.
+  </video>
+  ```
+- O navegador tentará abrir o vídeo `bob-esponja.mp4` (_i.e._, o primeiro)
+  - se não conseguir, tentará o arquivo `bob-esponja.webm` (2º)
+  - caso ainda não consiga, tentará o `bob-esponja.ogv` (3º)
+  - se, mesmo assim, não conseguir, será exibido o texto
+
+---
+<!-- {"layout": "3-column-content", "scripts": ["../../scripts/classes/caniuse.min.js"], "slideStyles": {"align-items": "center"}} -->
+## Suporte **hoje** (formatos de vídeo)
+
+<div class="caniuse" data-feature="webm"></div>
+
+<div class="caniuse" data-feature="mpeg4"></div>
+
+<div class="caniuse" data-feature="ogv"></div>
+
+---
+# Áudio
+
+- `<audio>` funciona **exatamente** da mesma forma que `<video>` <!-- {ul:.full-width.compact-code} -->
+  - [Referência na MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
+- Formatos mais comuns: **MP3** <!-- {strong:.alternate-color} --> e
+  **OGG**. <!-- {strong:.alternate-color} --> Exemplo:
+  <!-- {li:.compact-code-more} -->
+  <audio src="../../audios/banjo-kazooie-short.mp3" controls loop="0" class="push-right" style="margin-left: 0.5em; margin-top: 1.25em"></audio>
+  ```html
+  <audio src="banjo-kazooie.mp3" controls loop="0"></audio>
+  ```
+
+1. <!-- {ol:.no-bullets.no-padding.layout-split-2.no-margin} -->
+   <div class="caniuse" data-feature="mp3"></div>
+1. <div class="caniuse" data-feature="ogg-vorbis" style="margin-left: 1em"></div>
+
+*[MP3]: MPEG-1/2 Audio Layer 3*
+
+---
 <!-- {"layout": "section-header", "hash": "div-e-span"} -->
 # **div** e **span**
 ## Agrupando outros elementos HTML
@@ -634,3 +909,9 @@ espaço dentro da caixa.
 ![](../../images/box-model-product-border-box-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
 :::
 
+---
+<!-- {"layout": "centered"} -->
+# Referências
+
+1. Capítulos 9 (parcial), 10 e 11 (parcial) do livro
+1. Mozilla Developer Network (MDN)
