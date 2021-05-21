@@ -2,6 +2,25 @@
 # **CSS** parte 2
 ## Especificidade, propriedade display e posicionamento
 
+---
+# Na última aula... (1/3)
+
+- Além de selecionar por _tag_, id ou classe, há diversos **outros seletores**:
+
+descend./filho <!-- {dl:.no-margin} -->
+  ~ `p strong`: todo `<strong>` descendente de `<p>` (filho, neto etc.)
+  ~ `p > strong`: todo `<strong>` filho direto de `<p>`
+
+atributo
+  ~ `img[alt]`: toda `<img>` que tem atributo `alt="..."`
+  ~ `a[href$=".html"]`: todo `<a>` apontando para um `.html` etc.
+
+estado do link
+  ~ `a:link`, `a:visited`, `a:hover`, `a:active`
+
+negação
+  ~ `img:not([alt])`: `<img>` sem o atributo `alt`
+
 
 ---
 <!-- {"layout": "centered"} -->

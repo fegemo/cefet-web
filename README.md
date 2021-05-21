@@ -24,21 +24,38 @@
 <!-- {"hash": "slides"} -->
 # Aulas <small>(1/3)</small>
 
-- [História da Web](classes/intro/)
-- [HTML 1](classes/html1/) - Funcionamento da Web, Estrutura do HTML e CSS
-- [HTML 2](classes/html2/) - Listas, inline/block, Tabelas, Links e Plantas Carnívoras 🦖 (Prática)
-- [HTML 3](classes/html3/) - Ferramentas, Multimídia e a Cabeça (_i.e._, `head`)
-- [CSS 1](classes/css1/) - Seletores e Ninjas (Prática)
-- [CSS 2](classes/css2/) - Especificidade, propriedades mil, Web Fonts
-- [HTML 4](classes/html4/) - Div/Span, Box Model, Float e Unicórnios (Prática)
-- [CSS 3](classes/css3/) - Divitite e as _tags_ semânticas, visibilidade e _Layout_
-- [CSS 4](classes/css4/) - _Layout_ e o Coral 55 (Prática)
+[Intro](classes/intro/) <!-- {dl:.width-10.full-width} -->
+~ História e introdução à programação Web
+
+[HTML1](classes/html1/)
+~ Funcionamento da Web, Estrutura do HTML e CSS
+
+[HTML2](classes/html2/)
+~ Listas, inline/block, Tabelas, Links e Plantas Carnívoras 🦖
+
+[HTML3](classes/html3/)
+~ Ferramentas, Metadados, DIV/SPAN e o Box Model
+
+[CSS 1](classes/css1/)
+~ Reaproveitamento, História, Seletores float/clear e Abelhas 🐝
+
+[CSS 2](classes/css2/)
+~ Especificidade de seletores, prop. display, posicionamento
+
+[HTML4](classes/html4/)
+~ Tags semânticas, pseudocoisas, entrada/botões e Assombrações👻
+
+[JS 1](classes/js1/) 
+~ História, sintaxe básica (tipos, variáveis, funções)
+
+[JS 2](classes/js2/)
+~ DOM, alteração de atributo, eventos e a Exploração Espacial 👽
 
 ---
 # Aulas <small>(2/3)</small>
 
-- [Javascript 1](classes/js1/) - Linguagem
-- [Javascript 2](classes/js2/) - DOM, Eventos, o Espaço e RPG (Prática)
+- [CSS 3](classes/css3/) - Divitite e as _tags_ semânticas, visibilidade e _Layout_
+- [CSS 4](classes/css4/) - _Layout_ e o Coral 55 (Prática)
 - [HTML 5](classes/html5/) - Formulários e Monstros (Prática)
 - [Javascript 5](classes/js5/) - APIs do HTML5
 - [Javascript 4](classes/js4/) - JSON e AJAX (Prática)
