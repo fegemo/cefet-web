@@ -504,13 +504,13 @@ Repare que, por padrão, as células `<th>` ficam em <span style="font-weight: b
 
 - <iframe width="360" height="165" src="https://jsfiddle.net/danielhasan/nmrbhqkb/23/embedded/result,css,html/" allowfullscreen="allowfullscreen" frameborder="0" class="push-right" style="margin-top: -1em"></iframe>
   Ao adicionar a borda nas células de uma tabela o resultado ficaria assim ➡️
-  <pre class="hljs compact-code-more"><code>td {
+  <pre class="hljs compact-code-more"><code>td, th {
     border: 1px solid black;
   }</code></pre>
 - <iframe width="360" height="200" src="https://jsfiddle.net/danielhasan/nmrbhqkb/24/embedded/result,css,html/" allowfullscreen="allowfullscreen" frameborder="0" class="push-right" style="clear: right; margin-top: 2em"></iframe>
   
   Para mudarmos isso, usamos na tabela `border-collapse: collapse` <!-- {style="white-space: nowrap"} -->: <!-- {li:.two-column-code} --> <!-- {ul:.bulleted-0} -->
-  <pre class="hljs compact-code-more two-column-code"><code>td {
+  <pre class="hljs compact-code-more two-column-code"><code>td, th {
     border: 1px solid black;
   }
   table {
