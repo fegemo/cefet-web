@@ -692,7 +692,7 @@ Vamos conhecer um nova propriedade: `float`
 - Repare os **parágrafos** (`block`) e o **texto** dentro deles (`inline`)...
 
 ---
-<!-- {"layout": "main-point", "state": "emphatic"} -->
+<!-- {"layout": "main-point", "state": "emphatic", "hash": "problemas-com-flutuacao"} -->
 ## Possíveis "problemas" com flutuação
 
 ![](../../images/exemplo-float-problema-clear.png)
