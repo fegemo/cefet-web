@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Programação Web",
+  "description": "Curso de Programação Web (HTML, CSS, JavaScript e back-ends) do CEFET-MG.",
+  "courseCode": "DECOM.57",
+  "numberOfCredits": 4,
+  "educationalLevel": "beginner",
+  "learningResourceType": "presentation",
+  "teaches": "Programação Web, HTML, CSS, JavaScript, back-ends",
+  "author": {
+    "@type": "Person",
+    "name": "Flávio Coutinho",
+    "jobTitle": "Professor Efetivo do Ensino Básico, Técnico e Tecnológico",
+    "image": "https://fegemo.github.io/cefet-web/images/flavio-avatar.jpg"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Centro Federal de Educação Tecnológica de Minas Gerais",
+    "sameAs": "https://cefetmg.br"
+  },
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "datePublished": "2014-09-18",
+  "dateModified": "<!-- @echo LAST_MODIFICATION -->"
+}

@@ -24,6 +24,10 @@ const browserify = require('browserify')
 
 const isDist = process.argv.indexOf('dev') === -1
 
+function dateToday() {
+  return new Date().toISOString().slice(0, 10)
+}
+
 function clean(cb) {
   del('dist', cb)
 }
@@ -72,8 +76,9 @@ function html() {
           NODE_ENV: isDist ? 'production' : 'development',
           DEBUG: true,
           FOLDER: '',
-          SPECIFIC_TITLE: ''
-        },
+          SPECIFIC_TITLE: '',
+          LAST_MODIFICATION: dateToday()
+        }
       })
     )
     .pipe(replace('{path-to-root}', '.'))
@@ -135,7 +140,7 @@ function cssClasses() {
     )
     .pipe(autoprefixer())
     .pipe(csso())
-    .pipe(rename(path => void (path.extname = '.min' + path.extname)))
+    .pipe(rename(p => void (p.extname = '.min' + p.extname)))
     .pipe(dest(destination))
     .pipe(connect.reload()))
 
@@ -151,11 +156,11 @@ function manifest() {
     .pipe(connect.reload())
 }
 
-function copierTaskGenerator(taskName, source, destination) {
+function copierTaskGenerator(taskName, sourceLocation, destination) {
   const name = Symbol(taskName)
   const obj = {
     [name]: () =>
-      src(source)
+      src(sourceLocation)
         .pipe(changed(destination))
         .pipe(dest(destination))
         .pipe(connect.reload())
@@ -193,7 +198,8 @@ function build() {
             NODE_ENV: isDist ? 'production' : 'development',
             DEBUG: true,
             FOLDER: folder,
-            SPECIFIC_TITLE: ` - ${folder.substr(folder.lastIndexOf('/') + 1).toUpperCase()}`
+            SPECIFIC_TITLE: ` - ${folder.substr(folder.lastIndexOf('/') + 1).toUpperCase()}`,
+            LAST_MODIFICATION: dateToday()
           }
         })
       )
