@@ -71,6 +71,8 @@ function html() {
         context: {
           NODE_ENV: isDist ? 'production' : 'development',
           DEBUG: true,
+          FOLDER: '',
+          SPECIFIC_TITLE: ''
         },
       })
     )
@@ -189,7 +191,9 @@ function build() {
         preprocess({
           context: {
             NODE_ENV: isDist ? 'production' : 'development',
-            DEBUG: true
+            DEBUG: true,
+            FOLDER: folder,
+            SPECIFIC_TITLE: ` - ${folder.substr(folder.lastIndexOf('/') + 1).toUpperCase()}`
           }
         })
       )
