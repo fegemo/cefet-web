@@ -31,7 +31,8 @@ body
   font-size $page-header-height
   transition height 200ms ease-out, transform 200ms ease-out
   transform translate3d(0, -($page-header-height / 2), 0)
-  &:hover
+  &:hover,
+  &.showing
     transform translate3d(0, 0, 0)
     + #presentation-container
       transform translate3d(0, $page-header-height-expanded, 0)
@@ -39,7 +40,8 @@ body
 @media screen and (orientation: portrait)
   #page-header
     font-size $page-header-height-portrait
-    &:hover + #presentation-container
+    &:hover + #presentation-container,
+    &.showing + #presentation-container
       transform translate3d(0, $page-header-height-expanded-portrait, 0)
 
 #page-title
