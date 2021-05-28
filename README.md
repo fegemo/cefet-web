@@ -34,7 +34,7 @@
 ~ Listas, inline/block, Tabelas, Links e Plantas Carnívoras 🦖
 
 [HTML3](classes/html3/)
-~ Ferramentas, Metadados, DIV/SPAN e o Box Model
+~ Ferramentas, Metadados, Multimídia e DIV/SPAN
 
 [CSS 1](classes/css1/)
 ~ Reaproveitamento, História, Seletores float/clear e Abelhas 🐝
@@ -43,7 +43,7 @@
 ~ Especificidade de seletores, prop. display, posicionamento
 
 [HTML4](classes/html4/)
-~ Tags semânticas, pseudocoisas, entrada/botões e Assombrações👻
+~ Tags semânticas, pseudocoisas, entrada/botões, o Box Model e Assombrações 👻
 
 [JS 1](classes/js1/) 
 ~ História, sintaxe básica (tipos, variáveis, funções)

@@ -1,6 +1,6 @@
 <!-- {"layout": "title"} -->
 # **HTML** parte 3
-## Ferramentas, Metadados, DIV/SPAN e o Box Model
+## Ferramentas, Metadados, Multimídia e DIV/SPAN
 
 ---
 # Na última aula... <small>(1/4)</small>
@@ -72,7 +72,6 @@
 1. [Metadados](#metadados) das páginas
 1. Elementos [Multimídia](#multimidia)
 1. Elementos [DIV e SPAN](#div-e-span)
-1. [O _Box Model_](#o-box-model)
 
 ---
 <!-- {"layout": "section-header", "hash": "editores-de-texto"} -->
@@ -164,6 +163,7 @@
 ## Informação sobre a página
 
 - Tag `<meta>`
+- Dados estruturados
 - Codificação do arquivo
 - Versão do HTML
 <!-- {ul:.content} -->
@@ -279,6 +279,111 @@
     <meta name="color-scheme" 
             content="only light">
     ```
+
+---
+<!-- {"layout": "2-column-content", "classes": "compact-code-more", "slideStyles": {"grid-template-rows": "auto auto 1fr"}} -->
+## Compartilhamento em mídias sociais
+
+- Para que meios de compartilhamento consigam gerar _cards_: <!-- {ul:.span-columns} -->
+
+1. <!-- {ol:.no-padding.no-margin.no-bullets} -->
+   ::: figure
+   ```html
+   <meta property="twitter:card" content="summary">
+   <meta property="twitter:title" 
+         content="Programação Web">
+   <meta property="twitter:description"
+         content="Slides...">
+   <meta property="twitter:image" 
+         content="https://site.com/capa-1x1.webp">
+   <meta property="twitter:image:alt"
+         content="Capa dos slides...">
+   ```
+   <figcaption>Twitter</figcaption>
+   :::
+   ![](../../images/social-card-twitter.webp) <!-- {.large-width.bordered.rounded} -->
+
+- ::: figure
+  ```html
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Programação Web">
+  <meta property="og:description"
+        content="Slides do curso de...">
+  <meta property="og:image"
+        content="https://site.com/capa-wide.webp">
+  <meta property="og:image:width" content="2354">
+  <meta property="og:image:height" content="1356">
+  <meta property="og:image:alt"
+        content="Capa dos slides com os dizeres...">
+  <meta property="og:url" 
+        content="https://fegemo.github.io/cefet-web/">
+  <meta property="og:local" content="pt_BR">
+  ```
+  <figcaption>Facebook et al.</figcaption>
+  :::
+  - Para gerar: [metatags.io][metatags.io] <!-- {target="_blank"} -->
+    <!-- {ul^1:.bulleted.no-bullets.no-padding.no-margin} -->
+
+[metatags.io]: https://metatags.io
+
+---
+<!-- {"layout": "2-column-content", "classes": "compact-code-more"} -->
+## _Rich Snippets_ em buscadores <small>(<a href="https://www.bloomingdales.com/shop/product/chloe-faye-small-leather-shoulder-bag?ID=1273751" target="_blank">visitar exemplo</a>)</small>
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "Faye Small Leather Shoulder Bag",
+  "category": "Handbags",
+  "brand": {
+      "@type": "Brand", "name": "Chloé"
+  },
+  "image": "https://images.bloomingdalesassets...",
+  "productID": "1273751",
+  "url": "https://www.bloomingdales.com/shop/...",
+  "description": "Shop Faye Small Leather...",
+  "offers": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Product",
+        "color": "Black/Gold/Silver"
+      },
+      "price": "1450.00", "priceCurrency": "USD",
+      "url": "https://www.bloomingdales.com/...",
+      "availability": "http://schema.org/InStock"
+    }
+  ],
+```
+
+- ```js
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 3.5, "reviewCount": 4,
+      "bestRating": 5, "worstRating": 0
+    },
+    "review": [{
+      "@type": "Review",
+      "description": "This bag is gorgeous...",
+      "name": "Gorg!",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5, "worstRating": 1
+      }
+    }]
+  }
+  </script>
+  ```
+  ![](../../images/rich-snippet-google.webp) <!-- {.large-width.block.centered.rounded.bordered} -->
+  - Google: [_Intro to structured data_][structured-data]
+    <!-- {ul^1:.no-bullets.no-padding.no-margin.bulleted} -->
+    <!-- {ul^0:.no-padding.no-bullets} -->
+    <!-- {a:target="_blank"} -->
+
+[structured-data]: https://developers.google.com/search/docs/guides/intro-structured-data#structured-data
 
 ---
 ## Codificação **Unicode** e UTF-8
@@ -811,103 +916,6 @@ h1, h2 {
     O preço da <span class="produto">camisa adornada</span> é
     de <span class="preco">R$ 29,90</span>.
     ```
-
----
-<!-- {"layout": "section-header", "hash": "o-box-model"} -->
-# O _Box Model_
-## Como os elementos são "vistos" pelo navegador
-
-- Componentes da caixa
-- `width` e `height`
-- Alterando o _box-model_
-<!-- {ul:.content} -->
-
----
-<!-- {"embeddedStyles": ".box-model-part {color: #333; border-radius: 4px; font-style: normal; padding: 1px 3px; } .box-model-part code { background: initial; }"} -->
-## _Box Model_ ([na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/box_model))
-
-- ![](../../images/box-model.png) <!-- {.push-right} -->
-  O navegador enxerga todo elemento de conteúdo como uma "caixa"
-- A "caixa" é formada por:
-  - Espaço do _conteúdo_ <!-- {.box-model-part style="background: #8bb4c0;"} -->
-  - Espaço de _preenchimento (`padding`)_ <!-- {em:.box-model-part style="background: #c2ce89;"} -->
-  - Bordas _(`border`)_ <!-- {em:.box-model-part style="background: #fddc9a;"} -->
-  - Espaço _externo (`margin`)_ <!-- {em:.box-model-part style="background: #f9cc9d;"} -->
-
-<!-- {ul^1:style="margin-bottom: 0;"} -->
-
-![](../../images/box-model-sample.png) <!-- {p:.flex-align-center.no-margin.invert-colors-dark-mode} -->
-
----
-<!-- {"layout": "centered-horizontal"} -->
-## Visualizando a caixa de um elemento
-
-<video src="https://fegemo.github.io/cefet-front-end/videos/tools-box-model.mp4" height="440" controls onloadstart="this.volume=0.1"></video>
-
----
-## _Box Model_: **largura** e **altura**
-
-- Quando definimos a **largura** (`width`) ou **altura** (`height`) de
-  um elemento, estamos definindo o tamanho
-  do _conteúdo da caixa_, <!-- {em:.box-model-part style="background: #8bb4c0;"} -->
-  e não da caixa inteira
-
-::: figure .figure-slides.flex-align-center.clean.invert-colors-dark-mode
-![](../../images/box-model-product-0.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-![](../../images/box-model-product-1.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-![](../../images/box-model-product-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-![](../../images/box-model-product-3.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-![](../../images/box-model-product-4.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-![](../../images/box-model-product-5.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-:::
-
----
-<!-- {"layout": "tall-figure-right"} -->
-## **Dimensionando** um elemento
-
-::: did-you-know .push-right width: 320px; margin-right: 6px;
-Elementos `inline` ignoram os valores de:
-- `width`, `height`
-- `margin-top`
-- `margin-bottom`
-:::
-
-- Se sabemos a dimensão total de um elemento, que também contém
-  `padding` e/ou `border`, como calcular seus (`width`, `height`)?
-  ::: figure .figure-slides.push-right.invert-colors-dark-mode
-  ![](../../images/box-model-determine-dimensions-1.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded} -->
-  ![](../../images/box-model-determine-dimensions-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded} -->
-  ![](../../images/box-model-determine-dimensions-3.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded} -->
-  ![](../../images/box-model-determine-dimensions-4.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded} -->
-  :::
-- Contudo, fazer essa conta "nós mesmos" pode resultar em erros... <!-- {li:.bullet} -->
-  - É possível mudar isso!
-
----
-<!-- {"layout": "2-column-content", "slideStyles": {"grid-template-columns": "1fr auto"}, "embeddedStyles": ".max-width img{max-width:100%;}"} -->
-## Alterando o _box model_
-
-- É possível alterar o significado da `width` e `height` de um elemento <!-- {ul:.no-bullets.no-padding} -->
-   **usando _a propriedade `box-sizing`_** <!-- {em:.underline.upon-activation.delay-3000} -->:
-  - `box-sizing: content-box` (valor padrão)
-    - `width` = largura do _conteúdo_ <!-- {.box-model-part style="background: #8bb4c0;"} -->
-  - `box-sizing: border-box`
-    - `width` = _conteúdo_ <!-- {.box-model-part style="background: #8bb4c0;"} --> +
-      _padding_ <!-- {.box-model-part style="background: #c2ce89;"} --> +
-      _border_ <!-- {.box-model-part style="background: #fddc9a;"} -->
-    - Esta forma é mais intuitiva :thumbsup: :thumbsup: :thumbsup: <!-- {ul^2:style="margin-bottom: 0.25em"} -->
-
-::: did-you-know .push-right width: 284px; margin-left: 6px; padding-right: 0.5em
-As **margens** do elemento formam um **espaçamento externo** e não usam
-espaço dentro da caixa.
-:::
-
-::: figure .clean.span-columns.figure-slides.max-width.centered.invert-colors-dark-mode margin:0 auto; width: calc(100% - 290px); clear: both;
-![](../../images/box-model-product-0.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-![](../../images/box-model-product-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-![](../../images/box-model-product-border-box-1.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-![](../../images/box-model-product-border-box-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
-:::
 
 ---
 <!-- {"layout": "centered"} -->
