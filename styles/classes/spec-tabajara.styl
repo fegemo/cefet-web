@@ -11,6 +11,14 @@
   border: 1px solid silver;
   padding: 10px 25px;
   background-color: whitesmoke;
+  cursor pointer
+  box-shadow 2px 2px 4px #0002
+  transition all 100ms ease
+  &:active
+    transform translate(2px, 2px)
+    box-shadow 0px 0px 4px #0002
+  &:hover
+    border-color #333
 
 #spec-tabajara > div
   margin-bottom 20px
@@ -22,6 +30,7 @@
   display inline-block
   float left
   text-align center
+  font-size 0.7em
 
   &:nth-child(1)
     background-color cornflowerblue

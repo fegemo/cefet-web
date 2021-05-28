@@ -42,7 +42,7 @@ negação
 
 - Mais de uma regra definindo a mesma propriedade
 - Regras de especificidade
-- Especificator Tabajara(tm)
+- CoutoSan Especificator(tm)
 <!-- {ul:.content} -->
 
 ---
@@ -102,39 +102,54 @@ Regra 5
 ## Cálculo da **pontuação de especificidade**
 
 - [Especificação na W3C sobre _CSS3 Selectors_](http://www.w3.org/TR/css3-selectors/#specificity)
-- Algoritmo
-  1. Contar o número de IDs no seletor (variável `a`)
-  1. Contar o número de classes, atributos e pseudo-classes no seletor (`b`)
-  1. Contar o número de tags e pseudo-elementos no seletor (`c`)
-  1. Concatenar os três números (`abc`)
+- Algoritmo: <!-- {ul:style="margin-bottom: 0"} -->
 
-```css
-#posts-recentes .post.novidade > h2 {
-  /* id: 1, classes: 2, tag: 1 */
-  /* pontuação: 121 */
-}
-```
+**A** <!-- {dl:.width-10.full-width} -->
+~ Contar o número de IDs no seletor
 
----
-## Exemplos
+**B**
+~ Contar o número de classes, atributos e pseudo-classes no seletor
 
-```css
-/* seletor { propriedades }  abc */
-li { }                    /* 001 */
-.destaque { }             /* 010 */
-li.destaque { }           /* 011 */
+**C**
+~ Contar o número de _tags_ e pseudo-elementos no seletor
 
-#rodape { }               /* 100 */
-#rodape #logo { }         /* 200 */
+.
+~ Concatenar os três números (**ABC**)
 
-a[href^="www"] { }        /* 011 */
-p strong em { }           /* 003 */
-```
+- ```css
+  #posts-recentes .post.novidade > h2 {
+    /* id: 1, classes: 2, tag: 1 */
+    /* pontuação: 121 */
+  }
+  ```
+  <!-- {ul:.no-bullets.no-padding.no-margin.full-width.compact-code} -->
 
 ---
-## Exercício
+<!-- {"layout": "2-column-content"} -->
+## Exemplos e Exercício
 
-- Qual é a cor do texto?
+1. Exemplos:
+   ```css
+   /* seletor { propriedades }  abc */
+   li { }                    /* 001 */
+   .destaque { }             /* 010 */
+   li.destaque { }           /* 011 */
+
+   #rodape { }               /* 100 */
+   #rodape #logo { }         /* 200 */
+
+   a[href^="www"] { }        /* 011 */
+   tr:hover { }              /* 011 */
+   .curiosidade::before { }  /* 011 */
+
+   ul li { }                 /* 002 */
+   ul > li { }               /* 002 */
+   h1, h2 { }           /* 001, 001 */
+   ```
+   <!-- {ol:.no-padding.no-bullets.no-margin.compact-code} -->
+
+- <!-- {ul:.no-bullets.no-margin.no-padding.compact-code} -->
+  Qual é a cor do texto?
   ```html
   <style>
     #a .b .c { color: red; }
@@ -143,11 +158,12 @@ p strong em { }           /* 003 */
   </style>
   <p id="a" class="d g">
       <strong class="b e h">
-          <em id="i" class="c f">Qual é a minha cor?</em>
+          <em id="i" class="c f">Texto</em>
       </strong>
   </p>
   ```
   - [Resposta](https://jsfiddle.net/fegemo/bw1xt1az/) no JSFiddle
+
 
 ---
 <!--
@@ -767,4 +783,4 @@ referência" para os filhos que estiverem com `position: absolute`
 
 - Capítulo 8 do livro
 - [keeganstreet/specificity](https://github.com/keeganstreet/specificity)
-  - O código por trás do Specificator Tabajara
+  - O código por trás do CoutoSan(tm) Especificator

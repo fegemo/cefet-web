@@ -9,6 +9,7 @@
 1. Divitite e as [_tags_ semânticas](#tags-semanticas)
 1. [Pseudo-elements e pseudo-classes](#pseudo-classes-e-pseudo-elements)
 1. [Elementos de entrada e botões](#elementos-de-entrada-e-botoes)
+1. O [_Box Model_](#o-box-model)
 1. Atividade: [Assombrações 👻](#assombracoes)
 
 ---
@@ -533,7 +534,7 @@ _Pseudo-element_
     <input type="radio" name="cor" value="verde">Verde
   </label>
   ```
-1. ![](../../images/old-radio-button.jpg) <!-- {style="max-width: 80%; margin-top: 1.5em;"} --> <!-- {ol:.no-bullets.no-padding.center-aligned.no-margin} -->
+1. ![](../../images/old-radio-button.webp) <!-- {.rounded.bordered style="max-width: 80%; margin-top: 1.5em;"} --> <!-- {ol:.no-bullets.no-padding.center-aligned.no-margin} -->
    ::: result
      <div><label>
        <input type="radio" name="cor" value="azul"> Azul
@@ -581,6 +582,166 @@ _Pseudo-element_
 <!-- {table:.aero-rows} -->
 
 ---
+<!-- {"hash": "botoes-de-acao"} -->
+## **Botões** de ação
+
+- É possível criar botões com o elemento `<button>texto</button>`, em que:
+  - `texto` é o que aparece dentro do botão: <!-- {ul:.bulleted-0} -->
+    ```html
+    <button id="delicia">Sou um delicioso botão</button>
+    ```
+    ::: result
+    <button>Sou um delicioso botão</button> - mas não acontece nada?!
+    :::
+  - Para atribuir comportamento ao clique do botão, **é necessário usar
+    JavaScript!**
+    ```js
+    let botaoDeliciaEl = document.querySelector('#delicia');
+    botaoDeliciaEl.addEventListener('click', function() {
+      console.log(':3');
+    });     // veremos como isso funciona n'outra aula!!
+
+---
+<!-- {"layout": "section-header", "hash": "o-box-model"} -->
+# O _Box Model_
+## Como os elementos são "vistos" pelo navegador
+
+- Componentes da caixa
+- `width` e `height`
+- Alterando o _box-model_
+<!-- {ul:.content} -->
+
+---
+<!-- {"backdrop": "oldtimes"} -->
+## Margem e _Padding_
+
+![Desenho de máscara de festa a fantasia](../../images/margin-and-padding.svg) <!-- {p:.flex-align-center.medium-width.invert-colors-dark-mode} --> <!-- {.full-width} -->
+
+**`padding`** 
+~ Espaçamento interno, da borda para dentro
+
+**`border`**
+~ Tamanho da borda
+
+**`margin`**
+~ Espaçamento externo, da borda para fora
+
+---
+<!-- {"layout": "2-column-content", "backdrop": "oldtimes"} -->
+## Margem e _Padding_ - Exemplo
+
+<iframe width="100%" height="450" src="https://jsfiddle.net/fegemo/ovt08qcb/embedded/result,css,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+- Todo elemento pode ter:
+  1. `padding` (esp. interno)
+  1. uma borda
+  1. `margin` (esp. externo)
+- Versão sem atalho ou com: <!-- {li:.two-column-code.compact-code-more} -->
+  ```css
+  margin-top: 12px;
+  margin-right: 3px;
+  margin-bottom: 6px;
+  margin-left: 9px;
+
+  margin: 12px 3px 6px 9px;
+  /*
+   ordem: ⬆️  ➡️  ⬇️  ⬅️
+   (tipo um relojinho)
+  */
+  ```
+  - Mesmo vale para `padding`
+- Na vertical, as margens colapsam:
+  - Margem: max(cima, baixo)
+
+
+---
+<!-- {"embeddedStyles": ".box-model-part {color: #333; border-radius: 4px; font-style: normal; padding: 1px 3px; } .box-model-part code { background: initial; }"} -->
+## _Box Model_ <small>([na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/box_model))</small>
+
+- ![](../../images/box-model.png) <!-- {.push-right} -->
+  O navegador enxerga todo elemento de conteúdo como uma "caixa"
+- A "caixa" é formada por:
+  - Espaço do _conteúdo_ <!-- {.box-model-part style="background: #8bb4c0;"} -->
+  - Espaço de _preenchimento (`padding`)_ <!-- {em:.box-model-part style="background: #c2ce89;"} -->
+  - Bordas _(`border`)_ <!-- {em:.box-model-part style="background: #fddc9a;"} -->
+  - Espaço _externo (`margin`)_ <!-- {em:.box-model-part style="background: #f9cc9d;"} -->
+
+<!-- {ul^1:style="margin-bottom: 0;"} -->
+
+![](../../images/box-model-sample.png) <!-- {p:.flex-align-center.no-margin.invert-colors-dark-mode} -->
+
+---
+<!-- {"layout": "centered-horizontal"} -->
+## Visualizando a caixa de um elemento
+
+<video src="https://fegemo.github.io/cefet-front-end/videos/tools-box-model.mp4" height="440" controls onloadstart="this.volume=0.1"></video>
+
+---
+## _Box Model_: **largura** e **altura**
+
+- Quando definimos a **largura** (`width`) ou **altura** (`height`) de
+  um elemento, estamos definindo o tamanho
+  do _conteúdo da caixa_, <!-- {em:.box-model-part style="background: #8bb4c0;"} -->
+  e não da caixa inteira
+
+::: figure .figure-slides.flex-align-center.clean.invert-colors-dark-mode
+![](../../images/box-model-product-0.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+![](../../images/box-model-product-1.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+![](../../images/box-model-product-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+![](../../images/box-model-product-3.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+![](../../images/box-model-product-4.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+![](../../images/box-model-product-5.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+:::
+
+---
+<!-- {"layout": "tall-figure-right"} -->
+## **Dimensionando** um elemento
+
+::: did-you-know .push-right width: 320px; margin-right: 6px;
+Elementos `inline` ignoram os valores de:
+- `width`, `height`
+- `margin-top`
+- `margin-bottom`
+:::
+
+- Se sabemos a dimensão total de um elemento, que também contém
+  `padding` e/ou `border`, como calcular seus (`width`, `height`)?
+  ::: figure .figure-slides.push-right.invert-colors-dark-mode
+  ![](../../images/box-model-determine-dimensions-1.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded} -->
+  ![](../../images/box-model-determine-dimensions-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded} -->
+  ![](../../images/box-model-determine-dimensions-3.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded} -->
+  ![](../../images/box-model-determine-dimensions-4.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded} -->
+  :::
+- Contudo, fazer essa conta "nós mesmos" pode resultar em erros... <!-- {li:.bullet} -->
+  - É possível mudar isso!
+
+---
+<!-- {"layout": "2-column-content", "slideStyles": {"grid-template-columns": "1fr auto"}, "embeddedStyles": ".max-width img{max-width:100%;}"} -->
+## Alterando o _box model_
+
+- É possível alterar o significado da `width` e `height` de um elemento <!-- {ul:.no-bullets.no-padding} -->
+   **usando _a propriedade `box-sizing`_** <!-- {em:.underline.upon-activation.delay-3000} -->:
+  - `box-sizing: content-box` (valor padrão)
+    - `width` = largura do _conteúdo_ <!-- {.box-model-part style="background: #8bb4c0;"} -->
+  - `box-sizing: border-box`
+    - `width` = _conteúdo_ <!-- {.box-model-part style="background: #8bb4c0;"} --> +
+      _padding_ <!-- {.box-model-part style="background: #c2ce89;"} --> +
+      _border_ <!-- {.box-model-part style="background: #fddc9a;"} -->
+    - Esta forma é mais intuitiva :thumbsup: :thumbsup: :thumbsup: <!-- {ul^2:style="margin-bottom: 0.25em"} -->
+
+::: did-you-know .push-right width: 284px; margin-left: 6px; padding-right: 0.5em
+As **margens** do elemento formam um **espaçamento externo** e não usam
+espaço dentro da caixa.
+:::
+
+::: figure .clean.span-columns.figure-slides.max-width.centered.invert-colors-dark-mode margin:0 auto; width: calc(100% - 290px); clear: both;
+![](../../images/box-model-product-0.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+![](../../images/box-model-product-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+![](../../images/box-model-product-border-box-1.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+![](../../images/box-model-product-border-box-2.png)<!-- {.bullet.figure-step.bullet-no-anim.rounded.bordered} -->
+:::
+
+---
 <!-- {"layout": "section-header", "hash": "assombracoes"} -->
 # Assombrações :ghost:
 ## Faça o **Blog Assombrado**
@@ -590,14 +751,13 @@ _Pseudo-element_
 <!-- {ul:.content} -->
 
 ---
-<!-- {"backdrop": "assombrado-position"} -->
+<!-- {"backdrop": "assombrado"} -->
 
 ---
 # Atividade de Hoje
 
 - Completar a página inicial do "Blog Assombrado"
-- [Baixe os arquivos][assombrado-seminal] contendo o HTML e faça os exercícios
-  - O resultado final tem que ser semelhante ao [desta imagem](../../images/assombrado.jpg)
+- "Forke" o repositório do [Blog Assombrado 👻][assombrado-seminal]
   - Leia as instruções detalhadas no arquivo `README.md`. No geral:
     1. Converter as `<div>`s e `<span>`s em _tags_ semânticas
        - Pode haver algumas que não possuem _tags_ semânticas
@@ -606,27 +766,33 @@ _Pseudo-element_
     1. _Tags_ parecendo botões
     1. Títulos em cima das imagens
     1. Botão "voltar ao topo"
-    1. +3 desafios ;)
+    
 
-[assombrado-seminal]: https://github.com/fegemo/cefet-front-end-assombrado/archive/master.zip
+[assombrado-seminal]: https://github.com/fegemo/cefet-web-assombrado
 
 ---
 <!-- {"hash": "transformando-lista-em-menu"} -->
 ## Transformando uma lista em **um menu**
 
-- É muito comum que um site tenha um "menu principal" que é uma **lista de itens
-  na horizontal** <!-- {.underline.upon-activation} -->. #comofaz?
-  1. ![](../../images/ul-default-padding.png) <!-- {.push-right} --> **Tirar
+- ![](../../images/ul-default-padding.png) <!-- {.push-right width="228"} -->
+  É muito comum que um site tenha um "menu principal" que é uma **lista de itens
+  na horizontal** <!-- {.underline.upon-activation} -->
+  1. <!-- {ol:.bulleted-0} -->
+     **Tirar
      o `padding-left`** da `<ul>` ➡️
-  1. Transformar **`<li>`s em `inline-block`** ou **usar flexbox para a `<ul>`** <!-- {strong:.alternate-color} --> 🌟
-  1. Tirar "bolinha" do item:
+  1. <!-- {li:.push-code-right.compact-code-more} -->
+     Tirar "bolinha" do item ➡️
      ```css
-     #menu-principal li {
+     ul {
        list-style-type: none;
      }
      ```
-  1. Colocar uma **margem lateral** entre os `<li>`s
-  1. Estilizar o `<li>` no estado de `:hover` para mostrar que ele é "clicável"
+  1. Transformar **`<li>`s em `inline-block`** ou **usar flexbox para a `<ul>`** <!-- {strong:.alternate-color} --> 🌟
+  1. Colocar um `padding` nos hyperlinks para aumentar a área "clicável"
+     - Para `padding-top` e `-bottom` funcionarem, transformar em `inline-block`
+  1. (OPCIONAL) Colocar uma **margem lateral** entre os `<li>`s
+  1. (OPCIONAL) Fazer um efeito de _hover_ nos hyperlinks
+
 
 ---
 <!-- {"layout": "centered"} -->
