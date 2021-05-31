@@ -166,13 +166,14 @@
 
 1996
   ~ Juntamente com Bert Bos, Håkon publica a especificação do  **CSS1**
+
 1998
   ~ Já gerenciado pela W3C, o **CSS2** foi publicado
 
-1998 - 2014
+1999 - atual
   ~ Desenvolvimento da especificação do **CSS3** (_living standard_)
 
-2013
+1999 - 2016
   ~ Håkon tornou-se CTO na _Opera Software_
 
 *[CERN]: European Organization for Nuclear Research*
@@ -453,9 +454,9 @@ a[href$=".br"] {        /* href termina com .br */
     a:active {
       color: gold;  /* [c] */
     }
-
-
-
+    a:visited {
+      color: gray;  /* [d] */
+    }
     ```
     ::: result
     [Um link](#um-link) <!-- {a:.link} -->
@@ -464,6 +465,7 @@ a[href$=".br"] {        /* href termina com .br */
     - [a] situação inicial `:link`
     - [b] mouse em cima: `:hover`
     - [c] começo do valor: `:active`
+    - [d] já visitado: `:visited`
     - Repare que os seletores `:hover` e `:active` podem ser **usados com outros elementos**:
       ```css
       tr {
@@ -734,13 +736,15 @@ Vamos conhecer um nova propriedade: `float`
 ---
 # Abelhas :honeybee: e suas castas
 
-1. [Baixe as imagens e páginas](https://github.com/fegemo/cefet-front-end-bees/archive/master.zip)
-   que serão usados
-   1. Descompacte o arquivo `cefet-front-end-bees-master.zip` na área de trabalho
-      - Isto criará uma pasta com o nome `cefet-front-end-bees-master` lá
-   1. **Renomeie** a pasta criada na área de trabalho para `site-abelhas`
-      - Esta é a **pasta raiz** do site - onde devem ficar os arquivos `.html`
-   1. Veja [instruções detalhadas aqui](https://github.com/fegemo/cefet-front-end-bees/blob/master/README.md)
+1. Crie um _fork_ do repositório
+   - https://github.com/fegemo/cefet-web-bees/
+1. Veja [instruções detalhadas aqui](https://github.com/fegemo/cefet-web-bees/blob/master/README.md)
+1. Vamos estilizar a página das abelhas conforme o enunciado. Ex:
+   - Fundo com gradiente
+   - Imagens flutuantes
+   - Topo da página com fundo
+   - Estilizações com seletores diversos
+   - Bordas arredondadas
 
 ---
 <!-- {"hash": "arredondando-bordas"} -->
@@ -774,7 +778,7 @@ Vamos conhecer um nova propriedade: `float`
 
 - ### **Nomes** <!-- {ul:.no-bullets.no-padding.no-margin} -->
   <pre class="hljs"><code><span class="color-portrait red"></span> red
-  <span class="color-portrait ciano"></span> ciano
+  <span class="color-portrait cyan"></span> cyan
   <span class="color-portrait gold"></span> gold
   <span class="color-portrait forestgreen"></span> forestgreen
   <span class="color-portrait cornflowerblue"></span> cornflowerblue
@@ -791,7 +795,7 @@ Vamos conhecer um nova propriedade: `float`
 1. Exemplo: <!-- {ol:.no-bullets.no-padding.no-margin} -->
    ```css
    p {
-     color: ciano;
+     color: cyan;
    }
    ```
 - Exemplo:<!-- {ul:.no-bullets.no-padding.no-margin} -->
@@ -813,7 +817,7 @@ Vamos conhecer um nova propriedade: `float`
 
 - ### **Nomes** <!-- {ul:.no-bullets.no-padding.no-margin} --> ❌
   <pre class="hljs"><code><span class="color-portrait red"></span> red
-  <span class="color-portrait ciano"></span> ciano
+  <span class="color-portrait cyan"></span> cyan
   <span class="color-portrait gold"></span> gold
   <span class="color-portrait forestgreen"></span> forestgreen
   <span class="color-portrait cornflowerblue"></span> cornflowerblue
