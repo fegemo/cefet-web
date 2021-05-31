@@ -595,7 +595,7 @@ Imagem **vetorial** (SVG) original (pequena) e aumentada (mantém a qualidade)
 <picture>
   <source srcset="philosoraptor.avif" type="image/avif">
   <source srcset="philosoraptor.webp" type="image/webp">
-  <img src="philosoraptor.jpg" class="retrato" alt="...">
+  <img src="philosoraptor.jpg" id="retrato" alt="...">
 </picture>
 ```
 
@@ -913,8 +913,8 @@ h1, h2 {
   - Se usarmos `<div>`, vai quebrar linha (ele é `block`)
   - Então, usamos o `<span>`, que é `inline`!
     ```html
-    O preço da <span class="produto">camisa adornada</span> é
-    de <span class="preco">R$ 29,90</span>.
+    O preço da <span id="produto">camisa adornada</span> é
+    de <span id="preco">R$ 29,90</span>.
     ```
 
 ---
