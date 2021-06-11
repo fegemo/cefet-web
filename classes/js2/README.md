@@ -1,4 +1,4 @@
-# Javascript - Parte 2
+# **JavaScript** parte 2
 
 ---
 # Roteiro de hoje
@@ -88,10 +88,70 @@
   ```
 - Vamos falar muito agora sobre **`window.document`**, ou apenas `document`
 
----
+<!-- {"layout": "section-header", "hash": "o-dom"} -->
 # O DOM
+## Dando comportamento à página
 
-![Foto do Don Corleone, do filme O Poderoso Chefão](../../images/don.png) <!-- {.portrait} -->
+- Conhecendo o DOM
+- Selecionando elementos
+- Criando um evento de clique
+<!-- {ul:.content} -->
+
+*[DOM]: Document Object Model
+
+---
+<!-- {"hash": "conhecendo-o-dom"} -->
+# Conhecendo o DOM
+
+- O DOM é uma **visão dos elementos** HTML da página **como uma árvore**:
+- <!-- {.code-split-2.compact-code} -->
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>HTML</title>
+  </head>
+  <body>
+    <!-- Add your content here -->
+  </body>
+  </html>
+  ```
+  ![](../../images/dom-tree.png)
+- DOM: _Document Object Model_
+  - É a versão "viva" do código HTML da página 
+*[DOM]: Document Object Model*
+
+---
+## O objeto **document**
+
+- O objeto `document` dá acesso ao **Document Object Model**, ou DOM
+- Por exemplo, para pegar um elemento a partir de seu `id` e colocá-lo em
+  uma variável:
+  ```js
+  let botaoDeliciaEl = document.querySelector('#botao-delicia');
+  ```
+  - Agora é possível fazer várias coisas com o botão, como:
+    1. **Associar um evento de clique**
+       - Veja nos próximos slides
+    1. Pegar ou alterar seus atributos
+    1. Alterar seu texto
+    1. Alterar seu estilo
+
+---
+<!-- {"hash": "recuperando-elemento-dom"} -->
+# Selecionando um elemento
+
+- A função `document.querySelector(seletor)` permite que, a partir de um código
+  JavaScript, recuperemos um elemento do DOM
+  - Ela recebe um único **argumento** que é um **seletor CSS**. Exemplo:
+    ```js
+    let logoEl = document.querySelector('#logomarca');
+    let tabelaEl = document.querySelector('#tesouros-pirata');
+    let principalEl = document.querySelector('main');
+    ```
+    - Ela retorna um elemento HTML que pode ser alterado
+  - Também existe `document.querySelectorAll(seletor)` (repare o **`all`**),
+    que retorna mais de um elemento, mas veremos ele depois
 
 ---
 ## O objeto **document**
