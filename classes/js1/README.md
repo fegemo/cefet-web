@@ -133,6 +133,31 @@
 
 ---
 <!-- {"layout": "2-column-content"} -->
+## Onde incluir?
+
+1. O navegador precisa **baixar o arquivo JS** <!-- {style="color: #00ba00;"} -->
+   e **executá-lo** <!-- {style="color: #df0000;"} -->, enquanto faz 
+   **_parsing_ do HTML** <!-- {strong:style="color: #f1b400;"} -->
+1. Durante a execução os navegadores podem interromper o _parsing_ do HTML
+1. Regra geral: adiar a execução (para bloquear a página depois que já tiver sido desenhada) <!-- {li:.note.info style="margin-top: 1em;"} -->
+
+- <!-- {ul:.no-padding.no-bullets.no-margin.bulleted} -->
+  ```html
+  <script src="..."></script>
+  ```
+  ![](../../images/script-without-async-defer.svg) <!-- {.full-width} -->
+- ```html
+  <script src="..." async></script>
+  ```
+  ![](../../images/script-with-async.svg) <!-- {.full-width} -->
+  - Não garante a ordem
+- ```html
+  <script src="..." defer></script>
+  ```
+  ![](../../images/script-with-defer.svg) <!-- {.full-width} -->
+
+---
+<!-- {"layout": "2-column-content"} -->
 ## <span style="font-family: 'Amatica SC',cursive;">hello-world.js</span> e imprimindo no console
 
 - Um arquivo HTML pode incluir um arquivo .js <!-- {ul:.bullet.compact-code-more} -->
@@ -241,9 +266,9 @@
   - `1. Boolean` <!-- {.tipo-js.tipo-boolean} -->
   - `2. Number` <!-- {.tipo-js.tipo-number} -->
   - `3. String` <!-- {.tipo-js.tipo-string} -->
-  - `4. Null` <!-- {.tipo} -->
-  - `5. Undefined` <!-- {.tipo} -->
-  - `6. Symbol` ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} -->  <!-- {code:.tipo} --> <!-- {ul:.multi-column-list-2} -->
+  - `4. Null` <!-- {.tipo-js} -->
+  - `5. Undefined` <!-- {.tipo-js} -->
+  - `6. Symbol` ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} -->  <!-- {code:.tipo-js} --> <!-- {ul:.multi-column-list-2} -->
 - Um **tipo composto** de dados:
   `7. Object` <!-- {.tipo-js.tipo-object} -->
   - Há outros derivados de `Object`...
@@ -568,7 +593,7 @@ loja.vender(); // loja.dinheiro = 530
   const pi = Math.PI;           // a constante pi
   let a = Math.sin(1);          // seno de 1 radiano
   let b = Math.cos(pi);         // cosseno de pi radianos
-  let c = Math.pow(5, 2);       // 5 elevado a 2
+  let c = Math.pow(5, 2);       // 5 elevado a 2 (= 5**2)
   let d = Math.sqrt(100);       // raiz quadrada de 100
   let e = Math.random();        // nº aleatório entre [0, 1]
   let f = Math.round(0.5);      // arredonda p/ inteiro mais próximo (1)
@@ -620,7 +645,7 @@ dizOla();
 // imprime 'olá undefined undefined'
 ```  
 
-- Para invocar a função ← <!-- {li:.bulleted} -->
+- Para invocar a função ← <!-- {ul:.bulleted} -->
   - Dá pra chamar uma função sem passar valores para os argumentos.
     Nesse caso, o parâmetro tem valor `undefined`
 
