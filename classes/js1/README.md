@@ -1,26 +1,32 @@
 <!-- {"layout": "title"} -->
-# Javascript - Parte 1
-## História, Características e Delícias da linguagem
+# **JavaScript** parte 1
+## História e Características da linguagem
 
 ---
-<!-- {"layout": "regular"} -->
-# Roteiro
+<!-- {"layout": "centered"} -->
+# Hoje veremos...
+
+1. [História e características](#historia-e-caracteristicas)
+1. [Tipos de dados, Variáveis e Funções](#tipos-de-dados-variaveis-e-funcoes)
+1. [Condicionais, Vetores e Estruturas de Repetição](#condicionais-vetores-e-estruturas-de-repeticao)
+1. [Mais sobre funções e Métodos úteis](#mais-sobre-funcoes-e-metodos-uteis)
+
+---
+<!-- {"layout": "section-header", "hash": "historia-e-caracteristicas"} -->
+# História e características
+## Introdução a JavaScript
 
 1. História
-1. Características da linguagem
-1. Como usar em páginas web
-1. Operadores
-1. Variáveis
-1. Tipos de dados
-1. _Statements_
-1. Funções
+1. O que é JavaScript
+1. Como incluir na página
+<!-- {ol:.content} -->
 
 ---
-# História
+# História <small>(1/2)</small>
 
-1989 - 1993 <!-- {.bullet-old} -->
+1989 - 1993 <!-- {.bullet-old} --> <!-- {dl:.full-width} -->
   ~ Tim Berners-Lee cria a WWW em CERN (*European Organization for
-    Nuclear Research*) e a deixa aberta ao público geral <!-- {dd:.bullet-old} -->
+    Nuclear Research*) e a deixa aberta ao público <!-- {dd:.bullet-old} -->
 
 1994 <!-- {.bullet-old} -->
   ~ Håkon propõe uma linguagem para dar conta da responsabilidade de
@@ -29,81 +35,66 @@
 1995 (maio)
   ~ ![Foto de Brendan Eich](../../images/brendan-eich.png) <!-- {.portrait.push-right} -->
     Brendan Eich, funcionário do Netscape, criou (em 10 dias!!) uma
-    linguagem para alterar páginas web dinamicamente - o _Mocha_
+    linguagem para alterar páginas dinamicamente - o _Mocha_
 
 1995 (setembro)
   ~ _LiveScript_ (novo nome) é lançado com a versão beta do Netscape 2.0
 
-1995 (dezembro)
-  ~ Nome alterado para JavaScript na versão 2.0 oficial para
-    aproveitar a fama do Java
-
 ---
-## História (cont.)
+## História <small>(2/2)</small>
 
+1995 (dezembro)
+  ~ Nome virou JavaScript para aproveitar a fama do Java
+    
 1996 (agosto)
-  ~ Microsoft adota o JavaScript sob o nome de JScript no navegador
-    Internet Explorer 3.0
+  ~ Microsoft adota o JavaScript sob o nome de JScript
 
 1996 (novembro)
   ~ A Netscape submeteu o JavaScript para a
     _Ecma international_ para padronização. A especificação recebeu o nome de
      _ECMAScript_
 
-1997 (junho)
-  ~ A _Ecma International_ publicou a primeira versão, o ECMA-262
+1997
+  ~ A _Ecma International_ publicou a primeira versão
 
 1998
   ~ Versão 2 do ECMAScript
 
-1999 (junho)
+1999
   ~ Versão 3 do ECMAScript
 
 2009
   ~ Versão 5 do ECMAScript
 
-2013 - 2018
-  ~ Versões 6-9
+2013 - hoje
+  ~ Versões 6-9+
     ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} -->
-    do ECMAScript, que mudaram de nome para **es2015**, **es2016**, **es2017**
-    e **es2018** respectivamente
+    do ECMAScript, que mudaram de nome para **ES2015**, **ES2016**, **ES2017**,
+    **ES2018**...
 
 
 *[ECMA]: European Computer Manufacturers Association*
 *[Ecma]: European Computer Manufacturers Association*
 
 ---
-## JavaScript nos anos 90
+# ![Logo da linguagem JavaScript](../../images/logo-javascript.svg) <!-- {.push-right style="max-width: 75px"} --> O que é JavaScript?
 
-[![](../../images/pocketdragon.png)](http://fegemo.github.io/pocketdragon/)
-
----
-# Características da linguagem
-
----
-## O que é Javascript?
-
-- Linguagem imperativa, com tipagem dinâmica, interpretada
+- Linguagem **imperativa** com **tipagem dinâmica**
+- Suporta os **paradigmas**: procedural, orientado a objetos e funcional
+- _Thread_ única: usa um **loop de eventos**
+- Sintaxe parecida com C, C++, C# e Java, mas baseada em Scheme
+- Memória auto-gerenciada (_garbage collector_)
 - Há um interpretador embutido em cada navegador:
-  - Chrome &#8594; V8
+  - Chrome &#8594; V8 <!-- {ul^0:.multi-column-list-2} -->
   - Firefox &#8594; SpiderMonkey
   - Opera &#8594; Carakan &#8594; V8 (2013)
-  - Safari &#8594; SquirrelFish
+  - Safari &#8594; ~~JavaScriptCore~~ Nitro
   - Internet Explorer &#8594; Chakra
-  - Edge &#8594; Chakra
+  - Edge &#8594; ~~Charka~~ V8 (2019)
+
 
 ---
-## O que é Javascript?
-
-- Linguagem **orientada a objetos**, com características funcionais
-- Programação dirigida por **eventos**
-- Sintaxe parecida com C, C++, C# e Java
-  - Javascript **não** é Java
-  - Ter "Java" no nome foi uma jogada de marketing da Netscape
-- Memória auto-gerenciada (_garbage collector_)
-- _case-sensitive_
-
----
+<!-- {"layout": "main-point", "state": "emphatic"} -->
 # Como usar em uma página Web
 
 ---
@@ -133,268 +124,347 @@
      // código javascript aqui
    </script>
    ```
+   - Não reaproveita entre arquivos, mistura com HTML
 3. *Inline* :thumbsdown::thumbsdown::thumbsdown:
    ```html
    <button onclick="javascript: alert();">Mensagem</button>
    ```
+   - Nenhum reaproveitamento, mistura uma mesma linha
 
 ---
-# Operadores
+<!-- {"layout": "2-column-content"} -->
+## Onde incluir?
 
-- Semelhantes aos de C, Java e C#:
-  - Aritméticos
-    - **`+`** soma
-    - **`-`** subtração
-    - **`*`** multiplicação
-    - **`/`** divisão
-    - **`%`** resto da divisão
-    - **`++`** incremento
-    - **`--`** decremento
-  - Atribuição
-    - **`=`** simples
-    - **`+=  /=  %=`** composta
-  - Relacionais
-    - **`==`** igualdade
-    - **`===`** igualdade forte
-    - **`!=`** desigualdade
-    - **`!==`** desigualdade forte
-    - **&lt;  &lt;=** menor/menor igual
-    - **&gt;  &gt;=** maior/maior igual
-  - Lógicos
-    - **`!`** não
-    - **&amp;&amp;** e
-    - **`||`** ou
+1. O navegador precisa **baixar o arquivo JS** <!-- {style="color: #00ba00;"} -->
+   e **executá-lo** <!-- {style="color: #df0000;"} -->, enquanto faz 
+   **_parsing_ do HTML** <!-- {strong:style="color: #f1b400;"} -->
+1. Durante a execução os navegadores podem interromper o _parsing_ do HTML
+1. Regra geral: adiar a execução (para bloquear a página depois que já tiver sido desenhada) <!-- {li:.note.info style="margin-top: 1em;"} -->
 
-<!-- {ul^4:.multi-column-list-2} -->
+- <!-- {ul:.no-padding.no-bullets.no-margin.bulleted} -->
+  ```html
+  <script src="..."></script>
+  ```
+  ![](../../images/script-without-async-defer.svg) <!-- {.full-width} -->
+- ```html
+  <script src="..." async></script>
+  ```
+  ![](../../images/script-with-async.svg) <!-- {.full-width} -->
+  - Não garante a ordem
+- ```html
+  <script src="..." defer></script>
+  ```
+  ![](../../images/script-with-defer.svg) <!-- {.full-width} -->
 
 ---
-# Variáveis
+<!-- {"layout": "2-column-content"} -->
+## <span style="font-family: 'Amatica SC',cursive;">hello-world.js</span> e imprimindo no console
 
----
-## Sintaxe
-
-- Criamos variáveis com as palavras-chave `let`
-  ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} -->
-  `const` ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} -->
-  ou `var` :thumbsdown:
+- Um arquivo HTML pode incluir um arquivo .js <!-- {ul:.bullet.compact-code-more} -->
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>...</title>
+  </head>
+  <body>
+    <!-- ... -->
+    <script src="hello-world.js"></script>
+  </body>
+  </html>
+  ```
   ```js
-  let alunosMatriculados = 20;  // escopo de bloco
-  const qtdeHorasAula = 66.5;   // escopo de bloco, valor constante
-  var nomeAula = 'js1';         // escopo de função
+  // imprime no console do navegador
+  console.log('Hello world');
+
+  // abre uma janelinha infernal
+  window.alert('Sou das trevas');
   ```
 
+1. Um arquivo JavaScript incluído por um HTML é **baixado e executado linha a linha** <!-- {ol:.bullet.compact-code-more style="margin-left: auto;"} -->
+2. Para testar escrevemos no console do navegador com
+   ```js
+   console.log('.......');
+   ```
+3. Também pode abrir uma janelinha
+   ```js
+   window.alert('......');
+   ```
+   - ...mas não faça isto, jovem, porque essa janelinha é muito chata ;)
 
 ---
-## **Nomes válidos** para variáveis
+<!-- {"layout": "section-header", "hash": "tipos-de-dados-variaveis-e-funcoes"} -->
+# Tipos de Dados, Variáveis e Funções
+## Elementos da Linguagem JavaScript
 
-- <pre style="float: right; font-size: 0.75em; color:#111; background: #ddd; border-radius: 10px; padding: 20px">
-    abstract native new null goto
-    boolean break byte return long with
-    case catch char class const continue
-    debugger default delete do double while
-    else enum export extends var volatile void
-    false final finally float for function
-    if implements import in instanceof int interface
-    package private protected public
-    short static super switch synchronized
-    this throw throws transient true try typeof
-  </pre>
-  Nomes de variáveis devem:
-  - **Começar com $, \_** ou qualquer caractere unicode que represente
-    uma **letra**
-  - Quaisquer combinações do conjunto anterior, mais caracteres unicode
-    que representem números e alguns tipos de pontuação
-    - [Validador de nomes](https://mothereff.in/js-variables) de
-      variáveis JavaScript
-
+- Tipos de dados
+- Declarando variáveis
+- Criando funções
+<!-- {ul:.content} -->
 
 ---
-# Tipos de dados
+<!-- {"hash": "criando-variaveis-com-let"} -->
+# Declarando **variáveis** (com `let`)
+
+- Usamos a palavra-chave `let` para criar variáveis:
+  ```js
+  let alunosMatriculados = 20;    // isto aqui é um comentário
+  let qtdeHorasAula = 66.5;       /* aqui também (de bloco) */
+  let nomeAula = 'js0';
+  ```
+- Não é necessário (nem possível) informar o seu **tipo de dado**
+  - Em JavaScript o tipo é **inferido automaticamente**
+- `let` pode ser lido como "seja", tipo assim:
+  > seja uma variável '`nomeAula`'
+  com o valor '`js0`'
 
 ---
+<!-- {"layout": "2-column-content", "hash": "const-e-var"} -->
+## Outras formas de declarar variáveis `(const/var)`
+
+- Usamos a palavra-chave `const` para criar variáveis que **sempre apontam para o mesmo valor** <!-- {ul:.compact-code-more} -->
+  ```js
+  const fruta = 'abacate';
+  fruta = 'pera';
+  // Uncaught TypeError:
+  //   Assignment to constant variable.
+  ```
+  - É uma boa prática usar `const` sempre que se sabe que a variável não receberá um novo valor
+
+1. **Usávamos** (passado, _old_, não use) a palavra-chave `var`:  <!-- {ol:.compact-code-more.no-bullets} -->
+   ```js
+   var vegetal = 'batata';
+   ```
+   - Similar ao `let` mas tem alguns problemas:
+     - Não possui escopo de bloco, mas de função
+     - Pode ser usada até mesmo antes da declaração
+   - Era a única forma até ~2012
+   - Encontra-se códigos antigos na Web usando `var`
+
+---
+<!-- {"classes": "compact-code"} -->
+# Fracamente tipada e dinâmica
+
+- Em JavaScript, não é necessário declarar o tipo das variáveis:
+  ```js
+  let nota = 10;            // tipo numérico
+  let aluno = 'Adamastor';  // tipo string
+  ```
+  - Dizemos que JavaScript é **fracamente tipada**
+- Em JavaScript podemos mudar o tipo de uma variável no meio do caminho (exceto se usando `const`):
+  ```js
+  let nota = 10;            // nota é númerico
+  nota = 'Dó';              // agora virou string
+  ```
+  - Dizemos que JavaScript é **dinâmica**
+
+---
+<!-- {"layout": "2-column-content", "hash": "tipos-de-dados"} -->
 ## Tipos de dados
 
-- Como dito, Javascript é **fracamente tipada** ou **dinâmica**
-  - Não é necessário declarar o tipo, ele é reconhecido dinamicamente
-    ```js
-    let nota = 10;            // tipo numérico
-    let aluno = 'Adamastor';  // tipo string
-    ```
-  - Uma mesma variável pode ter tipos diferentes em momentos diferentes
-    ```js
-    let nota = 10;            // nota é númerico
-    nota = 'Dó';              // agora virou string
-    ```
-    - Isso é uma boa prática?
-
----
-## Tipos de dados (cont.)
-
-- Seis tipos de dados **primitivos**:
-  - `Boolean`
-  - `Number`
-  - `String`
-  - `Null`
-  - `Undefined`
-  - `Symbol` ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} --> <!-- {ul:.multi-column-list-3} -->
-- Um tipo **complexo**
-  - `Object`
+- Há seis **tipos primitivos** de dados:
+  - `1. Boolean` <!-- {.tipo-js.tipo-boolean} -->
+  - `2. Number` <!-- {.tipo-js.tipo-number} -->
+  - `3. String` <!-- {.tipo-js.tipo-string} -->
+  - `4. Null` <!-- {.tipo-js} -->
+  - `5. Undefined` <!-- {.tipo-js} -->
+  - `6. Symbol` ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} -->  <!-- {code:.tipo-js} --> <!-- {ul:.multi-column-list-2} -->
+- Um **tipo composto** de dados:
+  `7. Object` <!-- {.tipo-js.tipo-object} -->
   - Há outros derivados de `Object`...
-- Podemos usar o operador `typeof` para determinar o tipo de uma variável:
+  - Veremos `Object` e seus tipos derivados em próximas aulas
+
+1. Para verificar o tipo de uma variável, usamos `typeof` <!-- {.compact-code-more} -->
+   ```js
+   let vacinou = true;
+   console.log(typeof vacinou);
+   // imprime "boolean"
+
+   let nota = 10;
+   console.log(typeof nota);
+   // imprime "number"
+
+   let aluno = 'Adamastor';
+   console.log(typeof aluno);
+   // imprime "string"
+
+   let inimigo = {
+     vida: 100,
+     nome: 'Slime'
+   };
+   console.log(typeof inimigo); // impr. "object"
+   ```
+
+---
+<!-- {"layout": "2-column-content", "hash": "os-tipos-boolean-e-number"} -->
+## <span>O tipo **1. Boolean** <!-- {.tipo-js.tipo-boolean} --></span> <span>O tipo **2. Number** <!-- {.tipo-js.tipo-number} --></span> <!-- {h2:style="display:flex;justify-content:space-between"} -->
+
+1. O tipo **Boolean** <!-- {.tipo-boolean} --> armazena um valor verdadeiro ou falso. Exemplo: <!-- {ol:.bullet.compact-code-more.no-bullets} -->
+   ```js
+   let abelhinhaEstaVoando = true;
+   let modoEscuro = false;
+   let maioridade = idade >= 18;
+   ```
+
+
+- **Apenas 1 tipo numérico** 64bits <!-- {ul:.bullet.compact-code-more.no-bullets} --> <!-- {.tipo-number} -->
+  - <small>(equivalente ao `double` de C/Java)</small>
+  - Não há um tipo específico para números inteiros
+- Exemplos de variáveis com números:
   ```js
-  let nota = 10;
-  console.log(typeof nota);   // imprime number
-  nota = 'Dó';
-  console.log(typeof nota);   // imprime string
+  let a = 5;
+  let b = 5.674;            // 5 vírgula 674
+  let c = a + b;            // 10.674
+  let d = 2 ** 4;           // 16 (2 elevado a 4)
+  let e = Math.sqrt(25);    // 5 (raiz quadrada de 25)
+  let f = Math.random();    // [0,1] - algo entre 0 e 1
   ```
 
 ---
-## Boolean
+<!-- {"hash": "o-tipo-string", "classes": "compact-code"} -->
+## O tipo **3. String** <!-- {.tipo-js.tipo-string} -->
 
-- Representa uma entidade lógica e pode ter dois valores:
-  - `true`
-  - `false`
-- Exemplo:
+- **Representa um texto** <!-- {.tipo-string} --> codificado em UTF-8
+- Não existe o tipo `char` como em C/C++ e Java, apenas _string_ :wink:
+- Usamos aspas **simples** ou duplas
   ```js
-  let isPlaying = true;   // poderia ser false
-  // ...
-  if (isPlaying) {
-    // ...
-  }
+  "Abc" === 'Abc'   // simples é mais legal!! mas basta ser consistente
   ```
-
----
-## Number
-
-- Em JavaScript **há apenas um tipo numérico**: 64bits (precisão dupla)
-- Não há um tipo para representar inteiros
-  - 1 e 1.0 são o mesmo valor
-- Na forma de **constante literal**, pode ser expressado assim:
-  ```js
-  5
-  5.674     // 5 vírgula 674
-  4e2       // 4 vezes 10 elevado a 2 (400)
-  25e-2     // 25 vezes 10 elevado a -2 (0.25)
-  ```
-
----
-## Number (cont.)
-
-- Valores especiais
-  - `NaN` - _not a number_
-    - Retornado em operações ilegais (_e.g._, `Math.sqrt(-1)`)
-  - `Infinity` (_e.g._, `1/0`)
-- Números têm métodos, por exemplo:
-  - [`toPrecision`][toPrecision], retorna uma string com o **número arredondado com o certo número de casas decimais** (e.g., `Math.PI.toPrecision(5)`)
-  - [`toFixed`][toFixed], retorna uma string com o número arredondado com certo número de casas decimais **em formato decimal** (e.g., `Math.PI.toFixed(5)`)
-
-[toFixed]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
-[toPrecision]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision
-[toExponential]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential
-
----
-## String
-
-- **Cadeia de caracteres**
-- Não existe o tipo "caractere" :wink:
-  - Seria apenas uma string com 1 caractere
-- Forma literal: áspas **simples** ou duplas
-  ```js
-  "Abc" === 'Abc'   // simples é mais legal!!
-  ```
-- Propriedade `length`
+- Possui uma propriedade chamada `length` com o seu comprimento:
   ```js
   console.log('Cachorro'.length); // 8
   ```
+- Exemplos:
+  ```js
+  let aranhas = 'fofofauna';
+  const caminhoVideo = 'videos/a.mp4';
+  const nomeCompleto = primeiro + ' ' + ultimo;
+  ```
 
 ---
-## String (cont.)
+<!-- {"classes": "compact-code"} -->
+## Manipulando Strings
 
-- **Strings são imutáveis** (como String em Java), mas criar novas strings é
-  simples via concatenação:
+- É possível **concatenar** (juntar, colar) para criar novas strings: <!-- {ul:.bulleted} -->
   ```js
   console.log('c' + 'a' + 't');   // imprime 'cat'
   ```
-- Strings têm métodos, [vários deles](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-  - Exemplos:
+- Podemos acessar cada caractere usando colchetes:
+  ```js
+  const capitalDeMG = 'Betim';
+  console.log(capitalDeMG[0]);    // imprime 'B'
+  ```
+- Strings possuem métodos, [vários deles](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) (veremos mais). Exemplos:
+  ```js
+  'barba negra'.toUpperCase() === 'BARBA NEGRA'
+  'Mississippi'.indexOf('ss') === 2
+  'Orinoco'.replace('noco', '') === 'Ori'
+  '$'.repeat(3) === '$$$'
+  ```
+
+---
+## O tipo `4. Null` <!-- {.tipo-js} -->
+
+- Tecnicamente um tipo, mas na prática contém apenas 1 valor: `null`
+- ```js
+  let x = null;
+  console.log(typeof x);    // imprime null¹
+  ```
+  Usamos quando uma variável **não tem um valor aplicável naquele momento** <!-- {li:.push-code-right} --> ¹: [bug typeof null][bug-null]
+  
+## O tipo `5. Undefined` <!-- {.tipo-js} -->
+
+- Parecido com Null, possui apenas 1 valor: `undefined`
+- ```js
+  let x;
+  console.log(typeof x);    // imprime undefined
+  ```
+  É o tipo padrão de **variáveis que não foram associadas a nenhum valor** <!-- {li:.push-code-right} -->
+
+[bug-null]: https://2ality.com/2013/10/typeof-null.html#:~:text=The%20%E2%80%9Ctypeof%20null%E2%80%9D%20bug%20is,lower%20bits%20of%20the%20units.&text=The%20data%20is%20a%20reference%20to%20an%20object.
+
+---
+<!-- {"classes": "compact-code"} -->
+## O tipo `7. Object` <!-- {.tipo-js.tipo-object} -->
+
+- É um **"saquinho" de propriedades**: <!-- {ul:.push-code-right.full-width} -->
+  ```js
+  let jogador = {
+    pontos: 1420,
+    vidas: 2
+  };
+  console.log(jogador.pontos);
+  // imprime 1420
+  ```  
+  - Propriedade: (**nome → valor**)
+    - Nome: uma String
+    - Valor: qualquer coisa, exceto `undefined`
+- No exemplo, o objeto tem 2 propriedades: <!-- {li^0:.bullet} -->
+  1. Nome: `pontos`, valor: `1420`
+  1. Nome: `vidas`, valor: `2`
+- Para acessar as propriedades, há 2 formas: <!-- {li:.bullet} -->
+  - <!-- {.code-split-2} -->
     ```js
-    'barba negra'.toUpperCase() === 'BARBA NEGRA'
-    'Mississippi'.indexOf('ss') === 2
-    'Orinoco'.replace('noco', '') === 'Ori'
-    'a'.repeat(3) === 'aaa'
+    // notação ponto
+    console.log(jogador.vidas);
+    ```
+    ```js
+    // notação colchete
+    console.log(jogador['vidas']);
     ```
 
 ---
-## Null
+## Objetos conhecidos
 
-- O tipo Null contém apenas um valor
-  - `null`
-- Usado quando uma variável **não tem um valor aplicável àquele momento**
-  ```js
-  let x = null;
-  console.log(typeof x);    // imprime null
-  ```
+- ::: did-you-know .push-right width: 250px;
+  Quando um objeto tem uma **propriedade que é uma função**, chamamos ela de **método**.
+  :::
+  Há vários objetos comuns que usamos no dia a dia: `Math`, `console`, `window`. Exemplos:
+  - O objeto `Math` possui uma propriedade:
+    - ```js
+      Math.PI
+      ```
+      (PI → 3.14159) (cujo valor é `Number`) <!-- {.tipo-js.tipo-number} -->      
+  - O objeto `console` possui uma propriedade
+    - ```js
+      console.log
+      ```
+      (log → function() {...})
+  - O objeto `window` possui uma propriedade
+    - ```js
+      window.alert
+      ```
+      (alert → function() {...})
+- E se quisermos criar nossos próprios objetos? #mcfaz? <!-- {li:.bullet} -->
 
----
-## Undefined
+<!-- {ul^3:.bulleted-0.push-code-right-without-clearing.compact-code-more} -->
 
-- O tipo Undefined é o tipo atribuído a **variáveis que não foram associadas a
-  nenhum valor**
-- Tem um único valor
-  - `undefined`
-- Exemplo:
-  ```js
-  let x;
-  if (typeof x === 'undefined') {
-    // será executado :3
-  }
-  ```
-
----
-## Object
-
-- <pre style="float: right; margin: 0 1em 1em 1em; padding: 0.25em 1em;"><code>let jogador = {
-    pontos: 1420,
-    vidas: 2
-  };</code>
-  </pre>
-  É um **"container" de propriedades**
-  - Propriedade: (**nome &#8594; valor**)
-    - Nome: qualquer string ou symbol
-    - Valor: qualquer valor Javascript exceto `undefined`
-- É como se cada objeto fosse um dicionário (Java, C#), só que as chaves
-  devem sempre ser strings ou symbols
-- ~~Não existem classes~~ Hoje existem classes em JS
-  - Mas um objeto pode "herdar" de outro (!!!)
-- Novas propriedades podem ser atribuídas mesmo após a instanciação (!!!)
 
 ---
-## Instanciando um Object de 2 formas
+<!-- {"classes": "compact-code"} -->
+## Criando um objeto <small>(2 formas)</small>
 
-- Forma literal (preferida :thumbsup:):
-  ```js
-  let jogador = {             // forma mais expressiva, curta e sexy
-    pontos: 1420,             // propriedades separadas por vírgula
-    vidas: 2
-  };
-  ```
-  ```js
-  let jogador = {};           // um objeto vazio: { }
-  jogador.pontos = 1420;      // criou jogador.pontos com valor 1420
-  jogador.vidas = 2;          // criou jogador.vidas
-  ```
-
----
-## Instanciando um Object (cont.)
-
-- Forma usando operador `new` (menos legal¹ :thumbsdown:):
-  ```js
-  const jogador = new Object();
-  jogador.pontos = 1420;
-  jogador['vidas'] = 2;       // é possível usar a notação obj['prop'] também
-  ```
-  - ¹ Menos legal: o operador `new` tem um funcionamento um pouquinho diferente
-    do tradicional... veremos mais adiante
+1. Na **forma literal**: <!-- {ol:.bulleted-0} --> 
+   ```js
+   let jogador = {             // forma mais expressiva, curta e sexy 😎
+     pontos: 1420,             // propriedades separadas por vírgula
+     vidas: 2
+   };
+   ```
+   ```js
+   let jogador = {};           // um objeto vazio: { }
+   jogador.pontos = 1420;      // criou jogador.pontos com valor 1420
+   jogador.vidas = 2;          // criou jogador.vidas
+   ```
+   - Novas propriedades podem ser atribuídas mesmo após sua criação! <!-- {li:.bullet} -->
+2. Na **forma do operador `new`**: <!-- {strong:.alternate-color} -->
+   - <!-- {li:.code-split-2} -->
+     ```js
+     let jogador = new Object();
+     jogador.pontos = 1420;
+     jogador.vidas = 2;
+     ```
+     - Contudo, desta forma sempre cria-se um objeto vazio e deve-se preenchê-lo
 
 ---
 <!-- {"layout": "2-column-content"} -->
@@ -425,120 +495,377 @@ let voo = {
   - `decolagem` e `chegada` são objetos por si mesmos
 
 ---
-## Outros tipos
+<!-- {"layout": "2-column-content"} -->
+## **Métodos** de objetos <!-- {.alternate-color} -->
 
-- O Javascript possui **outros tipos complexos, que são baseados em Object**:
-  - `Function` (sim! funções são objetos)
-  - `RegExp` (expressão regular)
-  - `Array`
+```js
+const loja = {
+  livros: [       // prop. é um vetor
+    'macunaíma',
+    'torre negra'
+  ],
+  dinheiro: 500,  // propri. é number
+  
+  // método vender
+  vender: function() { // p. é função
+    this.dinheiro += 15;
+  } 
+};
+
+loja.vender(); // loja.dinheiro = 515
+loja.vender(); // loja.dinheiro = 530
+```
+
+- O **<u>valor</u> de uma propriedade** pode ser uma **função**
+  - Nesse caso, chamamos ela de **método** <!-- {.alternate-color} -->
+  - Todo método tem acesso ao próprio objeto com o ponteiro `this`
+  - Objetos com métodos formam o princípio do conceito de **Orientação a Objetos**
+
 
 ---
-# Arrays
+## Outros tipos, baseados em `Object` <!-- {.tipo-js.tipo-object} -->
 
-- Arrays são vetores unidimensionais, **heterogêneos**
-- Os itens dos vetores **não** precisam ter o mesmo tipo
+- Existem **outros tipos complexos**, que são **baseados em `Object`**: <!-- {.tipo-js.tipo-object} -->
+  
+  `Date`
+    ~ Por exemplo, para imprimir o horário atual no console:
+      ```js
+      let agora = new Date();
+      console.log(agora);     //Sun Jan 17 2021 18:11:46...
+      ```
+  
+  `Function`
+    ~ (sim! funções são objetos em JavaScript)
+  
+  `Array`
+    ~ (vetores também são objetos)
+
+  `SeuProprioTipo`™
+    ~ (é possível criar novos tipos também)
+
+---
+<!-- {"hash": "operadores", "embeddedStyles": ".less-padding ul li{padding-left:0em;list-style-type:none}"} -->
+# Operadores
+
+- Aritméticos <!-- {ul^0:.less-padding} --> <!-- {li^0:.bullet} -->
+  - **`+`** soma&nbsp;&nbsp;&nbsp;**`-`** subtração
+  - **`*`** multiplicação
+  - **`**`** exponenciação
+  - **`/`** divisão
+  - **`%`** resto da divisão
+  - **`++`** incremento&nbsp;&nbsp;&nbsp;**`--`** decremento
+- Atribuição <!-- {li^0:.bullet} -->
+  - **`=`** simples&nbsp;&nbsp;&nbsp;**`+=  /=  %=`** composta
+- Relacionais (comparação) <!-- {li^0:.bullet} -->
+  - **`==`** igualdade
+  - **`===`** igualdade forte (!!)
+  - **`!=`** desigualdade
+  - **`!==`** desigualdade forte  (!!)
+  - **&lt;  &lt;=** menor/menor igual
+  - **&gt;  &gt;=** maior/maior igual
+- Lógicos <!-- {li^0:.bullet} -->
+  - **`!`** não&nbsp;&nbsp;&nbsp;**`&&`** e&nbsp;&nbsp;&nbsp;**`||`** ou <!-- {ul^4:.multi-column-list-2} -->
+
+---
+## O que significa `===` (igualdade forte)?
+
+- Se compararmos '1' com 1 (uma **string** <!-- {.tipo-string} --> com um **number** <!-- {.tipo-number} -->) usando `==`: <!-- {ul:.bulleted-0} -->
   ```js
-  const listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
+  console.log('1' == 1);    // imprime true
   ```
-- Propriedades:
-  - `length`
+  - A comparação `==` tenta converter um elemento no tipo do outro e depois
+    compara
+  - Neste caso, converte `1` em `'1'` e só então compara
+- Para que essa conversão não aconteça, usamos `===` :thumbsup::
+  ```js
+  console.log('1' === 1);   // imprime false
+  ```
+  - Mais rápido para o computador, porque ele não faz a conversão
+  - Prefira esta forma!! :wink:
+
+---
+<!-- {"hash": "o-objeto-math"} -->
+## O objeto `Math` ([ver na 🌐 MDN][math-mdn])
+
+- Além dos operadores matemáticos (_e.g._, `+, -, /, *`), existem
+  outras funções matemáticas acessíveis via o objeto `Math`:
+  ```js
+  const pi = Math.PI;           // a constante pi
+  let a = Math.sin(1);          // seno de 1 radiano
+  let b = Math.cos(pi);         // cosseno de pi radianos
+  let c = Math.pow(5, 2);       // 5 elevado a 2 (= 5**2)
+  let d = Math.sqrt(100);       // raiz quadrada de 100
+  let e = Math.random();        // nº aleatório entre [0, 1]
+  let f = Math.round(0.5);      // arredonda p/ inteiro mais próximo (1)
+  let g = Math.floor(0.5);      // arredonda p/ baixo ("chão": 0)
+  let h = Math.ceil(0.5);       // arredonda p/ cima ("teto": 1)
+  ```
+
+[math-mdn]: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+---
+<!-- {"layout": "2-column-content-zigzag", "embeddedStyles": ".push-code-right pre{float:right;}", "hash": "declarando-e-invocando-funcoes"} -->
+# Declarando e invocando **funções**
+
+- Funções são **declaradas** usando a palavra-chave `function` <!-- {style="float:initial"} --> + nome + parâmetros + corpo ➜
+  - Há outras formas, como funções anônimas (veremos depois) e funções seta
+
+```js
+// DECLARA a função dizOla()
+function dizOla() {
+  console.log('olá queridão');
+}
+```
+
+```js
+// INVOCA a função dizOla()
+dizOla();  
+```
+- Funções são **invocadas** (chamadas) por seu nome, seguido de parênteses
+
+---
+<!-- {"layout": "2-column-content-zigzag", "classes": "compact-code", "embeddedStyles": "#parametros{width:40%;}#parametros+pre{width:56%;}"} -->
+## Declarando **parâmetros para funções**
+
+- Os parâmetros ficam entre os parênteses e separados por vírgula: <!-- {li:.push-code-right} --> <!-- {ul:#parametros.bulleted.no-margin} -->
+  - Não é necessário declarar o tipo do parâmetro - apenas o nome
+
+```js
+function dizOla(nome, pronome) {
+  console.log('olá ' + pronome + ' ' + nome);
+}
+```
+
+```js
+dizOla('enfermeira', 'srta.');
+// imprime 'olá srta. enfermeira'
+dizOla('jujuba', '');
+// imprime 'olá  jujuba'
+dizOla();
+// imprime 'olá undefined undefined'
+```  
+
+- Para invocar a função ← <!-- {ul:.bulleted} -->
+  - Dá pra chamar uma função sem passar valores para os argumentos.
+    Nesse caso, o parâmetro tem valor `undefined`
+
+---
+# Valor de **retorno** de funções
+
+- A função pode retornar um valor explicitamente: <!-- {ul:.bulleted-0} -->
+- <!-- {li:.code-split-2.compact-code-more} -->
+  ```js
+  function elevaAoCubo(numero) {            
+    return numero ** 3;             
+  }
+  elevaAoCubo(2);     // retorna 8
+  elevaAoCubo(3);     // retorna 27
+  ```
+  ```js
+  function hipotenusa(cateto1, cateto2) {
+    let somaQuadrados = cateto1 ** 2 + cateto2 ** 2;
+    return Math.sqrt(somaQuadrados);
+  }
+  hipotenusa(3, 4);   // retorna 5
+  ```
+- Toda função sempre retorna um valor, mesmo sem `return`.
+  Se não houver a palavra-chave, a função tem um `return undefined` implícito
+- <!-- {li:.code-split-2.compact-code-more} -->
+  ```js
+  function imprimeNome(primeiro, ultimo) {
+    console.log(primeiro + ' ' + ultimo);
+  }
+  // retorna undefined
+  ```
+  ```js
+  function imprimeNome(primeiro, ultimo) {
+    console.log(primeiro + ' ' + ultimo);
+    return undefined;
+  }
+  ```
+- São idênticas ↑ ⬈
+
+---
+<!-- {"layout": "section-header", "hash": "condicionais-vetores-e-estruturas-de-repeticao"} -->
+# Condicionais, Vetores e Repetição
+## _Arrays_, for, while e variações
+
+- Condicionais
+- Vetores
+- For
+    - Tradicional
+    - For of
+    - forEach
+- While/Do while
+<!-- {ul^1:.content} -->
+
+---
+<!-- {"layout": "2-column-content", "hash": "if-else", "classes": "compact-code"} -->
+## **if/else** (condicionais)
+
+```js
+if (hora < 12) {
+  manha = true;
+} else {
+  manha = false;
+}
+
+if (nome === 'Robervaldo') { 
+  conceito = 'A';
+} else if (nome === 'Ana') {
+  conceito = 'B';
+} else {
+  conceito = 'C';
+}
+
+if (estouComSono)
+  dormir(); // mas evite omitir { }
+```
+
+- Dentro dos parênteses colocamos uma expressão que avalia para `true` ou `false`. Ex:
+  - `nome === 'Ana'`
+  - `ano < 2000`&nbsp;&nbsp;`ano % 4 === 0`
+  - `!jaEstudei`
+  - `hp > 0 && (balas || granada)`
+- Com apenas 1 comando no `if`/`else`, é possível omitir as chaves (como em C/C++, Java)
+  - Contudo, é uma má ideia
+
+---
+## **Operador ternário** (condicionais)
+
+- Quando temos um `if/else` "simples", pode ser mais legível fazer a verificação em 1 linha com **o operador ternário ?:**
+- <!-- {.code-split-2} -->
+  ```js
+  if (armaduraForte) {
+    hp -= 10;
+  } else {
+    hp -= 50;
+  }
+  ```
+  ```js
+  // mesmo código, em 1 linha
+  hp -= armaduraForte ? 10 : 50;
+  ```
+- Formato:
+  ```js
+  CONDICAO_TESTE ? VALOR_SE_TRUE : VALOR_SE_FALSE;
+  ```
+
+---
+<!-- {"layout": "2-column-content", "hash": "switch"} -->
+## **switch** (condicionais)
+
+```js
+let corDoSite = 'black';
+switch (climaAgora) {
+    case 'ensolarado':
+      corDoSite = 'yellow';
+      break;
+    
+    case 'nublado':
+    case 'chuvoso':
+      corDoSite = 'gray';
+      break;
+
+    default:
+      corDoSite = 'white';
+      break;
+}
+```
+
+- `switch` + (expressão)
+- Um ou mais `case` + valor para a expressão
+- Sequência de comandos
+- Palavra-chave `break` para sair
+  - (pode ser omitida para continuar)
+- Caso `default` para pegar outros valores (equivalente ao `else`)
+
+---
+<!-- {"hash": "vetores"} -->
+# Vetores
+
+- Vetores (ou _arrays_) armazenam uma sequência de valores: <!-- {ul:.bulleted-0.compact-code} -->
+  ```js
+  let notas = [10, 4, 7, 8, 8];
+  let cores = ['azul', 'verde'];
+  let animais = []; // <- vetor vazio
+  ```
+- ```js
+  console.log(notas.length);  // impr. 5
+  console.log(cores.length);  // impr. 2
+  ```
+  Assim como _string_, um vetor tem um **comprimento** (propriedade `length` <!-- {style="float:none"} -->): <!-- {li:.push-code-right style="margin-top: 0.25em;"} -->
+- Em JavaScript, vetores são heterogêneos
+  - Os itens dos vetores **não** precisam ter o mesmo tipo
     ```js
-    console.log(listaDeCoisas.length);  // imprime 5
+    let listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
     ```
 
 ---
-## Arrays (cont.)
+<!-- {"elementStyles": { "h2 + pre": "overflow: hidden; width: 100%;"}} -->
+## **Usando** vetores
 
-- Indexação: usa-se os símbolos `[` e `]` para acessar um item do array
-  ```js
-  console.log(listaDeCoisas[1]); // imprime 35
-  listaDeCoisas[0] = '';
-  console.log(listaDeCoisas[0]); // imprime string vazia
-  ```
-- Arrays possuem métodos, [vários](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array):
-  ```js
-  const frutas = [];
-  frutas.push('kiwi', 'maçã', 'banana');
-  console.log(frutas.length); // 3
-  ```
----
-## Métodos de Arrays
+```js
+let listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
+```
 
-- Inserindo e removendo elementos
+- Indexação: usa-se os símbolos `[` e `]` para acessar um item do _array_ <!-- {ul:.bulleted.no-margin} -->
   ```js
-  frutas.push('mamão');         // insere 'mamão' no final
-  frutas.pop();                 // remove o último ('mamão')
-  frutas.unshift('tangerina');  // insere 'tangerina' no início
-  frutas.shift();               // remove o primeiro ('tangerina')
+  console.log(listaDeCoisas[1]);      // imprime 35
+  listaDeCoisas[0] = '';              // altera primeiro elemento
+  console.log(listaDeCoisas[0]);      // imprime string vazia
   ```
-- E alguns outros:
+- _Arrays_ possuem métodos, [vários](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) (veremos outros mais adiante):
   ```js
-  frutas.reverse()              // inverte a ordem dos itens
-  frutas.sort();                // ['banana', 'kiwi', 'maçã']
-  frutas.splice(2, 1);          // Remove 1 elemento, a partir do 3º
+  let frutas = [];                    // cria um array vazio
+  frutas.push('kiwi');                // coloca 'kiwi' no array
+  console.log(frutas);                // imprime ['kiwi']
   ```
 
 ---
-# _Statements_
+# **for** <small>(forma tradicional)</small>
 
----
-## if/else
-
-- Similar a C, Java
+- <!-- {ul:.no-margin.full-width} -->
+  Forma tradicional com `for (inicio; condicao; incremento)`:
   ```js
-  if (hora < 12) {
-    manha = true;
-  } else {
-    manha = false;
+  for (let i = 0; i < 10; i++) {
+    console.log(i);               // 0, 1, 2 ... 9
   }
   ```
+- Percorrendo items de um _array_:
   ```js
-  if (nota === 3)      { conceito = 'C'; }
-  else if (nota === 4) { conceito = 'B'; }
-  else if (nota === 5) { conceito = 'A'; }
-  else                 { conceito = 'D'; }
-  ```
-
----
-## for
-
-- Forma tradicional :thumbsdown::
-  ```js
-  for (let i = 0; i !== 10; i++) {
-    console.log(i);   // 0, 1, 2 ... 9
-  }
-  ```
-- Percorre items do objeto (indesejada):
-  ```js
-  const cores = ['azul', 'rosa', 'branco'];
-  for (let i in cores) {
-    console.log(cores[i]);  // azul, rosa, branco
+  let cores = ['azul', 'rosa'];
+  for (let i = 0; i < cores.length; i++) {
+    console.log(cores[i]);        // azul, rosa
   }
   ```
 
 ---
-## for (cont.)
+<!-- {"layout": "2-column-content", "hash": "for-formas-mais-legais"} -->
+# **for** <small>(formas **mais legais**)</small>
 
-- Forma modernosa (funcional) :thumbsup::thumbsup::
+1. **For of**: `for (let item of array)` <!-- {ol:.no-bullets} -->
+   ```js
+   let cores = ['azul', 'rosa'];
+   for (let cor of cores) {
+     console.log(cor);
+     // azul, rosa
+   }
+   ```
+- **For each**: `array.forEach` <!-- {ul:.no-bullets} -->
   ```js
-  const cores = ['azul', 'rosa', 'branco'];
+  let cores = ['azul', 'rosa'];
   cores.forEach(function(cor) {
-    console.log(cor);   // azul, rosa, branco
+    console.log(cor);
+    // azul, rosa
   });
-  ```
-- Forma moderníssima ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} --> :thumbsup::thumbsup::
-  ```js
-  const cores = ['azul', 'rosa', 'branco'];
-  for (let cor of cores) {
-    console.log(cor);   // azul, rosa, branco
-  }
   ```
 
 ---
 <!-- {"layout": "2-column-content"} -->
-## while/do..while
+# while/do..while
 
-- Condição **primeiro**
+- Condição **primeiro** <!-- {ul:.no-bullets} -->
   ```js
   let i = 1;
   while (i !== 10) {
@@ -546,7 +873,7 @@ let voo = {
     i++;
   }
   ```
-1. Condição **depois**
+1. Condição **depois** <!-- {ol:.no-bullets} -->
    ```js
    let i = 0;
    do {
@@ -556,159 +883,234 @@ let voo = {
    ```
 
 ---
-# Funções
+<!-- {"layout": "section-header", "hash": "mais-sobre-funcoes-e-metodos-uteis"} -->
+# Mais sobre funções, Métodos úteis
+## Mais coisas legais
+
+- Função atribuída a variável
+- Função como parâmetro
+- Métodos comuns de strings
+- Métodos comuns de vetores
+<!-- {ul:.content} -->
 
 ---
-## Funções (cont.)
+# Mais sobre funções
 
-- São declaradas usando a palavra `function`:
+- Em JavaScript as **funções são super flexíveis**
+  1. Função "tradicional" (já vimos)
+  1. Função anônima (próximo slide)
+  1. Função seta (próximas aulas)
+- Variáveis podem apontar para funções
+- Podemos passar funções como parâmetro para outra função
+
+---
+<!-- {"layout": "2-column-content"} -->
+## Função **anônima** (atribuída a **variável**)
+
+1. Declaração de função "tradicional": <!-- {ol:.no-bullets} -->
+   ```js
+   function dizOla(nome) {
+     console.log('olá ' + nome);
+   }
+   dizOla('submundo');
+   ```
+   - `function` + nome + (params)
+
+- Criar uma **função <u>anônima</u>** e **atribuí-la a uma variável**: <!-- {ul:.no-bullets} -->
   ```js
-  function add(a, b) {
-    return a + b;
-  }
-  add(2,5);   // retorna 7
-  ```
-  ```js
-  // Constante 'add' que armazena uma função (anônima) que soma dois números
-  const add = function(a, b) {
-    return a + b;
+  let dizOla = function(nome) {
+    console.log('olá ' + nome);
   };
-  add(3,6);   // retorna 9
+  dizOla('submundo');          
   ```
+  - Funciona da mesma forma
 
 ---
-## Parâmetros
+## Passando **função como parâmetro**
 
-- Uma função declara que parâmetros ela utiliza, **mas ela pode ser chamada
-  <u>com mais ou menos argumentos</u>** (!!!)
-  ```js
-  function votar(governador, presidente) {
-    console.log(governador);
-    console.log(presidente);
-  }
-
-  votar('pink', 'cérebro');               // imprime os dois
-  votar('mickey');                        // imprime mickey e undefined
-  votar('gohan', 'goku', 'kuririn');      // imprime apenas os sayajins
-  ```
-  - E se eu quiser o Kuririn?
-
----
-## Parâmetros (cont.)
-
-- Toda função tem acesso a um objeto `arguments` que contém **todos os valores
-  passados como argumentos** na chamada da função:
-  ```js
-  media();          // NaN
-  media(1);         // 1
-  media(5, 15);     // 10
-  function media() {
-    for (let i = 0, acum = 0; i !== arguments.length; i++) {
-      acum += arguments[i];
-    }
-    return acum / arguments.length;
+- ```js
+  function estudar(aluno, fnAprender) {
+    console.log(aluno + ' aprendeu ' + fnAprender()); 
   }
   ```
-
----
-## Funções (cont.)
-
-- **Funções** podem ser definidas **dentro de outras funções**
-  - As funções internas tem acesso ao escopo das externas (_closure_)
-- Quando uma função é armazenada em uma propriedade de um objeto, **chamamos
-  ela de <u>método</u>**:
+  Vamos criar uma função que recebe outra como parâmetro →→→ <!-- {ul:.compact-code-more.bulleted} --> <!-- {li:.push-code-right} -->
+- Ao chamar `estudar(...)` devemos passar uma função no segundo argumento <!-- {li:style="clear:both"} -->
+- Neste exemplo, dependendo do que foi estudado, o aluno aprende coisas diferentes:
   ```js
-  let passaro = {
-    nome: 'Abelardo',
-    voando: false;
-    voar: function() {
-      // pegar impulso e saltar
-    }
-  };
-  passaro.voar();     // chamando o método
-  ```
-
----
-## Métodos
-
-- Um **objeto especial chamado `this`** é disponibilizado para os métodos e são
-  uma referência ao objeto "dono" do método
-  ```js
-  let passaro = {
-    nome: 'Abelardo',
-    voando: false;
-    voar: function() {
-      this.voando = true;   // uso do 'this' é obrigatório
-    }
-  };
-  ```
-
----
-## Valor de retorno
-
-- Uma função (ou método) **sempre retorna um valor**
-- Se não houver um `return` na função, esse valor é `undefined`
-  - Mas em certas circunstâncias, também pode ser o valor de `this`
-
----
-## Escopo do `var`
-
-- Escopo em linguagens de programação são uma **definição de visibilidade
-  e tempo de vida de variáveis e parâmetros**
-- Variáveis declaradas com `var` são **visíveis em todo lugar dentro da
-  função** onde foram declarados:
-  ```js
-  function construir(tipo) {
-    if (tipo === 'casa') {
-      var imovel = new Casa();
-    }
-    return imovel;
+  function lerHarryPotter() {                       function lerOlavoCarvalho() {
+    return 'criatividade';                            return '?'; 
+  }                                                 }
+  let lerDarcyRibeiro = function() {
+    return 'sociologia';
   }
-  construir('casa');          // Ok, retorna a casa
   ```
-
-
-<!--
-## Funções são objetos
-
-1. Funções são objetos, então podem ser usadas em variáveis, objetos e arrays
+- Agora vamos invocar a função `estudar(...)`:
   ```js
-  var operacoes = [add, subtract, multiply];
-  operacoes[0](4, 5);   // retorna 9
+  estudar('André', lerHarryPotter);   // 'André aprendeu criatividade'
+  estudar('Luiz', lerDarcyRibeiro);   // 'Luiz aprendeu sociologia'
+  estudar('Jair', lerOlavoCarvalho);  // 'Jair aprendeu ?'
   ```
 
-
-## Funções são objetos (cont.)
-
-1. Elas podem ser passadas como parâmetro ou retornadas de outras funções
-  ```js
-  function currifica(f, parametro1) {
-    return function(parametro2) {
-      return f(parametro1, parametro2);
-    }
-  }
-  var add1 = currifica(add, 1);
-  add1(10);     // retorna 11;
-  ```
-
-
-## Funções são objetos (cont.)
-
-1. Como elas são objetos, elas podem ter propriedades ou mesmo métodos
-  ```js
-  function fibonacci(n) {
-    if (fibonacci.cache[n]) return fibonacci.cache[n];
-    else {
-      var f = fibonacci(n-1) + fibonacci(n-2);
-      fibonacci.cache[n] = f;
-      return f;
-    }
-  }
-  fibonacci.cache = { 1: 1,  2: 1 };
-  ```
--->
 ---
+## Função vs Método
+
+Função
+~ sozinha no mundo, **ninguém é dono** dela
+~ exemplo: todas as que vimos
+
+Método
+~ nasceu de algum objeto, ele **tem dono**
+~ acesso ao ponteiro `this` (próximas aulas)
+~ ex: as funções das strings, dos vetores (e outros)
+
+- <!-- {ul:.full-width.no-margin} -->
+  <!-- {.code-split-2} -->
+  ```js
+  // 'dobra' é uma função
+  function dobra(n) {
+    return 2 * n;
+  }
+  let nota = 5;
+  dobra(nota);
+  ```
+  ```js
+  // sqrt() é método de Math
+  nota = Math.sqrt(25);
+
+  // toLowerCase() é método
+  // das strings
+  'HaNa MonTAna'.toLowerCase();
+  ```
+
+---
+<!-- {"hash": "metodos-comuns-de-strings-1"} -->
+## **Métodos** comuns de **strings** (1/3)
+
+Toda string possui vários métodos diferentes que podemos invocar
+
+`texto.length`
+  ~ não é um método, mas retorna quantos caracteres
+  ~ `'trem'.length === 4`
+
+`texto[i]`
+  ~ não é um método, mas retorna o i-ésimo caractere
+  ~ `'trem'[3] === 'm'`
+
+`texto.toLowerCase()`
+  ~ método que retorna tudo em minúsculas
+  ~ `'Doug'.toLowerCase() === 'doug'`
+
+`texto.toUpperCase()`
+  ~ método que retorna tudo em maiúsculas
+  ~ `'Doug'.toUpperCase() === 'DOUG'`
+  
+---
+<!-- {"hash": "metodos-comuns-de-strings-2"} -->
+## **Métodos** comuns de **strings** (2/3)
+
+`texto.trim()`
+  ~ método que remove espaços em branco ao redor
+  ~ `' mosca  '.trim() === 'mosca'`
+
+`t.indexOf(trecho)`
+  ~ método que retorna a posição do `trecho` no `texto` (ou -1)
+  ~ `'Thanos'.indexOf('os') === 4`
+
+`t.substr(ini, tam)`
+  ~ método que retorna um trecho dado início e tamanho
+  ~ `'Pronto'.substr(0, 2) === 'Pr'`
+
+`t.includes(trecho)`
+  ~ método que verifica se texto contém o trecho
+  ~ `'Hakuna'.includes('ku') === true`
+  
+`t.split(separad)`
+  ~ método que retorna um vetor de trechos
+  ~ `'Banana'.split('a') === ['B', 'n', 'n']`
+
+---
+<!-- {"hash": "metodos-comuns-de-strings-3"} -->
+## **Métodos** comuns de **strings** (3/3)
+
+`t.startsWith(trech)`
+  ~ método que verifica se começa com o trecho
+  ~ `'Hakuna'.startsWith('Ha') === true`
+
+`t.endsWith(trecho)`
+  ~ método que verifica se termina com o trecho
+  ~ `'Hakuna'.endsWith('na') === true`
+
+`t.replace(tr, novo)`
+  ~ método que substitui um trecho por algo novo
+  ~ (apenas primeira ocorrência)
+  ~ `'ana'.replace('a', 'e') === 'ena'`
+
+`t.replaceAll(tr, n)`
+  ~ método que substitui um trecho por algo novo
+  ~ (todas as ocorrências)
+  ~ `'ana'.replaceAll('a', 'e') === 'ene'` <!-- {dl:style="margin-bottom: 0"} -->
+
+- [Lista de métodos de string na MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String) <!-- {ul:.no-margin} -->
+
+
+---
+<!-- {"hash": "metodos-comuns-de-vetores-1"} -->
+## **Métodos** comuns de **vetores** (1/3)
+
+- Assim como as strings, os vetores também possuem vários métodos úteis
+  
+  `vetor.length`
+    ~ não é método, mas retorna tamanho do vetor
+    ~ `[5].length === 1`
+
+  `vetor[i]`
+    ~ não é método, mas retorna i-ésimo elemento
+    ~ `[3, 10][0] === 3`
+    ~ ```js
+      let letras = ['x'];
+      letras[0] = 'y';
+      ```
+
+---
+<!-- {"hash": "metodos-comuns-de-vetores-2"} -->
+## **Métodos** comuns de **vetores** (2/3)
+
+`vetor.push(elem)`
+  ~ método que insere `elem` ao final do vetor
+  ~ `['a'].push('b') === ['a', 'b']`
+
+`vetor.pop()`
+  ~ método que remove último elemento
+  ~ `['a', 'b'].pop() === ['a']`
+
+`vetor.indexOf(elem)`
+  ~ método que retorna o índice do elemento no vetor (ou -1)
+  ~ `[5,6,7].indexOf(5) === 0`
+  ~ `[5,6,7].indexOf(2) === -1`
+
+---
+<!-- {"hash": "metodos-comuns-de-vetores-3"} -->
+## **Métodos** comuns de **vetores** (3/3)
+
+`vetor.reverse()`
+  ~ método que inverte a ordem dos elementos
+  ~ `[1,2,3].reverse() === [3,2,1]`
+
+`vetor.sort()`
+  ~ método que coloca os elementos em ordem
+  ~ `[8,1,-6].sort() === [-6,1,8]`
+  ~ `['f', 'b'].sort() === ['b', 'f']`
+
+`vetor.join(spacer)`
+  ~ método que retorna uma string juntando os elementos
+  ~ `['fl', 'rb'].join(' ') === 'fl rb'`
+  ~ `['fl', 'rb'].join('+') === 'fl+rb'`
+
+- [Lista de métodos comuns de vetores na MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+---
+<!-- {"layout": "centered"} -->
 # Referências
 
-1. Capítulo 2 do livro "Javascript: The Good Parts"
+1. Capítulo 2 do livro "JavaScript: The Good Parts"
 1. Mozilla Developer Network (MDN)
