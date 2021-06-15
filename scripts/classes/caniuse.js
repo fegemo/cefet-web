@@ -35,9 +35,9 @@ let TMPL_TITLE = '<h3>{title}</h3>', // feature title {title}
   TMPL_SUPPORT = '<li title="{browser} - {support}" class="icon-{browsercode} {supportcode}"><span class="version">{version}{prefixed}</span></li>',
   TMPL_PREFIX_NOTE = '<p>* requer prefixo.</p>',
   TMPL_LEGEND = '<ul class="legend"><li>Legenda:</li><li class="y">Sim</li><li class="n">Não</li><li class="a">Parcial</li><li class="p">Polyfill</li></ul>',
-  TMPL_FOOTER = '<p class="stats">Dados de <a href="http://caniuse.com/#feat={feature}" target="_blank">caniuse.com</a></p>',
+  TMPL_FOOTER = '<p class="stats">Dados de <a href="https://caniuse.com/#feat={feature}" target="_blank">caniuse.com</a></p>',
   TMPL_LOADING = '<h2>Carregando</h2>',
-  TMPL_ERROR = '<h2>Erro</h2><p>Funcionalidade "{feature}" não encontrada!</p>'
+  TMPL_ERROR = '<h2>Erro</h2><p>Funcionalidade "{feature}" não encontrada! <a href="https://caniuse.com/#search={feature}" target="_blank">Tente buscá-la</a>.</p>'
 
 
 // get feature data based on feature name
