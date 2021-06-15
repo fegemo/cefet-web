@@ -19,12 +19,7 @@
 
 
 ---
-<!--
-{
-  "layout": "section-header",
-  "hash": "edukids-animals"
-}
--->
+<!-- {"layout": "section-header", "hash": "edukids-animals"} -->
 # EduKids Animals <!-- {.righteous} -->
 ## Jogo para irmã(o)zinh@s
 
@@ -89,14 +84,10 @@
    1. `satisfeito`, uma borda verde no animal e o animal fica girando de alegria
    1. `com-raiva`, animal vai crescendo, ou fica pulsando
    1. `atacando`, animal dá um salto e cresce, com uma borda vermelha
+1. Crie seu _fork_ do [repositório](https://github.com/fegemo/cefet-front-end-edukids)
 
 ---
-<!--
-{
-  "layout": "section-header",
-  "hash": "transformacoes"
-}
--->
+<!-- { "layout": "section-header", "hash": "transformacoes" } -->
 # Transformações
 ## Alterando a geometria dos objetos
 
