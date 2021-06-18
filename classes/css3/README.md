@@ -1,6 +1,6 @@
 <!-- {"layout": "title"} -->
-# CSS - Parte 3
-## Divitite, Visibilidade e _Layouts_
+# **CSS** parte 3
+## Flexbox, Grid, Visibilidade e Web Fonts
 
 ---
 ## Na última aula (1/3)
@@ -53,110 +53,27 @@
 <!-- - [Questionário Maroto](https://moodle.cefetmg.br/mod/quiz/view.php?id=18171) -->
 
 ---
+<!-- {"layout": "centered"} -->
 # Hoje veremos...
 
-1. Divitite - doença e cura com **_tags_ semânticas**
-1. A propriedade **display**
-1. Alterando a visibilidade
-1. _Pseudo-classes_ e _pseudo-elements_
-1. **Layout e posicionamento**
+1. [Flexbox](#flexbox)
+1. [Grid](#grid)
+1. [Visibilidade de elementos](#visibilidade-de-elementos)
+1. [Web Fonts](#web-fonts)
 
 ---
-# Divitite e _Tags_ Semânticas
+<!-- {"layout": "section-header", "hash": "flexbox"} -->
+# Flexbox
+## Layouts de 1D
+
+- Relembrando propriedade `display`
+- `flex`, `inline-flex`
+- Propriedades acessórias
+- Exemplos
+<!-- {ul:.content} -->
 
 ---
-## Divitite
-
-- Sintomas
-  - Um acúmulo grande de elementos `div` e `span` aninhados
-- Muitas páginas Web usam `div`/`span` da seguinte forma:
-  ```html
-  <div id="header">...</div>
-  <div id="footer">...</div>
-  <div class="article">...</div>
-  <span class="time">...</div>
-  <div id="navigation">...</div>
-  ```
-
----
-<!-- {"backdrop": "divitite"} -->
-
-
----
-## A cura da Divitite: **_tags_ semânticas**
-
-- O Dr. html5 propôs elementos idênticos às `divs`/`spans`, mas que **possuem
-  sentido para o navegador**. Por exemplo:
-  ```html
-  <header></header>   <!-- em vez de <div id="header"></div> -->
-  <footer></footer>   <!-- em vez de <div id="footer"></div> -->
-  <article></article> <!-- em vez de <div id="article"></div> -->
-  <time></time>       <!-- em vez de <span id="time"></span> -->
-  <nav></nav>         <!-- em vez de <div id="navigation"></div> -->
-  ```
-
----
-## Elementos semânticos (1/3)
-
-- [`<main></main>`](http://www.w3.org/wiki/HTML/Elements/main) `(block)`
-  - Conteúdo principal da página
-- [`<header></header>`](http://www.w3.org/wiki/HTML/Elements/header) `(block)`
-  - Cabeçalho da página ou de seções (`section`) ou artigos (`article`)
-- [`<footer></footer>`](http://www.w3.org/wiki/HTML/Elements/footer) `(block)`
-  - Análogo ao `header`, porém recomendado para que contenha informação típica
-    de um rodapé de página
-- [`<article></article>`](http://www.w3.org/wiki/HTML/Elements/article)
-  `(block)`
-  - Um componente "completo" (ou auto-contido) da página
-    - Em um blog, seria um _post_
-    - Em uma loja, seria um produto
-
----
-## Elementos semânticos (2/3)
-
-- [`<section></section>`](http://www.w3.org/wiki/HTML/Elements/sectionhtml)
-  `(block)`
-  - Uma seção lógica da página, tipicamente contendo um título
-- [`<nav></nav>`](http://www.w3.org/wiki/HTML/Elements/nav) `(block)`
-  - Uma seção da página que contenha _links_ de navegação
-  - Exemplos:
-    - O menu principal da página
-    - Tabela de conteúdo (TOC) com
-      _links_ internos
-
-*[TOC]: Table of Contents*
-
----
-## Elementos semânticos (3/3)
-
-- [`<aside></aside>`](http://www.w3.org/wiki/HTML/Elements/aside) `(block)`
-  - Uma seção de conteúdo periférico na página
-  - Exemplos:
-    - Barras laterais
-    - _Widgets_ periféricos
-    - Conteúdo à parte do principal
-- [`<time></time>`](http://www.w3.org/wiki/HTML/Elements/time) `(inline)`
-  - Representa uma data e/ou horário
-- [`<mark></mark>`](http://www.w3.org/wiki/HTML/Elements/mark) `(inline)`
-  - Representa uma marcação no texto
-    (tipo <mark style="background-color: yellow">caneta marcadora</mark>)
-
----
-## Elementos semânticos **pré-html5**
-
-- [`<address></address>`](http://www.w3.org/wiki/HTML/Elements/address)
-- [`<abbr title=""></abbr>`](http://www.w3.org/wiki/HTML/Elements/abbr)
-- [`<blockquote></blockquote>`](http://www.w3.org/wiki/HTML/Elements/blockquote),
-  [`<q></q>`](http://www.w3.org/wiki/HTML/Elements/q)
-- [`<cite></cite>`](http://www.w3.org/wiki/HTML/Elements/cite)
-- [`<code></code>`](http://www.w3.org/wiki/HTML/Elements/code)
-- [`<kbd></kbd>`](http://www.w3.org/wiki/HTML/Elements/kbd)
-- E outros...
-
----
-# A propriedade **display**
-
----
+<!-- {"backdrop": "oldtimes"} -->
 ## A propriedade **display** (na [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/display))
 
 - Define o **tipo de visualização** de um elemento e também seu
@@ -166,329 +83,493 @@
   - `inline`, similarmente, para `inline`
   - `inline-block`, similar a `block`, porém sem quebra de linha
   - `none`, sem renderização
-- Ao todo, são ~25 valores, dos quais apenas 15 são suportados pelos principais
-  navegadores
 
 ---
-## A propriedade **display** (cont.)
+<!-- {"backdrop": "oldtimes"} -->
+## Resultado do display **inline-block**
 
-- É possível, por exemplo:
-  ```css
-  div { display: inline; }
-  span { display: block; }
-  ```
-
-  - Mas é claro que você não vai fazer isso... ;)
-- Para **remover um elemento do fluxo e não renderizá-lo** de forma alguma:
-  ```css
-  a[href*="xxx"] { display: none; }
-  ```
+<iframe width="600" height="400" src="//jsfiddle.net/fegemo/2gfkyrrh/3/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0" class="flex-align-center bordered rounded"></iframe>
 
 ---
-## Display: **inline-block**
-
-- Une a **capacidade de se <u>definir dimensões</u> de `block`** e a
-  possibilidade de **ter um <u>fluxo lateral</u>** (sem quebra de linha), como
-  `inline`. Exemplo:
-  ```html
-  <div class="passo">1<br>Instalar</div>
-  <div class="passo">2<br>Aprender</div>
-  <div class="passo">3<br>Programar</div>
-  ```
-  ```css
-  .passo {
-    display: inline-block;
-    width: 150px;
-    height: 100px; /* ... */
-  }
-  ```
+<!-- {"layout": "main-point", "state": "emphatic"} -->
+# Conheça o FLEXBOX 🐸
 
 ---
-## Display: **inline-block**
+<!-- {"layout": "2-column-content", "embeddedStyles": ".horizontal-flex-example li { font-size: .8em; flex: 1; margin-right: 4px; background: #fffc; outline: 1px solid silver; } .horizontal-flex-example { display: flex; justify-content: space-between; list-style-type: none; padding-left: 0; }", "backdrop": "oldtimes"} -->
+## Exemplo com flexbox: lista horizontal
 
-- Resultado:
+```css
+ul.horizontal {
+  display: flex;
+  justify-content: space-around;
 
-  <style>.passo { display: inline-block; width: 150px; height: 150px; border: 2px inset rebeccapurple; background: rgba(255, 255, 255, .5); font-size: 26px; font-family: "Comic Sans MS"; text-align: center; line-height: 50px; border-radius: 75px; }</style>
-  <div class="passo">1<br>Instalar</div>
-  <div class="passo">2<br>Aprender</div>
-  <div class="passo">3<br>Programar</div>
+  /* tirar coisas que vem na <ul> */
+  list-style-type: none;
+  padding-left: 0;
+}
 
----
-<!-- {"scripts": ["../../scripts/classes/caniuse.min.js"]} -->
-## Display: **table-***
+ul.horizontal > li {
+  flex: 1; /* crescer com peso 1 */
+  
+  /* espacinho e centralização */
+  margin-right: 4px;
+  text-align: center;
+}
+```
 
-- <div class="caniuse" data-feature="css-table" style="float: right;"></div>
-
-  Alguns valores são para a criação de _layouts_ em formato de tabelas:
-  - `table`, `table-cell`, `table-column`, `table-column-group`,
-    `table-footer-group`, `table-header-group`, `table-row`,
-    `table-row-group`, `inline-table`
-- [Exemplos de uso](http://colintoh.com/blog/display-table-anti-hero)
-
----
-## Display: **flex** ![](../../images/logo-css.svg) <!-- {style="height: 1em;"} -->
-
-- Um novo tipo de fluxo de "caixa flexível" que facilita _layouts_ fluidos
-  - Propriedades:
-    ```css
-    .container { display: flex; }
-    .filho { flex: 1 }
-    ```
-- Exemplo:
-  <iframe width="100%" height="150" src="//jsfiddle.net/fegemo/f5odrgk9/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+- ::: result . text-align: center
+  - Abacaxi <!-- {ul:.horizontal-flex-example} -->
+  - Kiwi
+  - Maçã
+  - Uva
+  - Limão
+  :::
+- Veremos mais sobre **flexbox** em outra aula <!-- {ul^1:.no-bullets.no-padding.bulleted-0} -->
 
 ---
-## Display: **flex** (cont.)
-
-- Possibilita trocar o fluxo com a propriedade
-  [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
-  nos contâineres:
-  ```css
-  .container.vertical { display: flex; flex-direction: column; }
-  .filho { flex: 1 }
-  ```
-  - Exemplo:
-    <iframe width="100%" height="230" src="//jsfiddle.net/fegemo/f5odrgk9/1/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
----
-## Display: **flex** (cont. 2)
-
-- Possibilita definir uma ordem arbitrária para os filhos com a propriedade
-  [`order`](https://developer.mozilla.org/en-US/docs/Web/CSS/order):
-  ```css
-  .filho:first-child  { order: 3 }
-  .filho:nth-child(2) { order: 2 }
-  .filho:last-child   { order: 1 }
-  ```
-  - Exemplo:
-    <iframe width="100%" height="150" src="//jsfiddle.net/fegemo/f5odrgk9/2/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
----
-## Display: **flex** - _can I use, plx?_
+<!-- {"layout": "tall-figure-left", "slideStyles": {"grid-template-columns": "auto 1fr"}, "backdrop": "oldtimes"} -->
+## Display: **flex** e **inline-flex** ![Logomarca do CSS](../../images/logo-css.svg) <!-- {.emoji} -->
 
 <div class="caniuse" data-feature="flexbox"></div>
 
-- Um **jogo** para aprender a usar flexbox:
-  [Flexbox Froggy](http://flexboxfroggy.com/)
+- Mais recentemente, o CSS3 introduziu o **flexbox**
+- É uma forma **bem flexível** para dispor os elementos
+- Cria uma linha (`row`) ou coluna (`column`) com filhos
+- Além de `display: flex` e `display: inline-flex`, foram introduzidas outras propriedades. Exemplos:
+
+`flex-direction` <!-- {dl:.span-columns.width-20.full-width.no-margin} -->
+~ `row` (padrão), `column`, `row-reverse`, `column-reverse`
+~ dispõe filhos na horizontal (se `row`) ou vertical (`column`)
+
+`justify-content`
+~ `flex-start` (padrão), `center`, `space-around`, `space-between`...
+~ define como distribuir o espaço que sobrou
+
+`align-items`
+~ `stretch` (padrão), `flex-start`, `center`...
+~ define posição dos elementos no "contraeixo"
 
 ---
-<!-- {"layout": "section-header"} -->
+# Jogo [Flexbox Froggy 🌐][flex-frog] <!-- {target="_blank"} --> <span style="font-family: 'Source Code Pro', monospace; font-size: 0.25em; opacity: 0.5;">~ melhor professor de flexbox ~</span>
+
+![](../../images/flexbox-froggy.webp) <!-- {.full-width.bordered.rounded} -->
+
+[flex-frog]: https://flexboxfroggy.com/#pt-br
+
+---
+<!-- {"layout": "2-column-content"} -->
+## Como funciona o flexbox <small>(1/3)</small>
+
+1. <!-- {li:.no-bullets.no-padding.no-margin} -->
+   ![](../../images/flex-diagram.svg) <!-- {.full-width} -->
+1. Ideia: habilidade do elemento alterar o tamanho de seus filhos (e ordem) para ocupar o espaço disponível <!-- {ol:start="0"} -->
+1. Há propriedades para o **elemento flex** e para seus **filhos** <!-- {.alternate-color} -->
+   - Apenas o pai tem `display: flex`
+
+- <!-- {ul:.no-bullets.no-padding.no-margin} -->
+  **`flex-direction`** define o **eixo principal** e o contraeixo
+- ![](../../images/flex-direction.svg) <!-- {.large-width.centered.block} -->
+- **`flex-wrap`** se precisar quebra linha?
+- ![](../../images/flex-wrap.svg) <!-- {.large-width.centered.block} -->
+
+---
+<!-- {"layout": "3-column-content"} -->
+## Como funciona o flexbox <small>(2/3)</small>
+
+- <!-- {ul:.no-bullets.no-padding.no-margin} -->
+  **`justify-content`** distribui espaço em branco no eixo principal
+- ![](../../images/justify-content.svg) <!-- {.medium-width.centered.block} -->
+
+1. <!-- {ol:.no-bullets.no-padding.no-margin} -->
+   **`align-items`** alinhamento no contraeixo
+1. ![](../../images/align-items.svg) <!-- {.large-width.centered.block} -->
+
+- <!-- {ul:.no-bullets.no-padding.no-margin} -->
+  **`align-content`** distribui espaço em branco no contraeixo
+- ![](../../images/align-content.svg) <!-- {.large-width.centered.block} -->
+- Só se `flex-wrap` !== `nowrap`
+
+---
+<!-- {"layout": "3-column-content"} -->
+## Como funcionam os **filhos** de flexbox  <!-- {.alternate-color} -->   <small>(3/3)</small>
+
+- <!-- {ul:.no-bullets.no-padding.no-margin} -->
+  **`flex`** <!-- {.alternate-color} --> define o peso do elemento no eixo na hora de definir seu tamanho
+- ![](../../images/flex-grow.svg) <!-- {.large-width.centered.block} -->
+- ⬆️ na verdade, é atalho para `flex-grow`, `flex-shrink` e `flex-basis`
+
+1. <!-- {ol:.no-bullets.no-padding.no-margin} -->
+   **`align-self`** <!-- {.alternate-color} --> alinhamento no contraeixo apenas deste filho
+1. ![](../../images/align-self.svg) <!-- {.large-width.centered.block.bullet} -->
+1. **`gap`** define um espaço mínimo entre filhos
+   <!-- {li:.bullet} -->
+   - ![](../../images/gap.svg)  <!-- {.medium-width} -->
+
+- <!-- {ul:.no-bullets.no-padding.no-margin} -->
+  **`order`** <!-- {.alternate-color} --> define uma ordem diferente da do código fonte
+- ![](../../images/order.svg) <!-- {.large-width.centered.block} -->
+
+---
+<!-- {"layout": "section-header", "hash": "grid"} -->
+# Grid
+## Layouts de 2D
+
+- Propriedades acessórias
+- Exemplos
+- Grid Garden
+<!-- {ul:.content} -->
+
+---
+# CSS **Grid** Layout
+
+- Flexbox é ótimo para layouts de 1 dimensão (linhas ou colunas)
+- Grid cria layouts de 2 dimensões (linhas e colunas)
+- Além de `display: grid` (e `inline-grid`), várias novas propriedades foram introduzidas
+- Há propriedades para o **elemento grid** e para os **filhos de grid** <!-- {.alternate-color} -->
+  - Algumas propriedades do Flexbox também são usadas
+- Deve-se definir as linhas e colunas e seus tamanhos
+
+---
+<!-- {"layout": "2-column-content", "classes": "compact-code-more", "backdrop": "oldtimes"} -->
+## Exemplo usando `grid`
+
+- HTML <!-- {ul:.no-bullets.no-padding} -->
+  ```html
+  <main>
+    <header></header>
+    <nav></nav>
+    <section></section>
+    <footer></footer>
+  </main>
+  ```
+  CSS (elemento pai)
+  ```css
+  main {
+    display: grid;
+    grid-template-rows: 200px 1fr auto;
+    grid-template-columns: 300px 1fr;
+  }
+  ```
+
+1. CSS (dos filhos) <!-- {ol:.no-bullets.no-padding.two-column-code} -->
+   ```css
+   header {
+     grid-column: 1 / 3;
+   }
+
+   nav {
+     grid-column: 1 / 2;
+     grid-row: 2 / 3;
+   }
+   section {
+     grid-column: 2 / 3;
+     grid-row: 2 / 3;
+   }
+   footer {
+     grid-column: 1 / 3;
+     grid-row: 3 / 4;
+   }
+   ```
+   ::: result .full-width height: 250px; display: grid; grid-template-rows: 60px 1fr auto; grid-template-columns: 90px 1fr;
+   <header style="background: lightblue; grid-column: 1/3;"></header>
+   <nav style="background: black; grid-column: 1/2; grid-row: 2/3;"></nav>
+   <section style="background: green; grid-column: 2/3; grid-row: 2/3;"></section>
+   <footer style="background: gray; grid-column: 1/3; grid-row: 3/4; min-height: 40px;"></footer>
+   :::
+
+---
+<!-- {"layout": "main-point", "state": "emphatic"} -->
+# Conheça o Grid Garden 🥕
+
+---
+# Jogo [Grid Garden 🌐][grid-garden] <!-- {target="_blank"} --> <span style="font-family: 'Source Code Pro', monospace; font-size: 0.25em; opacity: 0.5;">~ melhor professor de grid ~</span>
+
+![](../../images/grid-garden.webp) <!-- {.full-width.bordered.rounded} -->
+
+[grid-garden]: https://cssgridgarden.com/#pt-br
+
+---
+<!-- {"layout": "3-column-content"} -->
+## Conceitos sobre Grid
+
+- **Elemento grid**: <!-- {ul:.no-padding.no-bullets} -->
+  aquele que tem `display: grid` ou `inline-grid`
+- **Filho de grid**: <!-- {.alternate-color} -->
+  todos os filhos diretos de um **elemento grid**
+  ![](../../images/grid-element-vs-item.svg) <!-- {.large-width.centered.block style="margin-top: 1.75em;"} -->
+
+1. **Calha**<!-- {style="color: unset"} -->: <!-- {ol:.no-bullets.no-padding} -->
+   traço entre linhas ou colunas (ou início/final)
+   ![](../../images/grid-gutter.svg) <!-- {.medium-width.centered.block} -->
+1. **Célula**<!-- {style="color: unset"} -->:
+   espaço entre quatro calhas
+   ![](../../images/grid-cell.svg) <!-- {.medium-width.centered.block} -->
+
+- **Trilha**<!-- {style="color: unset"} -->: linha ou coluna <!-- {ul:.no-bullets.no-padding} -->
+  ![](../../images/grid-track.svg) <!-- {.medium-width.centered.block} -->
+- **Área**<!-- {style="color: unset"} -->: conjunto adjacente e retangular de células
+  ![](../../images/grid-area.svg) <!-- {.medium-width.centered.block} -->
+
+---
+<!-- {"layout": "2-column-content", "classes": "compact-code-more"} -->
+## Como funciona o Grid <small>(1/3)</small>
+
+- <!-- {ul:.no-bullets.no-padding.no-margin} -->
+  **`grid-template-columns`**, **`grid-template-rows`** definem quantidade e tamanho de colunas e linhas
+  ```css
+  .container {
+    grid-template-columns: 40px 50px auto 50px 40px;
+    grid-template-rows: 25% 100px auto;
+  }
+  ```
+- ![](../../images/grid-template-columns-rows.svg) <!-- {.medium-width.centered.block} -->
+
+1. <!-- {ol:.no-bullets.no-padding.no-margin} -->
+   **`grid-column`**<!-- {.alternate-color} -->, **`grid-row`** <!-- {.alternate-color} --> especifica as <u>calhas</u> da célula onde o filho será colocado 
+   ```css
+   .item-a {
+     grid-column: 2 / 5;
+     grid-row: 1 / 3;
+   }
+   ```
+1. ![](../../images/grid-column-row.svg) <!-- {.medium-width.centered.block} -->
+
+---
+<!-- {"layout": "2-column-content", "classes": "compact-code-more"} -->
+## Como funciona o Grid <small>(2/3)</small>
+
+- <!-- {ul:.no-bullets.no-padding.no-margin} -->
+  **`grid-template-areas`** dá nomes às áreas da grid
+  ```css
+  .container {
+    display: grid;
+    grid-template-columns: repeat(1fr, 4);
+    grid-template-rows: repeat(1fr, 3);
+    grid-template-areas: 
+      "header header header header"
+      "main main . sidebar"
+      "footer footer footer footer";
+  }
+  ```
+  - Um `.` é uma célula vazia
+  - `repeat(n, valor)` é um atalho
+
+1. <!-- {ol:.no-bullets.no-padding.no-margin.two-column-code} -->
+   **`grid-area`**<!-- {.alternate-color} --> especifica nome da <u>área</u> onde o filho será colocado 
+   ```css
+   .item-a {
+     grid-area: header;
+   }
+   .item-b {
+     grid-area: main;
+   }
+   .item-c {
+     grid-area: sidebar;
+   }
+   .item-d {
+     grid-area: footer;
+   }
+   ```
+1. ![](../../images/grid-template-areas.svg) <!-- {.medium-width.centered.block} -->
+<!-- {li:.no-bullets.no-padding} -->
+
+---
+<!-- {"layout": "2-column-content", "classes": "compact-code"} -->
+## Como funciona o Grid <small>(3/3)</small>
+
+- Além dessas propriedades, há várias outras
+  1. **`gap`**: define espaço entre linhas e colunas
+     ![](../../images/gap.svg) <!-- {.small-width.centered.block} --> 
+     ```css
+     .container {
+       gap: 15px 10px;
+     }
+     ```
+
+1. **`justify-items`** <!-- {ol:start="2"} -->
+1. **`align-items`**
+1. **`justify-content`**
+1. **`align-content`**
+1. **`grid-auto-columns`**, **`grid-auto-rows`**
+1. **`justify-self`** <!-- {.alternate-color} -->
+1. **`align-self`** <!-- {.alternate-color} -->
+1. Valor [`masonry`][masonry] para trilhas
+1. Veja o [guia completo de Grid][grid-css-tricks] em CSS Tricks <!-- {li:.note.info} -->
+
+[grid-css-tricks]: https://css-tricks.com/snippets/css/complete-guide-grid/
+[masonry]: https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
+
+---
+<!-- {"layout": "section-header", "hash": "visibilidade-de-elementos"} -->
 # Alterando a visibilidade
 ## Fazendo elementos aparecerem ou sumirem
 
 - Com `display: none`
 - Com `visibility: hidden`
-
+- Com `opacity`
+- Propriedade `overflow`
 <!-- {ul:.content} -->
 
 ---
 ## Usando **display**
 
-- É possível tornar um elemento invisível usando `display: none;`
-- O elemento é **removido do fluxo**, ou seja, o espaço onde ele seria
-  posicionado é liberado
-- ```css
-  img#logotipo {
+- É possível tornar um elemento invisível usando `display: none`
+  ```css
+  #logotipo {
     display: none;
   }
   ```
+- O elemento é **removido do fluxo**, ou seja, o espaço onde ele seria
+  posicionado é liberado
+- O elemento deixa de responder a eventos
+
+**Problema**: não é possível fazê-lo desaparecer/ressurgir **com <u>transição</u>** se ele vai para (ou de) `display: none` <!-- {p:.note.warning} -->
 
 ---
 ## A propriedade **visibility** ([na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility))
 
 - Usada para alterar a visibilidade de elementos
-- ```css
-  img#logotipo {
-    visibility: hidden; /* visible */
+  ```css
+  #logotipo {
+    visibility: hidden; /* visible é o padrão */
   }
   ```
-- Os elementos invisíveis (`hidden`) continuam ocupando espaço
+- Os elementos invisíveis (`hidden`) continuam ocupando espaço (não afetam o _layout_)
 - Descendentes de elementos invisíveis herdam o valor `hidden`, mas podem
   tornar-se visíveis usando `visibility: visible;`
 
 ---
-## Visibilidade **+ JavaScript**
+## A propriedade **opacity** ([na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity))
 
-- Um comportamento bastante comum é o de alterar a visibilidade
-  (`display` ou **`visibility`**) de um elemento de acordo com a interação do
-  usuário:
+- Usada para definir a opacidade ("transparência") de elementos <!-- {ul:.compact-code} -->
   ```css
-  .oculto { visibility: hidden; }
+  video {
+    opacity: 0.5; /* 0.0 (transparente) a 1.0 (opaco) */
+  }
   ```
-  ```js
-  var button = document.getElementById('botao-alterna');
-  button.addEventListener(function() {
-    document.getElementById('titulo').classList.toggle('oculto');
-  });
-  ```
-  <button onclick="javascript: document.getElementById('visibilidade-javascript').classList.toggle('oculto');">Alterna vibilidade do título</button>
-  <style>
-    .oculto { visibility: hidden; }
-  </style>
+- Os elementos transparentes continuam ocupando espaço, mas deixam transparecer
+  quem está "atrás" deles
+- Continua respondendo a eventos
 
----
-## _Display_ **+ JavaScript**
-
-- Um comportamento bastante comum é o de alterar a visibilidade
-  (**`display`** ou `visibility`) de um elemento de acordo com a interação do
-  usuário:
-  ```css
-  .removido { display: none; }
-  ```
-  ```js
-  var button = document.getElementById('botao-alterna');
-  button.addEventListener(function() {
-    document.getElementById('titulo').classList.toggle('removido');
-  });
-  ```
-  <button onclick="javascript: document.getElementById('display-javascript').classList.toggle('removido');">Alterna display do título</button>
-  <style>
-    .removido { display: none; }
-  </style>
+1. <!-- {ol:.no-bullets.layout-split-2.no-margin.no-padding.full-width} -->
+   <iframe width="600" height="180" src="//jsfiddle.net/fegemo/dr3546z9/embedded/result,html,css/" allowfullscreen="allowfullscreen"  allowpaymentrequest frameborder="0" class="bordered"></iframe>
+1. ↙️ Comparação entre `display`, `visibility` e `opacity`
 
 ---
 ## A propriedade **overflow** ([na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow))
 
 - Controla se conteúdo que extrapola o elemento deve ser cortado, se deve ser
   mostrado ou se deve ser criada uma barra de rolagem
-- ```css
+  ```css
   div {
     overflow: scroll; /* visible, hidden, scroll, auto */
   }
   ```
-
----
-# _Pseudo-classes_ e _Pseudo-elements_
-
----
-## _Pseudo-**classes**_
-
-- Indicam um estado de um elemento. Exemplos:
-  ```css
-  .link-para-comprar:hover {
-    text-decoration: underline;
-  }
-  ```
-- Algumas das _pseudo-classes_ mais comuns:
-  - `:focus` - contém o foco
-  - `:hover` - mouse em cima
-  - `:last-child` - último
-  - `:not()` - exceto que
-  - `:nth-child()` - n-ésimo
-  - `:checked` - caixa marcada <!-- {ul:.multi-column-list-2} -->
-- [Lista com todas](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
-  na MDN
-
----
-## _Pseudo-**elements**_
-
-- Indicam partes de um elemento. Exemplos:
-  ```css
-  p::selection {
-    color: white;
-    background-color: hotpink;
-  }
-  ```
-  <style>
-    .different-selection::selection { background-color: hotpink; color: white; }
-  </style>
-  `<p>`<span class="different-selection">Me selecione, bem aqui &larr;</span>`</p>`
-- Pode-se usar tanto `::pseudo-element` quanto `:pseudo-element`
-
----
-## _Pseudo-**elements**_ comuns
-
-- Os _pseudo-elements_ mais comuns:
-  - `::selection` - seleção de texto
-  - `::placeholder` - descrição de `input`
-  - **`::before` - conteúdo "pré-conteúdo"**
-  - **`::after` - conteúdo "pós-conteúdo"**
-  - `::first-letter` - primeira letra
-- [Lista com todos](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
-  na MDN
-
----
-## Exemplo de **::before**
-
-- Por exemplo, como colocar um texto de "leia mais" ao final de cada notícia?
-  ```css
-  .novidade::before {
-    content: "Novidade!";
-    display: inline-block;
-    background: orange; /* ... */    
-  }
-  ```
-  - Resultado:
-    <iframe width="100%" height="120" src="//jsfiddle.net/fegemo/76wdcLao/embedded/html,result,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
----
-# Layout e posicionamento
-
----
-## Layout e posicionamento
-
-- Além do fluxo normal (_i.e._, **fluxo estático**) visto na última aula,
-  também podemos dar **fluxos alternativos** aos elementos
-  - Propriedades envolvidas:
+- Exemplo:
+  - <!-- {li^0:.no-bullets.no-padding.layout-split-2.compact-code} -->
     ```css
-    position: static; /* relative, absolute, fixed */
-    top: 0px;         /* uma dimensão */
-    right: 0px;       /* uma dimensão */
-    bottom: 0px;      /* uma dimensão */
-    left: 0px;        /* uma dimensão */
-    z-index: 1;       /* um inteiro */
+    div {
+      max-height: 175px;
+      overflow: auto;
+
+      /* para visualizar a div */        
+      border: 1px dashed gray;
+    }
     ```
+    ::: result . max-width: 50%
+    <div style="max-height: 175px; overflow: auto; border: 1px dashed gray;">
+      <p class="smaller-text-70">Cultuadas ao longo da história por diversas civilizações como símbolo
+        de riqueza, trabalho ou de perseverança, pela forma como defendem
+        seu território, as abelhas surgiram muito antes do homem,
+        há mais de 100 milhões de anos.
+      </p>
+      <p class="smaller-text-70">Pertencentes à ordem <em>Hymenoptera</em> e à superfamília dos
+        <em>Apoidea</em> (grupo <em>Apiformes</em>), as abelhas se dividem em
+        cerca de 20 mil espécies e a mais conhecida é a
+        <em>Apis mellifera</em>.
+      </p>
+    </div>
+    :::
 
 ---
-## **top, right, bottom e left**
+<!-- {"layout": "section-header", "hash": "web-fonts"} -->
+# _Web Fonts_
+## Usando fontes não-instaladas
 
-- Usadas para definir a posição (ou _offset_) do elemento
-- Sua interpretação depende de qual valor de `position` estamos usando para
-  aquele elemento
-
----
-## **position**
-
-- `static`
-  - Comportamento padrão. O elemento é **posicionado no fluxo normal (padrão)**.
-  - As propriedades `left`, `right`, `top`, `bottom` e `z-index`
-    **são <u>ignoradas</u>**
-- `absolute`
-  - O elemento **não tem espaço reservado para ele**. Em vez disso, ele fica
-    exatamente na posição especificada por `left`, `right`, `top`, `bottom`
-    relativo ao seu mais próximo antecessor-posicionado
-  - Margens se aplicam, porém elas não fazem _margin collapse_ com outras
+- Formatos de fontes
+- A regra `@font-face`
+- Google Fonts
+<!-- {ul:.content} -->
 
 ---
-## **position** (cont.)
+# Web Fonts
 
-- `relative`
-  - O elemento continua no **fluxo normal**, a menos que tenha suas propriedades
-    `left`, `right`, `top` e `bottom` ajustadas.
-  - A posição do elemento será **ajustada com relação à sua posição original**
-    (caso ele fosse `static`)
-  - Os elementos posteriores **não são ajustados** para ocupar eventuais
-    "buracos" na página
-- `fixed`
-  - Bem semelhante ao `absolute`, porém o elemento é ajustado na posição
-    `left`, `right`, `top`, `bottom` **no espaço da tela** (_viewport_), e não
-    da página
-
----
-## **z-index**
-
-- Define a ordem "no eixo Z" com a qual elementos que se tocam deve ser exibida
-- Útil apenas para elementos `position: absolute` ou `position: fixed`
+- Motivação:
+  - Utilizar **fontes que não estão instaladas** no computador
+- Passos:
+  1. Escolher a fonte
+  1. Gerar **todos os formatos** para que funcione em todos os principais
+     navegadores
+     - `.ttf`
+     - `.otf`
+     - `.eot`
+     - `.woff`
+     - `.woff2` <!-- {ul:.multi-column-list-5} -->
+  1. Publicar a fonte na Internet (ou no seu próprio site)
 
 ---
+## Web Fonts (usando)
+
+1. Descrever a fonte no arquivo CSS usando `@font-face {...}`: <!-- {ol:.compact-code} -->
+   ```css
+   @font-face {
+     font-family: "Emblema One";    /* dando um nome à fonte */
+     src: url("fonts/EmblemaOne-Regular.woff2") format('woff2'), /* 1º formato */
+          url("fonts/EmblemaOne-Regular.woff")  format('woff'),  /* 2º formato */
+          url("fonts/EmblemaOne-Regular.ttf")   format('ttf');   /* 3º formato */
+   }
+   ```
+2. Usar a fonte:
+   ```css
+   h1 {
+     font-family: "Emblema One", sans-serif;
+   }
+   ```
+   - Sempre coloque uma segunda opção (_e.g._, `sans-serif`)
+
+
+---
+<!-- {"layout": "2-column-content", "scripts": ["../../scripts/classes/caniuse.min.js"], "slideStyles": {"grid-template-rows": "auto auto 1fr"}} -->
+## **Formatos de fonte** e os navegadores
+
+<div class="caniuse" data-feature="woff2" style="justify-self: center"></div>
+<div class="caniuse" data-feature="woff" style="justify-self: center"></div>
+
+- **WOFF2** é até 50% menor que **WOFF** <!-- {ul:.span-columns} -->
+- **TTF** é suportado em todos navegadores
+
+---
+## Usando fontes "mais facinho"
+
+- ![](../../images/google-fonts.png) <!-- {.push-right.small-width.bordered.rounded} -->
+  Gerar os formatos de fonte necessários pode dar trabalho
+- Outra alternativa é usar **sites que provêem diversas fontes** para
+  serem usadas
+  - Exemplos:
+    1. [**Google Fonts**][google-fonts]
+    1. [Dafont][dafont]
+    1. [FontSpace][font-space]
+  - Além de ter vários formatos das fontes, eles fornecem o código CSS
+
+[google-fonts]: https://fonts.google.com/
+[dafont]: http://www.dafont.com/pt/
+[font-space]: http://www.fontspace.com
+
+---
+<!-- {"layout": "centered"} -->
 # Referências
 
-- Capítulo 12 do livro
-- [Capítulo _semantics_](http://diveintohtml5.info/semantics.html) do livro
-  diveintohtml5.org
-- [Propriedade **display** na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
-- [Propriedade **visibility** na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)
-- [Propriedade **overflow** na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
-- [Propriedade **position** na MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
-- [Um breve e interessante tutorial sobre posicionamento](http://learnlayout.com/position.html)
-- Jogo [Flexbox Froggy](http://flexboxfroggy.com/)
+- Jogo [Flexbox Froggy 🐸](https://flexboxfroggy.com/)
+- Jogo [Grid Garden 🥕](https://cssgridgarden.com/)
+- [_A complete guide to Flexbox_](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) em CSS Tricks
+- [_A complete guide to CSS Grid_](https://css-tricks.com/snippets/css/complete-guide-grid/) em CSS Tricks
