@@ -6,7 +6,7 @@
 <!--
 {
   "layout": "centered",
-  "styles": ["https://fonts.googleapis.com/css?family=Righteous"],
+  "styles": ["https://fonts.googleapis.com/css2?family=Righteous&display=swap&text=EduKidsAnimals"],
   "embeddedStyles": ".righteous { font-family: Righteous, cursive; color: #e90c0c }"
 }
 -->
