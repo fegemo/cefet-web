@@ -3,54 +3,44 @@
 ## Flexbox, Grid, Visibilidade e Web Fonts
 
 ---
-## Na última aula (1/3)
+# Na última aula (1/4)
 
-- Podemos precisar **agrupar elementos** <u>logicamente semelhantes</u> ou por
-  <u>questões de estilização</u>
-- Podemos usar os elementos `<div>...</div>` (_block_) e `<span>...</span>`
-  (_inline_):
-  ```html
-  <div id="cabecalho-da-pagina">
-    <h1>Título</h1>
-    <h2>Subtítulo</h2>
-  </div>
-  ```
-  ```html
-  <p class="artista-musica">
-    <span>MC Hammer</span>: <span>Can't Touch This</span>
-  </p>
-  ```
+- Quando **mais de uma regra CSS se aplica**, uma delas prevalece
+  - O navegador calcula uma pontuação de especificidade (**`abc`**<!--{strong:.alternate-color}-->) do seletor
+    de cada regra:
+    - **`a`**<!--{strong:.alternate-color}-->: quantidade de **ids** no seletor
+    - **`b`**<!--{strong:.alternate-color}-->: quantidade de **classes, atributos e pseudo-classes** no seletor
+    - **`c`**<!--{strong:.alternate-color}-->: quantidade de **pseudo-elementos** no seletor
+  - Quanto maior esse número, maior a precedência da regra ser aplicada
+
 
 ---
-# Na última aula... (2/3)
+<!-- {"embeddedStyles": ".box-model-part {color: #333; border-radius: 4px; font-style: normal; padding: 1px 3px; } .box-model-part code { background: initial; }"} -->
+# Na última aula... (2/4)
 
-- ![](../../images/box-model.gif) <!-- {.push-right} -->
-  Aprendemos sobre o **_box model_**
-  - Todo elemento de conteúdo (dentro do `body`) é representado por uma caixa
-  - Podemos especificar, para a caixa:
-    - O espaço do conteúdo (`width`, `height`)
-    - Um espaço de preenchimento (`padding`)
-    - Uma borda (`border`)
-    - Um espaço externo (`margin`)
-  - Quando definimos `width` ou `height`, estamos definindo o tamanho do
-    **conteúdo**, e não da caixa inteira
-  - É possível alterar o significado de `width` e `height` usando `box-sizing`
+- ![](../../images/box-model.png) <!-- {.push-right} -->
+  Entendemos o _Box Model_ (modelo da caixa) que é **como o navegador enxerga
+  os elementos**
+  - Há espaço para _conteúdo_ <!-- {.box-model-part style="background: #8bb4c0;"} -->,
+    _`padding`_ <!-- {em:.box-model-part style="background: #c2ce89;"} -->,
+    _`border`_ <!-- {em:.box-model-part style="background: #fddc9a;"} --> e
+    _`margin`_ <!-- {em:.box-model-part style="background: #f9cc9d;"} -->
 
 ---
-# Na última aula (3/3)
+# Na última aula (3/4)
 
-- ![](../../images/float-p3.png) <!-- {.push-right} -->
-  Aprendemos que os elementos podem flutuar
-  ```css
-  img#principal {
-    float: left; /* right, none */
-  }
-  ```
-  - Elementos flutuantes alteram o fluxo dos elementos posteriores
-    - `blocks` fingem que os flutuantes não estão ali
-    - `inlines` adequam sua forma aos flutuantes
+| `position` | Descrição | Exemplos de uso | `top`, `right`, `bottom`, `left` | `z-index` |
+|------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------------|
+| `static` | Fluxo normal | Elementos **sem posicionamento especial** | ignorados | ignorado |
+| `relative` | Fluxo normal, deslocado | Elementos que podem se **deslocar um pouco**; **contextos para elementos absolutos** | **deslocamentos** nas 4 direções | define ordem |
 
-<!-- - [Questionário Maroto](https://moodle.cefetmg.br/mod/quiz/view.php?id=18171) -->
+---
+# Na última aula  (4/4)
+
+| `position` | Descrição | Exemplos de uso | `top`, `right`, `bottom`, `left` | `z-index` |
+|------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------------|
+| `absolute` | Removido do fluxo, posicionado (x,y) relativo a um contexto | Elementos que queremos **definir os valores (x,y)** para posicioná-los exatamente nesse lugar | **posições** referentes às 4 direções | define ordem |
+| `fixed` | Removido do fluxo, em um (x,y) na janela | Idem, mas a **posição é fixa na janela** | **posições** para as 4 direções | define ordem |
 
 ---
 <!-- {"layout": "centered"} -->
@@ -85,7 +75,7 @@
   - `none`, sem renderização
 
 ---
-<!-- {"backdrop": "oldtimes"} -->
+<!-- {"layout": "centered-horizontal", "backdrop": "oldtimes"} -->
 ## Resultado do display **inline-block**
 
 <iframe width="600" height="400" src="//jsfiddle.net/fegemo/2gfkyrrh/3/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0" class="flex-align-center bordered rounded"></iframe>
@@ -514,7 +504,7 @@ ul.horizontal > li {
      - `.otf`
      - `.eot`
      - `.woff`
-     - `.woff2` <!-- {ul:.multi-column-list-5} -->
+     - `.woff2` 🌟 <!-- {ul:.multi-column-list-5} -->
   1. Publicar a fonte na Internet (ou no seu próprio site)
 
 ---
