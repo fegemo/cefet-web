@@ -537,6 +537,19 @@ Elementos **`inline`** <!-- {strong:.alternate-color} -->
 1. O elemento continua no **fluxo normal**, a menos que tenha suas propriedades
    `top` :arrow_up:, `right` :arrow_right:, `bottom` :arrow_down: e `left`
    :arrow_left: ajustadas
+   - Mais recentemente foi proposta propriedade `inset` que é um atalho: <!-- {li:.two-column-code.compact-code} -->
+     ```css
+     .item {
+       position: relative;
+       top: 10px; right: 20px;
+       bottom: 30px; left: 20px; 
+     }
+     .item {
+       position: relative;
+       inset: 10px 20px 30px; 🤯
+     }
+
+     ```
 1. A posição do elemento será **ajustada com relação à sua posição original**
    (caso ele fosse `static`)
 1. Os elementos posteriores a um elemento com `position: relative` **não
