@@ -1,26 +1,237 @@
 <!-- {"layout": "title"} -->
-# Javascript - Parte 3
-## Funcionamento e Padrões de Projeto
+# **JavaScript** Parte 3
+## Template strings, Criação de objetos<br>e Função seta
 
 ---
+<!-- {"layout": "2-column-content"} -->
+# Na última aula (1/2)
+
+1. Variáveis: **let**, **const** e var 🗡❌ _(tipos de dados são inferidos)_
+1. Tipos:
+    - `1. Boolean` <!-- {.tipo-js.tipo-boolean} -->
+    - `2. Number` <!-- {.tipo-js.tipo-number} -->
+    - `3. String` <!-- {.tipo-js.tipo-string} -->
+    - `4. Null` <!-- {.tipo-js} -->
+    - `5. Undefined` <!-- {.tipo-js} -->
+    - `6. Symbol` <!-- {.tipo-js} -->
+    - `7. Object` <!-- {.tipo-js.tipo-object} --> <!-- {ul^0:.multi-column-list-4.no-bullets} -->
+
+- Funções: <!-- {ul:.full-width.no-padding.no-bullets} -->
+  - <!-- {.code-split-2} -->
+    ```js
+    // tradicional
+    function nomeCompleto(nome, sobre) {
+      return nome + ' ' + sobre;
+    }
+    ```
+    ```js
+    // anônima em variável
+    const nomeCompleto = function(nome, sobre) {
+      return nome + ' ' + sobre;
+    }
+    ```
+  - Invocação da mesma forma: `nomeCompleto('Mijaro', 'Nomuro')`
+
+---
+<!-- {"classes": "compact-code-more"} -->
+## Na última aula (2/2)
+
+- Vetores <!-- {ul:.bulleted.full-width} -->
+- <!-- {.code-split-2} -->
+  ```js
+  let radios = [106.1, 105.1, 98.3];
+  let cores = ['azul', 'verde'];
+  ```
+  ```js
+  let animais = [];         // <- vetor vazio
+  animais.push('dogue');    // ['dogue']
+  ```
+- Repetição
+- <!-- {.code-split-3} -->
+  ```js
+  // tradicional
+  for(let i=0; i<cores.length;i++){
+    console.log(cores[i]);
+  }
+  // impr. azul, verde
+  ```
+  ```js
+  // for of                      👍
+  for (let cor of cores) {
+    console.log(cor);
+  }
+  // impr. azul, verde
+  ```
+  ```js
+  // forEach                     👍
+  cores.forEach(function(cor) {
+    console.log(cor);
+  });
+  // impr. azul, verde
+  ```
+- Vários métodos de ↓ strings e de vetores ⤥
+- <!-- {.code-split-2} -->
+  ```js
+  'Hannah'.toLowerCase() === 'hannah'
+  'Ovo'.replace('O', 'Ou') === 'Ouvo'
+  'BR4512348ZY'.substr(0, 2) === 'BR'
+  'Charmander'.indexOf('arma') === 4
+  ```
+  ```js
+  radios.push(92.5);      // insere no final
+  radios.pop();           // remove do final
+  cores.unshift('verm');  // insere no início
+  cores.shift();          // remove do início
+  ```
+
+---
+<!-- {"layout": "centered"} -->
 # Roteiro
 
-1. Criando objetos
+1. [_Template_ strings](#template-strings)
+1. [Criação de objetos](#criacao-de-objetos)
    - Funções construtoras
    - Classes
-1. Herança
-   - Pseudo-clássica
-   - Com classes
-1. Escopo
-   - IIFE
-
-*[IIFE]: Immediately Invoked Function Expression*
+1. [Função seta](#funcao-seta)
 
 ---
-# Criando Objetos
+<!-- {"layout": "section-header", "hash": "template-strings"} -->
+# _Template_ Strings
+## Criando strings bacanudas
+
+- Relembrando o tipo `String` <!-- {.tipo-js.tipo-string} -->
+- _Template_ strings
+  1. Interpolação de valores
+  1. Strings multilinha
+  1. [Função de transformação][tagged-templates]
+
+[tagged-templates]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates
+
+<!-- {ul:.content} -->
 
 ---
-## Instanciação de Objetos
+<!-- {"hash": "o-tipo-string", "backdrop": "oldtimes"} -->
+## O tipo **3. String** <!-- {.tipo-js.tipo-string} -->
+
+- **Representa um texto** <!-- {.tipo-string} --> codificado em UTF-8
+- Não existe o tipo `char` como em C/C++ e Java, apenas _string_ :wink:
+- Usamos aspas **simples** ou duplas
+  ```js
+  "Abc" === 'Abc'   // simples é mais legal!! mas basta ser consistente
+  ```
+- Possui uma propriedade chamada `length` com o seu comprimento:
+  ```js
+  console.log('Cachorro'.length); // 8
+  ```
+- Exemplos:
+  ```js
+  let aranhas = 'fofofauna';
+  const nomeCompleto = primeiro + ' ' + ultimo;     // concatenou
+  ```
+
+
+---
+## _Template_ Strings: interpolação de valores (1/2)
+
+- É uma forma mais recente para criar _strings_ <!-- {ul:.full-width.bulleted} -->
+- Formato: **usa-se crase** para delimitar. Exemplo:
+- <!-- {.code-split-2} -->
+  ```js
+  // template string
+  let fruta = `Kiwi`;
+  ```
+  ```js
+  // string normal
+  let fruta =  'Kiwi';
+  ```
+- Permite **interpolar** (substituir) **variáveis** dentro de strings:
+- <!-- {.code-split-2.compact-code-more} -->
+  ```js
+  const peso = 82;
+  const nome = 'Kagaro Nakama';
+
+  // com template strings
+  const frase = `${nome} pesa ${peso}kg`;
+  // "Kagaro Nakama pesa 82kg"
+  ```
+  ```js
+  const peso = 82;
+  const nome = 'Kagaro Nakama';
+  
+  // concatenando strings normais
+  const frase = nome + ' pesa ' + peso + 'kg';
+  // "Kagaro Nakama pesa 82kg"
+  ```
+- A sintaxe é mais sucinta e legível
+  - Vejamos outros exemplos...
+  
+---
+## _Template_ Strings: interpolação de valores (2/2)
+
+- É possível **colocar expressões** dentre de `${...}`. Exemplo: <!-- {ul:.full-width.bulleted.compact-code} -->
+  ```js
+  // supondo que existem variáveis preco=5 e qtde=2
+  let aConta = `Sua conta é R$ ${preco * qtde - 3}`;
+  //           "Sua conta é R$ 7"
+  ```
+- <!-- {.code-split-2.compact-code-more} -->
+  ```js
+  // supondo variáveis dia, mês, ano e func. obtemMes
+  const data = `${dia} de ${obtemMes(mes)} de ${ano}`;
+  // Ex:       "20 de janeiro de 2021"
+  ```
+  ```js
+  const tom = 128;
+  const corCinza = `rgb(${tom}, ${tom}, ${tom})`;
+  // Ex:           "rgb(128, 128, 128)"
+  ```
+- Mas qual é o tipo de dados??
+  <!-- {li:.compact-code-more} -->
+  ```js
+  console.log(typeof "texto"); // imprime "string"
+  console.log(typeof `texto`); // imprime "string"
+  ```
+  - É **String** <!-- {.tipo-js.tipo-string} --> mesmo! Só muda a sintaxe pra escrever
+- Ou seja, a **interpolação** é apenas uma **sintaxe mais legal** para concatenar strings com variáveis/expressões
+
+---
+## _Template_ Strings: **texto multilinha**
+
+- Digamos que você queira que uma variável string contenha uma poesia (ocupando várias linhas)
+- As _template strings_ permitem que **uma string ocupe mais do que uma linha** no código fonte
+- <!-- {.code-split-2} -->
+  ```js
+  // com template string
+  let poesia = `Cavei cavei cavei
+    Isto não é um poema
+    Mas é profundo.`;
+  ```
+  ```js
+  // com string normal
+  let poesia = 'Cavei cavei cavei\n' +
+    'Isto não é um poema\n' +
+    'Mas é profundo.';
+  ```
+- Nesse caso, quando há uma quebra de linha no código fonte, é colocado um `\n` dentro da _template string_
+
+
+---
+<!-- {"layout": "section-header", "hash": "criacao-de-objetos"} -->
+# Criação de objetos
+## Diferentes formas de instanciação
+
+- Formas _ad-hoc_
+  - Notação literal
+  - Operador `new`
+- Seguindo um formato
+  - Função construtora
+  - Classe _(outra aula)_
+- _Prototype_
+<!-- {ul^2:.content} -->
+
+---
+<!-- {"backdrop": "oldtimes"} -->
+## Instanciação de Objetos <small>(1/2)</small>
 
 - Como visto, JavaScript possui 01 tipo de dados complexo `Object`
 - Podemos instanciar objetos de duas formas:
@@ -32,9 +243,11 @@
      ```js
      let carro = new Object();
      ```
+- Podemos atrelar novas propriedades _on the fly_
 
 ---
-## Instanciação de Objetos (cont.)
+<!-- {"backdrop": "oldtimes", "classes": "compact-code"} -->
+## Instanciação de Objetos <small>(2/2)</small>
 
 - Um objeto é simplesmente um _container_ de propriedades (nome: valor)
   ```js
@@ -45,81 +258,24 @@
       origem: 'Itália'
     },
     ligar: function() {
-      this.injetaCombustivel(); // ...faz outras coisas
+      this.injetaCombustivel();
+      // ...faz outras coisas
     },
     /* ... */
   };
   ```
 
 ---
-## Acesso a propriedades
+<!-- {"layout": "main-point", "state": "emphatic"} -->
+## E se quiser "forçar" uma forma para criar objetos? <!-- {.bullet} -->
 
-- Para acessar propriedades de objetos, também há duas formas:
-  1. Via **notação `.`**:
-     ```js
-     console.log(carro.cor);    // vermelho
-     ```
-  1. Via **indexação** (como em um _array_):
-     ```js
-     console.log(carro['cor']); // vermelho
-     ```
-- Acesso a propriedades inexistentes retorna `undefined`:
-  ```js
-  console.log(carro.potencia);  // undefined (prop. potencia não existe)
-  ```
+1. Função construtora <!-- {ol:.bulleted.flex-align-end} -->
+1. Classe (veremos em outra aula)
 
 ---
-## Acesso a propriedades (cont.)
+## Função construtora (forma antiga)
 
-- O operador  `||` pode ser usado para a definição de valores padrão:
-  ```js
-  let potencia = carro.potencia || 1000;
-  ```
-- Tentativa de acesso de propriedades de um valor `undefined` dá erro:
-  ```js
-  console.log(carro.potencia);                          // undefined
-  console.log(carro.acessorios.volante);                // lança "TypeError"
-  ```
-- O erro pode ser prevenido usando-se o operador `&&`:
-  ```js
-  console.log(carro.acessorios && carro.acessorios.volante);  // undefined
-  ```
-
----
-## Alterando propriedades
-
-- Para alterar o valor de uma propriedade já existente, usamos o operador
-  de atribuição (`=`)
-  ```js
-  carro.cor = 'verde';      // carro.cor era 'vermelho'
-  ```
-- Para **criar uma nova propriedade**, usamos o operador de atribuição
-  **da mesma forma**:
-  ```js
-  carro.peso = 900;         // carro.peso não existia, mas agora é 900
-  ```
-
----
-## Referências a objetos
-
-- Objetos são "transportados" por referência e nunca copiados
-  ```js
-  let outroCarro = carro;
-  outroCarro.cor = 'prata';
-  console.log(carro.cor);       // prata
-  ```
-  ```js
-  let a = {}, b = {}, c = {};
-  console.log(a === b);          // false
-  console.log(b === c);          // false
-  console.log(a === c);          // false
-  ```
-
----
-## Construção de objetos por **função construtora**
-
-- Existe uma terceira forma, em que podemos criar e inicializar o objeto.
-  Nessa forma, criamos uma **função construtora** que vai instanciar e
+- Podemos invocar uma **função construtora** que vai instanciar e
   inicializar objetos:
   ```js
   function Moto(modelo, dono) {
@@ -129,11 +285,12 @@
   let moto1 = new Moto('Kawasaki', 'Ninja Jiraya');
   let moto2 = new Moto('Harley Davidson', 'Lula Molusco');
   ```
+  - Todo objeto terá as propriedades `modelo` e `dono`
 
 ---
-## Construção de objetos por **construtor** (cont.)
+## Características da **função construtora**
 
-- Uma função construtora (ou **construtor**) é apenas uma função.
+- Uma função construtora é apenas uma função
   - Porém ela usa a referência `this` para definir propriedades de um
     objeto novinho que está sendo criado
   - Tipicamente, **o nome de toda função construtora começa com letra
@@ -143,13 +300,14 @@
       // this.nome = nome
       // ...
     }
-    function verdura(nome, calorias) {   // funciona, mas evite
+    function verdura(nome, calorias) {   // funciona, mas evitamos
       // this....
     }
     ```
-
+    - A letra maiúscula indica que não podemos esquecer do `new`
+ 
 ---
-## Construção de objetos por **construtor** (cont.)
+## Função construtora e **métodos**
 
 - Se, além de propriedades de dados (`modelo`, `dono` etc.), colocarmos também
   alguns métodos, podemos falar que temos algo semelhante a uma
@@ -158,54 +316,50 @@
   function Moto(modelo, dono) {
     /* ... */
     this.toString = function() {
-      return this.modelo + ' do(a) ' + this.dono;
+      return `${this.modelo} do(a) ${this.dono}`;
     };
   }
   let motoca = new Moto('Honda Biz', 'Rubinho');
   console.log(motoca.toString());     // Honda Biz do Rubinho
   ```
 
+*[OO]: Orientadas a objetos
+
 ---
-## Exemplo: Lista de contatos
+## Exemplo: Lista de contatos <small>(1/4)</small>
 
 - Considere um código para inicializar uma lista de contatos assim:
+  <!-- {li:.two-column-code} -->
   ```js
   function Contato(nome, email) {
     this.nome = nome;
     this.email = email;
     this.linkParaMensagem = function() {
-      return 'mailto:' + this.email;
+      return `mailto:${this.email}`;
     };
   }
-
-  // continua no próximo slide
-  ```
-
----
-## Exemplo: Lista de contatos (cont.)
-
-- (continuando o código...)
-  ```js
   const lista = [
-    new Contato('huguinho', 'hugo@gmail.com'),
-    new Contato('zezinho', 'jose@gmail.com'),
-    new Contato('luizinho', 'luiz@gmail.com')
+    new Contato('huguinho', 'h@gma.br'),
+    new Contato('zezinho', 'j@gma.br'),
+    new Contato('luizinho', 'l@gma.br')
   ];
+
+
   ```
 
 ---
-## Exemplo: Lista de contatos (cont.)
+## Exemplo: Lista de contatos <small>(2/4)</small>
 
 - Se pudéssemos examinar a memória alocada, veríamos:
 
   ![](../../images/objetos-memoria.png) <!-- {.centered} -->
   - Repare que o código fonte do método é repetido a cada instância
-    - Podemos melhorar isso, se tivermos como definir **o método
-      `linkParaMensagem` a nível da classe**, ao invés de fazê-lo
+    - Dá para melhorar, se tivermos como definir **o método
+      `linkParaMensagem` a nível da classe**, ao invés de
       na instância
 
 ---
-## Exemplo: Lista de contatos (cont.)
+## Exemplo: Lista de contatos <small>(3/4)</small>
 
 - De fato, é possível definir um **método a nível da classe** usando uma
   propriedade chamada `prototype`:
@@ -213,15 +367,16 @@
   function ContatoV2(nome, email) {
     this.nome = nome;
     this.email = email;
+    // this.linkParaMensagem = function() { ... }
   }
   ContatoV2.prototype.linkParaMensagem = function() {
-    return 'mailto:' + this.email;
+    return `mailto:${this.email}`;
   };
   // lembre-se: função é um objeto, logo, pode ter propriedades
   ```
 
 ---
-## Exemplo: Lista de contatos (cont.)
+## Exemplo: Lista de contatos <small>(4/4)</small>
 
 - Se usarmos a classe `ContatoV2` para alocar a lista de contatos, teremos:
 
@@ -229,10 +384,10 @@
   - Mas como isso funciona?
 
 ---
-## O **Prototype** (protótipo)
+## O **Prototype** (protótipo) <small>(1/2)</small>
 
 - Todo objeto possui uma propriedade especial chamada `prototype` de onde ele
-  **pode herdar propriedades**
+  **pode "herdar" propriedades**
   - Podemos visualizar isso ao criarmos um objeto vazio e verificar que ele já
     tem algumas propriedades:
     ```js
@@ -242,58 +397,28 @@
     - Isso acontece porque todo objeto que instanciamos na forma literal
       tem seu `prototype` apontado para um objeto que possui algumas
       propriedades (e.g., `toString`)
+      - Esse objeto é o `Object.prototype`
 
 ---
-## O **Prototype** (cont.)
+## O **Prototype** <small>(2/2)</small>
 
-- ![](../../images/prototype-chain.png) <!-- {.push-right} -->
+- ![](../../images/prototype-chain.svg) <!-- {.push-right} -->
   Quando **acessamos uma propriedade** de um objeto, o motor JS **procura
   no próprio**
 - Se não encontrar, ele continua procurando na **`prototype` _chain_**
 - Isso é feito até chegar no último objeto e, então, o motor diz que essa
-  propriedade está `undefined`. Por exemplo:
+  propriedade está `undefined`. Por exemplo: <!-- {.compact-code-more} -->
   ```js
-  let nome = { first: 'Paul', last: 'Irish' };
-  nome.first;       // achou no próprio objeto
-  nome.toString();  // achou em Object.prototype
-  nome.middle;      // não achou, undefined
+  let nome = { firstName: 'Paul', lastName: 'Irish' };
+  nome.firstName;       // achou no próprio objeto
+  nome.toString();      // achou em Object.prototype
+  nome.middleName;      // não achou, undefined
   ```
 
 ---
-## Métodos de classe (estáticos)
-
-- É possível definir um método que pertence à classe e não tem acesso aos
-  dados das instâncias (similar a um **método estático** de Java):
-  ```js
-  ContatoV2.ordenarContatos = function(listaDeContatos) { /* ... */ };
-  ```
-  - É diferente do **método (de instância) a nível de classe**:
-    ```js
-    ContatoV2.prototype.linkParaMensagem = function() { };
-    ```
-
----
-# Funções Construtoras (classes)
-
----
-## Funções em Javascript (recordando)
+## Invocação de funções
 
 - Funções são objetos (invocáveis)
-- Definimos na forma literal:
-  ```js
-  function fibonacci(n) {
-    return n < 3 ? 1 : fibonacci(n-1) + fibonacci(n-2);
-  }
-  ```
-  - Possui 4 partes:
-    1. A palavra `function`
-    1. Um nome (opcional em certos casos)
-    1. Lista de parâmetros
-    1. Corpo
-
----
-## Invocação de funções (como função)
-
 - Sendo objetos, as funções também possuem uma propriedade `prototype` que
   aponta para um objeto "global" e único, o **`Function.prototype`**
 - Há 4 formas distintas para se invocar uma função
@@ -301,7 +426,7 @@
   1. Como um método: `video.play()`
   1. Como um construtor `new VideoPlayer()`
   1. ~~Com `apply` ou `call`: `iniciaControlesVideo.call(null)`~~
-- Informação **insanamente** importante:
+- **Informação importante**: <!-- {li:.note.info} -->
   - O objeto para onde `this` aponta varia em cada uma das 4 formas
 
 ---
@@ -324,64 +449,44 @@
 ## (2) Invocação de funções (como **método**)
 
 2. Como um **método** (função que pertence a um objeto):
-   - Quando a função é uma propriedade de um objeto
-     ```js
-     let contador = {
-       valor: 0,
-       incrementa: function(qtde) {
-         this.valor += qtde ? qtde : 1;
-       }
+   ```js
+   const contador = {
+     valor: 0,
+     incrementa: function(qtde) {
+       this.valor += qtde ? qtde : 1;
      }
-     contador.incrementa();    // contador.valor = 1
-     contador.incrementa(10);  // contador.value = 11
-     ```
-     - `this` aponta para a instância do objeto dono do método invocado
+   }
+   contador.incrementa();    // contador.valor = 1
+   contador.incrementa(10);  // contador.value = 11
+   ```
+   - `this` aponta para a instância do objeto dono do método invocado
 
 ---
 ## Invocação de funções (como **método** vs **função**)
 
 - Uma consequência do erro de projeto mencionado:
   ```js
-  let calculadora = {
-    valor: 1,
-    multiplica: function(fator) {           // invocação de método
-      const soma = function(parcela) {      // invocação de função
-        this.valor += parcela;              // `this` aponta para `window`
-      }
-      let incremento = this.valor;
-      for (; fator !== 1; fator--) { soma(incremento); }
+  let usuario = {
+    nome: 'Couto',
+    cumprimenta: function() {           // invocação de método
+      setTimeout(function() {
+        console.log(`Olá, aqui é ${this.nome}`);
+      }, 5000);
     }
   };
-  calculadora.multiplica(5);          // 1 x 5; mas calculadora.valor = 1. Pq?
+  usuario.cumprimenta();  // 'Olá, aqui é undefined'... pq??
   ```
 
 ---
 ## Invocação de funções (**método** vs **função** cont.)
 
 - O que aconteceu no exemplo anterior:
-  - O valor de `this` dentro de `calculadora.multiplica` aponta para a
-    instância do objeto calculadora, como esperado
-  - Porém, dentro de `soma`, `this` passa a apontar para `window`, que não tem
-    uma variável `valor`
-- Mas não desanime: dá pra consertar usando as **_arrow functions_** (ES2015)
-
----
-## ES2015: _arrow functions_
-
-- No ES2015 foram propostas as _arrow functions_, que mantêm o valor de `this`
-  do contexto externo, dentro da função:
-  ```js
-  let calculadora = {
-    valor: 1,
-    multiplica: function(fator) {
-      // soma é uma função seta, que mantém o valor de this do contexto externo
-      let soma = parcela => this.valor += parcela;
-      for (; fator !== 1; fator--) {
-        soma(this.incremento);
-      }
-    }
-  };
-  ```
+  - O valor de `this` dentro de `usuario.cumprimenta` aponta para a
+    instância do objeto `usuario`, como esperado
+  - Porém, quando `setTimeout` invoca `usuario.cumprimenta` isso é feito como uma função (e não método)
+    - `this` passa a apontar para `window`, que não tem uma variável `nome`
+- Mas não desanime: dá pra consertar usando as **_arrow functions_**
+  - Veremos elas no próximo tópico de hoje
 
 ---
 ## (3) Invocação de funções (como **construtor**)
@@ -395,8 +500,8 @@
    let presidente = new Contato('Seu Adamastor');  // construtor
    ```
    - Por causa do **operador `new`, três coisas acontecem**:
-     1. Um **objeto "em branco"** é criado e seu **`prototype` é o mesmo do
-       da função**
+     1. Um **objeto vazio** é criado e seu **`prototype` é o mesmo do
+        da função**
      1. O valor de **`this`** dentro da função **aponta para o novo objeto**
      1. Se não houver `return`, **`this` é retornado** automaticamente
 
@@ -415,220 +520,209 @@
       1. `window.nome === "Seu Custódio"`
       1. `presidente === undefined`
 
-<!--
-## (4) ~~Invocação de funções (com **apply ou call**)~~
-
-- `Function.prototype` tem dois métodos chamados `apply` e `call`
-  - Ou seja, toda função tem acesso a eles
-- Os dois métodos possibilitam a invocação da função usando um **valor
-  arbitrário para `this`** e um **conjunto de argumentos**
-  - Exemplos:
-    ```js
-    function ola(nome, profissao) {
-      return 'Me chamo ' + nome + ' e sou ' + profissao;
-    }
-    ola('Joao', 'Storm Trooper');             // invocação como função (subrotina)
-    ola.apply(null, ['Alex', 'Rebelde']);     // apply: argumentos em um vetor
-    ola.call(null, 'Astolfo', 'Sith');        // call: argumentos separados por ,
-    ```
-
-
-## ~~Uso interessante de **apply** ou **call**~~
-
-- [_Monkey-patching_](http://en.wikipedia.org/wiki/Monkey_patch): incluir um
-  comportamento a uma função existente sem prejudicar seu funcionamento
-    ```js
-    // Código legítimo de um site:
-    let carrinho = {
-       adicionarProduto: function(idProduto, qtde, preco) { /* ... */ }
-    };
-
-    // Código do malvado programador JavaScript *no console*:
-    let original = carrinho.adicionarProduto;
-    carrinho.adicionarProduto = function(id, qtde, preco) {
-      original.call(carrinho, id, qtde, 0.05);    // U.U
-    }
-    ```
--->
 ---
+<!-- {"layout": "main-point", "state": "emphatic"} -->
 # Herança
 
 ---
-## Forma **pseudo-clássica**
+## Herança **pseudo-clássica**
 
-```js
-let Mamifero = function(nome) {
-  this.nome = nome;
-};
-
-Mamifero.prototype.diz = function() {
-  return this.fala || '';
-};
-```
-```js
-let mamiferoGenerico = new Mamifero('mamifero');
-mamiferoGenerico.diz();     // retorna ''
-```
-
----
-## Forma **pseudo-clássica** (cont.)
-
-```js
-let Gato = function(nome) {
-  this.nome = nome;
-  this.fala = 'Miau';
-}
-Gato.prototype = new Mamifero();
-```
-```js
-let gato = new Gato('Tom');
-gato.diz();                 // retorna 'Miau'
-```
-
----
-<!-- {"layout": "2-column-content"} -->
-# Classes em <small>(ES5)</small> vs **<small>(ES2015)</small>**
-
-```js
-function Veiculo(marca, tipo) {
-  this.marca = marca;
-  this.tipo = tipo;
-}
-Veiculo.prototype.ligar =
-  function(opcoes) {
-  // método de instância
-};
-Veiculo.ordenar = function (v) {
-  // método estático
-}
-new Veiculo('Ford', 'Ka');
-```
-```js
-class Veiculo {
-  constructor(marca, tipo) {
-    this.marca = marca;
-    this.tipo = tipo;
-  }
-  ligar(opcoes) {
-    //...
-  }
-  static ordenar(veiculos) {
-  }
-}
-new Veiculo('Ford', 'Ka');
-```
-
----
-<!-- {"layout": "2-column-content"} -->
-# Herança em <small>(ES5)</small> vs **<small>(ES2015)</small>**
-
-```js
-function Carro(marca, tipo, modelo) {
-  Veiculo.call(this, marca, tipo);
-  this.modelo = modelo;
-}
-
-Carro.prototype = new Veiculo();
-Carro.prototype.ligar =
-  function(opcoes) {
-    // chamando o "super.ligar"...
-    Veiculo.prototype.ligar
-      .call(this, opcoes);
-    // fazer coisas específicas
-    // de um carro...
-}
-```
-
-```js
-class Carro extends Veiculo {
-  ligar(opcoes) {
-    super.ligar(opcoes);
-  }
-}
-```
-
----
-## Classes em ES2019+
-
-- Foi introduzida a [proposta "class fields"][class-fields]:
+- <!-- {ul:.no-padding.no-margin.no-bullets.two-column-code.compact-code-more} -->
   ```js
-  class PlayerInput extends Component {
-    static propTypes = {  // membros estáticos da classe
-      id: PropTypes.string.isRequired
+  let Mamifero = function(nome) {
+    this.nome = nome;
+  };
+
+  Mamifero.prototype.diz = function() {
+    return this.fala || '';
+  };
+
+  let mamiferoGenerico = new Mamifero('mamifero');
+  mamiferoGenerico.diz();     // retorna ''
+
+  let Gato = function(nome) {
+    this.nome = nome;
+    this.fala = 'Miau';
+  }
+  Gato.prototype = new Mamifero();
+
+  let gato = new Gato('Tom');
+  gato.diz();                 // retorna 'Miau'
+
+
+
+  ```
+  - **Veredito**: dá trabalho d+, suscetível a erros. Mas era o que tinha. Hoje usamos classes. <!-- {li:.note.info} -->
+
+---
+<!-- {"layout": "section-header", "hash": "funcao-seta"} -->
+# Função Seta
+## A 3ª forma para funções
+
+- 3 Formas:
+  - Função tradicional
+  - Função anônima
+  - Função seta (anônima também)
+<!-- {ul^1:.content} -->
+
+---
+## Função **tradicional** e **anônima**
+
+- <!-- {.code-split-2} -->
+  <!-- {ul:.full-width} -->
+  ```js
+  function cadastrar() {
+    // ...
+  }
+  ```
+  ```js
+  const cadastrar = function() {
+    // ...
+  };
+  ```
+ - **Função seta** é uma **sintaxe mais nova e sucinta** para as anônimas ⬆
+ - <!-- {.code-split-2.bulleted style="flex-direction: row-reverse"} -->
+   ```js
+   const cadastrar = () => {
+     // ...
+   };
+   ```
+   1. Omitir `function`
+   2. Seta entre parâmetros e corpo
+   3. `return` implícito
+   4. Mantém o valor do ponteiro `this`
+- Vejamos alguns exemplos <!-- {li:.bullet} -->
+
+---
+<!-- {"classes": "compact-code-more", "hash": "funcao-seta-sintaxe"} -->
+## Função seta: sintaxe
+
+- <!-- {ul:.no-bullets.no-padding.full-width.two-column-code} -->
+  ```js
+  function ciao() {
+    return 'Ciao';
+  }
+
+  function oi(prim, ult) {
+    return `Oi ${prim} ${ult}`;
+  }
+
+  function hi(name) {
+    return 'Hi ' + name;
+  }
+
+  function fatorial(n) {
+    let resultado = 1;
+    while (n > 1) {
+      resultado *= n;
+      n--;
     }
-    state = {             // membros da instância da classe
-      username: ''
+    return resultado;  
+  }
+
+  let ciao = () => 'Ciao';
+
+
+
+  let oi = (prim, ult) => `Oi ${prim} ${ult}`;
+
+
+
+  let hi = name => 'Hi ' + name;
+
+
+
+  let fatorial = n => {
+    let resultado = 1;
+    while (n > 1) {
+      resultado *= n;
+      n--;
     }
-    #qtdeMovimentos = 0   // membro de instância PRIVADO
-    render() {
-    }
+    return resultado;  
   }
   ```
 
-
-[class-fields]: https://github.com/tc39/proposal-class-fields
-
 ---
-# Escopo
+<!-- {"classes": "compact-code-more", "hash": "funcoes-seta-com-vetores"} -->
+## Exemplo: funções seta com vetores
 
----
-## Problema de escopo em Javascript
-
-- Variáveis criadas com `var` possuem escopo de função
-- Aquelas criadas fora de uma função são associadas ao objeto `window` (!!!)
-  ```html
-  <script>
-    var umBoizinho = 'verde';
-    console.log(window.umBoizinho);   // verde
-  </script>
+- <!-- {ul:.no-padding.no-margin.no-bullets.flex-align-center} -->
+  ```js
+  let usuarios = ['Joel', 'Fani', 'Fúlvio'];
+  let alunos = [{ matricula: '...' }];
+  let numeros = [1, 4, 2, 5];
   ```
-- Isso causa uma grande **poluição do escopo global**
+
+1. Pegar apenas usuários que começam com letra 'F': <!-- {ol:.full-width.bulleted-0} -->
+   - <!-- {.code-split-2} -->
+     <!-- {ul:style="padding-left: 0"} -->
+     ```js
+     usuarios.filter(function(nome) {
+       return nome.startsWith('F');
+     });
+     ```
+     ```js
+     usuarios.filter(nome => nome.startsWith('F'));
+     
+     
+     ```
+2. Buscar pelo aluno com uma matrícula:
+   - <!-- {.code-split-2} -->
+     <!-- {ul:style="padding-left: 0"} -->
+     ```js
+     alunos.find(function(aluno) {
+       return aluno.matricula === '2005046102';
+     });
+     ```
+     ```js
+     alunos.find(al => al.matricula === '2005046102');
+     
+     
+     ```
+3. Vetor com os quadrados do original:
+   - <!-- {.code-split-2} -->
+     <!-- {ul:style="padding-left: 0"} -->
+     ```js
+     numeros.map(function(numero) {
+       return numero ** 2;
+     });
+     ```
+     ```js
+     numeros.map(numero => numero ** 2);
+
+
+     ```
 
 ---
-## Resolvendo a poluição
+# Mantendo o `this` léxico
 
-1. Solução até ES5:
-   - Podemos criar funções com o único objetivo de não sujar o escopo global
-   - Vamos colocar o código dentro de uma função e executá-la imediatamente
-     - Este é o padrão de projeto IIFE: **Immediately Invoked Function Expression**
-1. Solução com ES Modules: veremos em outra aula
-
-*[IIFE]: Immediately Invoked Function Expression*
-
----
-## Padrão de Projeto: IIFE
-
-- Tentativa 1:
-  ```html
-  <script>
-    function a() {
-      var umBoizinho = 'verde';
-      console.log(window.umBoizinho);   // undefined
+- Métodos normais (`function`) perdem o valor do `this` léxico (que estava no contexto) se invocados como funções
+  - Isso não pode ser corrigido na linguagem
+- A função seta introduzida em ES2015 **mantém o `this` léxico**:
+  <!-- {li:.two-column-code.compact-code-more} -->
+  ```js
+  let usuario = {                               // ❌
+    nome: 'Couto',
+    cumprimenta: function() {
+      setTimeout(function() {
+        console.log(`Olá, aqui é ${this.nome}`);
+      }, 5000);
     }
-    a();
-  </script>
-  ```
-  - Problema: já melhorou, mas ainda poluímos com `a`
-
-*[IIFE]: Immediately Invoked Function Expression*
-
----
-## Padrão de Projeto: IIFE (cont.)
-
-- Tentativa 2, certeira:
-  ```html
-  <script>
-  (function() {
-    var umBoizinho = 'verde';
-    console.log(window.umBoizinho);   // undefined (yay)
-  })();
-  </script>
-  ```
-
-
-*[IIFE]: Immediately Invoked Function Expression*
+  };
+  usuario.cumprimenta();  // 'Olá, aqui é undefined'
+  let usuario = {                               // ✅
+    nome: 'Couto',
+    cumprimenta: function() {
+      setTimeout(() => {
+        console.log(`Olá, aqui é ${this.nome}`);
+      }, 5000);
+    }
+  };
+  usuario.cumprimenta();  // 'Olá, aqui é Couto'
+  ```  
 
 ---
+<!-- {"layout": "centered"} -->
 # Referências
 
 1. Capítulos 3, 4 e 5 do livro "Javascript: The Good Parts"
