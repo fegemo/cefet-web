@@ -54,17 +54,26 @@
 ---
 # Aulas <small>(2/3)</small>
 
-- [CSS 3](classes/css3/) - Divitite e as _tags_ semânticas, visibilidade e _Layout_
-- [CSS 4](classes/css4/) - _Layout_ e o Coral 55 (Prática)
-- [HTML 5](classes/html5/) - Formulários e Monstros (Prática)
-- [Javascript 5](classes/js5/) - APIs do HTML5
-- [Javascript 4](classes/js4/) - JSON e AJAX (Prática)
-- [Node.js 1](classes/ssn1/) - Servidores Web
-- [Node.js 2](classes/ssn2/) - NPM, arquivos e _learnyounode_ (Prática)
-- [Node.js 3](classes/ssn3/) - Express.js
-- [Node.js 4](classes/ssn4/) - HTML Dinâmico e o Geiser (Prática)
+[CSS 3](classes/css3/) <!-- {dl:.width-10.full-width} -->
+~ Flexbox, grid, visibilidade, web fonts
 
----
+[CSS 4](classes/css4/)
+~ _Layout_, _custom properties_ e o Coral 55 🌴
+
+[JS 3](classes/js3/)
+~ Template strings, objetos, prototype, função seta
+
+[JS 4](classes/js4/)
+~ Estilos, campos de entrada, eventos de mouse e o 📷 PhotoSnap
+
+<!-- - [HTML 5](classes/html5/) - Formulários e Monstros (Prática) -->
+<!-- - [Javascript 5](classes/js5/) - APIs do HTML5 -->
+<!-- - [Node.js 1](classes/ssn1/) - Servidores Web -->
+<!-- - [Node.js 2](classes/ssn2/) - NPM, arquivos e _learnyounode_ (Prática) -->
+<!-- - [Node.js 3](classes/ssn3/) - Express.js -->
+<!-- - [Node.js 4](classes/ssn4/) - HTML Dinâmico e o Geiser (Prática) -->
+
+<!-- 
 # Aulas <small>(3/3)</small>
 
 - [Node.js 5](classes/ssn5/) - Sessão e Biscoitos :cookie:
@@ -73,7 +82,7 @@
 - [CSS 5](classes/css5/) - Animações e _Edukids Animals_ (Prática)
 - [CSS 6](classes/css6/) - _Responsive Design_
 - [Javascript 3](classes/js3/) - Padrões de Projeto
-- [Javascript 7](classes/js7/) - EcmaScript 2015/2016
+- [Javascript 7](classes/js7/) - EcmaScript 2015/2016 -->
 
 ---
 <!-- {"hash": "ementa", "layout": "section-header" } -->
