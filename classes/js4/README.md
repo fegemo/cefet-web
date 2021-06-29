@@ -539,3 +539,13 @@
     :::
 
 [mdn-filter]: https://developer.mozilla.org/en-US/docs/Web/CSS/filter
+
+---
+<!-- {"layout": "centered"} -->
+# Referências
+
+- [Atributos de dados na MDN][mdn-data-attributes]
+- [Propriedade CSS `filter` na MDN][mdn-filter]
+
+[mdn-data-attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+[mdn-filter]: https://developer.mozilla.org/en-US/docs/Web/CSS/filter

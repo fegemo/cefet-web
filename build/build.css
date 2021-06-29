@@ -482,7 +482,7 @@ body {
   transition: opacity 200ms ease 500ms, transform 200ms ease 500ms;
 }
 .photosnap.bespoke-backdrop-active {
-  background-image: url("../images/photosnap.webp");
+  background-image: url("../images/photosnap.jpg");
   background-size: cover;
   background-position: 50% 0%;
   opacity: 1;
