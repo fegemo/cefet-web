@@ -1,0 +1,1 @@
+.triggered-event{position:absolute;transform:scale(.1);opacity:0;transition:all 1.75s cubic-bezier(0,-1.67,.85,.38) .25s}.triggered-event.active{transition-property:none;transform:scale(1);opacity:1}
