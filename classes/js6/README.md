@@ -1,114 +1,96 @@
 # Javascript - Parte 6
+---
+<!-- {"layout": "section-header", "hash": "envio-de-formularios-e-validacao"} -->
+# Envio de Formulários e Validação
+## Enviando dados e verificando
+
+- O elemento HTML **`<form></form>`** <!-- {ul:.content} -->
+- Botões: _submit_, _reset_ e _button_
+- Validação de campos e formulário
 
 ---
-# Roteiro
+## O Elemento HTML `<form>...</form>`
 
-1. Bibliotecas Javascript
-1. MVC no lado cliente
-1. _Task runners_
-
----
-# Bibliotecas Javascript
-
----
-## Bibliotecas Javascript
-
-- Reutiliza��o de c�digo
-- Surgiram inicialmente para
-  1. Amenizar os problemas de compatibilidade entre navegadores
-    - Exemplos: Prototype, jQuery
-  1. Tornar o uso da linguagem mais agrad�vel
-    - Exemplos: sugar.js, underscore
-- Outros novos objetivos:
-  1. Consertar problemas na linguagem
-    - Exemplos: moment.js, RequireJS
-  1. Testar automaticamente o c�digo escrito em Javascript
-    - QUnit, Jasmine  
+- Um **formulário** é um conjunto de campos de dados (_i.e._, entrada/escolha)
+  que pode ser **enviado** <!-- {.underline} --> a um servidor Web. Exemplos:
+  - ![](../../images/cadastro-facebook.png) <!-- {.push-right.bordered.rounded style="max-width: 450px"} -->
+    Ao se cadastrar no Facebook (ou qualquer site)
+  - Ao preencher e enviar um questionário
+  - Ao editar seu perfil em algum site
+- Além de **enviar os dados**, podemos também configurar os campos com
+  algumas **restrições** (_e.g._, campo obrigatório)
 
 ---
-## Tipos de bibliotecas
+## Formulário e Botões
 
-<ul class="multi-column-list-2">
-  <li>**Manipula��o do DOM**
-    <ul>
-      <li>jQuery</li>
-      <li>MooTools</li>
-      <li>Prototype</li>
-      <li>Dojo Toolkit</li>
-      <li>~~YUI~~</li>
-    </ul>
-  </li>
-  <li>**_Widgets_**
-    <ul>
-      <li>jQuery UI</li>
-      <li>Dojo Widgets</li>
-      <li>ExtJS</li>
-      <li>Script.aculo.us</li>
-    </ul>
-  </li>
-</ul>
+- Um _form_ agrupa _inputs_ para, posteriormente, serem enviados a
+  um servidor (por exemplo, para **cadastrar um usuário**):
+  ```html
+  <form action="cadastrar-usuario.php"> <!-- que "página" receberá os dados -->
+    <label>Nome: <input name="nome" type="text"></label>
+    <label>E-mail: <input name="email" type="email"></label>
+    <label>Senha: <input name="senha" type="password"></label>
+
+    <button type="submit">Enviar</button> <!-- veja no próximo -->
+    <button type="reset">Limpar</button>  <!-- slide -->
+  </form>
+  ```
+- Exemplo de [formulário](../../samples/form/index.html) <!-- {target="_blank"} -->
 
 ---
-## Tipos de bibliotecas
+## Botões de submissão e _reset_
 
-<ul class="multi-column-list-2">
-  <li>**Utilit�rios**
-    <ul>
-      <li>Underscore</li>
-      <li>Lodash</li>
-      <li>Moment.js</li>
-      <li>Sugar</li>
-      <li>Math.js</li>
-    </ul>
-  </li>
-  <li>**Testes**
-    <ul>
-      <li>Jasmine</li>
-      <li>Mocha</li>
-      <li>Chai</li>
-      <li>QUnit</li>
-      <li>Karma</li>
-    </ul>
-  </li>
-</ul>
+- Dentro de um formulário, um botão do `type="submit"` envia os dados para
+  o servidor: <button type="submit"><img src="../../images/html5-logo-32.png" style="height: 0.65em; margin-right: .25em;">Cadastrar</button>
+  ```html
+  <button type="submit">
+    <img src="icone.png">Cadastrar <!-- podemos colocar ícones nos botões =) -->
+  </button>
+  ```
+- Um botão `type="reset"` volta os valores digitados para
+  seus `value` padrão
+  ```html
+  <button type="reset">Limpar</button> <!-- muito pouco usado -->
+  ```
+- Também há botões que não fazem nada, mas podem ter algum comportamento
+  associado (via JavaScript)
+  ```html
+  <button type="button">Ver detalhes</button> <!-- type="button" é o padrão -->
+  ```
 
 ---
-## jQuery
+## Validação e Restrições nos Campos
+
+- Podemos usar o atributo HTML `required` para marcar um campo como
+  de preenchimento obrigatório:
+  ```html
+  <form action="verifica-login.php">
+    <label>Digite seu login:
+      <input type="text" id="usuario" required>
+      <input type="password" id="senha" required>
+    </label>
+    <button type="submit">Entrar</button>
+  </form>
+  ```
+  ::: result
+  <form action="verifica-login.php">
+    <label>Digite seu login:
+      <input type="text" id="usuario" required size="10">
+      <input type="password" id="senha" required size="10">
+    </label>
+    <button type="submit">Entrar</button>
+  </form>
+  :::
 
 ---
-## jQuery plugins
+## Outros Tipos de Restrições
 
----
-## RequireJS
+| Tipo      	            | Código HTML                  	        | Exemplo                 	                   |
+|-------------------------|---------------------------------------|--------------------------------------------- |
+| Campo obrigatório 	    | `<input required>`                    | <form><input required size="5"><button>Enviar</button></form>     	|
+| Quantidade de caracteres| `<input maxlength="2">`	              | <input maxlength="2" size="5"> 	|
+| Número mínimo       	  | `<input type="number" min="5">`	      | <form><input type="number" min="5" style="width: 5em"><button>Enviar</button></form>	|
+| Número máximo       	  | `<input type="number" max="10">`	    | <form><input type="number" max="10" style="width: 5em"><button>Enviar</button></form>	|
+| Padrão                  | `<input pattern="[0-9]{4}">` | <form><input pattern="[0-9]{4}" size="5"><button>Enviar</button></form>     |
+| Desabilitar             | `<input disabled>` | <input disabled size="5">     |
 
----
-##
----
-##
----
-## MicroJS
-
----
-
----
-# MVC no lado cliente
-
----
-## MVC
-
----
-## Backbone
-
----
-## KnockoutJS
-
----
-## Angular
-
---
-## React
-
----
-# Refer�ncias
-
-1. Mozilla Developer Network (MDN)

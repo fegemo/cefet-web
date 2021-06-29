@@ -14,75 +14,77 @@
     - `4. Null` <!-- {.tipo-js} -->
     - `5. Undefined` <!-- {.tipo-js} -->
     - `6. Symbol` <!-- {.tipo-js} -->
-    - `7. Object` <!-- {.tipo-js.tipo-object} --> <!-- {ul^0:.multi-column-list-4.no-bullets} -->
+    - `7. Object` <!-- {.tipo-js.tipo-object} --> <!-- {ul^0:.multi-column-list-2.no-bullets} -->
 
-- Funções: <!-- {ul:.full-width.no-padding.no-bullets} -->
-  - <!-- {.code-split-2} -->
-    ```js
-    // tradicional
-    function nomeCompleto(nome, sobre) {
-      return nome + ' ' + sobre;
-    }
-    ```
-    ```js
-    // anônima em variável
-    const nomeCompleto = function(nome, sobre) {
-      return nome + ' ' + sobre;
-    }
-    ```
+- Funções: <!-- {ul:.full-width.no-padding.no-bullets.compact-code-more} -->
+  ```js
+  // tradicional
+  function nomeCompleto(nome, sobre) {
+    return nome + ' ' + sobre;
+  }
+  ```
+  ```js
+  // anônima em variável
+  const nomeCompleto = function(nome, sobre) {
+    return nome + ' ' + sobre;
+  }
+  ```
   - Invocação da mesma forma: `nomeCompleto('Mijaro', 'Nomuro')`
 
 ---
 <!-- {"classes": "compact-code-more"} -->
 ## Na última aula (2/2)
 
-- Vetores <!-- {ul:.bulleted.full-width} -->
-- <!-- {.code-split-2} -->
-  ```js
-  let radios = [106.1, 105.1, 98.3];
-  let cores = ['azul', 'verde'];
-  ```
-  ```js
-  let animais = [];         // <- vetor vazio
-  animais.push('dogue');    // ['dogue']
-  ```
+- Vetores <!-- {ul:.bulleted-0.full-width} -->
+  - <!-- {li:.code-split-2} -->
+    <!-- {ul:.no-bullets.no-padding.no-margin} -->
+    ```js
+    let radios = [106.1, 105.1, 98.3];
+    let cores = ['azul', 'verde'];
+    ```
+    ```js
+    let animais = [];         // <- vetor vazio
+    animais.push('dogue');    // ['dogue']
+    ```
 - Repetição
-- <!-- {.code-split-3} -->
-  ```js
-  // tradicional
-  for(let i=0; i<cores.length;i++){
-    console.log(cores[i]);
-  }
-  // impr. azul, verde
-  ```
-  ```js
-  // for of                      👍
-  for (let cor of cores) {
-    console.log(cor);
-  }
-  // impr. azul, verde
-  ```
-  ```js
-  // forEach                     👍
-  cores.forEach(function(cor) {
-    console.log(cor);
-  });
-  // impr. azul, verde
-  ```
+  - <!-- {li:.code-split-3} -->
+    <!-- {ul:.no-bullets.no-padding.no-margin} -->
+    ```js
+    // tradicional
+    for(let i=0; i<cores.length;i++){
+      console.log(cores[i]);
+    }
+    // impr. azul, verde
+    ```
+    ```js
+    // for of                      👍
+    for (let cor of cores) {
+      console.log(cor);
+    }
+    // impr. azul, verde
+    ```
+    ```js
+    // forEach                     👍
+    cores.forEach(function(cor) {
+      console.log(cor);
+    });
+    // impr. azul, verde
+    ```
 - Vários métodos de ↓ strings e de vetores ⤥
-- <!-- {.code-split-2} -->
-  ```js
-  'Hannah'.toLowerCase() === 'hannah'
-  'Ovo'.replace('O', 'Ou') === 'Ouvo'
-  'BR4512348ZY'.substr(0, 2) === 'BR'
-  'Charmander'.indexOf('arma') === 4
-  ```
-  ```js
-  radios.push(92.5);      // insere no final
-  radios.pop();           // remove do final
-  cores.unshift('verm');  // insere no início
-  cores.shift();          // remove do início
-  ```
+  - <!-- {li:.code-split-2} -->
+    <!-- {ul:.no-bullets.no-padding.no-margin} -->
+    ```js
+    'Hannah'.toLowerCase() === 'hannah'
+    'Ovo'.replace('O', 'Ou') === 'Ouvo'
+    'BR4512348ZY'.substr(0, 2) === 'BR'
+    'Charmander'.indexOf('arma') === 4
+    ```
+    ```js
+    radios.push(92.5);      // insere no final
+    radios.pop();           // remove do final
+    cores.unshift('verm');  // insere no início
+    cores.shift();          // remove do início
+    ```
 
 ---
 <!-- {"layout": "centered"} -->
@@ -351,8 +353,7 @@
 ## Exemplo: Lista de contatos <small>(2/4)</small>
 
 - Se pudéssemos examinar a memória alocada, veríamos:
-
-  ![](../../images/objetos-memoria.png) <!-- {.centered} -->
+  ![](../../images/objetos-memoria.png) <!-- {.centered.block} -->
   - Repare que o código fonte do método é repetido a cada instância
     - Dá para melhorar, se tivermos como definir **o método
       `linkParaMensagem` a nível da classe**, ao invés de
@@ -379,8 +380,7 @@
 ## Exemplo: Lista de contatos <small>(4/4)</small>
 
 - Se usarmos a classe `ContatoV2` para alocar a lista de contatos, teremos:
-
-  ![](../../images/objetos-memoria2.png)
+  ![](../../images/objetos-memoria2.png) <!-- {.centered.block} -->
   - Mas como isso funciona?
 
 ---
