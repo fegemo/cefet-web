@@ -48,30 +48,22 @@ em **20 pontos** na matéria~~), deve:
      com valores mais baixos
      - O importante é conseguir **pelo menos 100 peças de W$**, até um
        limite de 120 peças
-   - ~~A~~O API pode ser ~~apresentada~~apresentado com _slides_, que
-     podem ser criados em ~~HTML/CSS/JS~~JavasCripta **(até +10 PW$)**
-     - Veja [reveal.js][reveal], [bespoke.js][bespoke], [impress][impress]
-       [slides.com][slides.com] etc.
 1. ~~Um código ilustrativo~~Uma ilustração ~~da~~do API que mostre, de
    forma simples e burlesca (ver [significado de burlesco][burlesco], como ~~ela funciona~~foi
    a atrapalhada do bárbaro
    - Deve haver 1 para cada API ~~escolhida~~escolhido
    - Use tudo o que você aprendeu de HTML e CSS para fazer um exemplo bonitão!!
-   - Seja divertido! Histórias engraçadas vendem bem melhor do que as chatas
+   - Seja uma pessoa bonita e divertida (pontuação alta de carisma). Histórias
+     engraçadas vendem bem melhor do que as chatas
 
-[bespoke]: http://markdalgleish.com/projects/bespoke.js/
-[reveal]: http://lab.hakim.se/reveal-js/
-[impress]: https://impress.js.org/
-[slides.com]: https://slides.com/
 [burlesco]: https://www.google.com.br/search?safe=off&hl=pt-BR&ei=FTe_XLOaBoyp5OUPz4uKmAU&q=burlesco+significado&oq=burlesco+significado&gs_l=psy-ab.3..0l2j0i22i30l8.5578.6891..7051...0.0..0.130.1395.0j12......0....1..gws-wiz.......0i71j0i203j0i10i203j0i22i10i30.4rf7PQvSAI4
 
 Dentre os feitos de HTML5, _Sir_ Fegemo já ouviu falar e está disposto a
 comprar informações sobre:
 
 - Acesso a recursos do dispositivo
-  - _Gamepad API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
+  - _Gamepad API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 60)
   - _Vibration API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
-  - _Proximity API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _Ambient Light API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _Geolocation API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _Device Orientation API_ (valor:
@@ -79,9 +71,13 @@ comprar informações sobre:
   - _Battery Status API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
     30)
   - _Badging API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
-    30)
+  - _Contact Picker API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
+    40)
+  - _Clipboard API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
 - Multimídia e gráficos
   - _Canvas API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
+  - _Custom Elements_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
+  - _Shadow DOM_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 70)
   - _WebGL_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 110)
   - _WebGPU_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 110)
   - _WebVR API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
@@ -105,6 +101,7 @@ comprar informações sobre:
     70)
   - _Shape Detection API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _Wake Lock API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
+  - _Intersection Observer API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
 - Conectividade
   - _Fetch_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _WebSockets_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
@@ -116,6 +113,7 @@ comprar informações sobre:
   - _Web Bluetooth_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 80)
   - _Web Share_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 40)
 - Armazenamento e _Offline_
+  - _Web Worker_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 60)
   - _Web App Manifest_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 60)
   - _Service Workers_ (valor:
@@ -128,8 +126,11 @@ comprar informações sobre:
     <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _User Timing API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 30)
   - _Web Cryptography_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 50)
+- CSS ~~também tem aventuras do Cascatas Estilosas~~
+  - _Houdini APIs_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 100)
 
-![](images/criatividade-off.png)
+![Uma tesourinha cortando uma linha pontilhada](images/criatividade-off.png)
+
 
 ## O Formato
 
@@ -140,9 +141,9 @@ porque o grupo deve implementar um código demonstrando a funcionalidade
 (veja [caniuse.com][caniuse]). Além disso, **cada API pode ser escolhida
 por apenas 1 grupo**.
 
-:two: Uma **breve** apresentação de slides deve ser criada e, em data
-combinada, apresentada pelo grupo para a turma. A apresentação terá no
-máximo **7 minutos** e deve conter, pelo menos:
+:two: Durante aula combinada o grupo deve apresentar a(s) API(s) 
+para a turma. Não é necessário ter slides. A apresentação terá no
+máximo **7 minutos** e deve mostrar:
 
 - Uma descrição da(s) API(s), contendo códigos de exemplo
 - Uma demonstração da(s) API(s) em ação (usando seu próprio código)
@@ -159,6 +160,7 @@ em seu [README.md][readme-weblot].
 [repo-weblot]: https://github.com/fegemo/cefet-web-weblot
 [readme-weblot]: https://github.com/fegemo/cefet-web-weblot/blob/master/README.md#cefet-web-weblot
 
+
 ## Referências Úteis
 
 Como pontos iniciais de busca, você pode usar:
@@ -171,12 +173,14 @@ Como pontos iniciais de busca, você pode usar:
 [caniuse-pesquisa]: http://caniuse.com/#search=api
 [html5-api-index]: http://html5index.org/
 
+
 ## Instruções gerais
 
-O trabalho deve ser produzido integralmente pela dupla. **Trabalhos muito
+O trabalho deve ser produzido integralmente pelo grupo. **Trabalhos muito
 semelhantes receberão nota 0**, independente de quem copiou de quem.
 Trabalhos semelhantes aos de outras pessoas (ex-alunos, pessoas na Internet)
 também receberão nota 0.
+
 
 ## Critérios de avaliação
 
