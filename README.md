@@ -66,8 +66,13 @@
 [JS 4](classes/js4/)
 ~ Estilos, campos de entrada, eventos de mouse e o 📷 PhotoSnap
 
+[JS 5](classes/js5/)
+~ Classes, nulos e indefinidos, rest/spread, functional
+
+[JS 6](classes/js6/)
+~ Formulários e validação, criação dinâmica de elementos HTML, 📓 Lista de Tarefas
+
 <!-- - [HTML 5](classes/html5/) - Formulários e Monstros (Prática) -->
-<!-- - [Javascript 5](classes/js5/) - APIs do HTML5 -->
 <!-- - [Node.js 1](classes/ssn1/) - Servidores Web -->
 <!-- - [Node.js 2](classes/ssn2/) - NPM, arquivos e _learnyounode_ (Prática) -->
 <!-- - [Node.js 3](classes/ssn3/) - Express.js -->
@@ -81,8 +86,7 @@
 - [Mongo DB](https://fegemo.github.io/cefet-nosql/classes/mongodb-nodejs/)
 - [CSS 5](classes/css5/) - Animações e _Edukids Animals_ (Prática)
 - [CSS 6](classes/css6/) - _Responsive Design_
-- [Javascript 3](classes/js3/) - Padrões de Projeto
-- [Javascript 7](classes/js7/) - EcmaScript 2015/2016 -->
+-->
 
 ---
 <!-- {"hash": "ementa", "layout": "section-header" } -->
