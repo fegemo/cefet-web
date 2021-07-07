@@ -1,12 +1,12 @@
 <!-- {"layout": "title"} -->
 # **JavaScript** parte 6
-## Criação dinâmica de elementos HTML<br>e a Lista de Tarefas 📓
+## Formulários, criação dinâmica de elementos HTML<br>e a Lista de Tarefas 📓
 
 ---
 <!-- {"layout": "centered"} -->
 # Roteiro
 
-1. [Formulários e validação](envio-de-formularios-e-validacao)
+1. [Formulários e validação](#formularios-e-validacao)
 1. [Criando elementos HTML dinamicamente](#criando-elementos-html-dinamicamente)
 1. [Lista de Tarefas](#lista-de-tarefas) :notebook:
    - Exemplo 1: [Albums de música](#albums-de-musica)
@@ -345,6 +345,7 @@
   - Exemplo: albums de música
   - Exercício 2
   - Exemplo: lista telefônica
+  - Exercício 3
 <!-- {ul:.content} -->
 
 ---
@@ -354,13 +355,15 @@
 # Lista de Tarefas :notebook:
 
 - Crie um sisteminha de gerenciamento de tarefas :notebook:
-  - [_Fork_e o repositório][todos] e veja as instruções
+  - [_Fork_ o repositório][todos] e veja as instruções
     detalhadas no arquivo `README.md`
 - Há 4 atividades:
   0. Representar um vetor `tarefas` (contendo 2 inicialmente)
   1. Mostrar na página essas tarefas pré-existentes
   2. Permitir o usuário inserir novas tarefas
   3. (Opcional) Permitir a filtragem de tarefas por categoria
+  4. (Opcional) Usar <kbd>Enter</kbd> para inserir também
+  5. (Opcional) Concluir uma tarefa
 
 [todos]: https://github.com/fegemo/cefet-web-todo/
 
@@ -373,8 +376,6 @@
 - Em seguida, crie uma função `insereTarefaNaPagina` que
   cria elementos referentes a 1 tarefa (repare o singular) 
   e os coloca na página
-- Ao clicar em um `li.item-tarefa`, alterne a propriedade `marcado`
-  (`true` ou `false`) e coloque ou remova a classe `concluida`
 
 ---
 <!-- {"layout": "2-column-content", "hash": "albums-de-musica"} -->
