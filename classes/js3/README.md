@@ -271,11 +271,12 @@
 <!-- {"layout": "main-point", "state": "emphatic"} -->
 ## E se quiser "forçar" uma forma para criar objetos? <!-- {.bullet} -->
 
-1. Função construtora <!-- {ol:.bulleted.flex-align-end} -->
+1. Função construtora (forma antiga) <!-- {ol:.bulleted.flex-align-end} -->
 1. Classe (veremos em outra aula)
 
 ---
-## Função construtora (forma antiga)
+<!-- {"hash": "funcao-construtora"} -->
+## Função construtora
 
 - Podemos invocar uma **função construtora** que vai instanciar e
   inicializar objetos:
