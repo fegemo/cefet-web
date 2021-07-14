@@ -72,6 +72,12 @@
 [JS 6](classes/js6/)
 ~ Formulários e validação, criação dinâmica de elementos HTML, 📓 Lista de Tarefas
 
+[JS 7](classes/js7/)
+~ _Destructuring_, módulos, promessas, async/await
+
+[JS 8](classes/js8/)
+~ JSON, Web Storage, Ajax e 🌠 Guerras Estelares
+
 <!-- - [HTML 5](classes/html5/) - Formulários e Monstros (Prática) -->
 <!-- - [Node.js 1](classes/ssn1/) - Servidores Web -->
 <!-- - [Node.js 2](classes/ssn2/) - NPM, arquivos e _learnyounode_ (Prática) -->
