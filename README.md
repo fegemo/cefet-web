@@ -78,15 +78,21 @@
 [JS 8](classes/js8/)
 ~ JSON, Web Storage, Ajax e 🌠 Guerras Estelares
 
+
 <!-- - [HTML 5](classes/html5/) - Formulários e Monstros (Prática) -->
-<!-- - [Node.js 1](classes/ssn1/) - Servidores Web -->
-<!-- - [Node.js 2](classes/ssn2/) - NPM, arquivos e _learnyounode_ (Prática) -->
 <!-- - [Node.js 3](classes/ssn3/) - Express.js -->
 <!-- - [Node.js 4](classes/ssn4/) - HTML Dinâmico e o Geiser (Prática) -->
 
-<!-- 
+---
 # Aulas <small>(3/3)</small>
 
+[SS 1](classes/ssn1/) <!-- {dl:.width-10.full-width} -->
+~ Arquiteturas, Servidores Web, Apache e Node.js
+
+[SS 2](classes/ssn2/)
+~ NPM, módulos e _learnyounode_
+
+<!--
 - [Node.js 5](classes/ssn5/) - Sessão e Biscoitos :cookie:
 - [Node.js 6](classes/ssn6/) - Bancos de Dados e Zumbis (Prática)
 - [Mongo DB](https://fegemo.github.io/cefet-nosql/classes/mongodb-nodejs/)

@@ -1,42 +1,116 @@
 <!-- {"layout": "title"} -->
-# Servidores Web
-## O que são, como vivem, onde habitam
+# **Server-side** parte 1
+## Arquiteturas, servidores Web e Node.js
 
 ---
+<!-- {"layout": "centered"} -->
 # Roteiro
 
-1. A vida de um servidor Web
-1. Exemplos de servidores
-1. Node.js
-1. O problem c10k
+1. [Arquiteturas de aplicações web](#arquitetura-de-aplicacoes-web)
+1. [Servidores Web](#servidores-web)
+1. [Apache](#apache)
+1. [Node.js](#node-js)
 
 ---
-<!-- {"layout": "section-header"} -->
-# Introdução
-## A vida de um servidor Web
+<!-- {"layout": "section-header", "hash": "arquitetura-de-aplicacoes-web"} -->
+# Arquiteturas de aplicações web
+## Componentes do sistema
 
-- Breve história
-- Resonsabilidades
-- Exemplos e tipos diferentes
-
+- Relembrando funcionamento da web
+- Arquitetura simples
+- Arquiteturas mais complexas
 <!-- {ul:.content} -->
 
 ---
-<!-- {"layout": "regular"} -->
-## Todos os caminhos levam a **Tim**
+<!-- {"embedSVG": "img[src$='.svg']", "styles": ["../../styles/classes/http-diagram.min.css"], "backdrop": "oldtimes"} -->
+## **HTTP**
 
+- É um **protocolo** na camada de aplicação
+  > Conjunto de regras bem definidas descrevendo como
+  > entidades se comunicam.
+  - É a **"língua falada" pelo navegador e pelo servidor web**
+- Modelo requisição &rarr; resposta
+
+::: figure .http-diagram.flex-align-center.figure-slides.clean.no-margin.invert-colors-dark-mode
+![](../../images/http-diagram-informal.svg) <!-- {.step-1 style="height: 280px"} --> <!-- {p:.bullet.figure-step.bullet-no-anim} -->
+
+![](../../images/http-diagram-informal.svg) <!-- {.step-2 style="height: 280px"} --> <!-- {p:.bullet.figure-step.bullet-no-anim} -->
+
+![](../../images/http-diagram-informal.svg) <!-- {.step-3 style="height: 280px"} --> <!-- {p:.bullet.figure-step.bullet-no-anim} -->
+:::
+
+---
+<!-- {"layout": "2-column-content", "embedSVG": "img[src$='.svg']", "backdrop": "oldtimes"} -->
+### **Navegador requisita** algo e **Servidor responde**
+
+- ![](../../images/http-diagram-informal.svg) <!-- {.full-width.centered.step-3.invert-colors-dark-mode style="height: 288px"} --> <!-- {ul:.http-diagram.no-bullets.no-padding.bullet} -->
+  Requisição:
+  ```http
+  GET /index.html HTTP/1.1
+  Host: www.twitter.com
+  ```
+
+1. Resposta: <!-- {ol:.bullet.no-bullets.no-padding.compact-code} -->
+   ```http
+   HTTP/1.1 200 OK
+   Date: Mon, 23 May 2005 22:38:34 GMT
+   Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux)
+   Content-Type: text/html; charset=UTF-8
+   Content-Length: 131
+
+   <!DOCTYPE html>
+   <html>
+   <head>
+     <title>Twitter</title>
+   </head>
+   <body>
+     Olá mundo, este é um tweet.
+   </body>
+   </html>
+   ```
+
+---
+<!-- {"layout": "2-column-content", "containerStyles": {"--cor-back-end": "#f00039", "--cor-servidor-web": "#000093"}, "embeddedStyles": ".back-end {color: var(--cor-back-end) !important; } .servidor-web { color: var(--cor-servidor-web) !important; }"} -->
+# Arquitetura simples
+
+![](../../images/architecture-simple.svg)
+
+- Além do **servidor web**<!-- {.servidor-web} -->, podemos ter um **_back-end_** <!-- {.back-end} -->
+- **_Back-end_**<!-- {.back-end} --> é uma aplicação escrita por nós, executada pelo **servidor web**<!-- {.servidor-web} -->
+- Cada requisição é recebida pelo servidor web, que a delega ao **_back-end_**<!-- {.back-end} -->
+- Também podemos ter um SGBD
+
+*[SGBD]: Sistema gerenciador de bancos de dados
+
+---
+# Arquiteturas mais complexas
+
+![](../../images/architecture-complex.webp) <!-- {.full-width} -->
+<!-- {p:.flex-align-center.medium-width} -->
+
+---
+<!-- {"layout": "section-header", "hash": "servidores-web"} -->
+# Servidores Web
+## A vida de um servidor Web
+
+- Breve história
+- Responsabilidades
+- Exemplos e tipos diferentes
+<!-- {ul:.content} -->
+
+---
+# Todos os caminhos levam a **Tim**
 
 - ::: figure .floating-portrait-container.push-right
   ![Foto de Tim Berners-Lee](../../images/tim-berners-lee.jpg) <!-- {.portrait} -->
   :::
-  Tim Berners-Lee desenvolveu as 4 tecnologias básicas da Web
+  Tim Berners-Lee criou as 4 tecnologias básicas da Web
   1. O formato HTML
-  1. Um navegador que renderizava HTML e solicitava arquivos
-  1. **Um servidor que entregava arquivos sob solicitação**
-  1. O protocolo HTTP para navegador e servidor conversarem
+  1. Navegador, que renderizava HTML e solicitava arquivos
+  1. **Servidor web, que entregava arquivos sob solicitação**
+  1. O protocolo HTTP para navegador e servidor web conversarem
 
 ---
-<!-- {"layout": "regular"} -->
 ## O primeiro servidor web: **CERN httpd**
 
 - O código fonte ainda pode ser baixado aqui: http://www.w3.org/Daemon/
@@ -52,13 +126,13 @@
   - Configuração do servidor via arquivo
 
 ---
-<!-- {"layout": "regular"} -->
+<!-- {"layout": "centered-horizontal"} -->
 ## O computador onde o servidor executava
 
-<a title="Coolcaesar at the English language Wikipedia [GFDL (www.gnu.org/copyleft/fdl.html) or CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="http://commons.wikimedia.org/wiki/File%3AFirst_Web_Server.jpg"><img style="width:600px" alt="Computador do primeiro servidor web" src="../../images/computador-tim.jpg"/></a>
+![Computador do primeiro servidor web](../../images/computador-tim.jpg) <!-- {.full-width.bordered.rounded} -->
+<!-- {p:.medium-width} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## O NCSA HTTPd
 
 - **Robert McCool desenvolveu**, entre 1993 e 1995 um **novo servidor Web**,
@@ -74,7 +148,6 @@
       diversos _patches_ em cima do NCSA HTTPd
 
 ---
-<!-- {"layout": "regular"} -->
 ## Do Apache em diante
 
 - Depois da criação do Apache HTTP Server, ele se tornou **o servidor mais
@@ -88,7 +161,6 @@
   - Lighthttpd (Unix-like e Windows)
 
 ---
-<!-- {"layout": "regular"} -->
 ## O que faz um servidor Web?
 
 - "Servidor Web" refere-se ambiguamente ao _hardware_ e ao _software_
@@ -107,7 +179,6 @@
       ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## O que faz um servidor Web? (cont.)
 
 - O servidor Web **precisa**:
@@ -120,7 +191,6 @@
   1. Gerenciar conexões simultâneas de vários "solicitantes"
 
 ---
-<!-- {"layout": "regular"} -->
 ## Geração dinâmica de recursos
 
 - Exemplo de sintaxe (linguagem fictícia): <!-- {ul:.compact-code} -->
@@ -139,7 +209,6 @@
   ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## Um servidor Web simplão
 
 - ![](../../images/py-server-folder.png) <!-- {.push-right} -->
@@ -152,7 +221,6 @@
     diretório atual
 
 ---
-<!-- {"layout": "regular"} -->
 ## Um servidor Web simplão (cont.)
 
 ![](../../images/py-server-terminal.png) <!-- {style="max-height: 120px"} -->
@@ -175,7 +243,6 @@
          1. TUX no Linux
 
 ---
-<!-- {"layout": "regular"} -->
 ## Alguns Servidores Web
 
 - Os servidores Web disponíveis hoje em dia tipicamente atendem a todas as
@@ -187,7 +254,7 @@
   1. Na sua arquitetura
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "hash": "servidores-web"} -->
 # Apache
 ## "Apache HTTP Server"
 
@@ -201,7 +268,6 @@
 <!-- {ul^1:.content} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## Apache
 
 - **Em primeiro lugar desde 1995** como o mais utilizado
@@ -214,7 +280,6 @@
   1. Multi-plataforma
 
 ---
-<!-- {"layout": "regular"} -->
 ## Um **hello world** em PHP + Apache
 
 - Código de um arquivo `index.php`
@@ -231,7 +296,7 @@
   ```
 
 ---
-<!-- {"layout": "regular", "embeddedStyles": ".apache-conf pre { max-height: 300px; overflow-y: scroll; }"} -->
+<!-- {"embeddedStyles": ".apache-conf pre { max-height: 300px; overflow-y: scroll; }"} -->
 ## Arquitetura do Apache
 
 - Os módulos são ativados e configurados por meio de arquivos de
@@ -395,7 +460,6 @@
   ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## Alguns módulos do Apache
 
 :star2: `mod_php`
@@ -418,7 +482,6 @@
   ~ Gerencia o uso de acesso **HTTP autenticado**
 
 ---
-<!-- {"layout": "regular"} -->
 ## Mais alguns módulos...
 
 
@@ -441,7 +504,6 @@
   ~ Determina o **MIME type** de um arquivo baseado em sua extensão
 
 ---
-<!-- {"layout": "regular"} -->
 ## Outros servidores
 
 - **IIS**
@@ -456,7 +518,6 @@
   - Possibilita a utilização de linguagens da plataforma
 
 ---
-<!-- {"layout": "regular"} -->
 ## Outros servidores
 
 - **NginX** (_Engine X_)
@@ -472,7 +533,7 @@
     - Logo, podemos colocar PHP, Python, Ruby, Node.js etc.
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "hash": "node-js"} -->
 # ![Node.js](../../images/nodejs-logo.png) <!-- {style="max-width: 50%"} -->
 ## Um executador de JavaScript
 
@@ -480,11 +541,9 @@
 - O que é, e o que não é
 - Hello world
 - Criando um servidor web (DIY)
-
 <!-- {ul:.content} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## Node.js
 
 - Não é um servidor web (OMG!!!)
@@ -500,7 +559,6 @@
      programas JS possam acessar o sistema de arquivos **_y otras cositas más_**
 
 ---
-<!-- {"layout": "regular"} -->
 ## Node.js (cont.)
 
 - É uma plataforma para se desenvolver **aplicações usando JavaScript fora do
@@ -515,7 +573,6 @@
     real-time applications_)
 
 ---
-<!-- {"layout": "regular"} -->
 ## _Y otras cositas más_
 
 1. Uso de fluxos de dados (_streams_)
@@ -527,7 +584,6 @@
    ![](../../images/node-js-docs.png) <!-- {style="max-width: 100%;"} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## _Hello World_ em Node.js
 
 1. Instale o Node.js
@@ -541,7 +597,6 @@
    ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## Mas onde está "servidor web" nisso?
 
 - A arquitetura do Node.js (_event-driven_ + _non-blocking I/O_), somados às
@@ -550,7 +605,6 @@
 - Vamos criar um servidor Web no próximo slide
 
 ---
-<!-- {"layout": "regular"} -->
 ## Servidor Web em Node.js
 
 - Arquivo `servidor-simplao.js`: <!-- {ul:.compact-code} -->
@@ -570,7 +624,6 @@
   ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## Como ler um arquivo em Node.js
 
 - Arquivo `lendo-um-arquivo.js`: <!-- {ul:.compact-code} -->
@@ -589,7 +642,6 @@
   ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## _Non-blocking I/O_
 
 - Operações de E/S são caras, devido ao custo de acesso a memórias mais lentas
@@ -605,7 +657,6 @@
       operação de E/S termine
 
 ---
-<!-- {"layout": "regular"} -->
 ## _Non-blocking I/O_ (cont.)
 
 - Em <u>Node.js</u>  , escreveríamos:
@@ -622,7 +673,6 @@
     executando</u> as próximas instruções, imediatamente prosseguindo
 
 ---
-<!-- {"layout": "regular"} -->
 ## _Single threaded_ e _event driven_
 
 - O <u>Apache</u> cria uma <u>nova _thread_</u> para atender <u>cada requisição</u>
@@ -633,7 +683,6 @@
   - Assista à [apresentação de Philip Roberts sobre o Event Loop](http://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html)
 
 ---
-<!-- {"layout": "regular"} -->
 ## Fluxos de dados (_streams_)
 
 - Fluxos são como _arrays_, mas em vez de distribuir os dados no espaço, os
@@ -654,49 +703,7 @@
   ```
 
 ---
-<!-- {"layout": "section-header"} -->
-# O **c10k problem**
-## _Concurrently handling 10k requests_
-
-- O problema objetivo
-- Comparação entre servidores web
-
-<!-- {ul:.content} -->
-
----
-<!-- {"layout": "regular"} -->
-## _c10k_ ([referência](http://www.kegel.com/c10k.html))
-
-- É um problema de otimização de _sockets_ de rede
-- Sigla de _concurrently handling ten thousand connections_
-  - 10 mil conexões simultâneas
-- Não é um problema simples
-  - Envolve limitações de _hardware_, do SO, da plataforma de execução do
-    programa etc.
-- Para servidores Web, o _c10k_ refere-se à capacidade de servir 10.000
-  requisições ao mesmo tempo
-  - Será que algum consegue??
-
----
-<!-- {"layout": "regular"} -->
-## Testando servidores Web com o _c10k_
-
-- Existe uma ferramenta de _benchmarking_ de servidores Web da ASF que vem
-  junto com a distribuição do Apache
-  ```
-  $ ab -r -n 100000 -c 1000 <url>
-  ```
-- Um teste entre Apache e Node.js (2010): http://zgadzaj.com/benchmarking-nodejs-basic-performance-tests-against-apache-php
-- Outro teste, Apache+PHP e Node.js (2018): http://www.hostingadvice.com/blog/comparing-node-js-vs-php-performance/
-
----
-<!-- {"layout": "regular"} -->
-## Para ler com calma
-
-- [O segredo para 10 **milhões** de conexões simultâneas](http://highscalability.com/blog/2013/5/13/the-secret-to-10-million-concurrent-connections-the-kernel-i.html), no highscalability.com
-
----
+<!-- {"layout": "centered"} -->
 # Referências
 
 1. Capítulo 1 do livro "Node.js in Action"
-1. [Apresentação Node.js do Peter Thorun, 2014](http://prthorun.github.io/talk-nodejs/#/20)

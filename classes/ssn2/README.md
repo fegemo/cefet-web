@@ -1,22 +1,17 @@
 <!-- {"layout": "title"} -->
-# Introdução ao Node.js
-## Exercícios para criar um servidor web DIY
-
-*[DIY]: Do it yourself*
+# **Server-side** parte 2
+## Introdução ao Node.js, NPM e learnyounode
 
 ---
+<!-- {"layout": "centered"} -->
 # Roteiro
 
-1. Instalando o Node.js
-1. O npm
-1. Fazendo um _workshop_: **learnyounode**
-   1. Exercícios 1 a 4
-   1. Módulos no Node.js
-   1. Exercícios 5 e 6
-   1. Exercícios 10 e 11
+1. [Instalando o Node.js](#instalando-o-node-js)
+1. [Módulos](#modulos)
+1. Atividade: [`learnyounode`](#learnyounode)
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "hash": "instalando-o-node-js"} -->
 # Instalando o Node.js
 ## Dandos os primeiros passos
 
@@ -25,11 +20,9 @@
    - Instalador no site oficial
    - Gerenciadores de programas do SO
    - Gerenciadores de versões :star2:
-
 <!-- {ol:.content} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## Verificando se já está instalado
 
 - Para verificar se o Node.js já está instalado,
@@ -39,13 +32,12 @@
   ```
   - E o terminal deve mostrar a versão que está instalada, _e.g._:
     ```
-    $ v8.0.0
+    $ v15.14.0
     ```
   - ...ou uma mensagem de erro, caso não esteja
 
 ---
-<!-- {"layout": "regular"} -->
-## Instalando o Node.js
+## Instaladores via SO 👎
 
 - Há instaladores para sistemas Linux, OSX ou Windows
   [no site oficial](http://www.nodejs.org) (👈 **recomendado** para hoje,
@@ -65,23 +57,23 @@
 
 ---
 <!-- {"layout": "regular"} -->
-## Via **gerenciador de versões do Node.js** :star2:
+## Via **gerenciador de versões do Node.js** 🌟
 
 - A comunidade fez programas gerenciadores de versões do Node.js:
   - Para Linux e OSX: **nvm** (👉[instale aqui](https://github.com/creationix/nvm))
     ```
-    $ nvm install v10.1.0
+    $ nvm install v16.5.0
     ```
   - Para Windows: **nodist** ([instale aqui](https://github.com/marcelklehr/nodist))
     ```
-    $ nodist v10.1.0
+    $ nodist v16.5.0
     ```
 - **Recomendo** este tipo de instalação para o seu próprio computador
   - Fica bem fácil estar sempre com a versão mais recente
   - É possível ter mais de uma versão instalada
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "main-point", "state": "emphatic"} -->
 # O **npm**
 ## Node Package Manager?
 
@@ -90,16 +82,14 @@
   1. `npm`
 - Um pacote Node.js
 - Instalando pacotes
-
 <!-- {ul:.content} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## O **npm**
 
-- Ao instalar o Node.js, dois programas são instalados:
+- Ao instalar o Node.js, três programas são instalados:
   1. O `node`, executador de arquivos JavaScript;
-  1. E o `npm`
+  1. O `npm` e seu irmão mais novo irresponsável `npx`
 - O `npm` (_Node Packaged Modules_?) é um **<u>gerenciador de pacotes</u>** tipo
   Ruby Gems (ruby), `NuGet` (.NET), `pip` (python), `maven`/`gradle` (Java)
   - A idéia do `npm` é:
@@ -110,7 +100,6 @@
   - Mas o que é um pacote?!
 
 ---
-<!-- {"layout": "regular"} -->
 ## O que é um **pacote**?
 
 - É um "programa" Node.js
@@ -130,7 +119,6 @@
   ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## **Instalando pacotes** com o npm
 
 - Para **instalar um pacote no <u>diretório atual</u>**, usamos:
@@ -145,7 +133,76 @@
   - Ou então `npm install --global <nome>`
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "hash": "modulos"} -->
+# Módulos
+## CommonJS vs ES6 Modules
+
+- Padrão CommonJS
+- ES6 Modules no Node.js
+<!-- {ul:.content} -->
+
+---
+# CommonJS
+
+- Cada módulo tem o seu escopo e pode
+  1. **require** coisas de outros módulos
+  2. **module.exports** suas próprias coisas
+- Exemplo:
+  - <!-- {ul:.layout-split-2.compact-code-more.no-bullets.no-padding} -->
+    `matematica.js`
+    ```js
+    function fft(sinal) {
+      // transforma fourier
+      return ....;
+    }
+
+    module.exports = {
+      fft
+    }
+    ```
+  - `principal.js`
+    ```js
+    const mat = require('matematica.js')
+
+    console.log(mat.fft([...]))
+
+
+
+
+
+    ```
+
+---
+# ES6 Modules no Node.js
+
+- Mais recentemente, passamos a poder usar módulos ES6 no Node.js também
+- Para tanto, usamos a extensão `.mjs`.
+  - <!-- {ul:.layout-split-2.compact-code-more.no-bullets.no-padding} -->
+    `matematica.mjs`
+    ```js
+    function fft(sinal) {
+      // transforma fourier
+      return ....;
+    }
+
+    export {
+      fft
+    }
+    ```
+  - `principal.mjs`
+    ```js
+    import { fft } from './matematica.mjs'
+
+    console.log(fft([...]))
+
+
+
+
+
+    ```
+  
+---
+<!-- {"layout": "section-header", "hash": "learnyounode"} -->
 # learnyounode
 ## _Workshop_ de Node.js
 
@@ -153,11 +210,9 @@
 - Exercícios 1 a 4
 - Módulos em Node.js
 - Exercícios 5 e 6, 10 e 11
-
 <!-- {ul:.content} -->
 
 ---
-<!-- {"layout": "regular"} -->
 ## _Workshop_: **learnyounode**
 
 - O [nodeschool.io](http://nodeschool.io) é uma comunidade de desenvolvedores
@@ -167,7 +222,6 @@
     tecnologias por meio de exercícios práticos
 
 ---
-<!-- {"layout": "regular"} -->
 ## _Workshop_: **learnyounode**
 
 - Um dos _workshops_ ensina alguns conceitos acerca do Node.js: o
@@ -176,7 +230,6 @@
   ![](../../images/learnyounode.png)
 
 ---
-<!-- {"layout": "regular"} -->
 ## Instalando o _learnyounode_ pelo npm
 
 - Para **instalar** o _learnyounode_, faremos **de forma global** com o `npm`:
@@ -193,7 +246,6 @@
     - **Siga os próximos slides** para saber que exercícios fazer
 
 ---
-<!-- {"layout": "regular"} -->
 ## Exercícios 1 a 4
 
 - Faça os 4 primeiros exercícios do _learnyounode_ seguindo as instruções.
@@ -210,7 +262,6 @@
   - Depois do 4º exercício, **siga para o próximo slide** 👉
 
 ---
-<!-- {"layout": "regular"} -->
 ## Dividindo um programa em **Módulos**
 
 - Para fazer o exercício 6, você precisará dividir o programa
@@ -221,7 +272,6 @@
     <u>inclusão de um arquivo</u> no contexto de outro
 
 ---
-<!-- {"layout": "regular"} -->
 ## Exemplo de módulos
 
 - Incluindo um módulo **da plataforma** do Node.js:
@@ -233,7 +283,6 @@
     na documentação do módulo](http://nodejs.org/api/fs.html)
 
 ---
-<!-- {"layout": "regular"} -->
 ## Exemplo de módulos (cont.)
 
 - Incluindo um módulo **de sua autoria**:
@@ -246,7 +295,6 @@
     - Veja como definir esse objeto, no próximo slide
 
 ---
-<!-- {"layout": "regular"} -->
 ## Criando um módulo
 
 - Para que um módulo possa ser usado via `require`, você deve atribuir
@@ -263,7 +311,6 @@
     ```
 
 ---
-<!-- {"layout": "regular"} -->
 ## Exercícios 5 e 6
 
 - Faça os exercícios 5 e 6 do _learnyounode_
@@ -275,7 +322,6 @@
        à partir de um caminho de arquivo
 
 ---
-<!-- {"layout": "regular"} -->
 ## Exercícios 10 e 11
 
 - Faça os exercícios 10 e 11 do _learnyounode_
@@ -284,6 +330,7 @@
   1. `http`, para [realizar uma requisição HTTP](http://nodejs.org/api/http.html)
 
 ---
+<!-- {"layout": "centered"} -->
 # Referências
 
 1. Capítulo 2 do livro "Node.js in Action"
