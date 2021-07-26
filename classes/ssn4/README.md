@@ -1,8 +1,9 @@
 <!-- { "layout": "title" } -->
-# Server Side
-## Parte 4
+# **Server-side** parte 4
+## Atividade: Geiser
 
 ---
+<!-- {"layout": "centered"} -->
 # Roteiro
 
 1. Criando o <span style="font-family: Sacramento; font-size:120%">Geiser</span>
@@ -14,9 +15,11 @@
 1. Programação funcional com Underscore
 
 ---
+<!-- {"layout": "centered"} -->
 # Criando o <span style="font-family: Sacramento; font-size:120%;color:#333">Geiser</span>
 
 ---
+<!-- {"layout": "centered"} -->
 ## <span style="font-family: Sacramento; font-size:120%">Geiser<small> - seu computador a todo vapor</small></span>
 
 ![](../../images/geiser.png)
@@ -46,7 +49,7 @@
 - Na atividade de hoje, vamos usar:
   1. o [Express](http://expressjs.com) como nosso _web framework_
   1. algum _templating engine_ para renderizar html dinamicamente (e.g.,
-    [Handlebars](http://http://handlebarsjs.com/))
+     [Handlebars](http://http://handlebarsjs.com/))
   1. o [Underscore.js](http://underscorejs.org), que fornece utilidades típicas
      de linguagens funcionais para o Javascript e vai facilitar nossa vida hoje
 
@@ -89,7 +92,6 @@
 ---
 # Parte 1 - servidor estático
 
-
 - ![Estrutura de pastas do projeto](../../images/geiser-diretorios.png) <!-- {.push-right} -->
   Repare que o projeto já tem uma estrutura de diretórios e alguns arquivos
   criados:
@@ -112,15 +114,16 @@
     1. "Abra" o servidor e o deixe escutando ([`app.listen`](http://expressjs.com/4x/api.html#app.listen)) em alguma porta
        maior que 1024
     1. Teste seu servidor executando:
-        ```
-        $ node server/app.js
-        ```
-        - E entrando em http://localhost:PORTA/index.exemplo.html
+       ```
+       $ node server/app.js
+       ```
+       - E entrando em http://localhost:PORTA/index.exemplo.html
 
 ---
 ## Parte 1 - configuração e servidor estático
 
 ![](../../images/geiser-app1.png)
+<!-- {p:.full-width.center-aligned} -->
 
 ---
 # Parte 2 - página inicial
@@ -132,11 +135,8 @@
   Nesta apresentação estamos usando `.hbs`
   1. Instalar o _templating engine_ escolhido via `npm`
      ```
-     $ npm install hbs --save
+     $ npm install hbs
      ```
-     - Com o `--save`, o `npm` fará o _download_ do pacote para a
-       pasta `node_modules` normalmente, porém também acrescentará o pacote
-       instalado ao arquivo `package.json`
 
 ---
 ## Parte 2 - página inicial (cont.)
@@ -151,7 +151,7 @@
   - Lembre-se que o módulo `fs` é da plataforma, então não precisamos
     instalá-lo pelo `npm`
   - Dica: você vai precisar **desserializar** o conteúdo do arquivo ao
-    associá-lo a uma variável para poder acessá-lo como um objeto
+    associá-lo a uma variável para poder acessá-lo como um objeto <!-- {li:.note.info} -->
 
 ---
 ## Parte 2 - página inicial (cont.)
@@ -176,7 +176,7 @@
 - Do [Handlebars](http://handlebarsjs.com/), você vai precisar:
   1. [Expressões](http://handlebarsjs.com/#getting-started)
   1. [Bloco `each`](http://handlebarsjs.com/builtin_helpers.html#iteration),
-    para iterar no _array players_
+     para iterar no _array players_
 
 ---
 # Parte 3 - detalhes do jogador
@@ -197,6 +197,7 @@
 <!-- {a:target="pic1"} -->
 
 ---
+<!-- {"state": "show-active-slide-and-previous", "containerStyles": {"--show-2-slides-x-distance": "240px", "--show-2-slides-z-distance": "-500px", "--show-2-slides-rotation": "20deg"}} -->
 [![](../../images/geiser-jogos1-json.png)](../../images/geiser-jogos1-json.png)
 
 <!-- {.full-width} -->
@@ -209,7 +210,8 @@
 <!-- {a:target="pic3"} -->
 
 ---
-[![](../../images/geiser-jogos2-json.png)](../../images/geiser-jogos2-json.png)
+<!-- {"state": "show-active-slide-and-previous", "containerStyles": {"--show-2-slides-x-distance": "240px", "--show-2-slides-z-distance": "-500px", "--show-2-slides-rotation": "20deg"}} -->
+[![](../../images/geiser-jogos2-json.png)](../../images/geiser-jogos2-json.png) <!-- {p:style="align-self: flex-end"} -->
 
 <!-- {.huge-height} -->
 <!-- {a:target="pic4"} -->
@@ -232,6 +234,7 @@
   ```
 
 ---
+<!-- {"backdrop": "oldtimes"} -->
 ## Underscore ([documentação](http://underscorejs.org/))
 
 - Métodos úteis para a página de detalhes do jogador:
@@ -242,12 +245,13 @@
      });
      ```
   1. Busca de todos elementos que batem um critério ([`_.where`](http://underscorejs.org/#where)):
-    ```js
-    var naoJogados = _.where(desteJogador,
-      { playtime_forever: 0 });
-    ```
+     ```js
+     var naoJogados = _.where(desteJogador,
+       { playtime_forever: 0 });
+     ```
 
 ---
+<!-- {"backdrop": "oldtimes"} -->
 ## Underscore (cont.)
 
 1. Ordenação ([`_.sortBy`](http://underscorejs.org/#sortBy)):
@@ -275,7 +279,9 @@
     favorito: jogosDesteJogador[0]
   });
   ```
+
 ---
+<!-- {"layout": "centered"} -->
 # Referências
 
 1. Site oficial do [underscore.js](http://underscorejs.org)
