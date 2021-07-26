@@ -1,8 +1,9 @@
 <!-- {"layout": "title"} -->
-# Node.js e Express
-## Criando um servidor web em JavaScript
+# **Server-side** parte 3
+## Criando um servidor web com Express
 
 ---
+<!-- {"layout": "centered"} -->
 # Roteiro
 
 1. Continuando nosso servidor web DIY
@@ -19,11 +20,11 @@
 - Retorna sempre o mesmo arquivo
 - Servindo arquivo baseado em URL
 - Definindo o tipo MIME
+<!-- {ul:.content} -->
 
 *[MIME]: Multipurpose Internet Mail Extensions*
 
 ---
-<!-- {"layout": "regular"} -->
 ## Um servidor web não muito útil
 
 - Na última aula, criamos um servidor Web que retornava sempre o mesmo arquivo
@@ -32,8 +33,8 @@
   const http = require('http'),
     fs = require('fs');
 
-  const server = http.createServer(function (req, res) {
-    res.writeHead(200, { 'content-type': 'text/plain' });
+  const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
     fs.createReadStream(process.argv[3]).pipe(res);
   })
 
@@ -41,41 +42,45 @@
   ```
 
 ---
-<!-- {"layout": "regular"} -->
+<!-- {"layout": "centered-horizontal"} -->
 ## Um servidor web útil (**baseado na URL**)
 
 <!-- {section:.compact-code} -->
 
 ```js
-const http = require('http');         // módulo http (nativo)
-const fs = require('fs');             // módulo fs (nativo)
-const url = require('url');           // módulo url (nativo)
-const porta = 8080;
+import http from 'http'           // módulo http (nativo)
+import fs from 'fs'               // módulo fs (nativo)
+import url from 'url'             // módulo url (nativo)
+
+const PORTA = 8000
+const __dirname = new URL('.', import.meta.url).pathname
+const caminhoServidor = __dirname.substr(0, __dirname.length - 1)
+
 
 const server = http.createServer((req, res) => {
-  // __dirname: caminho absoluto até a pasta DESTE ARQUIVO
-  const caminhoSolicitado = __dirname + url.parse(req.url).path;
+  const urlCompleta = url.parse(caminhoServidor + req.url)
+  const caminhoSolicitado = urlCompleta.pathname
 
   // por exemplo, para localhost:8080/estilos.css, caminhoSolicitado é o
   // endereço desse arquivo no file system
-  const streamArquivo = fs.createReadStream(caminhoSolicitado);
+  const streamArquivo = fs.createReadStream(caminhoSolicitado)
 
-  streamArquivo.on('error', function() {
-    res.writeHead(404);
-    res.end('Not Found');
-  });
+  streamArquivo.on('error', () => {
+    res.writeHead(404)
+    res.end('Not Found')
+  })
 
-  streamArquivo.on('open', function() {
+  streamArquivo.on('open', () => {
     res.writeHead(200, {
-      'content-type': 'text/plain'
-    });
-    streamArquivo.pipe(res);
-  });
-});
+      'Content-Type': 'text/plain'
+    })
+    streamArquivo.pipe(res)
+  })
+})
 
-server.listen(porta);
-
-console.log(`Escutando na porta ${porta}`);
+server.listen(PORTA, () => {
+  console.log(`Escutando em http://localhost:${PORTA}/`)
+})
 ```
 
 ---
@@ -133,11 +138,11 @@ console.log(`Escutando na porta ${porta}`);
 
 - (1) Incluindo o módulo `mime`:
   ```js
-  const http = require('http');
-  const fs = require('fs');
-  const url = require('url');
+  import http from 'http'
+  import fs from 'fs'
+  import url from 'url'
   // incluído e atribuido à variável "mime"
-  const mime = require('mime');
+  import mime from 'mime'
 
   /* ... */
   ```
@@ -150,14 +155,14 @@ console.log(`Escutando na porta ${porta}`);
   <!-- {li.compact-code} -->
   ```js
   /* ... */
-  streamArquivo.on('open', function() {
+  streamArquivo.on('open', () => {
     res.writeHead(200, {
-      'content-type': mime.lookup(caminhoSolicitado)
-    });
-    stream.pipe(res);
+      'Content-Type': mime.lookup(caminhoSolicitado)
+    })
+    stream.pipe(res)
 
-    console.log('Serviu o arquivo: ' + caminhoSolicitado);
-  });
+    console.log(`Serviu o arquivo: ${caminhoSolicitado}`)
+  })
   /* ... */
   ```
 
@@ -186,7 +191,6 @@ console.log(`Escutando na porta ${porta}`);
 - Servindo arquivos estáticos
 - Definindo rotas
 - Geração dinâmica de HTML
-
 <!-- {ul:.content} -->
 
 ---
@@ -209,12 +213,12 @@ console.log(`Escutando na porta ${porta}`);
 ## Servidor _"hello world"_ com Express
 
 ```js
-const express = require('express');
-const app = express();
+import express from 'express'
+const app = express()
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+  res.send('Hello World!')
+})
 
 const server = app.listen(3000, () => {
   const host = server.address().address;
@@ -231,16 +235,16 @@ const server = app.listen(3000, () => {
 ![](../../images/diretorio-express-exemplo.png)
 
 ```js
-const express = require('express');
-const app = express();
+import express from 'express'
+const app = express()
 
 // suponhamos que "/public" é uma pasta com
 // nossos arquivos estáticos
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/public`))
 
-const server = app.listen(3000, () => {
-  console.log('Escutando em: http://localhost:3000');
-});
+app.listen(3000, () => {
+  console.log('Escutando em: http://localhost:3000')
+})
 ```
 
 ---
@@ -254,12 +258,12 @@ const server = app.listen(3000, () => {
     ```js
     // GET / (página inicial)
     app.get('/', (request, response) => {
-      response.render('index');     // desenha a view 'index'
-    });
+      response.render('index')     // desenha a view 'index'
+    })
     // POST /contato
     app.post('/contato', (request, response) => {
       // envia um email usando os dados enviados
-    });
+    })
     ```
 
 ---
@@ -271,13 +275,13 @@ const server = app.listen(3000, () => {
   // HEAD /user/122   (verificar se usuário id=122 existe)
   app.head('/user/:ident', (request, response) => {
     // request.params contém os parâmetros da rota
-    const usuario = tabelaDeUsuarios[request.params.ident];
+    const usuario = tabelaDeUsuarios[request.params.ident]
     if (usuario !== null) {
-      response.status(200).end();
+      response.status(200).end()
     } else {
-      response.status(404).end();
+      response.status(404).end()
     }
-  });
+  })
   ```
 - Veja mais no [guia oficial sobre rotas](http://expressjs.com/starter/basic-routing.html)
 
@@ -293,7 +297,6 @@ const server = app.listen(3000, () => {
   1. `ejs` (`.ejs`, era o [formato original do Express](https://github.com/tj/ejs))
   1. `handlebars` (`.hbs`, [site oficial](http://handlebarsjs.com/))
   1. `pug` (`.pug`, [site oficial](http://pugjs.org/))
-  1. `dust` (`.dust`, feito pelo [LinkedIn](http://akdubya.github.io/dustjs/))
 
 ---
 <!-- {"layout": "regular"} -->
@@ -305,7 +308,7 @@ const server = app.listen(3000, () => {
   1. Para determinadas rotas, renderizamos _views_
 - (1) Para configurar o Express para usar `ejs`:
   ```js
-  app.set('view engine', 'ejs');
+  app.set('view engine', 'ejs')
   ```
 
 ---
@@ -388,23 +391,7 @@ const server = app.listen(3000, () => {
   ```
 
 ---
-<!-- {"layout": "regular"} -->
-## Gerando HTML dinamicamente com **dust**
-
-- (1) Configurando o Express:
-  ```js
-  app.set('view engine', 'dust');
-  ```
-- (2) Criando arquivos no formato `.dust`:
-  ```dust
-  <ul>
-    {#users}
-      <li><img src="{foto}">{nome}</li>
-    {/users}
-  </ul>
-  ```
-
----
+<!-- {"layout": "centered"} -->
 # Referências
 
 1. Capítulo 8 do livro "Node.js in Action"
