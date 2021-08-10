@@ -233,8 +233,8 @@ com valores criptografados em um banco SQLite (`~/.config/chromium/Default/Cooki
     let desiredLang = req.params.lang
     // inclui o cabeçalho Set-Cookie "lang=%%%;Expires=Wed..."
     res.cookie('lang', desiredLang, { expires: 'Wed...' }) // <--- Set-Cookie
-    // redireciona para a rota do index
-    res.redirect('index')
+    // redireciona de volta para a própria URL
+    res.redirect('back')
   })
 
   // rota da PÁGINA INICIAL
@@ -422,11 +422,12 @@ Autorização
   1. _Header_
   1. _Payload_
   1. _Signature_ <!-- {ol:.multi-column-list-3} -->
-- Formato do cabeçalho enviado pelo servidor
+- <!-- {li:.push} -->
   ```http
-  Authentication: Bearer 1111.22222.3333
+  1111.22222.3333
   ```
-- As 3 partes são codificadas em Base64 e separadas por `.`
+  Formato do _token_ gerado pelo servidor
+  - As 3 partes são codificadas em Base64 e separadas por `.`
 - Não é necessário salvar os _tokens_ (nem cliente nem servidor)
 - Mas o que colocar nas 3 partes?
 
@@ -468,18 +469,21 @@ Autorização
 ---
 ## Partes do JWT: (3) _Signature_
 
-- Para criar a assinatura, precisamos do _header_ e _payload_ codificados, um segredo e o algoritmo especificado
-- No nosso exemplo, ela seria gerada assim:
+- Garante a integridade de _header_ e _payload_
+- Para criar a assinatura, precisamos do _header_ e _payload_ codificados, um segredo e o algoritmo especificado:
   ```js
   HMACSHA256(toBase64(header) + '.' + toBase64(payload), segredo)
   ```
-- A assinatura é usada pra verificar que a mensagem não foi alterada pelo caminho
 - ![](../../images/jwt-example.webp) <!-- {.push-right style="max-width: 250px;"} -->
   Como resultado, temos as 3 partes codificadas: ➡️
-- Após autenticado, o navegador incluir o cabeçalho em toda requisição:
+- <!-- {li:.push-code-right.compact-code} -->
   ```http
-  Authorization: Bearer <token ↗️>
+  Authorization: Bearer <token ⬆️>
   ```
+  Após autenticado, o navegador inclui o cabeçalho em toda requisição:
+- Servidor usa assinatura pra validar que a mensagem não foi alterada
+  - Apenas quem está **de posse do segredo** (_back-end_) pode criar, alterar e validar o token <!-- {li:.note.info.no-margin.no-padding} -->
+
 
 ---
 ## Funcionamento do JWT
@@ -487,23 +491,25 @@ Autorização
 1. ![](../../images/auth-token.png) <!-- {.push-right style="max-width: 34%"} -->
    Cliente **provê suas credenciais**
 1. Servidor valida e retorna um JWT
-1. Cliente envia o cabeçalho para próximas requisições
+1. <!-- {.compact-code-more} -->
+   Cliente envia o cabeçalho para próximas requisições
    ```http
    Authorization: Bearer <token>
    ```
-1. Servidor recebe requisição para recurso protegido, verifica se está conforme esperado e responde normalmente
+1. Servidor recebe requisição para recurso protegido, verifica se
+   está conforme esperado e responde normalmente
 
 **Bom**: sem estado, bom para serviços. **Ruim**: ainda suscetível a _session hijacking_, _tokens_ não podem ser excluídos (devem expirar), não armazenar dados sensíveis. <!-- {p:.note.info} -->
 
-<!-- ## Sumário de métodos de autorização
-
-When should you use each? It depends. Basic rules of thumb:
-
-For web applications that leverage server-side templating, session-based auth via username and password is often the most appropriate. You can add OAuth and OpenID as well.
-For RESTful APIs, token-based authentication is the recommended approach since it's stateless.
-If you have to deal with highly sensitive data, you may want to add OTPs to your auth flow. -->
-
 ---
+<!-- {"layout": "centered"} -->
 # Referências
 
 1. Seções 7.1, 7.2 e 9.1 do livro "Node.js in Action"
+1. [Introdução a JWT][intro-jwt] em jwt.io
+1. [Passport][passport]: pacote para autenticação e autorização p/ Express
+1. [Boas práticas usando JWT e GraphQL][jwt-graphql] em hasura.io
+
+[intro-jwt]: https://jwt.io/introduction
+[passport]: http://www.passportjs.org/docs/
+[jwt-graphql]: https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/
