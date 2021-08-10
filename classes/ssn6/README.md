@@ -1,6 +1,6 @@
 <!-- {"layout": "title"} -->
 # **Server-side** parte 6
-## Bancos de dados, Formulários, Arquiteturas REST e o Jardim Zumbi 🧟
+## Bancos de dados, Formulários, Arquiteturas REST<br>e o Jardim Zumbi 🧟
 
 ---
 <!-- {"layout": "centered"} -->
@@ -296,7 +296,7 @@ usando `db.escape(nomeDaRefeicao)`. <!-- {p:.note.warning.bullet.no-margin} -->
   ```
 
 ---
-<!-- {"layout": "section-header", "hash": "enviando-formularios"} -->
+<!-- {"layout": "section-header", "hash": "envio-de-formularios"} -->
 # Envio de Formulários
 ## Recebendo info no servidor
 
@@ -306,7 +306,205 @@ usando `db.escape(nomeDaRefeicao)`. <!-- {p:.note.warning.bullet.no-margin} -->
 <!-- {ul:.content} -->
 
 ---
-oldtimes
+<!-- {"backdrop": "oldtimes"} -->
+## O Elemento HTML `<form>...</form>`
+
+- Um **formulário** é um conjunto de campos de dados (_i.e._, entrada/escolha)
+  que pode ser **enviado** <!-- {.underline} --> a um servidor Web. Exemplos:
+  - ![](../../images/cadastro-facebook.png) <!-- {.push-right.bordered.rounded style="max-width: 450px"} -->
+    Ao se cadastrar no Facebook (ou qualquer site)
+  - Ao preencher e enviar um questionário
+  - Ao editar seu perfil em algum site
+- Além de **enviar os dados**, podemos também configurar os campos com
+  algumas **restrições** (_e.g._, campo obrigatório)
+
+---
+<!-- {"backdrop": "oldtimes"} -->
+## Formulário e Botões
+
+- Um _form_ agrupa _inputs_ para, posteriormente, serem enviados a
+  um servidor (por exemplo, para **cadastrar um usuário**):
+  ```html
+  <form action="cadastrar-usuario.php"> <!-- que "página" receberá os dados -->
+    <label>Nome: <input name="nome" type="text"></label>
+    <label>E-mail: <input name="email" type="email"></label>
+    <label>Senha: <input name="senha" type="password"></label>
+
+    <button type="submit">Enviar</button> <!-- veja no próximo -->
+    <button type="reset">Limpar</button>  <!-- slide -->
+  </form>
+  ```
+- Exemplo de [formulário](../../samples/form/index.html) <!-- {target="_blank"} -->
+
+---
+<!-- {"classes": "compact-code-more", "embeddedStyles": ".center-next-pre + pre { align-self: center }"} -->
+## Envio de dados de formulário <!-- {.center-next-pre} -->
+
+```html
+<form action="/" method="GET" enctype="application/x-www-form-urlencoded">
+  ...
+</form>
+```
+
+- Quando um `<form>` é submetido, o navegador envia requisição
+  do tipo `method="TIPO"` para `action="ENDERECO"` contendo
+  todos os campos preenchidos
+  - Campos: `<input>`, `<select>`, `<textarea>`
+  - Atributos:
+
+`action` <!-- {dl:.width-10.full-width.no-margin} -->
+~ URL para onde os dados serão enviados
+
+`method`
+~ `GET`: dados são colocados na _querystring_ da URL
+~ `POST`: dados enviados no corpo da requisição
+
+`enctype`
+~ `application/x-www-form-urlencoded` codifica dados "_URL-friendly_"
+~ `multipart/form-data` para _upload_ de arquivos
+
+---
+<!-- {"layout": "main-point", "state": "emphatic"} -->
+# Exemplo: O que é, o que é?
+
+O que é terrível, verde, come pedras e mora debaixo da terra??
+
+---
+## Exemplo do monstro verde
+
+- <div style="float: right; width: 120px; height: 160px; background-image: url('../../images/terrivel-eating-big.png')"></div>
+  Conheça o <span style="font-family: 'Ravie', serif; text-shadow: 2px 2px rgb(102, 102, 102)">Incrível <span style="color: #00FF21">Monstro Verde</style> que Come Pedras e Mora Debaixo da Terra</span> 
+
+
+> O terrível monstro verde (etc. etc.) está com fome e você deve dar comida para
+> ele. Ele acaba de ir para a superfície e para que ele não comece a comer
+> pessoas, você deve dar a ele seu segundo alimento preferido: pedras.
+
+> Para isso, você deve ir até onde ele está e enviar algumas pedras para ele.
+> Atualmente, ele está neste endereço: https://terrivel.herokuapp.com/monster.
+> Para dar comida a ele, você deve encomendá-las a partir de um formulário html.
+
+---
+<!-- { "layout": "2-column-highlight-and-content", "classes": "compact-code-more"} -->
+## Formulário com `GET` e com `POST`
+
+::: figure . height: 90%; width: 270px;
+<figcaption><a href="https://fegemo.github.io/web-terrivel/" target="_blank"><code>Grota do monstro</code></a></figcaption>
+<iframe src="https://fegemo.github.io/web-terrivel" height="90%" width="100%">
+  ![Tela da página com formulário para definir quantidade e tipos de pedras para alimentar o monstro](../../images/cefet-web-ovelhas.png)
+</iframe>
+:::
+
+- <!-- {li:style="list-style-type: none"} -->
+  ```html
+  <form action="https://terrivel.herokuapp.com/monster" method="GET">
+    <input name="nome" type="text">
+    <input name="num_pedras" type="number" step="1" min="0">
+    <input name="corCeu1" id="corCeu1" type="color">
+    <select name="tipo_pedras">
+      <option value="marroada">Marroada</option>
+      <option value="ametista">Ametista</option>
+    </select>
+    <input name="tipo_pedras_sortidas" type="radio" value="não" checked>não
+    <input name="tipo_pedras_sortidas" type="radio" value="sim">sim
+
+    <button type="submit">alimentar monstro</button>
+    <button type="submit" formmethod="POST">alimentar monstro</button>
+  </form>
+  ```
+- Dados são enviados usando atributo `name`
+- Botões `submit` podem alterar o `<form>`:
+  1. `formaction`
+  1. `formmethod`
+  1. `formenctype` <!-- {ol:.multi-column-list-3} -->
+
+---
+## Para receber os dados
+
+- <!-- {.compact-code-more.two-column-code} -->
+  Em uma aplicação Express:
+  ```js
+  // método GET
+  app.get('/monster', (req, res) => {
+    // pega valores da querystring
+    // via req.query.NAME
+    //
+    res.render('monster', {
+      nome: req.query.nome,
+      num_pedras: req.query.num_pedras
+      corCeu1: req.query.corCeu1,
+      tipo_pedras: req.query.tipo_pedras,
+      /*...*/
+    })
+  })
+  // método POST
+  app.post('/monster', (req, res) => {
+    // pega valores do corpo da requisição
+    // via req.body.NAME
+    //
+    res.render('monster', {
+      nome: req.body.nome,
+      num_pedras: req.body.num_pedras
+      corCeu1: req.body.corCeu1,
+      tipo_pedras: req.body.tipo_pedras,
+      /*...*/
+    })
+  })
+  ```
+- Requisições enviadas via `GET` e `POST` <!-- {ul:.full-width} -->
+  - <!-- {ul:.layout-split-2.no-padding.no-bullets.no-margin.compact-code-more} -->
+    <!-- {li:style="flex:1"} -->
+    ```http
+    GET /monster HTTP/1.1
+    Host: terrivel.herokuapp.com?nome=Fl%C3%A1vio+Coutinho
+      &num_pedras=5&tam_pedras=3.5&corCeu1=%2384d6d7
+      &corCeu2=%233572e3&tipo_pedras=espinela
+      &tipo_pedras_sortidas=n%C3%A3o
+    ```
+  - <!-- {li:style="flex:1"} -->
+    ```http
+    GET /monster HTTP/1.1
+    Host: terrivel.herokuapp.com
+    
+    nome=Fl%C3%A1vio+Coutinho&num_pedras=5&tam_pedras=3.5
+    &corCeu1=%2384d6d7&corCeu2=%233572e3...
+    ```
+
+---
+## **GET** vs **POST** <!-- {.alternate-color} -->
+
+| Característica             	| GET                       	| POST                      	|
+|----------------------------	|---------------------------	|---------------------------	|
+| **Visibilidade**           	| Dados visíveis ao usuário 	| Dados "ocultos"           	|
+| **Segurança**               | Menos seguro                | Mais seguro                 |
+| Restrição de tamanho       	| Tamanho da URL (~2048)    	| Sem restrição             	|
+| Restrição de tipo de dados 	| Apenas ASCII              	| Sem restrição             	|
+| Botão voltar               	| Ok                        	| Dados serão ressubmetidos 	|
+| Ad. aos favoritos          	| Ok                        	| Não é possível            	|
+| Histórico do navegador     	| Parâmetros são salvos     	| Parâmetros não são salvos 	|
+
+---
+## Outros métodos (além de GET/POST)
+
+- Formulários HTML permitem métodos `GET` e `POST` <!-- {ul:.compact-code-more.full-width} -->
+- Mas podemos querer enviar também `DELETE`, `PUT` e outros
+- No Express, podemos usar:
+  1. Instalar pacote [`method-override`][method-override]: `npm i method-override`
+  1. Configurar _middleware_:
+     ```js
+     app.use(methodOverride('_method', { methods: ['GET', 'POST'] }))
+     ```
+  1. Em links e formulários, usar `?_method=XXX`. Exemplos:
+     ```html
+     <a href="/people/{{person.id}}?_method=DELETE" class="link-danger">Excluir</a>
+     ```
+     ```html
+     <form action="/people/eaten?_method=PUT" method="POST">
+      ...
+     </form>
+     ```
+
+[method-override]: https://www.npmjs.com/package/method-override
 
 ---
 <!-- {"layout": "section-header", "hash": "arquitetura-rest"} -->
@@ -512,6 +710,75 @@ oldtimes
     })
   })
   ```
+
+---
+<!-- {"layout": "main-point", "state": "emphatic"} -->
+# Padrão REST e modelo de maturidade
+
+---
+## Padrão de rotas REST
+
+- Cada entidade que admita todas as operações CRUD:
+  
+`GET /entidade` <!-- {dl:.width-30.full-width.no-margin} -->
+~ Lista todos os membros da entidade
+
+`POST /entidade`
+~ Cria nova entidade
+
+`GET /entidade/:id`
+~ Detalhes da entidade com certo id
+
+`HEAD /entidade/:id`
+~ Apenas cabeçalhos da resposta
+
+`DELETE /entidade/:id`
+~ Exclui a entidade com certo id
+
+`PUT /entidade/:id`
+~ Atualiza campos da entidade com certo id
+
+- Devem ser usados códigos de status do HTTP nas respostas. Exemplo:
+  - `200 Ok`
+  - `201 Created`
+  - `204 No content`
+  - `400 Bad Request`
+  - `401 Unauthorized`
+  - `404 Not Found`
+  - `405 Method Not Allowed` <!-- {ul:.multi-column-list-3} -->
+
+---
+## Modelo de maturidade de Richardson ([🌐][richardson])
+
+- Modelo de 4 níveis para avaliar sua API Rest: <!-- {ul:.compact-code-more.two-column-code} -->
+  1. Exportar API sobre HTTP <!-- {ol:start="0"} -->
+  1. Exportar recursos em vez de métodos
+  1. Uso adequado dos verbos HTTP
+  1. Exportar hipertexto para possibilitar descoberta API
+- Maioria atende até (2), mas devemos buscar (3) tornar 
+  as APIs auto-navegáveis. Exemplo de resposta para `GET /account/12345`:
+  ```http
+  HTTP/1.1 200 OK
+
+  {
+    "account": {
+      "account_number": 12345,
+      "balance": {
+        "currency": "usd",
+        "value": 100.00
+      },
+      "links": {
+        "deposits": "/accounts/12345/deposits",
+        "withdrawals": "/accounts/12345/withdrawals",
+        "transfers": "/accounts/12345/transfers",
+        "close": "/accounts/12345/close"
+      }
+    }
+  }
+  ```
+
+*[CRUD]: create, read, update, delete
+[richardson]: https://martinfowler.com/articles/richardsonMaturityModel.html#level1
 
 ---
 <!-- {"layout": "main-point", "state": "emphatic"} -->

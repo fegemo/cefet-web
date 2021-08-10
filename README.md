@@ -79,9 +79,6 @@
 ~ JSON, Web Storage, Ajax e 🌠 Guerras Estelares
 
 
-<!-- - [HTML 5](classes/html5/) - Formulários e Monstros (Prática) -->
-<!-- - [Node.js 3](classes/ssn3/) - Express.js -->
-<!-- - [Node.js 4](classes/ssn4/) - HTML Dinâmico e o Geiser (Prática) -->
 
 ---
 # Aulas <small>(3/3)</small>
@@ -90,14 +87,29 @@
 ~ Arquiteturas, Servidores Web, Apache e Node.js
 
 [SS 2](classes/ssn2/)
-~ NPM, módulos e _learnyounode_
+~ NPM, módulos e _learnyounode_ 🖥️
 
+[SS 3](classes/ssn3/)
+~ Renderização de HTML no servidor (ejs, pug, handlebars)
+
+[SS 4](classes/ssn4/)
+~ HTML Dinâmico e o Geiser 🎮
+
+[SS 5](classes/ssn5/)
+~ Cookies, sessão, autenticação e autorização
+
+[SS 6](classes/ssn6/)
+~ Bancos de dados, envio de formulários e Zumbis 🧟
+
+[CSS 5](classes/css5/)
+~ Animações e _Edukids Animals_ 🐶
+
+[CSS 6](classes/css6/)
+~ _Responsive Design_
+
+<!-- - [HTML 5](classes/html5/) - Formulários e Monstros (Prática) -->
 <!--
-- [Node.js 5](classes/ssn5/) - Sessão e Biscoitos :cookie:
-- [Node.js 6](classes/ssn6/) - Bancos de Dados e Zumbis (Prática)
 - [Mongo DB](https://fegemo.github.io/cefet-nosql/classes/mongodb-nodejs/)
-- [CSS 5](classes/css5/) - Animações e _Edukids Animals_ (Prática)
-- [CSS 6](classes/css6/) - _Responsive Design_
 -->
 
 ---

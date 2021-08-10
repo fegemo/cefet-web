@@ -233,8 +233,8 @@ com valores criptografados em um banco SQLite (`~/.config/chromium/Default/Cooki
     let desiredLang = req.params.lang
     // inclui o cabeçalho Set-Cookie "lang=%%%;Expires=Wed..."
     res.cookie('lang', desiredLang, { expires: 'Wed...' }) // <--- Set-Cookie
-    // redireciona para a rota do index
-    res.redirect('index')
+    // redireciona de volta para a própria URL
+    res.redirect('back')
   })
 
   // rota da PÁGINA INICIAL
