@@ -260,25 +260,23 @@ Veja a bibliografia básica e a complementar.
 # Avaliação
 ## Distribuição de pontos
 
-- ~10 Práticas
-- Seminário
-- Trabalhos Práticos
-  - TP0
-  - Projeto
+<!-- - Seminário -->
+- 12 Práticas
+- TP0: Git
+- Projeto
 <!-- {ul^1:.content} -->
 
 ---
 <!-- {"layout": "centered-horizontal"} -->
 # Distribuição de pontos
 
-- Atividades Práticas (30 pontos)
-- [Seminário: APIs HTML5][seminar] (20 pontos)
-- Trabalhos Práticos
-  - [TP0: Git][tp0] (3 pontos extras)
-  - Projeto (TBD)
-    - Entrega 1: (10 pontos)
-    - Entrega 2: (10 pontos)
-    - Entrega 3: (30 pontos)
+<!-- - [Seminário: APIs HTML5][seminar] (20 pontos) -->
+- [TP0: Git][tp0] (4 pontos)
+- Atividades Práticas (44 pontos)
+- Projeto
+  - Entrega 1: (6 pontos)
+  - Entrega 2: (12 pontos)
+  - Entrega 3: (30 pontos)
 
 *[TBD]: to be defined
 
