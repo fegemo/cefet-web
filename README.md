@@ -273,7 +273,7 @@ Veja a bibliografia básica e a complementar.
 <!-- - [Seminário: APIs HTML5][seminar] (20 pontos) -->
 - [TP0: Git][tp0] (4 pontos)
 - Atividades Práticas (44 pontos)
-- Projeto
+- [Projeto][project]
   - Entrega 1: (6 pontos)
   - Entrega 2: (12 pontos)
   - Entrega 3: (30 pontos)
@@ -281,5 +281,5 @@ Veja a bibliografia básica e a complementar.
 *[TBD]: to be defined
 
 [tp0]: assignments/tp0
-[project]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-craftfoliogotchi/README.md
+[project]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-open/README.md
 [seminar]: https://github.com/fegemo/cefet-web/tree/master/assignments/seminar-html5/README.md
