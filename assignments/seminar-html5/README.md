@@ -115,7 +115,7 @@ comprar informações sobre:
 - Armazenamento e _Offline_
   - _Web Worker_ (valor: <abbr title="Peças de Webdollars">PW$</abbr> 60)
   - _Web App Manifest_ (valor:
-    <abbr title="Peças de Webdollars">PW$</abbr> 60)
+    <abbr title="Peças de Webdollars">PW$</abbr> 40)
   - _Service Workers_ (valor:
     <abbr title="Peças de Webdollars">PW$</abbr> 100)
   - _File API_ (valor: <abbr title="Peças de Webdollars">PW$</abbr>
