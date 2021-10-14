@@ -548,9 +548,11 @@ página web
 1. Instalar o git na máquina, caso ele não esteja instalado
 1. **Criar um _fork_** do repositório e **cloná-lo para seu computador**:
    - [https://github.com/fegemo/cefet-web-piranha-plant](https://github.com/fegemo/cefet-web-piranha-plant) <!-- {target="_blank"} -->
-1. Fazer o exercício, fazer _commits_ e dar _push_ no seu repositório
+1. Fazer o exercício, fazer _commits_ e dar _push_ no seu repositório **usando _branch_ `gh-pages`¹**  <!-- {strong:.alternate-color} -->
    - O arquivo `README.md` do repositório contém o enunciado do exercício
-1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
+1. Enviar pelo sistema acadêmico o link do seu repositório até o final da aula: https://github.com/SEU_USUARIO/cefet-web-piranha-plant/
+
+¹O uso do _branch_ `gh-pages` é necessário para que a atividade seja avaliada. <!-- {p:.note.warning} -->
 
 ---
 <!-- {"layout": "tall-figure-left"} -->
@@ -569,10 +571,10 @@ página web
 <!-- {"hash": "centralizando-imagens"} -->
 ## Centralizando imagens
 
-- Para centralizar uma imagem, podemos definir "margens
+- Para centralizar imagens, podemos definir "margens
   laterais automáticas":
   ```css
-  #imagem-principal {
+  img {
     display: block;
     margin-left: auto;
     margin-right: auto;
