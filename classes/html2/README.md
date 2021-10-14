@@ -569,10 +569,10 @@ página web
 <!-- {"hash": "centralizando-imagens"} -->
 ## Centralizando imagens
 
-- Para centralizar uma imagem, podemos definir "margens
+- Para centralizar imagens, podemos definir "margens
   laterais automáticas":
   ```css
-  #imagem-principal {
+  img {
     display: block;
     margin-left: auto;
     margin-right: auto;
