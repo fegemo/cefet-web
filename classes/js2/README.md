@@ -218,7 +218,7 @@
   let inputs = document.querySelectorAll('input');  // retornou um 'NodeList'
                                                     // com todos inputs da página
 
-  console.log(`Quantidade de inputs na página: ${inputs.length}`);
+  console.log('Quantidade de inputs na página: ' + inputs.length);
   let primeiroInputEl = inputs[0];
   ```
 
@@ -251,7 +251,7 @@
 - <!-- {.no-bullets.codigos-com-pouco-espaco-vertical style="margin-top: 1em;"} -->
   ```js
   // propriedade .length (igual um array)
-  console.log(`Quantidade de elementos: ${inputs.length}`);
+  console.log('Quantidade de elementos: ' + inputs.length');
   ```
   ```js
   // método 'forEach' (igual um array)
@@ -444,7 +444,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
   let contadorEl = document.querySelector('#contador');
   
   // quando clicado, (1) conta e (2) altera conteúdo
-  contadorEl.addEventListener('click', () => {
+  contadorEl.addEventListener('click', function() {
     contador++;                       // (1) conta
     contadorEl.innerHTML = contador;  // (2) altera
   });
