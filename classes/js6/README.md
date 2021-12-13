@@ -9,8 +9,7 @@
 1. [Formulários e validação](#formularios-e-validacao)
 1. [Criando elementos HTML dinamicamente](#criando-elementos-html-dinamicamente)
 1. [Lista de Tarefas](#lista-de-tarefas) :notebook:
-   - Exemplo 1: [Albums de música](#albums-de-musica)
-   - Exemplo 2: [Agenda telefônica](#agenda-telefonica)
+   - Exemplo: [Albums de música](#albums-de-musica)
 
 ---
 <!-- {"layout": "section-header", "hash": "formularios-e-validacao"} -->
@@ -398,12 +397,6 @@
            inserir a próxima tarefa
         1. Mova o foco da aplicação de volta para o campo de texto
            chamando `campoDeTextoEl.focus()`
-
----
-<!-- { "hash": "agenda-telefonica"} -->
-## Exemplo: Agenda telefônica
-
-<iframe width="100%" height="490" src="//jsfiddle.net/fegemo/zrmpjaLg/embedded/result,html,js/" allowfullscreen="allowfullscreen" frameborder="0" class="bordered rounded"></iframe>
 
 ---
 ## Exercício 3: filtragem por categoria

@@ -40,7 +40,7 @@
     largura: 5,
     altura: 10,
     get area() {
-      return largura * altura;
+      return this.largura * this.altura;
     }
   };
 
@@ -133,7 +133,7 @@
       }
     }
     // expressão
-    const Moto = class(modelo, dono) {
+    const Moto = class {
       constructor(modelo, dono) {
         this.modelo = modelo;
         this.dono = dono;
@@ -178,7 +178,7 @@
   ```
 
 ---
-<!-- {"layout": "2-column-content"} -->
+<!-- {"layout": "2-column-content", "classes": "compact-code-more"} -->
 # Classes em <small>(ES5)</small> vs **<small>(ES2015)</small>**
 
 ```js
@@ -186,13 +186,17 @@ function Carro(marca, tipo) {
   this.marca = marca;
   this.tipo = tipo;
 }
+
 Carro.prototype.ligar =
   function(opcoes) {
   // método de instância
 };
+
 Carro.ordenar = function (v) {
   // método estático
 }
+
+
 const ka = new Veiculo('Ford', 'Ka');
 ka.ligar();
 Carro.ordenar([ka, uno, gol]);
@@ -203,12 +207,16 @@ class Carro {
     this.marca = marca;
     this.tipo = tipo;
   }
+
   ligar(opcoes) {
     //...
   }
+
   static ordenar(veiculos) {
   }
 }
+
+
 const ka = new Carro('Ford', 'Ka');
 ka.ligar();
 Carro.ordenar([ka, uno, gol]);
@@ -268,7 +276,6 @@ class Carro extends Veiculo {
     }
 
     irPara(destino) {
-      this.#andar();
       this.#andar();
     }
 
@@ -606,7 +613,7 @@ class Carro extends Veiculo {
   const menorQue160 = n => n < 160
 
   // usando composição
-  const menorQue = valor => n < valor
+  const menorQue = valor => n => n < valor
   alturas.every(menorQue(180)) === false
   alturas.every(menorQue(190)) === true
   ```

@@ -609,6 +609,7 @@ showReviewsEl.addEventListener('click', () => {
   // usando async/await (como json)
   const resposta = await fetch('htt...')
   const dados = await resposta.json()
+  console.log(dados)
   ```
 
 [mdn-fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
