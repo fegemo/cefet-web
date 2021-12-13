@@ -4,11 +4,6 @@
 
 ---
 <!-- {"layout": "centered"} -->
-# Na aula anterior...
-
-
----
-<!-- {"layout": "centered"} -->
 # Roteiro
 
 1. [_Destructuring_](#destructuring)
@@ -19,7 +14,7 @@
 ---
 <!-- {"layout": "section-header", "hash": "destructuring"} -->
 # _Destructuring_
-## Desconstruindo objetos/listas
+## "Desmontando"<br>objetos e listas
 
 - Propriedades curtinhas
 - Motivação
@@ -40,7 +35,7 @@
      // sem usar o atalho:
      let obj = {a: a, b: b, c: c};
      ```
-  1. Podemos fazer isto:
+  1. Podemos fazer isto 😎:
      ```js
      let a = 'cat', 
          b = 2, 
@@ -86,47 +81,75 @@
   ```
 
 ---
-<!-- {"layout": "2-column-content", "classes": "compact-code-more", "slideStyles": {"grid-template-columns": "0.4fr 1fr"}, "embeddedStyles": "#yay + pre {max-height:90%;}"} -->
-# Destructuring <small>um objeto</small>
+<!-- {"layout": "2-column-content", "classes": "compact-code-more", "slideStyles": {"grid-template-columns": "auto 1fr"}, "embeddedStyles": "#yay ~ pre {max-height:90%; width: 100%;}"} -->
+# Destructuring <small>um objeto</small> (1/2)
 
-- Às vezes queremos que uma função tenha 1+ valores de retorno
-- Ou então um função que espera um objeto que possua um certo formato
-<!-- {ul:id="yay"} -->
+1. Às vezes queremos que uma função tenha 1+ valores de retorno
+1. Ou então um função que espera um objeto que possua um certo formato
+<!-- {ol:id="yay" class="no-margin span-columns"} -->
 
 ```js
-function desenhaGrafico({size = 'big', coords = { x: 0, y: 0 }, radius = 25} = {}) {
-  console.log(size, coords, radius);
-  // desenha aqui...
-}
+// Exemplo (1): "desmontando"
+let imgEl = doc...ector('#logo');
+const { alt, src } = imgEl;
 
-desenhaGrafico({
-  coords: { x: 18, y: 30 },
-  radius: 30
-});
+console.log(`alt = ${alt}`);
+console.log(`src = ${src}`);
+
+
+
+
+
+
 
 
 
 
 // do jeito old...
-function desenhaGraficoES5(options) {
-  options = options === undefined ? {} : options;
-  var size = options.size === undefined ? 'big' : options.size;
-  var coords = options.coords === undefined ? { x: 0, y: 0 } : options.coords;
-  var radius = options.radius === undefined ? 25 : options.radius;
+let imgEl = doc...ector('#logo');
+const alt = imgEl.alt;
+const src = imgEl.src;
+
+console.log('alt = ' + alt);
+console.log('src = ' + src);
+```
+
+```js
+// Exemplo (2): definindo o parâmetro de forma "destructured":
+function desenhaGrafico({size = 'big', coords = {x: 0, y: 0}} = {}) {
   console.log(size, coords, radius);
+  // desenha aqui...
+  // 
+
+
+}
+
+desenhaGrafico({
+  coords: { x: 18, y: 30 },
+  size: 'small'
+});
+
+
+
+// do jeito old...
+function desenhaGraficoES5(options) {
+  options = options || {};
+  var size = options.size || 'big';
+  var coords = options.coords || { x: 0, y: 0 };
+  console.log(size, coords);
   // desenha aqui...
 }
 
 desenhaGraficoES5({
   cords: { x: 18, y: 30 },
-  radius: 30
+  size: 'small'
 });
 ```
 
 ---
 # Destructuring _arrays_
 
-- Decapitando um _array_: <!-- {ul:.compact-code} -->
+- Decapitando um _array_: <!-- {ul:.compact-code.full-width} -->
   ```js
   const [head, ...tail] = [1, 2, 3, 4];
   console.log(tail);                    // imprime [2, 3, 4]
@@ -152,7 +175,7 @@ desenhaGraficoES5({
 <!-- {ul:.content} -->
 
 ---
-# História
+# História da **modularidade** em JS
 
 1. Ao longo dos anos 2000, a lógica das aplicações migrou para o _front-end_
    - Muito mais código JavaScript
@@ -163,7 +186,7 @@ desenhaGraficoES5({
    - Poluição do _namespace_ global
    - Ambientes JavaScript fora do navegador
 1. Diferentes soluções emergiram ao longo do tempo
-   - AMD, CommonJS, UMD e Módulos ES6
+   - AMD, CommonJS, UMD e **Módulos ES6** 🌟 <!-- {.alternate-color} -->
 
 ---
 # Módulos ES6
@@ -253,7 +276,7 @@ export function desenha(ctx, tam, x, y, cor) {
 <!-- {"classes": "compact-code-more"} -->
 ## `import` e `export` padrão
 
-- Caso um módulo exporte apenas 1 única coisa, ele pode defini-la como `export` padrão
+- Caso um módulo exporte apenas 1 única coisa, ele pode defini-la como `export default` (padrão)
 - Quem fizer `import`, não precisará fazer _destructuring_. Exemplo:
   1. <!-- {ol:.no-bullets.no-padding.no-margin.layout-split-2.compact-code style="gap: 1rem"} -->
      `abelha.js`
@@ -320,11 +343,11 @@ Problema <!-- {dl:.width-20} -->
     ter um **_callback hell_**: várias _callbacks_ aninhadas
     - Dificulta a leitura e escrita
     - Suscetível a erros do programador
-    - Tratar erros apenas por _callback_, dificultando
+    - Trata erros apenas por _callback_, dificultando
       a legibilidade/manutenibilidade do código
 
 Soluções
-  ~ uso de promessas ou `async/await`
+  ~ uso de promessas explicitamente ou com `async/await`
 
 ---
 <!-- {"layout": "main-point", "state": "emphatic"} -->
@@ -406,7 +429,7 @@ sendAjax('https://swapi.dev/api/planets/8')             // Naboo
 
 
   ```
-- Exemplo 2: aguardar `tempo` antes de fazer algo
+- Exemplo 2: aguardar `tempo` antes de fazer algo _(apenas parametrizando)_
   ```js
   function espera(tempo) {
     return new Promise(resolver => {
@@ -440,7 +463,7 @@ sendAjax('https://swapi.dev/api/planets/8')             // Naboo
    - Caso `.catch` seja atrasado (eg, devido a alguma espera na criação da promessa - [exemplo][promise-unhandled])
 1. É difícil escrever um **fluxo condicional** em uma cadeia de promessas
 1. **Depurar** ainda fica um pouco difícil com promessas
-1. É possível **aumentar a legibilidade**, se o código parecer síncrono
+1. É possível **aumentar a legibilidade**, se o código _parecer_ síncrono
 
 [promise-unhandled]: https://jsfiddle.net/fegemo/g2h5rqem/
 
@@ -475,7 +498,7 @@ sendAjax('https://swapi.dev/api/planets/8')             // Naboo
    - E isso não bloqueia a execução do processo (ie, é assíncrono)
 
 ---
-## Retorno de `await funcao`
+## Retorno de: `await funcao()`
 
 - <!-- {ul:.full-width.no-padding.no-margin.no-bullets.two-column-code.compact-code-more} -->
   ```js
@@ -542,7 +565,7 @@ sendAjax('https://swapi.dev/api/planets/8')             // Naboo
     ```
 - Repare que, para usar valores intermediários usando `.then`,
   o código perde legibilidade
-  - Com `await` o código parece síncrono (e fica mais legível)
+  - Com `await` o código parece síncrono (ficando mais legível)
 
 ---
 # Tratando **erros**
@@ -687,54 +710,6 @@ try {
 [jsf-async-await]: https://jsfiddle.net/fegemo/w5tcaxdq/
 
 ---
-<!-- {"layout": "2-column-content", "classes": "compact-code-more"} -->
-# Exemplo de **espera desnecessária**
-
-```js
-function espera(tempo) {
-  return new Promise(resolver => 
-    setTimeout(resolver, tempo))
-}
-
-async function quem() {
-  await espera(200)
-  return '🤡'
-}
-
-async function oque() {
-  await espera(300)
-  return 'espreita'
-}
-
-async function onde() {
-  await espera(500)
-  return 'nas sombras'
-}
-```
-
-```js
-async function mensagem1() { // ❌
-  const a = await quem()
-  const b = await oque()
-  const c = await onde()
-
-  console.log(`${a} ${b} ${c}`)
-}
-mensagem1() // depois de 1s:
-// 🤡 espreita nas sombras
-
-
-async function mensagem2() { // ✅
-  const todas = Promise.all([quem(), oque(), onde()])
-  const [a, b, c] = await todas 
-  
-  console.log(`${a} ${b} ${c}`)
-}
-mensagem2() // depois de 500ms:
-// 🤡 espreita nas sombras
-```
-
----
 <!-- {"classes": "compact-code-more"} -->
 # Cuidados com assincronia
 
@@ -771,6 +746,54 @@ mensagem2() // depois de 500ms:
   ```js
   console.log << quem(), oque(), onde()
   ```
+
+---
+<!-- {"layout": "2-column-content", "classes": "compact-code-more"} -->
+# Exemplo de **espera desnecessária**
+
+```js
+function espera(tempo) {
+  return new Promise(resolver => 
+    setTimeout(resolver, tempo))
+}
+
+async function quem() {
+  await espera(200)
+  return '🤡'
+}
+
+async function oque() {
+  await espera(300)
+  return 'espreita'
+}
+
+async function onde() {
+  await espera(500)
+  return 'nas sombras'
+}
+```
+
+```js
+async function mensagem1() { // ❌
+  const a = await quem()
+  const b = await oque()
+  const c = await onde()
+
+  console.log(`${a} ${b} ${c}`)
+}
+mensagem1() // depois de 1s: (esperou pra +)
+// 🤡 espreita nas sombras
+
+
+async function mensagem2() { // ✅
+  const todas = Promise.all([quem(), oque(), onde()])
+  const [a, b, c] = await todas 
+  
+  console.log(`${a} ${b} ${c}`)
+}
+mensagem2() // depois de 500ms:
+// 🤡 espreita nas sombras
+```
 
 ---
 <!-- {"classes": "compact-code-more"} -->
