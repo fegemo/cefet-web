@@ -120,7 +120,7 @@ Além do código do seu serviço Web, seu repositório deve conter também um ar
 Você deve usar um serviço de hospedagem gratuito para a avaliação do seu
 trabalho. Abaixo, uma lista desses serviços que possuem um plano gratuito:
 
-- [Heroku](https://www.heroku.com/) (Java, Grails, Node, Ruby)
+- [Cyclic](https://cyclic.sh/) (Node)
 - [Appfog](https://www.appfog.com/) (Java, Grails, Node, Ruby)
 - [Openshift](https://www.openshift.com/) (Java, Grails)
 - [cloudno.de](http://cloudno.de/) (Node)

@@ -173,7 +173,7 @@ extras para implementar, limitado a uma nota percentual total de 120%:
       últimas atividades do usuário (um _widget_)
 
 [tut-modules]: https://www.sitepoint.com/understanding-es6-modules/
-[monstro-verde]: http://terrivel.herokuapp.com/monster
+[monstro-verde]: http://terrivel.cyclic.app/monster
 [spriter-demo]: https://cdn.rawgit.com/flyover/spriter.ts/master/demo/index.html
 [spriter]: https://brashmonkey.com/
 [spine]: http://pt.esotericsoftware.com/
@@ -282,7 +282,7 @@ Em termos de artefatos, devem ser entregues via Moodle:
 Você deve usar um serviço de hospedagem gratuito para aplicações Node.js.
 Abaixo, uma lista desses serviços que possuem um plano gratuito:
 
-- [Heroku](https://www.heroku.com/) (Java, Grails, Node, Ruby)
+- [Cyclic](https://cyclic.sh/) (Node)
 - [Appfog](https://www.appfog.com/) (Java, Grails, Node, Ruby)
 - [cloudno.de](http://cloudno.de/) (Node)
 - Outros...

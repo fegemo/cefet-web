@@ -381,7 +381,7 @@ O que é terrível, verde, come pedras e mora debaixo da terra??
 > pessoas, você deve dar a ele seu segundo alimento preferido: pedras.
 
 > Para isso, você deve ir até onde ele está e enviar algumas pedras para ele.
-> Atualmente, ele está neste endereço: https://terrivel.herokuapp.com/monster.
+> Atualmente, ele está neste endereço: https://terrivel.cyclic.app/monster.
 > Para dar comida a ele, você deve encomendá-las a partir de um formulário html.
 
 ---
@@ -397,7 +397,7 @@ O que é terrível, verde, come pedras e mora debaixo da terra??
 
 - <!-- {li:style="list-style-type: none"} -->
   ```html
-  <form action="https://terrivel.herokuapp.com/monster" method="GET">
+  <form action="https://terrivel.cyclic.app/monster" method="GET">
     <input name="nome" type="text">
     <input name="num_pedras" type="number" step="1" min="0">
     <input name="corCeu1" id="corCeu1" type="color">
@@ -456,7 +456,7 @@ O que é terrível, verde, come pedras e mora debaixo da terra??
     <!-- {li:style="flex:1"} -->
     ```http
     GET /monster HTTP/1.1
-    Host: terrivel.herokuapp.com?nome=Fl%C3%A1vio+Coutinho
+    Host: terrivel.cyclic.app?nome=Fl%C3%A1vio+Coutinho
       &num_pedras=5&tam_pedras=3.5&corCeu1=%2384d6d7
       &corCeu2=%233572e3&tipo_pedras=espinela
       &tipo_pedras_sortidas=n%C3%A3o
@@ -464,7 +464,7 @@ O que é terrível, verde, come pedras e mora debaixo da terra??
   - <!-- {li:style="flex:1"} -->
     ```http
     GET /monster HTTP/1.1
-    Host: terrivel.herokuapp.com
+    Host: terrivel.cyclic.app
     
     nome=Fl%C3%A1vio+Coutinho&num_pedras=5&tam_pedras=3.5
     &corCeu1=%2384d6d7&corCeu2=%233572e3...

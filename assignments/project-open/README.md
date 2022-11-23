@@ -198,7 +198,7 @@ um arquivo README.md em sua pasta raiz que descreva brevemente o que ele é.
 Você deve usar um serviço de hospedagem gratuito para a avaliação do seu
 trabalho. Abaixo, uma lista desses serviços que possuem um plano gratuito:
 
-- [Heroku](https://www.heroku.com/)
+- [Cyclic](https://cyclic.sh/) (Node)
 - [Appfog](https://www.appfog.com/)
 - [cloudno.de](http://cloudno.de/)
 
