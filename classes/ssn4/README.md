@@ -24,7 +24,7 @@
 
 ![](../../images/geiser.png)
 
-- Veja funcionando: [http://geiser.herokuapp.com](http://geiser.herokuapp.com)
+- Veja funcionando: [http://geiser.cyclic.app](http://geiser.cyclic.app)
 
 ---
 ## <span style="font-family: Sacramento; font-size:120%">Geiser<small> - seu computador a todo vapor</small></span>
