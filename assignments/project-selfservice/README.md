@@ -173,7 +173,7 @@ e contenha a lista de itens extras (ou penalidades) as quais está pleiteando.
 Você deve usar um serviço de hospedagem gratuito para a avaliação do seu
 trabalho. Abaixo, uma lista desses serviços que possuem um plano gratuito:
 
-- [Heroku](https://www.heroku.com/) (Java, Grails, Node, Ruby)
+- [Cyclic](https://cyclic.sh/) (Node)
 - [Appfog](https://www.appfog.com/) (Java, Grails, Node, Ruby)
 - [cloudno.de](http://cloudno.de/) (Node)
 
