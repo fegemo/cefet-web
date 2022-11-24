@@ -490,7 +490,7 @@ ele. Ele acaba de ir para a superfície e para que ele não comece a comer
 pessoas, você deve dar a ele seu segundo alimento preferido: pedras.
 
 Para isso, você deve ir até onde ele está e enviar algumas pedras para ele.
-Atualmente, ele está neste endereço: http://terrivel.ciclic.app/monster.
+Atualmente, ele está neste endereço: http://terrivel.cyclic.app/monster.
 Para dar comida a ele, você deve encomendá-las a partir de um formulário html.
 
 ---
