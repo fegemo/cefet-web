@@ -687,7 +687,7 @@ fetch(url, {
    - [`JSON.parse()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
 
 ---
-<!-- {"slideHash": "setup-local-server"} -->
+<!-- {"hash": "setup-local-server"} -->
 ## Erro ao fazer o AJAX (slide oculto :P)
 
 - Os navegadores têm uma política de permissões diferente para quando acessamos uma

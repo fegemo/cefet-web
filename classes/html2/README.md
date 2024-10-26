@@ -700,7 +700,7 @@ A _tag_ de hiperlink possui um atributo `target="..."` que pode ter
   }
   ```
 
-[outros-seletores]: http://localhost:8080/classes/css2/#outros-seletores
+[outros-seletores]: ../css2/#outros-seletores
 
 ---
 <!-- {"hash": "seletor-de-tag"} -->
