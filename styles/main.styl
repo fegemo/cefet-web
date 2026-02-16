@@ -23,6 +23,7 @@ html, body
   overflow hidden
 
 body
+  view-transition-name transicao-iframe
   background-color $background-color
 
 // header and presentation-container layout
@@ -116,6 +117,26 @@ body
 
 .dashed
   border 2px dashed gray
+
+// eventually move to theme
+dl.dl-grid
+  display grid
+  grid-template-columns auto auto
+  gap 0.2rem 1rem
+
+  dt
+    margin 0
+    font-weight bold
+    width auto
+    float none
+    clear none
+    padding 0
+  dd
+    margin 0
+    width auto
+    float none
+    clear none
+// end of move to theme
 
 // easter egg
 #easter-egg-panel

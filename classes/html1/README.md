@@ -364,6 +364,7 @@ URL **interna** <!-- {.alternate-color} -->
     <a href="../../attachments/exemplo.zip">Texto do link interno</a>
 
   :::
+  
 ---
 <!-- {"layout": "main-point", "state": "emphatic"} -->
 ## Como o navegador <u>vai desenhar</u> as _tags_ HTML?

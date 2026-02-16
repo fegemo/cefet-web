@@ -262,15 +262,16 @@
 <!-- {"layout": "2-column-content", "hash": "tipos-de-dados"} -->
 ## Tipos de dados
 
-- Há seis **tipos primitivos** de dados:
+- Há sete **tipos primitivos** de dados:
   - `1. Boolean` <!-- {.tipo-js.tipo-boolean} -->
   - `2. Number` <!-- {.tipo-js.tipo-number} -->
   - `3. String` <!-- {.tipo-js.tipo-string} -->
   - `4. Null` <!-- {.tipo-js} -->
   - `5. Undefined` <!-- {.tipo-js} -->
-  - `6. Symbol` ![](../../images/logo-javascript.svg) <!-- {style="height: 1em;"} -->  <!-- {code:.tipo-js} --> <!-- {ul:.multi-column-list-2} -->
+  - `6. Symbol` <!-- {.tipo-js} -->
+  - `7. BigInt` <!-- {.tipo-js} --> <!-- {ul:.multi-column-list-2} -->
 - Um **tipo composto** de dados:
-  `7. Object` <!-- {.tipo-js.tipo-object} -->
+  `8. Object` <!-- {.tipo-js.tipo-object} -->
   - Há outros derivados de `Object`...
   - Veremos `Object` e seus tipos derivados em próximas aulas
 
@@ -385,7 +386,7 @@
 
 ---
 <!-- {"classes": "compact-code"} -->
-## O tipo `7. Object` <!-- {.tipo-js.tipo-object} -->
+## O tipo `8. Object` <!-- {.tipo-js.tipo-object} -->
 
 - É um **"saquinho" de propriedades**: <!-- {ul:.push-code-right.full-width} -->
   ```js
