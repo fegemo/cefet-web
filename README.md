@@ -272,7 +272,7 @@ Veja a bibliografia básica e a complementar.
 
 <!-- - [Seminário: APIs HTML5][seminar] (20 pontos) -->
 - [TP0: Git][tp0] (4 pontos)
-- Atividades Práticas (44 pontos)
+- Atividades Práticas (48 pontos)
 - [Projeto][project]
   - Entrega 1: (6 pontos)
   - Entrega 2: (12 pontos)
