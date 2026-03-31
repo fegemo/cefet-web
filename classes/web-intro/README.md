@@ -1099,6 +1099,7 @@ ovelha.inicializa();
 [mdn-height]: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/height
 [mdn-margin]: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin
 [mdn-padding]: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding
+
 ---
 <!-- {"layout": "section-header", "hash": "comportamento-via-javascript"} -->
 # Comportamento via JavaScript

@@ -1,6 +1,24 @@
 @import 'highlight.js/styles/atom-one-light.css'
+// OVERWRITING HIGHLIGHT LIGHT COLORS
+.hljs-comment
+  color #77787c
+
+.hljs-built_in,
+.hljs-class .hljs-title
+    color #6e4b00
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string
+    color #197f18
+
+// end of overwriting highlight colors
 @media (prefers-color-scheme: dark)
   @import 'highlight.js/styles/monokai-sublime.css'
+
+
 
 :root
   --link-color #4caf50
