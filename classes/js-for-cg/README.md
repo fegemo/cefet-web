@@ -61,7 +61,7 @@
    - Era a única forma até ~2012
    - Encontra-se códigos antigos na Web usando `var`
 ---
-<!-- {"layout": "2-column-content", "hash": "tipos-de-dados"} -->
+<!-- {"layout": "2-column-content", "hash": "tipos-de-dados", "backdrop": "white-noise"} -->
 ## Tipos de dados
 
 - Há sete **tipos primitivos** de dados:
@@ -75,27 +75,26 @@
 - Um **tipo composto** de dados:
   `8. Object` <!-- {.tipo-js.tipo-object} -->
   - Há outros derivados de `Object`...
-  - Veremos `Object` e seus tipos derivados em próximas aulas
 
-1. Para verificar o tipo de uma variável, usamos `typeof` <!-- {.compact-code-more} -->
+1. Para verificar o tipo de uma variável, usamos `typeof` <!-- {ol:.no-bullets.compact-code-more} -->
    ```js
-   let vacinou = true;
-   console.log(typeof vacinou);
+   let vacinou = true
+   console.log(typeof vacinou)
    // imprime "boolean"
 
-   let nota = 10;
-   console.log(typeof nota);
+   let pontuacao = 10
+   console.log(typeof pontuacao)
    // imprime "number"
 
-   let aluno = 'Adamastor';
-   console.log(typeof aluno);
+   let aluno = 'Adamastor'
+   console.log(typeof aluno)
    // imprime "string"
 
    let inimigo = {
      vida: 100,
      nome: 'Slime'
-   };
-   console.log(typeof inimigo); // impr. "object"
+   }
+   console.log(typeof inimigo) // impr. "object"
    ```
 ---
 <!-- {"classes": "compact-code"} -->
@@ -136,12 +135,12 @@
    let jogador = {             // forma mais expressiva, curta e sexy 😎
      pontos: 1420,             // propriedades separadas por vírgula
      vidas: 2
-   };
+   }
    ```
    ```js
-   let jogador = {};           // um objeto vazio: { }
-   jogador.pontos = 1420;      // criou jogador.pontos com valor 1420
-   jogador.vidas = 2;          // criou jogador.vidas
+   let jogador = {}            // um objeto vazio: { }
+   jogador.pontos = 1420       // criou jogador.pontos com valor 1420
+   jogador.vidas = 2           // criou jogador.vidas
    ```
    - Novas propriedades podem ser atribuídas mesmo após sua criação! <!-- {li:.bullet} -->
 2. Na **forma do operador `new`**: <!-- {strong:.alternate-color} -->
@@ -195,7 +194,7 @@ const loja = {
   
   // método vender
   vender: function() { // p. é função
-    this.dinheiro += 15;
+    this.dinheiro += 15
   } 
 }
 
@@ -209,26 +208,26 @@ loja.vender() // loja.dinheiro = 530
   - Objetos com métodos formam o princípio do conceito de **Orientação a Objetos**
 
 ---
-<!-- {"hash": "operadores", "embeddedStyles": ".less-padding ul li{padding-left:0em;list-style-type:none}"} -->
+<!-- {"hash": "operadores", "embeddedStyles": ".less-padding ul li{padding-left:0em;list-style-type:none}", "backdrop": "white-noise"} -->
 # Operadores
 
-- Aritméticos <!-- {ul^0:.less-padding} --> <!-- {li^0:.bullet} -->
+- Aritméticos <!-- {ul^0:.less-padding} -->
   - **`+`** soma&nbsp;&nbsp;&nbsp;**`-`** subtração
   - **`*`** multiplicação
   - **`**`** exponenciação
   - **`/`** divisão
   - **`%`** resto da divisão
   - **`++`** incremento&nbsp;&nbsp;&nbsp;**`--`** decremento
-- Atribuição <!-- {li^0:.bullet} -->
+- Atribuição
   - **`=`** simples&nbsp;&nbsp;&nbsp;**`+=  /=  %=`** composta
-- Relacionais (comparação) <!-- {li^0:.bullet} -->
+- Relacionais (comparação)
   - **`==`** igualdade
   - **`===`** igualdade forte (!!)
   - **`!=`** desigualdade
   - **`!==`** desigualdade forte  (!!)
   - **&lt;  &lt;=** menor/menor igual
   - **&gt;  &gt;=** maior/maior igual
-- Lógicos <!-- {li^0:.bullet} -->
+- Lógicos
   - **`!`** não&nbsp;&nbsp;&nbsp;**`&&`** e&nbsp;&nbsp;&nbsp;**`||`** ou <!-- {ul^4:.multi-column-list-2} -->
 
 ---
@@ -319,19 +318,18 @@ if (estouComSono)
 ## **switch** (condicionais)
 
 ```js
-let corDoSite = 'black'
-switch (climaAgora) {
-    case 'ensolarado':
-      corDoSite = 'yellow'
+switch (player.status) {
+    case 'poisoned':
+      player.color = palette['green']
       break
     
-    case 'nublado':
-    case 'chuvoso':
-      corDoSite = 'gray'
+    case 'powerup':
+    case 'invincible':
+      player.color = palette['blue']
       break;
 
     default:
-      corDoSite = 'white'
+      player.color = palette['black']
       break;
 }
 ```
@@ -397,9 +395,9 @@ let listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
   ```
 - Percorrendo items de um _array_:
   ```js
-  let cores = ['azul', 'rosa']
+  let inimigos = [new Enemy(), new Enemy()]
   for (let i = 0; i < cores.length; i++) {
-    console.log(cores[i])        // azul, rosa
+    inimigos[i].atira()          // pew pew
   }
   ```
 
@@ -409,19 +407,19 @@ let listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
 
 1. **For of**: `for (let item of array)` <!-- {ol:.no-bullets} -->
    ```js
-   let cores = ['azul', 'rosa']
-   for (let cor of cores) {
-     console.log(cor)
-     // azul, rosa
+   let inis = [new Astrd(), new Boss()]
+   
+   for (let inimigo of inis) {
+     inimigo.ataca()
    }
    ```
 - **For each**: `array.forEach` <!-- {ul:.no-bullets} -->
   ```js
-  let cores = ['azul', 'rosa']
-  cores.forEach(function(cor) {
-    console.log(cor)
-    // azul, rosa
-  });
+  let inis = [new Astrd(), new Boss()]
+  
+  inis.forEach(inimigo => {
+    inimigo.ataca()
+  })
   ```
 
 ---
@@ -451,9 +449,9 @@ let listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
 # Eventos
 ## Programação dirigida por eventos
 
-- Tipos
+- Tipos de eventos
 - Associando funções
-<!-- {ul^1:.content} -->
+<!-- {ul:.content} -->
 
 ---
 ## Eventos
@@ -497,7 +495,14 @@ let listaDeCoisas = ['Aew', 35, true, [], 'outra string'];
       el.removeEventListener('click', funcao)
 
 ---
-TODO: slide mostrando interação com argumento de evento para pegar coordenadas
+# Exemplo: coordenadas do mouse
+
+<iframe width="100%" height="600" src="//jsfiddle.net/fegemo/v627o58q/embedded/result,js,html/" frameborder="0" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+
+---
+# Exemplo: teclado
+
+<iframe width="100%" height="600" src="//jsfiddle.net/fegemo/dhn9L3gs/embedded/result,js,html/" frameborder="0" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
 
 ---
 <!-- {"layout": "section-header", "hash": "criando-objetos-com-classes"} -->
@@ -757,9 +762,33 @@ export function desenha(ctx, tam, x, y, cor) {
 # Promessas, Async/Await
 ## Programação assíncrona
 
+- Assincronia
 - Promessas
 - Async/Await
 <!-- {ul:.content} -->
+
+---
+<!-- {"layout": "regular", "classes": "compact-code"} -->
+# Assincronia
+
+- JavaScript nasceu apta a lidar com operações assíncronas
+  - assincronia !== paralelismo
+- **Operação assíncrona**: leva um tempo para executar e não deve "travar" o programa
+- Forma tradicional de lidar: **_callback_** <!-- {li:.two-column-code} -->
+  ```javascript
+  const txtr1 = new Image()
+  txtr1.addEventListener('load', () => {
+    // textura foi carregada...
+    gl.createTexture();
+    // ...
+  })
+  const txtr2 = new Image()
+  txtr2.addEventListener('load', () => {
+    // textura foi carregada...
+  })
+  const txtr3 = new Image()
+  txtr3.addEventListener('load', ()=>{})
+  ```
 
 ---
 <!-- {"layout": "main-point", "state": "emphatic"} -->
@@ -776,12 +805,12 @@ export function desenha(ctx, tam, x, y, cor) {
 - Imprimir (4) todas as "pessoas" (3) da mesma espécie do (2) primeiro
   residente do (1) planeta Naboo (planeta `id=8`) <!-- {li:.compact-code-more} -->
   ```js
-  sendAjax('https://swapi.dev/api/planets/8', planeta  => { // Naboo
-    sendAjax(planeta.residents[0], residente => {           // R2-D2
-      sendAjax(residente.species, especie => {              // Droid
+  requisicao('https://swapi.dev/api/planets/8', planeta  => { // Naboo
+    requisicao(planeta.residents[0], residente => {           // R2-D2
+      requisicao(residente.species, especie => {              // Droid
         // pega todas as "pessoas" dessa espécie
         for (let pessoa of especie.people) {
-          sendAjax(pessoa, p => {
+          requisicao(pessoa, p => {
             console.log(p.name + ', ')                      // ordem pode mudar!
           })
           // C-3PO, R2-D2, R5-D4, IG-88, BB8,
@@ -800,10 +829,10 @@ export function desenha(ctx, tam, x, y, cor) {
   residente do (1) planeta Naboo (planeta `id=8`)
 
 ```js
-sendAjax('https://swapi.dev/api/planets/8')             // Naboo
-  .then(planeta => sendAjax(planeta.residents[0]))      // R2-D2
-  .then(residente => sendAjax(residente.species))       // Droid
-  .then(especie => Promise.all(especie.people.map(pessoa => sendAjax(pessoa))))
+requisicao('https://swapi.dev/api/planets/8')             // Naboo
+  .then(planeta => requisicao(planeta.residents[0]))      // R2-D2
+  .then(residente => requisicao(residente.species))       // Droid
+  .then(especie => Promise.all(especie.people.map(pessoa => requisicao(pessoa))))
   .then(pessoas => console.log(pessoas.map(p => p.name).join(', ')))
    // C-3PO, R2-D2, R5-D4, IG-88, BB8
   .catch(erro => console.error(`Deu ruim: ${erro}`));
@@ -1049,10 +1078,10 @@ sendAjax('https://swapi.dev/api/planets/8')             // Naboo
 
 ```js
 try {
-  const planeta = await sendAjax('https://swapi.dev/api/planets/8') // Naboo
-  const residnt = await sendAjax(planeta.residents[0])              // R2-D2
-  const especie = await sendAjax(residnt.species)                   // Droid
-  const pessoas = await Promise.all(especie.people.map(pessoa => sendAjax(pessoa)))
+  const planeta = await requisicao('https://swapi.dev/api/planets/8') // Naboo
+  const residnt = await requisicao(planeta.residents[0])              // R2-D2
+  const especie = await requisicao(residnt.species)                   // Droid
+  const pessoas = await Promise.all(especie.people.map(pessoa => requisicao(pessoa)))
   console.log(pessoas.map(p => p.name).join(', '))
   // C-3PO, R2-D2, R5-D4, IG-88, BB8
 } catch(erro) {
@@ -1060,10 +1089,10 @@ try {
 }
 ```
 ```js
-sendAjax('https://swapi.dev/api/planets/8')                         // Naboo
-  .then(planeta => sendAjax(planeta.residents[0]))                  // R2-D2
-  .then(residnt => sendAjax(residnt.species))                       // Droid
-  .then(especie => Promise.all(especie.people.map(pessoa => sendAjax(pessoa))))    
+requisicao('https://swapi.dev/api/planets/8')                         // Naboo
+  .then(planeta => requisicao(planeta.residents[0]))                  // R2-D2
+  .then(residnt => requisicao(residnt.species))                       // Droid
+  .then(especie => Promise.all(especie.people.map(pessoa => requisicao(pessoa))))    
   .then(pessoas => console.log(pessoas.map(p => p.name).join(', ')))
    // C-3PO, R2-D2, R5-D4, IG-88, BB8
   .catch(erro => console.error(`Deu ruim: ${erro}`));
@@ -1074,12 +1103,12 @@ sendAjax('https://swapi.dev/api/planets/8')                         // Naboo
 ## [Callbacks][jsf-callback]
 
 ```js
-sendAjax('https://swapi.dev/api/planets/8', planeta  => { // Naboo
-  sendAjax(planeta.residents[0], residente => {           // R2-D2
-    sendAjax(residente.species, especie => {              // Droid
+requisicao('https://swapi.dev/api/planets/8', planeta  => { // Naboo
+  requisicao(planeta.residents[0], residente => {           // R2-D2
+    requisicao(residente.species, especie => {              // Droid
       // pega todas as "pessoas" dessa espécie
       for (let pessoa of especie.people) {
-        sendAjax(pessoa, p => {
+        requisicao(pessoa, p => {
           console.log(p.name + ', ')
         })
         // C-3PO, R2-D2, R5-D4, IG-88, BB8,
@@ -1092,10 +1121,10 @@ sendAjax('https://swapi.dev/api/planets/8', planeta  => { // Naboo
 ## [Promises][jsf-promise]
 
 ```js
-sendAjax('https://swapi.dev/api/planets/8')             // Naboo
-  .then(planeta => sendAjax(planeta.residents[0]))      // R2-D2
-  .then(residente => sendAjax(residente.species))       // Droid
-  .then(especie => Promise.all(especie.people.map(pessoa => sendAjax(pessoa))))
+requisicao('https://swapi.dev/api/planets/8')             // Naboo
+  .then(planeta => requisicao(planeta.residents[0]))      // R2-D2
+  .then(residente => requisicao(residente.species))       // Droid
+  .then(especie => Promise.all(especie.people.map(pessoa => requisicao(pessoa))))
   .then(pessoas => console.log(pessoas.map(p => p.name).join(', ')))
    // C-3PO, R2-D2, R5-D4, IG-88, BB8
   .catch(erro => console.error(`Deu ruim: ${erro}`));
@@ -1105,10 +1134,10 @@ sendAjax('https://swapi.dev/api/planets/8')             // Naboo
 
 ```js
 try {
-  const planeta = await sendAjax('https://swapi.dev/api/planets/8')   // Naboo
-  const residnt = await sendAjax(planeta.residents[0])      		      // R2-D2
-  const especie = await sendAjax(residnt.species)       	            // Droid
-  const pessoas = await Promise.all(especie.people.map(pessoa => sendAjax(pessoa)))
+  const planeta = await requisicao('https://swapi.dev/api/planets/8')   // Naboo
+  const residnt = await requisicao(planeta.residents[0])      		      // R2-D2
+  const especie = await requisicao(residnt.species)       	            // Droid
+  const pessoas = await Promise.all(especie.people.map(pessoa => requisicao(pessoa)))
   console.log(pessoas.map(p => p.name).join(', '))
   // C-3PO, R2-D2, R5-D4, IG-88, BB8
 } catch(erro) {
