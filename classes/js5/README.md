@@ -149,14 +149,14 @@
   ```js
   class Moto {
     constructor(modelo, dono, impulso = 0) {
-      this.modelo = modelo;
-      this.dono = dono;
-      this.impulso = impulso;
+      this.modelo = modelo
+      this.dono = dono
+      this.impulso = impulso
     }
     
     // getter
     get chassi() {
-      return `${this.modelo} de ${this.dono}`;
+      return `${this.modelo} de ${this.dono}`
     }
 
 
@@ -172,8 +172,8 @@
     }
   }
 
-  const motoca = new Moto('Harley', 'Bob E.');
-  console.log(motoda.chassi);
+  const motoca = new Moto('Harley', 'Bob E.')
+  console.log(motoca.chassi)
   // 'Harley de Bob E.'
   ```
 
@@ -190,16 +190,16 @@ function Carro(marca, tipo) {
 Carro.prototype.ligar =
   function(opcoes) {
   // método de instância
-};
+}
 
 Carro.ordenar = function (v) {
   // método estático
 }
 
 
-const ka = new Veiculo('Ford', 'Ka');
+const ka = new Carro('Ford', 'Ka')
 ka.ligar();
-Carro.ordenar([ka, uno, gol]);
+Carro.ordenar([ka, uno, gol])
 ```
 ```js
 class Carro {
@@ -360,16 +360,16 @@ class Carro extends Veiculo {
 1. <!-- {ol:.code-split-2.compact-code-more.no-bullets.no-margin.no-padding.full-width} -->
    Como fazíamos em ES5:
    ```js
-   const cidade = voo2.destino && voo2.destino.cidade;
+   let cidade = voo2.destino && voo2.destino.cidade
    // ...ou...
    let cidade = null;
    if (voo2.destino) {
-     cidade = voo2.destino.cidade;
+     cidade = voo2.destino.cidade
    }
    ```
 1. Como fazemos hoje:
    ```js
-   const cidade = voo2.destino?.cidade;
+   const cidade = voo2.destino?.cidade
    ```
 
 ---
@@ -378,14 +378,14 @@ class Carro extends Veiculo {
 
 - Para **dar valores padrão para variáveis ou expressões**, podemos usar o operador de coalescência nula
   ```js
-  const b = funcao();
-  const a = b ?? 20;
+  const b = funcao()
+  const a = b ?? 20
   ```
 - Se o lado esquerdo for `null` ou `undefined`, usa o lado direito
 - Mas e o `||`?
   ```js
-  const b = funcao();
-  const a = b || 20;
+  const b = funcao()
+  const a = b || 20
   ```
   - Se `b === 0` (valor válido), ainda assim `a = 20`
   - `||` verifica se lado esquerdo é `falsey`, então usa lado direito
@@ -406,15 +406,15 @@ class Carro extends Veiculo {
 - Como podemos criar uma lista HTML, dado um array de Strings?  <!-- {ul:.compact-code-more} -->
   ```js
   function criaListaHTML() {
-    const itens = Array.prototype.slice.call(arguments),
-    return '<li>' + itens.join('</li><li>') + '</li>';
+    const itens = Array.prototype.slice.call(arguments)
+    return '<li>' + itens.join('</li><li>') + '</li>'
   }
   criaListaHTML('Mario', 'Yoshi', 'Toad');
   ```
 - Em ES6, podemos usar o **operador rest** em vez de **`arguments`**:
   ```js
   function criaListaHTML(...itens) {
-    return '<li>' + itens.join('</li><li>') + '</li>';
+    return '<li>' + itens.join('</li><li>') + '</li>'
   }
   ```
 
@@ -426,13 +426,13 @@ class Carro extends Veiculo {
   ```js
   const day = getDateDay(),
       month = getDateMonth(),
-      year = getDateYear();
-  const d = new Date(year, month, day);
+      year = getDateYear()
+  const d = new Date(year, month, day)
   ```
 - Em ES6, podemos usar o **operador spread**:
   ```js
   const dateFields = getDateFieldsValues(),
-      d = new Date(...dateFields);
+      d = new Date(...dateFields)
   ```
 
 ---
@@ -446,7 +446,7 @@ class Carro extends Veiculo {
   const pets = ['rat', 'dragon', 'bee'];
 
   console.log(pets[0], pets[1], pets[2])  // rat dragon bee
-  console.log(...pets);                   // rat dragon bee
+  console.log(...pets)                    // rat dragon bee
   ```
 
 ---
@@ -462,16 +462,16 @@ class Carro extends Veiculo {
 - Concatenando vetores ou objetos:
   <!-- {li:.two-column-code} -->
   ```js
-  const hello = {hello: '😋😛😜'};
-  const world = {world: '🙂🥰😍🤩!'};
-  const helloWorld = {...hello, ...world};
+  const hello = {hello: '😋😛😜'}
+  const world = {world: '🙂🥰😍🤩!'}
+  const helloWorld = {...hello, ...world}
   // {hello: '😋😛😜', world: '🙂🥰😍🤩!'}
   ```
 - Clonando vetor ou objeto:
   <!-- {li:.two-column-code} -->
   ```js
   const frutas = ['🍏','🍊','🍌','🍉','🍍']
-  const frutasClonado = [...frutas];
+  const frutasClonado = [...frutas]
   // ['🍏','🍊','🍌','🍉','🍍']
   const objeto1 = {hello: '🤪'}
   const objClonado = {...objeto1}
@@ -535,9 +535,9 @@ class Carro extends Veiculo {
 
 - <!-- {ul:.no-padding.no-margin.no-bullets.flex-align-center} -->
   ```js
-  let usuarios = ['Joel', 'Fani', 'Fúlvio'];
-  let alunos = [{ matricula: '...' }];
-  let numeros = [1, 4, 2, 5];
+  let usuarios = ['Joel', 'Fani', 'Fúlvio']
+  let alunos = [{ matricula: '...' }]
+  let numeros = [1, 4, 2, 5]
   ```
 
 1. Pegar apenas usuários que começam com letra 'F': <!-- {ol:.full-width.bulleted-0} -->
@@ -545,11 +545,11 @@ class Carro extends Veiculo {
      <!-- {ul:style="padding-left: 0"} -->
      ```js
      usuarios.filter(function(nome) {
-       return nome.startsWith('F');
+       return nome.startsWith('F')
      });
      ```
      ```js
-     usuarios.filter(nome => nome.startsWith('F'));
+     usuarios.filter(nome => nome.startsWith('F'))
      
      
      ```
@@ -558,11 +558,11 @@ class Carro extends Veiculo {
      <!-- {ul:style="padding-left: 0"} -->
      ```js
      alunos.find(function(aluno) {
-       return aluno.matricula === '2005046102';
+       return aluno.matricula === '2005046102'
      });
      ```
      ```js
-     alunos.find(al => al.matricula === '2005046102');
+     alunos.find(al => al.matricula === '2005046102')
      
      
      ```
@@ -575,7 +575,7 @@ class Carro extends Veiculo {
      });
      ```
      ```js
-     numeros.map(numero => numero ** 2);
+     numeros.map(numero => numero ** 2)
 
 
      ```
